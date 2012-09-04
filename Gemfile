@@ -1,4 +1,8 @@
-source 'https://rubygems.org'
+source :rubygems
 
-# Specify your gem's dependencies in flickr-objects.gemspec
 gemspec
+
+group :development do
+  gem "pry"
+  gem "debugger"
+end
