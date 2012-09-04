@@ -1,0 +1,2 @@
+class Flickr
+end
