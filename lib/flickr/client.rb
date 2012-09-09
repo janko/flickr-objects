@@ -37,21 +37,45 @@ class Flickr
           token_secret: access_token.last
 
         # Response
-        builder.use Middleware::StatusCheck
+        builder.use Middleware::NormalizeData
+        builder.use Middleware::CheckStatus
         builder.use FaradayMiddleware::ParseJson
-        builder.use Middleware::OAuthCheck
+        builder.use Middleware::CheckOAuth
 
         builder.adapter :net_http
       end
     end
 
+    def for(scope)
+      @scope = scope
+      self
+    end
+
     [:get, :post].each do |http_method|
-      define_method(http_method) do |flickr_method, params = {}|
-        super() do |req|
+      define_method(http_method) do |*args|
+        flickr_method = args.first.is_a?(String) ? args.first : resolve_flickr_method
+        params = args.last.is_a?(Hash) ? args.last : {}
+
+        response = super() do |req|
           req.params[:method] = flickr_method
           req.params.update(params)
         end
+
+        response.body
       end
+    end
+
+    private
+
+    def resolve_flickr_method
+      method_name = caller[1][/(?<=`).+(?='$)/]
+      full_method_name =
+        if @scope.instance_of?(Class)
+          "#{@scope}.#{method_name}"
+        else
+          "#{@scope.class}##{method_name}"
+        end
+      Flickr.api_methods.find { |_, value| value.include?(full_method_name) }.first
     end
   end
 end

@@ -1,8 +1,4 @@
 require "flickr/configuration"
-require "flickr/client"
-require "flickr/api_caller"
-require "flickr/api_methods"
-require "flickr/object"
 
 class Flickr
   def self.configuration
@@ -11,25 +7,50 @@ class Flickr
 
   def self.configure
     yield configuration if block_given?
-    reset_client
-  end
-
-  def self.reset_client
     @client = nil
   end
 
-  def self.api_methods
-    @api_methods ||= ApiMethods.new
-  end
+  ROOT = File.expand_path(File.dirname(__FILE__))
 end
-
-# The API part
 
 class Flickr
-  include ApiCaller
-
-  # Override ApiCaller's self.client. This is the real client.
-  def self.client
-    @client ||= Client.new(configuration.access_token)
+  def self.api_methods
+    @api_methods ||= Hash.new { |hash, key| hash[key] = [] }
   end
 end
+
+require "flickr/client"
+
+# These are the original clients. They are injected into each Flickr object, in
+# the similar manner as a facehugger injects the alien through victim's mouth.
+class Flickr
+  def initialize(*access_token)
+    @client = Client.new(access_token.flatten)
+  end
+
+  def client
+    @client.for(self)
+  end
+
+  def self.client
+    (@client ||= Client.new(configuration.access_token)).for(self)
+  end
+end
+
+class Flickr
+  def self.map_interface(method, klass)
+    define_method(method) do
+      klass.dup.tap do |klass|
+        klass.instance_variable_set("@client", client)
+      end
+    end
+
+    define_singleton_method(method) do
+      klass.dup.tap do |klass|
+        klass.instance_variable_set("@client", client)
+      end
+    end
+  end
+end
+
+require "flickr/api"

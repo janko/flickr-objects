@@ -1,38 +1,31 @@
+require "flickr/object/attribute"
+
 class Flickr
   class Object
-    def self.find(id)
-      new(id: id)
+    class << self
+      attr_accessor :children
     end
+    self.children = []
 
     def self.inherited(child)
-      child.send(:include, ApiCaller)
+      child.send(:extend, Attribute)
+      self.children << child
+      child.children = []
+    end
+
+    def self.new_collection(collection)
+      Collection.new(collection, self.class, client)
+    end
+
+    def self.find(id)
+      new({id: id}, client)
     end
 
     protected
 
-    def initialize(attributes = {})
-      assign_attributes(attributes)
-      @client = self.class.instance_variable_get("@client")
-    end
-
-    def update_attributes(attributes)
-      assign_attributes(attributes)
-    end
-
-    private
-
-    def assign_attributes(attributes)
-      attributes.each do |name, value|
-        if respond_to?(name)
-          instance_variable_set("@#{name}", value)
-        else
-          raise ArgumentError, "unknown attribute '#{name}'"
-        end
-      end
+    def initialize(hash = {}, client)
+      @hash = hash
+      @client = client
     end
   end
 end
-
-require "flickr/object/media"
-require "flickr/object/photo"
-require "flickr/object/video"

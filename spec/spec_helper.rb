@@ -2,6 +2,9 @@ require "flickr-objects"
 require "debugger" rescue nil
 require "vcr"
 
+RSPEC_DIR = File.expand_path(File.dirname(__FILE__))
+Dir["#{RSPEC_DIR}/support/**/*.rb"].each { |f| require f }
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
 
