@@ -64,6 +64,7 @@ class Flickr
         end
 
         CONVERTERS = {
+          String  => [->(v) { String(v) }],
           Time    => [->(v) { Time.at(Integer(v)) }, ->(v) { DateTime.parse(v).to_time }],
           Boolean => [->(v) { Integer(v) == 1 }],
           Integer => [->(v) { Integer(v) }]

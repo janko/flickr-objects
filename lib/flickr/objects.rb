@@ -2,6 +2,7 @@ require "flickr/object"
 
 # Define all classes now, so that files below can be normally required
 class Flickr
+  class Person < Object; end
 end
 
 Dir["#{Flickr::ROOT}/flickr/objects/*.rb"].each { |f| require f }

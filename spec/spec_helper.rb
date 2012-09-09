@@ -22,6 +22,7 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :faraday
   config.default_cassette_options = {
+    record: :new_episodes,
     serialize_with: :syck, # So that Ruby doesn't dump response bodies in binary format
     match_requests_on: [
       :method,

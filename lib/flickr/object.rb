@@ -23,7 +23,7 @@ class Flickr
 
     protected
 
-    def initialize(hash = {}, client)
+    def initialize(hash, client)
       @hash = hash
       @client = client
     end
