@@ -7,5 +7,5 @@ class Flickr
   map_interface :videos, Video
 end
 
-Dir["#{Flickr::ROOT}/flickr/api/methods/*.rb"].each { |f| require f }
+Dir["#{Flickr::ROOT}/flickr/api/api_methods/*.rb"].each { |f| require f }
 Dir["#{Flickr::ROOT}/flickr/api/*.rb"].each { |f| require f }

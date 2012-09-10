@@ -7,7 +7,8 @@ class Flickr
     }
 
     self.instance_api_methods = {
-      get_info!: "flickr.photos.getInfo"
+      get_info!: "flickr.photos.getInfo",
+      set_content_type: "flickr.photos.setContentType"
     }
   end
 end

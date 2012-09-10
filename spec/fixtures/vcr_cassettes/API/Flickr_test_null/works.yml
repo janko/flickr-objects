@@ -2,37 +2,37 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.test.login
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.test.null
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="20f7c82d9be78610798cb865e7cd2857", oauth_signature="ab%2BBw9PZvZZXU21rDAEzQUgFJ6E%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347162588", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="ec97a5de7e16a3ea27f4d7400276ec5f", oauth_signature="Q0wwe5P9nSL52mcF%2FnFimYNE5sc%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347315367", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
-      code: 400
+      code: 200
       message: 
     headers: 
       date: 
-      - Sun, 09 Sep 2012 03:49:49 GMT
+      - Mon, 10 Sep 2012 22:16:07 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       cache-control: 
       - private
       x-served-by: 
-      - www223.flickr.mud.yahoo.com
+      - www181.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "66"
+      - "33"
       connection: 
       - close
       content-type: 
-      - text/plain;charset=UTF-8
+      - application/json
     body: 
       encoding: ASCII-8BIT
-      string: oauth_problem=parameter_absent&oauth_parameters_absent=oauth_token
+      string: "{\"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sun, 09 Sep 2012 03:49:49 GMT
+  recorded_at: Mon, 10 Sep 2012 22:16:07 GMT
 recorded_with: VCR 2.2.4

@@ -1,5 +1,5 @@
 class Flickr
   class Photo < Media
-    include ApiCaller
+    register_api_methods!
   end
 end

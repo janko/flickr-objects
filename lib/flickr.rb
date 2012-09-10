@@ -35,6 +35,10 @@ class Flickr
   def self.client
     (@client ||= Client.new(configuration.access_token)).for(self)
   end
+
+  def self.children
+    []
+  end
 end
 
 class Flickr

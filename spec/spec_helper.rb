@@ -33,3 +33,5 @@ VCR.configure do |config|
   config.filter_sensitive_data('ACCESS_TOKEN') { ENV['FLICKR_ACCESS_TOKEN'] }
   config.configure_rspec_metadata!
 end
+
+PHOTO_ID = "7932536558"

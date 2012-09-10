@@ -1,4 +1,5 @@
 require "flickr/object/attribute"
+require "flickr/api_caller"
 
 class Flickr
   class Object
@@ -9,6 +10,7 @@ class Flickr
 
     def self.inherited(child)
       child.send(:extend, Attribute)
+      child.send(:include, ApiCaller::ClientMethods)
       self.children << child
       child.children = []
     end
@@ -18,13 +20,13 @@ class Flickr
     end
 
     def self.find(id)
-      new({id: id}, client)
+      new({"id" => id}, client)
     end
 
     protected
 
     def initialize(hash, client)
-      @hash = hash
+      @hash = hash || {}
       @client = client
     end
   end

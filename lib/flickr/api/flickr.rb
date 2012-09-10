@@ -1,7 +1,7 @@
 class Flickr
-  include ApiCaller
+  register_api_methods!
 
-  methods = Module.new {
+  module ApiMethods
     def test_login(params = {})
       response = client.get(params)
       Person.new(response["user"], client)
@@ -14,8 +14,10 @@ class Flickr
     def test_null(params = {})
       client.get(params)
     end
-  }
+  end
 
-  include methods
-  extend  methods
+  include ApiMethods
+  extend  ApiMethods
+
+  remove_const :ApiMethods
 end

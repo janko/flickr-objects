@@ -8,36 +8,24 @@ class Flickr
         base.send(:include, InstanceMethods)
       end
 
-      def attribute(name, type = nil, options = {})
+      def attribute(name, type = nil)
         define_method(name) do
           value = get_attribute_value(name)
-          convert(value, type) || options[:default]
-        end
-        memoize name
-      end
-
-      def memoize(method)
-        alias_method "unmemoized_#{method}", method
-        define_method(method) do
-          if memoized = instance_variable_get("@#{method}")
-            memoized
-          else
-            instance_variable_set("@#{method}", send("unmemoized_#{method}"))
-          end
+          convert(value, type)
         end
       end
 
-      def attribute_values
-        @attribute_values ||= Hash.new([])
-      end
-
+      def attribute_values; @attribute_values ||= {} end
       def attribute_values=(hash)
-        @attribute_values.update(hash)
+        @attribute_values = hash
+        children.each do |child|
+          child.attribute_values = hash.merge(child.attribute_values || {})
+        end
       end
 
       module InstanceMethods
         def get_attribute_value(name)
-          attribute_values = self.class.attribute_values[name]
+          attribute_values = self.class.attribute_values[name] || []
           attribute_values << ->(h) { h[name.to_s] }
           try_each(attribute_values) do |attribute_value|
             value = attribute_value.call(@hash)
@@ -52,7 +40,7 @@ class Flickr
 
           if type.is_a?(Array)
             return value.map { |item| convert(item, type.first) }
-          elsif type.is_a?(Flickr::Object)
+          elsif type.respond_to?(:attribute)
             return type.new(value, client)
           else
             try_each(CONVERTERS[type]) do |converter|
