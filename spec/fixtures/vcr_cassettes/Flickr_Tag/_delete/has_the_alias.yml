@@ -1,0 +1,38 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getInfo&photo_id=7932536558
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="c97c140bbd264f436f883daf44e39881", oauth_signature="ognvEKa3yTJAMzzCXeDbpKDfCdQ%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347362256", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Tue, 11 Sep 2012 11:17:37 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www119.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "598"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photo\":{\"id\":\"7932536558\", \"secret\":\"510bb38607\", \"server\":\"8440\", \"farm\":9, \"dateuploaded\":\"1346792979\", \"isfavorite\":0, \"license\":\"0\", \"safety_level\":\"0\", \"rotation\":0, \"owner\":{\"nsid\":\"78733179@N04\", \"username\":\"@janko-m\", \"realname\":\"\", \"location\":\"\", \"iconserver\":\"0\", \"iconfarm\":0}, \"title\":{\"_content\":\"fractal-wallpaper-_-37\"}, \"description\":{\"_content\":\"\"}, \"visibility\":{\"ispublic\":1, \"isfriend\":0, \"isfamily\":0}, \"dates\":{\"posted\":\"1346792979\", \"taken\":\"2012-09-04 14:09:30\", \"takengranularity\":\"0\", \"lastupdate\":\"1347362140\"}, \"permissions\":{\"permcomment\":3, \"permaddmeta\":2}, \"views\":\"0\", \"editability\":{\"cancomment\":1, \"canaddmeta\":1}, \"publiceditability\":{\"cancomment\":1, \"canaddmeta\":0}, \"usage\":{\"candownload\":1, \"canblog\":1, \"canprint\":1, \"canshare\":1}, \"comments\":{\"_content\":\"0\"}, \"notes\":{\"note\":[{\"id\":\"72157631503969058\", \"author\":\"78733179@N04\", \"authorname\":\"@janko-m\", \"x\":\"20\", \"y\":\"20\", \"w\":\"40\", \"h\":\"40\", \"_content\":\"Test\"}]}, \"people\":{\"haspeople\":0}, \"tags\":{\"tag\":[{\"id\":\"78701040-7932536558-320\", \"author\":\"78733179@N04\", \"raw\":\"Test\", \"_content\":\"test\", \"machine_tag\":0}]}, \"urls\":{\"url\":[{\"type\":\"photopage\", \"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7932536558\\/\"}]}, \"media\":\"photo\"}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Tue, 11 Sep 2012 11:17:37 GMT
+recorded_with: VCR 2.2.4

@@ -75,7 +75,13 @@ class Flickr
         else
           "#{@scope.class}##{method_name}"
         end
-      Flickr.api_methods.find { |_, value| value.include?(full_method_name) }.first
+      pair = Flickr.api_methods.find { |_, value| value.include?(full_method_name) }
+
+      if pair
+        pair.first
+      else
+        raise "method #{full_method_name} not found"
+      end
     end
   end
 end

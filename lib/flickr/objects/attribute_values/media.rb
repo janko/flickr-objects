@@ -12,7 +12,7 @@ class Flickr
       comments_count:       [->(h) { h["comments"] }],
       has_people?:          [->(h) { h["people"]["haspeople"] }],
       notes:                [->(h) { h["notes"]["note"] }],
-      tags:                 [->(h) { h["tags"]["tag"] }]
+      tags:                 [->(h) { h["tags"]["tag"].map { |hash| hash.merge("photo_id" => h["id"]) } }]
     }
   end
 end
