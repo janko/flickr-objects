@@ -1,6 +1,4 @@
 class Flickr
-  register_api_methods!
-
   module ApiMethods
     def test_login(params = {})
       response = client.get(params)

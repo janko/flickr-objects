@@ -1,7 +1,5 @@
 class Flickr
   class Media < Object
-    register_api_methods!
-
     def get_info!(params = {})
       response = client.get(params.merge(photo_id: id))
       @hash.update(response["photo"])

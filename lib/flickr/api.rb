@@ -1,5 +1,4 @@
 require "flickr/objects"
-require "flickr/api_caller"
 
 class Flickr
   map_interface :media,  Media
@@ -8,4 +7,7 @@ class Flickr
 end
 
 Dir["#{Flickr::ROOT}/flickr/api/api_methods/*.rb"].each { |f| require f }
+Flickr.register_api_methods!
+Flickr::Object.children.each(&:register_api_methods!)
+
 Dir["#{Flickr::ROOT}/flickr/api/*.rb"].each { |f| require f }

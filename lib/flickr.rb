@@ -20,10 +20,13 @@ class Flickr
 end
 
 require "flickr/client"
+require "flickr/api_caller"
 
 # These are the original clients. They are injected into each Flickr object, in
 # the similar manner as a facehugger injects the alien through victim's mouth.
 class Flickr
+  include ApiCaller
+
   def initialize(*access_token)
     @client = Client.new(access_token.flatten)
   end

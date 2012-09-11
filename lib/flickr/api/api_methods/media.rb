@@ -1,7 +1,5 @@
 class Flickr
   class Media < Object
-    extend ApiCaller::ApiMethods
-
     self.class_api_methods = {
       search: "flickr.photos.search"
     }

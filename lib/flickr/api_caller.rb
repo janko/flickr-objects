@@ -1,5 +1,10 @@
 class Flickr
   module ApiCaller
+    def self.included(base)
+      base.send(:include, ClientMethods)
+      base.send(:extend,  ApiMethods)
+    end
+
     module ClientMethods
       def self.included(base)
         base.class_eval do
@@ -38,6 +43,8 @@ class Flickr
         instance_api_methods.each do |method, flickr_method|
           Flickr.api_methods[flickr_method] << "#{name}##{method}"
         end
+
+        children.each(&:register_api_methods!)
       end
     end
   end
