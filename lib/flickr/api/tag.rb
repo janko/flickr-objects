@@ -1,3 +1,5 @@
+require "flickr/api/api_methods/tag"
+
 class Flickr
   class Tag < Object
     def delete(params = {})

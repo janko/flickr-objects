@@ -1,3 +1,5 @@
+require "flickr/api/api_methods/flickr"
+
 class Flickr
   module ApiMethods
     def test_login(params = {})

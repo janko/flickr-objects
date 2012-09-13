@@ -1,6 +1,9 @@
 require "flickr-objects"
-require "debugger" rescue nil
 require "vcr"
+begin
+  require "debugger"
+rescue LoadError
+end
 
 RSPEC_DIR = File.expand_path(File.dirname(__FILE__))
 Dir["#{RSPEC_DIR}/support/**/*.rb"].each { |f| require f }
@@ -35,3 +38,5 @@ VCR.configure do |config|
 end
 
 PHOTO_ID = "7932536558"
+USER_ID = "78733179@N04"
+EXTRAS = "description,license,date_upload,date_taken,owner_name,icon_server,original_format,last_update,geo,tags,machine_tags,o_dims,views,media,path_alias,url_sq,url_q,url_t,url_s,url_n,url_m,url_z,url_c,url_l,url_h,url_k,url_o"

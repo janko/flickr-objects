@@ -15,21 +15,20 @@ class Flickr
         end
       end
 
-      def attribute_values; @attribute_values ||= {} end
+      attr_reader :attribute_values
       def attribute_values=(hash)
         @attribute_values = hash
-        children.each do |child|
-          child.attribute_values = hash.merge(child.attribute_values || {})
+        if respond_to?(:children)
+          children.each {|child| child.attribute_values = self.attribute_values }
         end
       end
 
       module InstanceMethods
         def get_attribute_value(name)
           attribute_values = self.class.attribute_values[name] || []
-          attribute_values << ->(h) { h[name.to_s] }
+          attribute_values << proc {|hash| hash.fetch(name.to_s) }
           try_each(attribute_values) do |attribute_value|
-            value = attribute_value.call(@hash)
-            return value unless value.nil?
+            return attribute_value.call(@hash)
           end
 
           nil
@@ -39,8 +38,8 @@ class Flickr
           return value if (type.nil? or value.nil?)
 
           if type.is_a?(Array)
-            return value.map { |item| convert(item, type.first) }
-          elsif type.respond_to?(:attribute)
+            return value.map {|item| convert(item, type.first) }
+          elsif Object.children.include?(type)
             return type.new(value, client)
           else
             try_each(CONVERTERS[type]) do |converter|
@@ -52,10 +51,10 @@ class Flickr
         end
 
         CONVERTERS = {
-          String  => [->(v) { String(v) }],
-          Time    => [->(v) { Time.at(Integer(v)) }, ->(v) { DateTime.parse(v).to_time }],
-          Boolean => [->(v) { Integer(v) == 1 }],
-          Integer => [->(v) { Integer(v) }]
+          String  => [proc {|value| String(value) }],
+          Time    => [proc {|value| Time.at(Integer(value)) }, proc {|value| DateTime.parse(value).to_time }],
+          Boolean => [proc {|value| Integer(value) == 1 }],
+          Integer => [proc {|value| Integer(value) }]
         }
 
         module_function

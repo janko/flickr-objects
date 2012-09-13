@@ -1,11 +1,11 @@
 class Flickr
   class Person < Object
     self.attribute_values = {
-      id:          [->(h) { h["nsid"] }],
-      nsid:        [->(h) { h["id"] }],
-      real_name:   [->(h) { h["realname"] }],
-      icon_server: [->(h) { h["iconserver"] }],
-      icon_farm:   [->(h) { h["iconfarm"] }]
+      id:          [proc {|hash| hash.fetch("nsid") }],
+      nsid:        [proc {|hash| hash.fetch("id") }],
+      real_name:   [proc {|hash| hash.fetch("realname") }],
+      icon_server: [proc {|hash| hash.fetch("iconserver") }],
+      icon_farm:   [proc {|hash| hash.fetch("iconfarm") }]
     }
   end
 end

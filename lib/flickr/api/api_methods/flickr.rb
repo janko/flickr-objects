@@ -7,3 +7,5 @@ class Flickr
 
   self.instance_api_methods = class_api_methods
 end
+
+Flickr.register_api_methods!

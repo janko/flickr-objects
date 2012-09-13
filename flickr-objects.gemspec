@@ -4,7 +4,6 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'flickr/version'
 
 Gem::Specification.new do |gem|
-
   gem.name          = "flickr-objects"
   gem.version       = Flickr::VERSION
   gem.platform      = Gem::Platform::RUBY

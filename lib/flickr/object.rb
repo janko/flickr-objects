@@ -1,22 +1,18 @@
 require "flickr/object/attribute"
+require "flickr/api_caller"
 
 class Flickr
   class Object
-    class << self
-      attr_accessor :children
+    def self.children
+      @children ||= []
     end
-    self.children = []
 
     def self.inherited(child)
       child.send(:extend, Attribute)
       child.send(:include, ApiCaller)
 
-      self.children << child
-      child.children = []
-    end
-
-    def self.new_collection(collection)
-      Collection.new(collection, self.class, client)
+      children << child
+      Object.children << child if self != Object
     end
 
     def self.find(id)

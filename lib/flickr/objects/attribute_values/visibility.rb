@@ -1,9 +1,9 @@
 class Flickr
   class Visibility < Object
     self.attribute_values = {
-      public?:  [->(h) { h["ispublic"] }],
-      friends?: [->(h) { h["isfriend"] }],
-      family?:  [->(h) { h["isfamily"] }]
+      public?:  [proc {|hash| hash.fetch("ispublic") }],
+      friends?: [proc {|hash| hash.fetch("isfriend") }],
+      family?:  [proc {|hash| hash.fetch("isfamily") }]
     }
   end
 end

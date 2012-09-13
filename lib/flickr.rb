@@ -10,54 +10,10 @@ class Flickr
     @client = nil
   end
 
-  ROOT = File.expand_path(File.dirname(__FILE__))
-end
-
-class Flickr
   def self.api_methods
     @api_methods ||= Hash.new { |hash, key| hash[key] = [] }
   end
 end
 
-require "flickr/client"
-require "flickr/api_caller"
-
-# These are the original clients. They are injected into each Flickr object, in
-# the similar manner as a facehugger injects the alien through victim's mouth.
-class Flickr
-  include ApiCaller
-
-  def initialize(*access_token)
-    @client = Client.new(access_token.flatten)
-  end
-
-  def client
-    @client.for(self)
-  end
-
-  def self.client
-    (@client ||= Client.new(configuration.access_token)).for(self)
-  end
-
-  def self.children
-    []
-  end
-end
-
-class Flickr
-  def self.map_interface(method, klass)
-    define_method(method) do
-      klass.dup.tap do |klass|
-        klass.instance_variable_set("@client", client)
-      end
-    end
-
-    define_singleton_method(method) do
-      klass.dup.tap do |klass|
-        klass.instance_variable_set("@client", client)
-      end
-    end
-  end
-end
-
+require "flickr/objects"
 require "flickr/api"

@@ -1,3 +1,5 @@
+require "flickr/objects/attribute_values/note"
+
 class Flickr
   class Note < Object
 

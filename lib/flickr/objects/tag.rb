@@ -1,3 +1,5 @@
+require "flickr/objects/attribute_values/tag"
+
 class Flickr
   class Tag < Object
 
@@ -13,3 +15,5 @@ class Flickr
 
   end
 end
+
+require "flickr/api/tag"

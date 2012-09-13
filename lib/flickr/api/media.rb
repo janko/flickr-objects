@@ -1,3 +1,5 @@
+require "flickr/api/api_methods/media"
+
 class Flickr
   class Media < Object
     def add_tags(tags, params = {})
@@ -14,6 +16,11 @@ class Flickr
     def remove_tag(tag, params = {})
       client.post(params.merge(photo_id: id, tag_id: (tag.respond_to?(:id) ? tag.id : tag)))
       tag
+    end
+
+    def self.search(params = {})
+      response = client.get(params)
+      Collection.new(response["photos"].delete("photo"), self, response["photos"], client)
     end
 
     def set_content_type(value, params = {})

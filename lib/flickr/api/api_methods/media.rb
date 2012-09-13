@@ -13,3 +13,5 @@ class Flickr
     }
   end
 end
+
+Flickr::Media.register_api_methods!

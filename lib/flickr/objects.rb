@@ -1,6 +1,5 @@
 require "flickr/object"
 
-# Define all classes now, so that files below can be normally required
 class Flickr
   class Person      < Object; end
   class Media       < Object; end
@@ -12,5 +11,9 @@ class Flickr
   class Tag         < Object; end
 end
 
-Dir["#{Flickr::ROOT}/flickr/objects/*.rb"].each { |f| require f }
-Dir["#{Flickr::ROOT}/flickr/objects/attribute_values/*.rb"].each { |f| require f }
+Flickr::Object.children.each do |klass|
+  underscored_name = klass.name.split("::").last.sub(/(?<=\w)(?=[A-Z])/, "_").downcase
+  require "flickr/objects/#{underscored_name}"
+end
+
+require "flickr/objects/collection"
