@@ -1,3 +1,4 @@
+require "flickr/core_ext"
 require "flickr/configuration"
 
 class Flickr
