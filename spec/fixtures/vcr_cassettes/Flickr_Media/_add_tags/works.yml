@@ -105,4 +105,76 @@ http_interactions:
       string: "{\"stat\":\"ok\"}"
     http_version: 
   recorded_at: Tue, 11 Sep 2012 11:19:33 GMT
+- request: 
+    method: post
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.addTags
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="7052c76d28720d312172d19c79832351", oauth_signature="VXnN5TFFv5cNQ6Y9xWGsyJpDCJY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347575689", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Thu, 13 Sep 2012 22:34:49 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      access-control-allow-origin: 
+      - "*"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www191.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "54"
+      connection: 
+      - close
+      content-type: 
+      - text/plain; charset=utf-8
+    body: 
+      encoding: US-ASCII
+      string: "{\"stat\":\"fail\", \"code\":1, \"message\":\"Photo not found\"}"
+    http_version: 
+  recorded_at: Thu, 13 Sep 2012 22:34:49 GMT
+- request: 
+    method: post
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.removeTag&photo_id=7932536558&tag_id
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="494449f59b42843cc228e7ff40329930", oauth_signature="yH6Ib05rrtCpxMdXE9DiMKW%2FcxI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347576659", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 401
+      message: 
+    headers: 
+      date: 
+      - Thu, 13 Sep 2012 22:50:59 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www212.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "489"
+      connection: 
+      - close
+      content-type: 
+      - text/plain;charset=UTF-8
+    body: 
+      encoding: US-ASCII
+      string: oauth_problem=signature_invalid&debug_sbs=POST&http%3A%2F%2Fapi.flickr.com%2Fservices%2Frest&api_key%3DAPI_KEY%26format%3Djson%26method%3Dflickr.photos.removeTag%26nojsoncallback%3D1%26oauth_consumer_key%3DAPI_KEY%26oauth_nonce%3D494449f59b42843cc228e7ff40329930%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1347576659%26oauth_token%3DACCESS_TOKEN%26oauth_version%3D1.0%26photo_id%3D7932536558%26tag_id%3D
+    http_version: 
+  recorded_at: Thu, 13 Sep 2012 22:51:00 GMT
 recorded_with: VCR 2.2.4

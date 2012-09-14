@@ -3,9 +3,9 @@ require "flickr/objects/attribute_values/visibility"
 class Flickr
   class Visibility < Object
 
-    attribute :public?,  Boolean
-    attribute :friends?, Boolean
-    attribute :family?,  Boolean
+    attribute :public?,  type: Boolean
+    attribute :friends?, type: Boolean
+    attribute :family?,  type: Boolean
 
   end
 end

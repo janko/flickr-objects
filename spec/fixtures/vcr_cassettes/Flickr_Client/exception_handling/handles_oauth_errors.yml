@@ -35,4 +35,39 @@ http_interactions:
       string: oauth_problem=parameter_absent&oauth_parameters_absent=oauth_token
     http_version: 
   recorded_at: Mon, 10 Sep 2012 18:50:47 GMT
+- request: 
+    method: post
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.delete
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="8b27f526ab155b0defa198bc61388e6d", oauth_signature="7Pv93NO31xUKES0bGroJjEYlRuc%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347575690", oauth_version="1.0"
+  response: 
+    status: 
+      code: 400
+      message: 
+    headers: 
+      date: 
+      - Thu, 13 Sep 2012 22:34:51 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www164.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "66"
+      connection: 
+      - close
+      content-type: 
+      - text/plain;charset=UTF-8
+    body: 
+      encoding: US-ASCII
+      string: oauth_problem=parameter_absent&oauth_parameters_absent=oauth_token
+    http_version: 
+  recorded_at: Thu, 13 Sep 2012 22:34:51 GMT
 recorded_with: VCR 2.2.4

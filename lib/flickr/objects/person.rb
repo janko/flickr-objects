@@ -3,13 +3,12 @@ require "flickr/objects/attribute_values/person"
 class Flickr
   class Person < Object
 
-    attribute :id,          String
-    attribute :nsid,        String
-    attribute :real_name,   String
-    attribute :location,    String
-    attribute :icon_server, Integer
-    attribute :icon_farm,   Integer
-    attribute :username,    String
+    attribute :id,          type: String, alias: [:nsid]
+    attribute :real_name,   type: String
+    attribute :location,    type: String
+    attribute :icon_server, type: Integer
+    attribute :icon_farm,   type: Integer
+    attribute :username,    type: String
 
     def buddy_icon_url
       if icon_farm

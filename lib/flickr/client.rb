@@ -37,7 +37,6 @@ class Flickr
           token_secret: access_token.last
 
         # Response
-        builder.use Middleware::NormalizeData
         builder.use Middleware::CheckStatus
         builder.use FaradayMiddleware::ParseJson
         builder.use Middleware::CheckOAuth

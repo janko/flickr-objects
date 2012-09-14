@@ -1,5 +1,5 @@
 class Hash
-  def only(*keys)
-    select { |key, value| keys.flatten.include?(key) }
+  def except(*keys)
+    reject { |key, value| keys.flatten.include?(key) }
   end
 end

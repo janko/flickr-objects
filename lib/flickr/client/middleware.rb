@@ -1,6 +1,5 @@
 require "cgi"
 require "flickr/client/middleware/retry"
-require "flickr/client/middleware/normalize_data"
 
 class Flickr
   class Client

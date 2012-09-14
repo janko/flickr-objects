@@ -11,30 +11,39 @@ PERSON = {
 }
 
 describe Flickr::Person, :vcr do
-  context "flickr.photos.getInfo" do
-    it "has correct attributes" do
-      media = Flickr::Media.find(PHOTO_ID)
-      media.get_info!
+  context "flickr.test.login" do
+    let(:person) { Flickr.test_login }
 
+    it "works" do
+      PERSON.slice(:id, :nsid, :username).each do |attribute, test|
+        person.send(attribute).should instance_eval(&test)
+      end
+    end
+  end
+
+  context "flickr.photos.getInfo" do
+    let(:media) { Flickr::Media.find(PHOTO_ID).get_info! }
+
+    it "has correct attributes" do
       PERSON.each do |attribute, test|
         media.owner.send(attribute).should instance_eval(&test)
       end
 
-      PERSON.only(:id, :nsid, :username).each do |attribute, test|
+      PERSON.slice(:id, :nsid, :username).each do |attribute, test|
         media.notes.first.author.send(attribute).should instance_eval(&test)
       end
 
-      PERSON.only(:id, :nsid).each do |attribute, test|
+      PERSON.slice(:id, :nsid).each do |attribute, test|
         media.tags.first.author.send(attribute).should instance_eval(&test)
       end
     end
   end
 
   context "flickr.test.login" do
-    it "has correct attributes" do
-      person = Flickr.test_login
+    let(:person) { Flickr.test_login }
 
-      PERSON.only(:id, :nsid, :username).each do |attribute, test|
+    it "has correct attributes" do
+      PERSON.slice(:id, :nsid, :username).each do |attribute, test|
         person.send(attribute).should instance_eval(&test)
       end
     end

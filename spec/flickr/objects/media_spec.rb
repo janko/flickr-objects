@@ -17,16 +17,26 @@ MEDIA = {
   updated_at:           proc { be_a(Time) },
   views_count:          proc { be_a(Fixnum) },
   comments_count:       proc { be_a(Fixnum) },
-  has_people?:          proc { be_a_boolean }
+  has_people?:          proc { be_a_boolean },
+  path_alias:           proc { be_nil }
 }
 
 describe Flickr::Media, :vcr do
   context "flickr.photos.getInfo" do
-    it "has correct attributes" do
-      media = Flickr::Media.find(PHOTO_ID)
-      media.get_info!
+    let(:media) { Flickr::Media.find(PHOTO_ID).get_info! }
 
+    it "has correct attributes" do
       MEDIA.each do |attribute, test|
+        media.send(attribute).should instance_eval(&test)
+      end
+    end
+  end
+
+  context "flickr.photos.search" do
+    let(:media) { Flickr::Media.search(user_id: USER_ID, extras: EXTRAS).first }
+
+    it "has correct attributes" do
+      MEDIA.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|
         media.send(attribute).should instance_eval(&test)
       end
     end

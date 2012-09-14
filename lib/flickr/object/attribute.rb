@@ -8,10 +8,17 @@ class Flickr
         base.send(:include, InstanceMethods)
       end
 
-      def attribute(name, type = nil)
+      def attribute(name, options = {})
         define_method(name) do
-          value = get_attribute_value(name)
-          convert(value, type)
+          value = convert(get_attribute_value(name), options[:type])
+          value != nil ? value : options[:default]
+        end
+
+        aliases = options[:alias] || []
+        aliases.each do |alias_|
+          define_method(alias_) do
+            send(name)
+          end
         end
       end
 
@@ -28,7 +35,8 @@ class Flickr
           attribute_values = self.class.attribute_values[name] || []
           attribute_values << proc {|hash| hash.fetch(name.to_s) }
           try_each(attribute_values) do |attribute_value|
-            return attribute_value.call(@hash)
+            result = attribute_value.call(@hash)
+            return result unless result.nil?
           end
 
           nil

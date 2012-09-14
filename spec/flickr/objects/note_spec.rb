@@ -9,10 +9,9 @@ NOTE = {
 
 describe Flickr::Note, :vcr do
   context "flickr.photos.getInfo" do
-    it "has correct attributes" do
-      media = Flickr::Media.find(PHOTO_ID)
-      media.get_info!
+    let(:media) { Flickr::Media.find(PHOTO_ID).get_info! }
 
+    it "has correct attributes" do
       NOTE.each do |attribute, test|
         media.notes.first.send(attribute).should instance_eval(&test)
       end

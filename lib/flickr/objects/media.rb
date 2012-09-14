@@ -3,36 +3,38 @@ require "flickr/objects/attribute_values/media"
 class Flickr
   class Media < Object
 
-    attribute :id,                   String
-    attribute :secret,               String
-    attribute :server,               String
-    attribute :farm,                 Integer
-    attribute :title,                String
-    attribute :description,          String
-    attribute :license,              Integer
-    attribute :safety_level,         Integer
-    attribute :visibility,           Visibility
+    attribute :id,                   type: String
+    attribute :secret,               type: String
+    attribute :server,               type: String
+    attribute :farm,                 type: Integer
+    attribute :title,                type: String
+    attribute :description,          type: String
+    attribute :license,              type: Integer
+    attribute :safety_level,         type: Integer
+    attribute :visibility,           type: Visibility
 
-    attribute :owner,                Person
+    attribute :owner,                type: Person
 
-    attribute :uploaded_at,          Time
-    attribute :posted_at,            Time
-    attribute :taken_at,             Time
-    attribute :taken_at_granularity, Integer
-    attribute :updated_at,           Time
+    attribute :uploaded_at,          type: Time
+    attribute :posted_at,            type: Time
+    attribute :taken_at,             type: Time
+    attribute :taken_at_granularity, type: Integer
+    attribute :updated_at,           type: Time
 
-    attribute :views_count,          Integer
-    attribute :comments_count,       Integer
+    attribute :views_count,          type: Integer
+    attribute :comments_count,       type: Integer
 
-    attribute :editability,          Permissions
-    attribute :public_editability,   Permissions
-    attribute :usage,                Permissions
+    attribute :editability,          type: Permissions
+    attribute :public_editability,   type: Permissions
+    attribute :usage,                type: Permissions
 
-    attribute :notes,                Array(Note)
-    attribute :tags,                 Array(Tag)
+    attribute :notes,                type: Array(Note)
+    attribute :tags,                 type: Array(Tag)
 
-    attribute :has_people?,          Boolean
-    attribute :favorite?,            Boolean
+    attribute :has_people?,          type: Boolean
+    attribute :favorite?,            type: Boolean
+
+    attribute :path_alias
 
     def safe?;       safety_level <= 1 if safety_level end
     def moderate?;   safety_level == 2 if safety_level end

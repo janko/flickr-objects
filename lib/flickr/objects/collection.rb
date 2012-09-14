@@ -9,10 +9,10 @@ require "flickr/objects/attribute_values/collection"
 class Flickr
   class Collection < Array
 
-    attribute :current_page,  Integer
-    attribute :per_page,      Integer
-    attribute :total_entries, Integer
-    attribute :total_pages,   Integer
+    attribute :current_page,  type: Integer
+    attribute :per_page,      type: Integer
+    attribute :total_entries, type: Integer
+    attribute :total_pages,   type: Integer
 
     def initialize(collection, klass, hash, client)
       objects = collection.map! { |hash| klass.new(hash, client) }
