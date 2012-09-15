@@ -60,6 +60,10 @@ class Flickr
           include_in_extras(params, urls)
         end
 
+        if params.delete(:include_media)
+          include_in_extras(params, "media")
+        end
+
         response = super() do |req|
           req.params[:method] = flickr_method
           req.params.update(params)

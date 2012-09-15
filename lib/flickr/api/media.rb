@@ -19,7 +19,7 @@ class Flickr
     end
 
     def self.search(params = {})
-      response = client.get(params)
+      response = client.get(params.merge(include_media: true))
       Collection.new(response["photos"].delete("photo"), self, response["photos"], client)
     end
 

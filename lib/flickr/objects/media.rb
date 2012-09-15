@@ -46,6 +46,14 @@ class Flickr
       end
     end
 
+    def self.new(hash, client)
+      if self == Media && hash["media"]
+        klass = Flickr.const_get(hash["media"].capitalize)
+        klass.new(hash, client)
+      else
+        super
+      end
+    end
   end
 end
 
