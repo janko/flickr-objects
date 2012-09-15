@@ -1,6 +1,6 @@
 require "spec_helper"
 
-TAG = {
+TAG_ATTRIBUTES = {
   id:           proc { be_a_nonempty(String) },
   raw:          proc { be_a_nonempty(String) },
   content:      proc { be_a_nonempty(String) },
@@ -8,22 +8,22 @@ TAG = {
 }
 
 describe Flickr::Tag, :vcr do
-  context "flickr.photos.getInfo" do
-    let(:media) { Flickr::Media.find(PHOTO_ID).get_info! }
+  describe "attributes" do
+    context "flickr.photos.getInfo" do
+      before(:all) { @tag = make_request("flickr.photos.getInfo").tags.first }
+      subject { @tag }
 
-    it "has correct attributes" do
-      TAG.each do |attribute, test|
-        media.tags.first.send(attribute).should instance_eval(&test)
+      TAG_ATTRIBUTES.each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
       end
     end
-  end
 
-  context "flickr.photos.search" do
-    let(:media) { Flickr::Media.search(user_id: USER_ID, extras: EXTRAS).first }
+    context "flickr.photos.search" do
+      before(:all) { @tag = make_request("flickr.photos.search").find(PHOTO_ID).tags.first }
+      subject { @tag }
 
-    it "has correct attributes" do
-      TAG.except(:raw, :id).each do |attribute, test|
-        media.tags.first.send(attribute).should instance_eval(&test)
+      TAG_ATTRIBUTES.only(:content, :machine_tag?).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
       end
     end
   end

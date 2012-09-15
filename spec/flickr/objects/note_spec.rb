@@ -1,6 +1,6 @@
 require "spec_helper"
 
-NOTE = {
+NOTE_ATTRIBUTES = {
   id:          proc { be_a_nonempty(String) },
   coordinates: proc { be_a(Array) },
   width:       proc { be_a(Integer) },
@@ -8,12 +8,13 @@ NOTE = {
 }
 
 describe Flickr::Note, :vcr do
-  context "flickr.photos.getInfo" do
-    let(:media) { Flickr::Media.find(PHOTO_ID).get_info! }
+  describe "attributes" do
+    context "flickr.photos.getInfo" do
+      before(:all) { @note = make_request("flickr.photos.getInfo").notes.first }
+      subject { @note }
 
-    it "has correct attributes" do
-      NOTE.each do |attribute, test|
-        media.notes.first.send(attribute).should instance_eval(&test)
+      NOTE_ATTRIBUTES.each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
       end
     end
   end

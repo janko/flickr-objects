@@ -12,14 +12,15 @@ describe Flickr::Client, :vcr do
     end
 
     describe Flickr::Client::Error do
-      it "has the #code attribute" do
+      subject do
         begin
-          Flickr.client.get "flickr.nonExistingMethod"
+          make_request("flickr.nonExistingMethod")
         rescue Flickr::Client::Error => error
+          error
         end
-
-        error.code.should == 112
       end
+
+      its(:code) { should == 112 }
     end
   end
 end

@@ -22,6 +22,7 @@ describe Flickr::Configuration do
       :access_token_key, :access_token_secret,
       :open_timeout, :timeout
     ]
+
     attributes.each do |attribute|
       Flickr.configuration.should respond_to(attribute)
     end

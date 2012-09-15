@@ -3,7 +3,7 @@ require "spec_helper"
 describe Flickr::Tag, :vcr do
   let(:media) { Flickr::Media.find(PHOTO_ID) }
 
-  describe "#delete" do
+  describe "flickr.photos.removeTag" do
     it "works" do
       media.add_tags "Cool"
       media.get_info!

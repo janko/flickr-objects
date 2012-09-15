@@ -1,50 +1,78 @@
 require "spec_helper"
 
-PERSON = {
+PERSON_ATTRIBUTES = {
   id:          proc { be_a_nonempty(String) },
   nsid:        proc { be_a_nonempty(String) },
   username:    proc { be_a_nonempty(String) },
-  real_name:   proc { be_an_empty(String) },
-  location:    proc { be_an_empty(String) },
+  real_name:   proc { be_a_nonempty(String) },
+  location:    proc { be_a_nonempty(String) },
   icon_server: proc { be_a(Fixnum) },
   icon_farm:   proc { be_a(Fixnum) },
 }
 
 describe Flickr::Person, :vcr do
-  context "flickr.test.login" do
-    let(:person) { Flickr.test_login }
+  describe "methods" do
+    before(:all) { @owner = make_request("flickr.photos.getInfo").owner }
 
-    it "works" do
-      PERSON.slice(:id, :nsid, :username).each do |attribute, test|
-        person.send(attribute).should instance_eval(&test)
+    describe "#buddy_icon_url" do
+      context "when person has an avatar" do
+        subject { @owner }
+
+        its(:buddy_icon_url) { should match(/#{@owner.icon_server}/) }
+      end
+
+      context "when prerson doesn't have an avatar" do
+        subject { @owner.tap { |owner| owner.stub(:icon_server) { 0 } } }
+
+        its(:buddy_icon_url) { should_not match(/\d/) }
       end
     end
   end
 
-  context "flickr.photos.getInfo" do
-    let(:media) { Flickr::Media.find(PHOTO_ID).get_info! }
+  describe "attributes" do
+    context "flickr.test.login" do
+      before(:all) { @person = make_request("flickr.test.login") }
+      subject { @person }
 
-    it "has correct attributes" do
-      PERSON.each do |attribute, test|
-        media.owner.send(attribute).should instance_eval(&test)
-      end
-
-      PERSON.slice(:id, :nsid, :username).each do |attribute, test|
-        media.notes.first.author.send(attribute).should instance_eval(&test)
-      end
-
-      PERSON.slice(:id, :nsid).each do |attribute, test|
-        media.tags.first.author.send(attribute).should instance_eval(&test)
+      PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
       end
     end
-  end
 
-  context "flickr.test.login" do
-    let(:person) { Flickr.test_login }
+    context "flickr.photos.getInfo" do
+      before(:all) { @media = make_request("flickr.photos.getInfo") }
 
-    it "has correct attributes" do
-      PERSON.slice(:id, :nsid, :username).each do |attribute, test|
-        person.send(attribute).should instance_eval(&test)
+      describe "photo's owner" do
+        subject { @media.owner }
+
+        PERSON_ATTRIBUTES.each do |attribute, test|
+          its(attribute) { should instance_eval(&test) }
+        end
+      end
+
+      describe "notes' author" do
+        subject { @media.notes.first.author }
+
+        PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
+          its(attribute) { should instance_eval(&test) }
+        end
+      end
+
+      describe "tags' author" do
+        subject { @media.tags.first.author }
+
+        PERSON_ATTRIBUTES.only(:id, :nsid).each do |attribute, test|
+          its(attribute) { should instance_eval(&test) }
+        end
+      end
+    end
+
+    context "flickr.photos.search" do
+      before(:all) { @person = make_request("flickr.photos.search").find(PHOTO_ID).owner }
+      subject { @person }
+
+      PERSON_ATTRIBUTES.except(:real_name, :location).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
       end
     end
   end

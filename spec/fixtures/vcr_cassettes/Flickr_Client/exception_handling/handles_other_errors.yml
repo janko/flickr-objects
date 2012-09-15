@@ -8,14 +8,14 @@ http_interactions:
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="470662bc1c0c90a2b908fc24df4db145", oauth_signature="FXT5DvsAIHyWDhVd7fIg8HbXvlo%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347303047", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="410588e8e5bd7a612ddbe36cfb0836ca", oauth_signature="DDuTt%2FePxclOf6EBo0T1rgbZAog%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347702129", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Mon, 10 Sep 2012 18:50:47 GMT
+      - Sat, 15 Sep 2012 09:42:09 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       access-control-allow-origin: 
@@ -23,7 +23,7 @@ http_interactions:
       cache-control: 
       - private
       x-served-by: 
-      - www184.flickr.mud.yahoo.com
+      - www183.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -36,5 +36,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: "{\"stat\":\"fail\", \"code\":112, \"message\":\"Method \\\"flickr.nonExistingMethod\\\" not found\"}"
     http_version: 
-  recorded_at: Mon, 10 Sep 2012 18:50:47 GMT
+  recorded_at: Sat, 15 Sep 2012 09:42:09 GMT
 recorded_with: VCR 2.2.4

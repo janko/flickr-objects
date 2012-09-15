@@ -3,7 +3,7 @@ require "spec_helper"
 describe Flickr::Media, :vcr do
   let(:media) { Flickr::Media.find(PHOTO_ID) }
 
-  describe "#set_content_type" do
+  describe "flickr.photos.setContentType" do
     it "works" do
       media.set_content_type(1)
     end
@@ -13,7 +13,7 @@ describe Flickr::Media, :vcr do
     end
   end
 
-  describe "#add_tags" do
+  describe "flickr.photos.addTags" do
     it "works" do
       media.add_tags "Cool"
       media.get_info!
@@ -21,7 +21,7 @@ describe Flickr::Media, :vcr do
     end
   end
 
-  describe "#set_tags" do
+  describe "flickr.photos.setTags" do
     it "works" do
       media.set_tags "Cool"
       media.set_tags "Test"
@@ -29,6 +29,16 @@ describe Flickr::Media, :vcr do
 
     it "has the cool alias" do
       media.should respond_to(:tags=)
+    end
+  end
+
+  describe "flickr.photos.search" do
+    before(:all) { @media = make_request("flickr.photos.search") }
+
+    it "knows which is photo and which is a video" do
+      pending "A video needs to be uploaded to Flickr for this"
+      @media.find(PHOTO_ID).should be_a(Flickr::Photo)
+      @media.find(VIDEO_ID).should be_a(Flickr::Video)
     end
   end
 end
