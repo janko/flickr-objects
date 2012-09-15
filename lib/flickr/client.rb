@@ -14,8 +14,10 @@ class Flickr
       open_timeout = Flickr.configuration.open_timeout || DEFAULTS[:open_timeout]
       timeout      = Flickr.configuration.timeout      || DEFAULTS[:timeout]
 
+      url = Flickr.configuration.secure ? "https://secure.flickr.com/services/rest" : "http://api.flickr.com/services/rest"
+
       params = {
-        url: 'http://api.flickr.com/services/rest',
+        url: url,
         params: {
           format: 'json',
           nojsoncallback: '1',

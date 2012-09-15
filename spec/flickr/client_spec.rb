@@ -11,6 +11,14 @@ describe Flickr::Client, :vcr do
       expect { Flickr.client.get "flickr.nonExistingMethod" }.to raise_error(Flickr::Client::Error)
     end
 
+    it "goes secure when asked for" do
+      Flickr.client.url_prefix.scheme.should eq("http")
+      Flickr.configure { |config| config.secure = true }
+      Flickr.client.url_prefix.scheme.should eq("https")
+      Flickr.configure { |config| config.secure = false }
+      Flickr.client.url_prefix.scheme.should eq("http")
+    end
+
     describe Flickr::Client::Error do
       subject do
         begin
