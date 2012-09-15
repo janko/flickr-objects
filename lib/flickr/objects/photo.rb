@@ -1,4 +1,5 @@
 require "flickr/objects/attribute_values/photo"
+require "flickr/api/photo"
 
 class Flickr
   class Photo < Media
@@ -55,5 +56,3 @@ class Flickr
     end
   end
 end
-
-require "flickr/api/photo"

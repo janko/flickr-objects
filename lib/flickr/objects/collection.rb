@@ -11,8 +11,8 @@ class Flickr
 
     attribute :current_page,  type: Integer
     attribute :per_page,      type: Integer
-    attribute :total_entries, type: Integer
     attribute :total_pages,   type: Integer
+    attribute :total_entries, type: Integer
 
     def initialize(collection, klass, hash, client)
       objects = collection.map! { |hash| klass.new(hash, client) }
@@ -20,11 +20,16 @@ class Flickr
       @hash = hash
     end
 
-    def find(id)
+    def find(id = nil)
       if block_given?
         super
       else
-        super() {|object| object.id == id.to_s }
+        if id.is_a?(Array)
+          ids = id.map(&:to_s)
+          select {|object| ids.include?(object.id) }
+        else
+          super() {|object| object.id == id.to_s }
+        end
       end
     end
   end

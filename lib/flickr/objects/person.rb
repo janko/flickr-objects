@@ -1,4 +1,5 @@
 require "flickr/objects/attribute_values/person"
+require "flickr/api/person"
 
 class Flickr
   class Person < Object
@@ -22,5 +23,3 @@ class Flickr
 
   end
 end
-
-require "flickr/api/person"
