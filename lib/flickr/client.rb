@@ -55,6 +55,11 @@ class Flickr
         flickr_method = args.first.is_a?(String) ? args.first : resolve_flickr_method
         params = args.last.is_a?(Hash) ? args.last : {}
 
+        if params.delete(:include_sizes)
+          urls = Flickr::Photo::SIZES.values.map {|abbr| "url_#{abbr}" }.join(",")
+          include_in_extras(params, urls)
+        end
+
         response = super() do |req|
           req.params[:method] = flickr_method
           req.params.update(params)
@@ -81,6 +86,10 @@ class Flickr
       else
         raise "method #{full_method_name} not found"
       end
+    end
+
+    def include_in_extras(params, things)
+      params[:extras] = [params[:extras], things].compact.join(",")
     end
   end
 end
