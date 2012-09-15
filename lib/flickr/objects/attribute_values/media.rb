@@ -19,6 +19,9 @@ class Flickr
       description:          [proc { @hash["description"].fetch("_content") }],
       owner:                [proc { {"id" => @hash["owner"], "username" => @hash["ownername"]}.merge(@hash.slice("iconserver", "iconfarm")) if @hash["owner"].is_a?(String) }],
       path_alias:           [proc { @hash.fetch("pathalias") }],
+      location_visibility:  [proc { @hash.fetch("geoperms") },
+                             proc { {"isfamily" => @hash["geo_is_family"], "isfriend" => @hash["geo_is_friend"], "iscontact" => @hash["geo_is_contact"], "ispublic" => @hash["geo_is_public"]} }],
+      location:             [proc { @hash.slice("latitude", "longitude", "accuracy", "context", "place_id", "woeid") if @hash["latitude"] }]
     }
   end
 end

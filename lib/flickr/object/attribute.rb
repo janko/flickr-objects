@@ -62,7 +62,8 @@ class Flickr
           String  => [proc {|value| String(value) }],
           Time    => [proc {|value| Time.at(Integer(value)) }, proc {|value| DateTime.parse(value).to_time }],
           Boolean => [proc {|value| Integer(value) == 1 }],
-          Integer => [proc {|value| Integer(value) }]
+          Integer => [proc {|value| Integer(value) }],
+          Float   => [proc {|value| Float(value) }],
         }
 
         module_function

@@ -9,11 +9,15 @@ class Flickr
   class Permissions < Object; end
   class Note        < Object; end
   class Tag         < Object; end
+  class Location    < Object; end
 end
 
 Flickr::Object.children.each do |klass|
   underscored_name = klass.name.split("::").last.sub(/(?<=\w)(?=[A-Z])/, "_").downcase
-  require "flickr/objects/#{underscored_name}"
+  begin
+    require "flickr/objects/#{underscored_name}"
+  rescue LoadError
+  end
 end
 
 require "flickr/objects/collection"

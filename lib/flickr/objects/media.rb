@@ -36,6 +36,9 @@ class Flickr
 
     attribute :path_alias
 
+    attribute :location,             type: Location
+    attribute :location_visibility,  type: Visibility
+
     def safe?;       safety_level <= 1 if safety_level end
     def moderate?;   safety_level == 2 if safety_level end
     def restricted?; safety_level == 3 if safety_level end
