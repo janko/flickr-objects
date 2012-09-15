@@ -20,8 +20,8 @@ class Flickr
       params = {
         url: url,
         params: {
-          format: 'json',
-          nojsoncallback: '1',
+          format: "json",
+          nojsoncallback: 1,
           api_key: api_key
         },
         request: {

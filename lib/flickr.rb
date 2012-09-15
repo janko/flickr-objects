@@ -9,6 +9,7 @@ class Flickr
   def self.configure
     yield configuration if block_given?
     @client = nil
+    configuration
   end
 
   def self.api_methods
