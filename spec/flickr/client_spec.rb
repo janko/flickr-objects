@@ -19,6 +19,13 @@ describe Flickr::Client, :vcr do
       Flickr.client.url_prefix.scheme.should eq("http")
     end
 
+    it "accepts a proxy" do
+      Flickr.configure { |config| config.proxy = "http://proxy.com" }
+      Flickr.client.proxy[:uri].to_s.should eq("http://proxy.com")
+      Flickr.configure { |config| config.proxy = nil }
+      Flickr.client.proxy.should be_nil
+    end
+
     describe Flickr::Client::Error do
       subject do
         begin

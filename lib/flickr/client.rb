@@ -15,6 +15,7 @@ class Flickr
       timeout      = Flickr.configuration.timeout      || DEFAULTS[:timeout]
 
       url = Flickr.configuration.secure ? "https://secure.flickr.com/services/rest" : "http://api.flickr.com/services/rest"
+      proxy = Flickr.configuration.proxy
 
       params = {
         url: url,
@@ -26,7 +27,8 @@ class Flickr
         request: {
           open_timeout: open_timeout,
           timeout: timeout
-        }
+        },
+        proxy: proxy
       }
 
       super(params) do |builder|

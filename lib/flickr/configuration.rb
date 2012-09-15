@@ -10,6 +10,7 @@ class Flickr
     attr_accessor :timeout
 
     attr_accessor :secure
+    attr_accessor :proxy
 
     def fetch(*attributes)
       attributes.map { |attribute| send(attribute) }
