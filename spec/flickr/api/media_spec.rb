@@ -36,7 +36,6 @@ describe Flickr::Media, :vcr do
     before(:all) { @media = make_request("flickr.photos.search") }
 
     it "knows which is photo and which is a video" do
-      pending "A video needs to be uploaded to Flickr for this"
       @media.find(PHOTO_ID).should be_a(Flickr::Photo)
       @media.find(VIDEO_ID).should be_a(Flickr::Video)
     end

@@ -6,7 +6,11 @@ PHOTO_ATTRIBUTES = {
 
 describe Flickr::Photo, :vcr do
   describe "methods" do
-    before(:all) { @photo = make_request("flickr.photos.search", Flickr::Photo).find(PHOTO_ID) }
+    before(:all) do
+      VCR.use_cassette "flickr.photos.search" do
+        @photo = Flickr::Photo.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID)
+      end
+    end
     subject { @photo }
 
     it "recognizes different sizes" do

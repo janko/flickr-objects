@@ -33,7 +33,7 @@ class Flickr
       module InstanceMethods
         def get_attribute_value(name)
           attribute_values = self.class.attribute_values[name] || []
-          attribute_values << proc { @hash.fetch(name.to_s) }
+          attribute_values << proc { @hash.fetch(name.to_s.chomp("?")) }
           try_each(attribute_values) do |attribute_value|
             result = instance_eval(&attribute_value)
             return result unless result.nil?
