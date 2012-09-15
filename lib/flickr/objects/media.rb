@@ -50,6 +50,25 @@ class Flickr
       end
     end
 
+    SIZES = {
+      "Square 75"  => "sq",
+      "Thumbnail"  => "t",
+      "Square 150" => "q",
+      "Small 240"  => "s",
+      "Small 320"  => "n",
+      "Medium 500" => "m",
+      "Medium 640" => "z",
+      "Medium 800" => "c",
+      "Large 1024" => "l",
+      "Large 1600" => "h",
+      "Large 2048" => "k",
+      "Original"   => "o"
+    }
+
+    def largest_size
+      SIZES.key(SIZES.values.reverse.find { |abbr| @hash["url_#{abbr}"] })
+    end
+
     def self.new(hash, client)
       if self == Media && hash["media"]
         klass = Flickr.const_get(hash["media"].capitalize)
@@ -57,6 +76,12 @@ class Flickr
       else
         super
       end
+    end
+
+    private
+
+    def size_abbr(size = @size)
+      SIZES[size]
     end
   end
 end

@@ -12,5 +12,8 @@ class Flickr
     attribute :width,    type: Integer
     attribute :height,   type: Integer
 
+    def thumbnail(size)
+      @hash["url_#{size_abbr(size)}"]
+    end
   end
 end

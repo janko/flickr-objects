@@ -1,4 +1,5 @@
 require "spec_helper"
+require "uri"
 
 VIDEO_ATTRIBUTES = {
   ready?:   proc { be_a_boolean },
@@ -22,6 +23,18 @@ describe Flickr::Video do
 
       VIDEO_ATTRIBUTES.each do |attribute, test|
         its(attribute) { should instance_eval(&test) }
+      end
+    end
+  end
+
+  describe "methods" do
+    context "flickr.photos.search" do
+      before(:all) { @video = make_request("flickr.photos.search").find(VIDEO_ID) }
+      subject { @video }
+
+      it "has #thumbnail" do
+        @video.thumbnail("Square 75").should match(URI.regexp)
+        @video.thumbnail("Square 75").should_not eq(@video.thumbnail("Thumbnail"))
       end
     end
   end
