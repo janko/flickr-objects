@@ -3,12 +3,13 @@ require "flickr/api/photo"
 
 class Flickr
   class Photo < Media
-    attr_reader :size
 
-    attribute :rotation,   type: Integer
-    attribute :source_url, type: String
-    attribute :height,     type: String
-    attribute :width,      type: String
+    attribute :rotation,   Integer
+
+    attribute :size,       String
+    attribute :source_url, String
+    attribute :height,     String
+    attribute :width,      String
 
     SIZES.keys.each do |size|
       size_name, size_number = size.split(" ").map(&:downcase)

@@ -4,13 +4,13 @@ require "flickr/api/video"
 class Flickr
   class Video < Media
 
-    attribute :ready?,   type: Boolean
-    attribute :failed?,  type: Boolean
-    attribute :pending?, type: Boolean
+    attribute :ready?,   Boolean
+    attribute :failed?,  Boolean
+    attribute :pending?, Boolean
 
-    attribute :duration, type: Integer
-    attribute :width,    type: Integer
-    attribute :height,   type: Integer
+    attribute :duration, Integer
+    attribute :width,    Integer
+    attribute :height,   Integer
 
     def thumbnail(size)
       @hash["url_#{size_abbr(size)}"]

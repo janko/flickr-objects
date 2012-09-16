@@ -8,17 +8,10 @@ class Flickr
         base.send(:include, InstanceMethods)
       end
 
-      def attribute(name, options = {})
+      def attribute(name, type = nil)
         define_method(name) do
-          value = convert(get_attribute_value(name), options[:type])
-          value != nil ? value : options[:default]
-        end
-
-        aliases = options[:alias] || []
-        aliases.each do |alias_|
-          define_method(alias_) do
-            send(name)
-          end
+          value = get_attribute_value(name)
+          convert(value, type)
         end
       end
 
@@ -33,9 +26,9 @@ class Flickr
       module InstanceMethods
         def get_attribute_value(name)
           attribute_values = self.class.attribute_values[name] || []
-          attribute_values << proc { @hash.fetch(name.to_s.chomp("?")) }
+          attribute_values << ->{ @hash.fetch(name.to_s) }
           try_each(attribute_values) do |attribute_value|
-            result = instance_eval(&attribute_value)
+            result = instance_exec(&attribute_value)
             return result unless result.nil?
           end
 
@@ -59,11 +52,11 @@ class Flickr
         end
 
         CONVERTERS = {
-          String  => [proc {|value| String(value) }],
-          Time    => [proc {|value| Time.at(Integer(value)) }, proc {|value| DateTime.parse(value).to_time }],
-          Boolean => [proc {|value| Integer(value) == 1 }],
-          Integer => [proc {|value| Integer(value) }],
-          Float   => [proc {|value| Float(value) }],
+          String  => [->(value){ String(value) }],
+          Time    => [->(value){ Time.at(Integer(value)) }, ->(value){ DateTime.parse(value).to_time }],
+          Boolean => [->(value){ Integer(value) == 1 }],
+          Integer => [->(value){ Integer(value) }],
+          Float   => [->(value){ Float(value) }],
         }
 
         module_function

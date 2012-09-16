@@ -3,12 +3,12 @@ require "flickr/objects/attribute_values/note"
 class Flickr
   class Note < Object
 
-    attribute :id,          type: String
-    attribute :author,      type: Person
-    attribute :coordinates, type: Array(Integer)
-    attribute :width,       type: Integer
-    attribute :height,      type: Integer
-    attribute :content,     type: String
+    attribute :id,          String
+    attribute :author,      Person
+    attribute :coordinates, Array(Integer)
+    attribute :width,       Integer
+    attribute :height,      Integer
+    attribute :content,     String
 
   end
 end

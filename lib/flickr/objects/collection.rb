@@ -9,13 +9,21 @@ require "flickr/objects/attribute_values/collection"
 class Flickr
   class Collection < Array
 
-    attribute :current_page,  type: Integer
-    attribute :per_page,      type: Integer
-    attribute :total_pages,   type: Integer
-    attribute :total_entries, type: Integer
+    attribute :current_page,  Integer
+    attribute :per_page,      Integer
+    attribute :total_pages,   Integer
+    attribute :total_entries, Integer
 
     def initialize(collection, klass, hash, client)
-      objects = collection.map! { |hash| klass.new(hash, client) }
+      unless klass == Media
+        objects = collection.map! { |hash| klass.new(hash, client) }
+      else
+        objects = collection.map! do |hash|
+          klass = Flickr.const_get(hash["media"].capitalize)
+          klass.new(hash, client)
+        end
+      end
+
       super(objects)
       @hash = hash
     end

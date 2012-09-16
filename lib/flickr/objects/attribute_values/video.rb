@@ -1,12 +1,12 @@
 class Flickr
   class Video < Media
     self.attribute_values = {
-      ready?:   [proc { @hash["video"].fetch("ready") }],
-      failed?:  [proc { @hash["video"].fetch("failed") }],
-      pending?: [proc { @hash["video"].fetch("pending") }],
-      duration: [proc { @hash["video"].fetch("duration") }],
-      width:    [proc { @hash["video"].fetch("width") }],
-      height:   [proc { @hash["video"].fetch("height") }],
+      ready?:   [->{ @hash["video"].fetch("ready") }],
+      failed?:  [->{ @hash["video"].fetch("failed") }],
+      pending?: [->{ @hash["video"].fetch("pending") }],
+      duration: [->{ @hash["video"].fetch("duration") }],
+      width:    [->{ @hash["video"].fetch("width") }],
+      height:   [->{ @hash["video"].fetch("height") }],
     }
   end
 end
