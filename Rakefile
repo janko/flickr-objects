@@ -9,9 +9,19 @@ RSpec::Core::RakeTask.new
 desc "Open the console with credentials (API key, secret etc.) already filled in"
 task :console do
   begin
-    require 'pry'
+    require "pry"
     sh "pry --require 'flickr-objects' --require './spec/credentials'"
   rescue LoadError
     sh "irb -r 'flickr-objects' -r './spec/credentials'"
   end
+end
+
+task :methods_covered do
+  require "nokogiri"
+  require "open-uri"
+  require "flickr-objects"
+
+  page = Nokogiri::HTML(open("http://www.flickr.com/api"))
+  all_methods = page.search(:table).last.search(:li).map { |li| li.at(:a).text }
+  puts "#{Flickr.api_methods.count}/#{all_methods.count}"
 end
