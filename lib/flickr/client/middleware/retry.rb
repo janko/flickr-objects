@@ -1,5 +1,5 @@
 class Flickr
-  class Client
+  class Client < Faraday::Connection
     module Middleware
       # A copy-paste from Faraday's master branch
       class Retry < Faraday::Middleware

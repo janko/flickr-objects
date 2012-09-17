@@ -31,6 +31,15 @@ describe Flickr::Media, :vcr do
     end
 
     its(:url) { should be_a_nonempty(String) }
+
+    it "has a short URL" do
+      connection = Faraday.new(@media.short_url) do |builder|
+        builder.use FaradayMiddleware::FollowRedirects, limit: 5
+        builder.adapter :net_http
+      end
+      response = connection.get
+      response.should be_a_success
+    end
   end
 
   describe "attributes" do

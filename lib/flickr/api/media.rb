@@ -7,6 +7,11 @@ class Flickr
       tags
     end
 
+    def delete(params = {})
+      client.post(params.merge(photo_id: id))
+      self
+    end
+
     def get_info!(params = {})
       response = client.get(params.merge(photo_id: id))
       @hash.update(response["photo"])

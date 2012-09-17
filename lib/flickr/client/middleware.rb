@@ -2,7 +2,7 @@ require "cgi"
 require "flickr/client/middleware/retry"
 
 class Flickr
-  class Client
+  class Client < Faraday::Connection
     module Middleware
       class CheckOAuth < Faraday::Response::Middleware
         def on_complete(env)
@@ -16,8 +16,12 @@ class Flickr
 
       class CheckStatus < Faraday::Response::Middleware
         def on_complete(env)
-          if env[:body]['stat'] != 'ok'
-            raise Error.new(env[:body]['message'], env[:body]['code'])
+          env[:body] = env[:body]["rsp"] || env[:body]
+
+          if env[:body]["stat"] != "ok"
+            message = env[:body]["message"] || env[:body]["err"]["msg"]
+            code = env[:body]["code"] || env[:body]["err"]["code"]
+            raise Error.new(message, code)
           end
         end
       end

@@ -1,22 +1,26 @@
 require "flickr/client"
 require "flickr/api_caller"
 
-# These are the original clients. They are injected into each Flickr object, in
-# the similar manner as a facehugger injects the alien through victim's mouth.
 class Flickr
   include ApiCaller
+  attr_reader :access_token
 
   def initialize(*access_token)
-    @client = Client.new(access_token.flatten)
+    @access_token = access_token.flatten
   end
 
-  def client
-    @client.for(self)
+  clients = Module.new do
+    def client
+      (@client ||= MethodsClient.new(access_token)).for(self)
+    end
+
+    def upload_client
+      @upload_client ||= UploadClient.new(access_token)
+    end
   end
 
-  def self.client
-    (@client ||= Client.new(configuration.access_token)).for(self)
-  end
+  include clients
+  extend clients
 end
 
 require "flickr/api/flickr"

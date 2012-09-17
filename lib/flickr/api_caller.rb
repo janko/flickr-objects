@@ -7,13 +7,15 @@ class Flickr
 
     module ClientMethods
       def self.included(base)
-        base.class_eval do
-          def client
-            @client.for(self)
-          end
+        unless base == Flickr
+          base.class_eval do
+            def client
+              @client.for(self)
+            end
 
-          def self.client
-            (@client || Flickr.client).for(self)
+            def self.client
+              (@client || Flickr.client).for(self)
+            end
           end
         end
       end
