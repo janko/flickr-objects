@@ -60,5 +60,23 @@ describe Flickr::Media, :vcr do
         its(attribute) { should instance_eval(&test) }
       end
     end
+
+    context "flickr.photos.getContactsPhotos" do
+      before(:all) { @media = make_request("flickr.photos.getContactsPhotos").find(PHOTO_ID) }
+      subject { @media }
+
+      MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
+      end
+    end
+
+    context "flickr.photos.getContactsPublicPhotos" do
+      before(:all) { @media = make_request("flickr.photos.getContactsPublicPhotos").find(PHOTO_ID) }
+      subject { @media }
+
+      MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
+      end
+    end
   end
 end

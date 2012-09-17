@@ -16,7 +16,9 @@ class Flickr
 
     def initialize(collection, klass, hash, client)
       unless klass == Media
-        objects = collection.map! { |hash| klass.new(hash, client) }
+        objects = collection.map! do |hash|
+          klass.new(hash, client)
+        end
       else
         objects = collection.map! do |hash|
           klass = Flickr.const_get(hash["media"].capitalize)
@@ -24,8 +26,8 @@ class Flickr
         end
       end
 
-      super(objects)
       @hash = hash
+      super(objects)
     end
 
     def find(id = nil)
@@ -39,6 +41,15 @@ class Flickr
           super() {|object| object.id == id.to_s }
         end
       end
+    end
+
+    def select(*args, &block)
+      self.dup.select!(*args, &block)
+    end
+
+    def select!(*args, &block)
+      super
+      self
     end
   end
 end

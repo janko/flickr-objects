@@ -1,8 +1,11 @@
 class Flickr
   self.class_api_methods = {
-    test_login: "flickr.test.login",
-    test_echo: "flickr.test.echo",
-    test_null: "flickr.test.null"
+    get_contacts_photos: "flickr.photos.getContactsPhotos",
+    get_contacts_videos: "flickr.photos.getContactsPhotos",
+    get_contacts_media:  "flickr.photos.getContactsPhotos",
+    test_login:          "flickr.test.login",
+    test_echo:           "flickr.test.echo",
+    test_null:           "flickr.test.null",
   }
 
   self.instance_api_methods = class_api_methods
