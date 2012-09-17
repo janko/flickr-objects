@@ -1,9 +1,5 @@
 class Flickr
   class MethodsClient < Client
-    def parser
-      FaradayMiddleware::ParseJson
-    end
-
     def initialize(access_token)
       super(access_token)
     end
@@ -36,6 +32,10 @@ class Flickr
     end
 
     private
+
+    def parser
+      FaradayMiddleware::ParseJson
+    end
 
     def resolve_flickr_method
       method_name = caller[1][/(?<=`).+(?='$)/]

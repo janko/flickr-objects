@@ -8,9 +8,18 @@ end
 RSPEC_DIR = File.expand_path(File.dirname(__FILE__))
 Dir["#{RSPEC_DIR}/support/**/*.rb"].each { |f| require f }
 
+require "#{RSPEC_DIR}/credentials"
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
-  config.before(:each) { load("#{RSPEC_DIR}/credentials.rb") }
+  config.before(:each) do
+    Flickr.configure do |config|
+      config.api_key = ENV['FLICKR_API_KEY']
+      config.shared_secret = ENV['FLICKR_SHARED_SECRET']
+      config.access_token_key = ENV['FLICKR_ACCESS_TOKEN']
+      config.access_token_secret = ENV['FLICKR_ACCESS_SECRET']
+    end
+  end
   config.include RSpecHelpers
 end
 

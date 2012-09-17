@@ -1,5 +1,3 @@
-require "#{RSPEC_DIR}/credentials"
-
 module RSpecHelpers
   def make_request(*args)
     method = args.shift
