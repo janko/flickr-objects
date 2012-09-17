@@ -38,7 +38,7 @@ task :key_exists do
 
   total = methods.count
   url = nil
-  current = -1
+  current = 0
 
   methods.each do |method|
     current += 1
@@ -52,6 +52,6 @@ task :key_exists do
   if current == total
     puts "You're good, the key doesn't exist."
   else
-    puts "Uh-oh, the key exists - it can be found here: #{url}"
+    puts "Uh-oh, the key exists: #{url}"
   end
 end
