@@ -1,29 +1,26 @@
 require "spec_helper"
 
-describe Flickr, :vcr do
+describe Flickr do
   describe "flickr.photos.getContactsPhotos" do
     it "should return photos or videos" do
-      Flickr.get_contacts_photos(include_self: 1, extras: EXTRAS).each { |object| object.should be_a(Flickr::Photo) }
-      Flickr.get_contacts_videos(include_self: 1, extras: EXTRAS).each { |object| object.should be_a(Flickr::Video) }
-    end
-  end
+      collection = Flickr.get_media_from_contacts(include_self: 1, extras: EXTRAS)
+      collection.find(PHOTO_ID).should be
+      collection.find(VIDEO_ID).should be
 
-  describe "flickr.photos.getPublicContactsPhotos" do
-    it "should return photos or videos" do
-      Flickr::Person.find(USER_ID).get_contacts_public_photos(include_self: 1, extras: EXTRAS).each { |object| object.should be_a(Flickr::Photo) }
-      Flickr::Person.find(USER_ID).get_contacts_public_videos(include_self: 1, extras: EXTRAS).each { |object| object.should be_a(Flickr::Video) }
+      Flickr.get_photos_from_contacts(include_self: 1, extras: EXTRAS).each { |object| object.should be_a(Flickr::Photo) }
+      Flickr.get_videos_from_contacts(include_self: 1, extras: EXTRAS).each { |object| object.should be_a(Flickr::Video) }
     end
   end
 
   describe "flickr.test.echo" do
-    before(:all) { @response = make_request("flickr.test.echo") }
+    before(:all) { @response = Flickr.test_echo }
     subject { @response }
 
     it { should be_a_nonempty(Hash) }
   end
 
   describe "flickr.test.null" do
-    before(:all) { @response = make_request("flickr.test.null") }
+    before(:all) { @response = Flickr.test_null }
     subject { @response }
   end
 end

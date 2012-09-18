@@ -20,13 +20,13 @@ class Flickr
       end
     end
 
-    def get_contacts_photos(params = {})
-      get_contacts_media(params).select { |media| media.is_a?(Photo) }
+    def get_photos_from_contacts(params = {})
+      get_media_from_contacts(params).select { |media| media.is_a?(Photo) }
     end
-    def get_contacts_videos(params = {})
-      get_contacts_media(params).select { |media| media.is_a?(Video) }
+    def get_videos_from_contacts(params = {})
+      get_media_from_contacts(params).select { |media| media.is_a?(Video) }
     end
-    def get_contacts_media(params = {})
+    def get_media_from_contacts(params = {})
       response = client.get(params.merge(include_media: true))
       Collection.new(response["photos"].delete("photo"), Media, response["photos"], client)
     end

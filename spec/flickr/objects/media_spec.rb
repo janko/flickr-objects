@@ -21,9 +21,9 @@ MEDIA_ATTRIBUTES = {
   path_alias:           proc { be_nil }
 }
 
-describe Flickr::Media, :vcr do
+describe Flickr::Media do
   describe "methods" do
-    before(:all) { @media = make_request("flickr.photos.getInfo") }
+    before(:all) { @media = Flickr::Media.find(PHOTO_ID).get_info! }
     subject { @media }
 
     [:safe?, :moderate?, :restricted?].each do |safety_level|
@@ -32,7 +32,7 @@ describe Flickr::Media, :vcr do
 
     its(:url) { should be_a_nonempty(String) }
 
-    it "has a short URL" do
+    it "has a short URL", :vcr do
       connection = Faraday.new(@media.short_url) do |builder|
         builder.use FaradayMiddleware::FollowRedirects, limit: 5
         builder.adapter :net_http
@@ -44,7 +44,7 @@ describe Flickr::Media, :vcr do
 
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @media = make_request("flickr.photos.getInfo") }
+      before(:all) { @media = Flickr::Media.find(PHOTO_ID).get_info! }
       subject { @media }
 
       MEDIA_ATTRIBUTES.each do |attribute, test|
@@ -53,25 +53,7 @@ describe Flickr::Media, :vcr do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @media = make_request("flickr.photos.search").find(PHOTO_ID) }
-      subject { @media }
-
-      MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
-    end
-
-    context "flickr.photos.getContactsPhotos" do
-      before(:all) { @media = make_request("flickr.photos.getContactsPhotos").find(PHOTO_ID) }
-      subject { @media }
-
-      MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
-    end
-
-    context "flickr.photos.getContactsPublicPhotos" do
-      before(:all) { @media = make_request("flickr.photos.getContactsPublicPhotos").find(PHOTO_ID) }
+      before(:all) { @media = Flickr::Media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
       subject { @media }
 
       MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|

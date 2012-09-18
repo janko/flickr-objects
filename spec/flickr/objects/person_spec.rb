@@ -10,19 +10,19 @@ PERSON_ATTRIBUTES = {
   icon_farm:   proc { be_a(Fixnum) },
 }
 
-describe Flickr::Person, :vcr do
+describe Flickr::Person do
   describe "methods" do
-    before(:all) { @owner = make_request("flickr.photos.getInfo").owner }
+    before(:all) { @person = Flickr::Media.find(PHOTO_ID).get_info!.owner }
 
     describe "#buddy_icon_url" do
       context "when person has an avatar" do
-        subject { @owner }
+        subject { @person }
 
-        its(:buddy_icon_url) { should match(/#{@owner.icon_server}/) }
+        its(:buddy_icon_url) { should match(/#{@person.icon_server}/) }
       end
 
       context "when prerson doesn't have an avatar" do
-        subject { @owner.tap { |owner| owner.stub(:icon_server) { 0 } } }
+        subject { @person.tap { |person| person.stub(:icon_server) { 0 } } }
 
         its(:buddy_icon_url) { should_not match(/\d/) }
       end
@@ -31,7 +31,7 @@ describe Flickr::Person, :vcr do
 
   describe "attributes" do
     context "flickr.test.login" do
-      before(:all) { @person = make_request("flickr.test.login") }
+      before(:all) { @person = Flickr.test_login }
       subject { @person }
 
       PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
@@ -40,7 +40,7 @@ describe Flickr::Person, :vcr do
     end
 
     context "flickr.photos.getInfo" do
-      before(:all) { @media = make_request("flickr.photos.getInfo") }
+      before(:all) { @media = Flickr::Media.find(PHOTO_ID).get_info! }
 
       describe "photo's owner" do
         subject { @media.owner }
@@ -68,7 +68,7 @@ describe Flickr::Person, :vcr do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @person = make_request("flickr.photos.search").find(PHOTO_ID).owner }
+      before(:all) { @person = Flickr::Media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).owner }
       subject { @person }
 
       PERSON_ATTRIBUTES.except(:real_name, :location).each do |attribute, test|

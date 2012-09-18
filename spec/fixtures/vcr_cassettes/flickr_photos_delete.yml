@@ -2,26 +2,26 @@
 http_interactions: 
 - request: 
     method: post
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.setContentType&photo_id=7986395865&content_type=1
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.delete&photo_id=7999245886
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="877093b48e917e0a5f14e1e43c06ccb4", oauth_signature="IOHbkwuX1Yat%2FgN2WZ9k8azmtuk%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347744388", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="b746be88b399f75ca5f79bf3deaf0127", oauth_signature="B0CayGGM0skL9TCZ%2BxSuT2JFOOc%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962163", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 15 Sep 2012 21:26:29 GMT
+      - Tue, 18 Sep 2012 09:56:04 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       cache-control: 
       - private
       x-served-by: 
-      - www195.flickr.mud.yahoo.com
+      - www104.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -34,5 +34,5 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sat, 15 Sep 2012 21:26:29 GMT
+  recorded_at: Tue, 18 Sep 2012 09:56:04 GMT
 recorded_with: VCR 2.2.4

@@ -1,38 +1,38 @@
 --- 
 http_interactions: 
 - request: 
-    method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.test.login
+    method: post
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.removeTag&photo_id=7986395865&tag_id=78701040-7986395865-2709
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="83e03a8012cb18503fa4fac5861d5587", oauth_signature="Zlh5rI4BRwaD8s606BSM%2F3skUY8%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347744387", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="916bbbccb1a767e3a2e5a877e2e7e205", oauth_signature="uOw9rRiRLI%2BlLAyV9UAE1SamHEg%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962156", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 15 Sep 2012 21:26:28 GMT
+      - Tue, 18 Sep 2012 09:55:56 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       cache-control: 
       - private
       x-served-by: 
-      - www180.flickr.mud.yahoo.com
+      - www195.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "89"
+      - "13"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
-      encoding: ASCII-8BIT
-      string: "{\"user\":{\"id\":\"78733179@N04\", \"username\":{\"_content\":\"@janko-m\"}}, \"stat\":\"ok\"}"
+      encoding: US-ASCII
+      string: "{\"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sat, 15 Sep 2012 21:26:28 GMT
+  recorded_at: Tue, 18 Sep 2012 09:55:56 GMT
 recorded_with: VCR 2.2.4

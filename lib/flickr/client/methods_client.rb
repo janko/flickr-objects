@@ -13,14 +13,7 @@ class Flickr
       define_method(http_method) do |*args|
         flickr_method = args.first.is_a?(String) ? args.first : resolve_flickr_method
         params = args.last.is_a?(Hash) ? args.last : {}
-
-        if params.delete(:include_sizes)
-          urls = Flickr::Media::SIZES.values.map {|abbr| "url_#{abbr}" }.join(",")
-          include_in_extras(params, urls)
-        end
-        if params.delete(:include_media)
-          include_in_extras(params, "media")
-        end
+        fix_extras(params)
 
         response = super("rest") do |req|
           req.params[:method] = flickr_method
@@ -50,6 +43,16 @@ class Flickr
         pair.first
       else
         raise "method #{full_method_name} not found"
+      end
+    end
+
+    def fix_extras(params)
+      if params.delete(:include_sizes)
+        urls = Flickr::Media::SIZES.values.map {|abbr| "url_#{abbr}" }.join(",")
+        include_in_extras(params, urls)
+      end
+      if params.delete(:include_media)
+        include_in_extras(params, "media")
       end
     end
 

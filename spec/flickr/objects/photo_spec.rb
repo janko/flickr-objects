@@ -4,13 +4,9 @@ PHOTO_ATTRIBUTES = {
   rotation: proc { be_a(Integer) }
 }
 
-describe Flickr::Photo, :vcr do
+describe Flickr::Photo do
   describe "methods" do
-    before(:all) do
-      VCR.use_cassette "flickr.photos.search" do
-        @photo = Flickr::Photo.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID)
-      end
-    end
+    before(:all) { @photo = Flickr::Photo.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
     subject { @photo }
 
     it "recognizes different sizes" do
@@ -58,7 +54,7 @@ describe Flickr::Photo, :vcr do
 
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @photo = make_request("flickr.photos.getInfo", Flickr::Photo) }
+      before(:all) { @photo = Flickr::Photo.find(PHOTO_ID).get_info! }
       subject { @photo }
 
       PHOTO_ATTRIBUTES.each do |attribute, test|

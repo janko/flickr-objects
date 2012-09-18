@@ -7,8 +7,8 @@ COLLECTION_ATTRIBUTES = {
   total_entries: proc { be_a(Integer) }
 }
 
-describe Flickr::Collection, :vcr do
-  before(:all) { @collection = make_request("flickr.photos.search") }
+describe Flickr::Collection do
+  before(:all) { @collection = Flickr::Media.search(user_id: USER_ID) }
   subject { @collection }
 
   describe "methods" do
@@ -30,6 +30,17 @@ describe Flickr::Collection, :vcr do
       it "can loop through its elements" do
         @collection.each { |media| media.is_a?(Flickr::Media) }
       end
+    end
+
+    describe "#select" do
+      it "stays the same type" do
+        Flickr.get_photos_from_contacts.should be_a(described_class)
+      end
+    end
+
+    it "instantiates the according media types" do
+      @collection.find(PHOTO_ID).should be_a(Flickr::Photo)
+      @collection.find(VIDEO_ID).should be_a(Flickr::Video)
     end
   end
 

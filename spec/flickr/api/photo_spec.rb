@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe Flickr::Photo, :vcr do
+describe Flickr::Photo do
   describe "flickr.photos.search" do
-    before(:all) { @photos = make_request("flickr.photos.search", Flickr::Photo) }
+    before(:all) { @photos = Flickr::Photo.search(user_id: USER_ID) }
 
     it "passes the media type" do
       @photos.should_not be_empty

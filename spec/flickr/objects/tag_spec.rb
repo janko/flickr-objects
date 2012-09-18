@@ -7,10 +7,10 @@ TAG_ATTRIBUTES = {
   machine_tag?: proc { be_a_boolean }
 }
 
-describe Flickr::Tag, :vcr do
+describe Flickr::Tag do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @tag = make_request("flickr.photos.getInfo").tags.first }
+      before(:all) { @tag = Flickr::Media.find(PHOTO_ID).get_info!.tags.first }
       subject { @tag }
 
       TAG_ATTRIBUTES.each do |attribute, test|
@@ -19,7 +19,7 @@ describe Flickr::Tag, :vcr do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @tag = make_request("flickr.photos.search").find(PHOTO_ID).tags.first }
+      before(:all) { @tag = Flickr::Media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).tags.first }
       subject { @tag }
 
       TAG_ATTRIBUTES.only(:content, :machine_tag?).each do |attribute, test|

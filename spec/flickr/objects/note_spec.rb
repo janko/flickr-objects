@@ -7,10 +7,10 @@ NOTE_ATTRIBUTES = {
   height:      proc { be_a(Integer) }
 }
 
-describe Flickr::Note, :vcr do
+describe Flickr::Note do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @note = make_request("flickr.photos.getInfo").notes.first }
+      before(:all) { @note = Flickr::Media.find(PHOTO_ID).get_info!.notes.first }
       subject { @note }
 
       NOTE_ATTRIBUTES.each do |attribute, test|

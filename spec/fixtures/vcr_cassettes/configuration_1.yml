@@ -2,20 +2,20 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.nonExistingMethod
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key&method=flickr.test.login&vcr=configuration+1
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="a1e85e9544d7ed9abc14f0e827cb1d88", oauth_signature="mkkNRk1S6gjhDKPmK2%2Fi8lQkHjU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347744396", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_nonce="d02d38ad8ecde028adcb479e1cffef46", oauth_signature="TlSjj%2FGU%2Fp1usjJEwqMGudkR1rQ%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962167", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 15 Sep 2012 21:26:36 GMT
+      - Tue, 18 Sep 2012 09:56:07 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       access-control-allow-origin: 
@@ -23,18 +23,18 @@ http_interactions:
       cache-control: 
       - private
       x-served-by: 
-      - www214.flickr.mud.yahoo.com
+      - www57.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "99"
+      - "91"
       connection: 
       - close
       content-type: 
       - text/plain; charset=utf-8
     body: 
       encoding: ASCII-8BIT
-      string: "{\"stat\":\"fail\", \"code\":112, \"message\":\"Method \\\"flickr.nonExistingMethod\\\" not found\"}"
+      string: "{\"stat\":\"fail\", \"code\":100, \"message\":\"Invalid API Key (Key has invalid format)\"}"
     http_version: 
-  recorded_at: Sat, 15 Sep 2012 21:26:37 GMT
+  recorded_at: Tue, 18 Sep 2012 09:56:08 GMT
 recorded_with: VCR 2.2.4

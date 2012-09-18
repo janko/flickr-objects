@@ -9,10 +9,10 @@ PERMISSIONS_ATTRIBUTES = {
   can_share?:    proc { be_a_boolean }
 }
 
-describe Flickr::Permissions, :vcr do
+describe Flickr::Permissions do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @media = make_request("flickr.photos.getInfo") }
+      before(:all) { @media = Flickr::Media.find(PHOTO_ID).get_info! }
 
       describe "editability" do
         subject { @media.editability }

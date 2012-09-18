@@ -2,16 +2,16 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.test.login
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.test.login&vcr=flickr+2
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="6f686a87a0b611f55346c6dafce04994", oauth_signature="QsZFZ6gWDB4xeKaIZh4DecLbEl0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962153", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="27405ae5edb5efc2b97816b829a2d51f", oauth_signature="8aVE7Ogu9EEIRp0fY6H5yhRkwo4%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962152", oauth_version="1.0"
   response: 
     status: 
-      code: 200
+      code: 400
       message: 
     headers: 
       date: 
@@ -21,18 +21,18 @@ http_interactions:
       cache-control: 
       - private
       x-served-by: 
-      - www117.flickr.mud.yahoo.com
+      - www200.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "89"
+      - "66"
       connection: 
       - close
       content-type: 
-      - application/json
+      - text/plain;charset=UTF-8
     body: 
       encoding: ASCII-8BIT
-      string: "{\"user\":{\"id\":\"78733179@N04\", \"username\":{\"_content\":\"@janko-m\"}}, \"stat\":\"ok\"}"
+      string: oauth_problem=parameter_absent&oauth_parameters_absent=oauth_token
     http_version: 
   recorded_at: Tue, 18 Sep 2012 09:55:53 GMT
 recorded_with: VCR 2.2.4

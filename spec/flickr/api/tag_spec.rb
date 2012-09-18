@@ -1,16 +1,14 @@
 require "spec_helper"
 
-describe Flickr::Tag, :vcr do
+describe Flickr::Tag do
   let(:media) { Flickr::Media.find(PHOTO_ID) }
 
   describe "flickr.photos.removeTag" do
     it "works" do
-      media.add_tags "Cool"
-      media.get_info!
-      media.tags.count.should eq(2)
-
-      media.tags.last.delete
-      media.get_info!
+      media.add_tags "Cool", vcr: "tag 1"
+      media.get_info!(vcr: "tag 2")
+      media.tags.last.delete(vcr: "tag 3")
+      media.get_info!(vcr: "tag 4")
       media.tags.count.should eq(1)
     end
 

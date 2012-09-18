@@ -7,10 +7,10 @@ VISIBILITY_ATTRIBUTES = {
   contacts?: proc { be_a_boolean }
 }
 
-describe Flickr::Visibility, :vcr do
+describe Flickr::Visibility do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @media = make_request("flickr.photos.getInfo") }
+      before(:all) { @media = Flickr::Media.find(PHOTO_ID).get_info! }
 
       describe "visibility" do
         subject { @media.visibility }
@@ -30,7 +30,7 @@ describe Flickr::Visibility, :vcr do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @media = make_request("flickr.photos.search").find(PHOTO_ID) }
+      before(:all) { @media = Flickr::Media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
 
       describe "visibility" do
         subject { @media.visibility }

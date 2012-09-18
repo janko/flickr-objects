@@ -1,14 +1,15 @@
 require "spec_helper"
 
-describe Flickr::UploadClient, :vcr do
-  it "uploads photos and videos" do
+describe Flickr::UploadClient do
+  it "uploads photos" do
     photo_id = Flickr.upload("#{RSPEC_DIR}/fixtures/files/photo.jpg")
     photo_id.should be_a_nonempty(String)
+    Flickr::Photo.find(photo_id).delete
+  end
 
+  it "uploads videos" do
     video_id = Flickr.upload("#{RSPEC_DIR}/fixtures/files/video.mov")
     video_id.should be_a_nonempty(String)
-
-    Flickr::Photo.find(photo_id).delete
     Flickr::Video.find(video_id).delete
   end
 
@@ -19,7 +20,7 @@ describe Flickr::UploadClient, :vcr do
   it "raises an appropriate Flickr error" do
     Flickr.configure { |config| config.api_key = nil }
     begin
-      Flickr.upload("#{RSPEC_DIR}/fixtures/files/photo.jpg")
+      Flickr.upload("#{RSPEC_DIR}/fixtures/files/photo.jpg", vcr: "upload_client 1")
       (1 + 1).should eq(1)
     rescue Flickr::Client::Error => error
       error.message.should match(/Invalid API Key/)

@@ -15,10 +15,10 @@ AREA_ATTRIBUTES = {
   woe_id:   proc { be_a_nonempty(String) }
 }
 
-describe Flickr::Location, :vcr do
+describe Flickr::Location do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @location = make_request("flickr.photos.getInfo").location }
+      before(:all) { @location = Flickr::Media.find(PHOTO_ID).get_info!.location }
       subject { @location }
 
       LOCATION_ATTRIBUTES.each do |attribute, test|
@@ -37,7 +37,7 @@ describe Flickr::Location, :vcr do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @location = make_request("flickr.photos.search").find(PHOTO_ID).location }
+      before(:all) { @location = Flickr::Media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).location }
       subject { @location }
 
       LOCATION_ATTRIBUTES.each do |attribute, test|

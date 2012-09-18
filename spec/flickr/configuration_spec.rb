@@ -8,11 +8,11 @@ describe Flickr::Configuration do
       Flickr.configuration.open_timeout.should == 3
     end
 
-    it "resets the client", :vcr do
+    it "resets the client" do
       Flickr.configure { |config| config.api_key = nil }
-      expect { Flickr.client.get "flickr.test.login" }.to raise_error
+      expect { Flickr.test_login(vcr: "configuration 1") }.to raise_error
       Flickr.configure { |config| config.api_key = ENV["FLICKR_API_KEY"] }
-      expect { Flickr.client.get "flickr.test.login" }.to_not raise_error
+      expect { Flickr.test_login(vcr: "configuration 2") }.to_not raise_error
     end
   end
 

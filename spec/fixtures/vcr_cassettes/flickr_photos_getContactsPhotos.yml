@@ -2,26 +2,61 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getContactsPhotos&extras=media
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getContactsPhotos&include_self=1&extras=description%2Clicense%2Cdate_upload%2Cdate_taken%2Cowner_name%2Cicon_server%2Coriginal_format%2Clast_update%2Cgeo%2Ctags%2Cmachine_tags%2Co_dims%2Cviews%2Cmedia%2Cpath_alias%2Curl_sq%2Curl_q%2Curl_t%2Curl_s%2Curl_n%2Curl_m%2Curl_z%2Curl_c%2Curl_l%2Curl_h%2Curl_k%2Curl_o%2Cmedia
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="7d6624854f81fd1aa56d10aa3dafbca3", oauth_signature="7MhB2VdOd%2BdB7bm5pjoNJtemmIg%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347919653", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="59703234811de19105f6e31c06dc2de2", oauth_signature="s%2Fr3EuEzuwFj8i7oaaHX3y59AsU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962153", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Mon, 17 Sep 2012 22:07:33 GMT
+      - Tue, 18 Sep 2012 09:55:53 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       cache-control: 
       - private
       x-served-by: 
-      - www174.flickr.mud.yahoo.com
+      - www67.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "932"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photos\":{\"photo\":[{\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"description\":{\"_content\":\"\"}, \"license\":\"0\", \"dateupload\":\"1347741844\", \"datetaken\":\"2012-09-15 13:44:04\", \"datetakengranularity\":\"0\", \"ownername\":\"@janko-m\", \"iconserver\":\"8033\", \"iconfarm\":9, \"lastupdate\":\"1347741948\", \"latitude\":0, \"longitude\":0, \"accuracy\":0, \"context\":0, \"tags\":\"\", \"machine_tags\":\"\", \"views\":\"1\", \"media\":\"video\", \"media_status\":\"ready\", \"pathalias\":null, \"url_sq\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c_s.jpg\", \"height_sq\":75, \"width_sq\":75, \"url_q\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c_q.jpg\", \"height_q\":\"150\", \"width_q\":\"150\", \"url_t\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c_t.jpg\", \"height_t\":\"75\", \"width_t\":\"100\", \"url_s\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c_m.jpg\", \"height_s\":\"180\", \"width_s\":\"240\", \"url_n\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c_n.jpg\", \"height_n\":240, \"width_n\":\"320\", \"url_m\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c.jpg\", \"height_m\":\"240\", \"width_m\":\"320\"}, {\"id\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Game of Thrones\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"description\":{\"_content\":\"A poster for the &quot;Game of Thrones&quot; TV series\"}, \"license\":\"0\", \"dateupload\":\"1347653033\", \"datetaken\":\"2012-09-14 13:02:57\", \"datetakengranularity\":\"0\", \"ownername\":\"@janko-m\", \"iconserver\":\"8033\", \"iconfarm\":9, \"lastupdate\":\"1347962102\", \"latitude\":37.792422, \"longitude\":-122.419109, \"accuracy\":\"14\", \"context\":0, \"place_id\":\"W24McYBUV7MWarg33w\", \"woeid\":\"55970967\", \"geo_is_family\":0, \"geo_is_friend\":0, \"geo_is_contact\":0, \"geo_is_public\":1, \"tags\":\"test\", \"machine_tags\":\"\", \"views\":\"15\", \"media\":\"photo\", \"media_status\":\"ready\", \"pathalias\":null, \"url_sq\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_s.jpg\", \"height_sq\":75, \"width_sq\":75, \"url_q\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_q.jpg\", \"height_q\":\"150\", \"width_q\":\"150\", \"url_t\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_t.jpg\", \"height_t\":\"100\", \"width_t\":\"67\", \"url_s\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_m.jpg\", \"height_s\":\"240\", \"width_s\":\"162\", \"url_n\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_n.jpg\", \"height_n\":\"320\", \"width_n\":216, \"url_m\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b.jpg\", \"height_m\":\"500\", \"width_m\":\"337\", \"url_z\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_z.jpg\", \"height_z\":\"640\", \"width_z\":\"432\", \"url_c\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_c.jpg\", \"height_c\":\"800\", \"width_c\":540, \"url_l\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_b.jpg\", \"height_l\":\"1024\", \"width_l\":\"691\", \"url_h\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_e325aa9882_h.jpg\", \"height_h\":\"1600\", \"width_h\":1080, \"url_k\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_081e5978f7_k.jpg\", \"height_k\":\"2048\", \"width_k\":1382}], \"total\":2, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Tue, 18 Sep 2012 09:55:54 GMT
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getContactsPhotos&extras=media
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="ebda5f6e59f393fe2bf7eb74d316764a", oauth_signature="ob4hlso3M%2B3KM1Q6Vx7C1zjQpaQ%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962168", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Tue, 18 Sep 2012 09:56:09 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www186.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -34,75 +69,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: "{\"photos\":{\"photo\":[], \"total\":0, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Mon, 17 Sep 2012 22:07:34 GMT
-- request: 
-    method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getContactsPhotos&include_self=1&extras=media
-    body: 
-      encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="f776320bf4a2cf36543f3f15faeadd88", oauth_signature="IiAmvj1H%2Fwv73h2sJf5ofZxm5a0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347920668", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
-  response: 
-    status: 
-      code: 200
-      message: 
-    headers: 
-      date: 
-      - Mon, 17 Sep 2012 22:24:29 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      cache-control: 
-      - private
-      x-served-by: 
-      - www176.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "322"
-      connection: 
-      - close
-      content-type: 
-      - application/json
-    body: 
-      encoding: ASCII-8BIT
-      string: "{\"photos\":{\"photo\":[{\"id\":\"7995359534\", \"secret\":\"7f3a4ff9db\", \"server\":\"8461\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"video\", \"media_status\":\"ready\"}, {\"id\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Game of Thrones\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}], \"total\":3, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
-    http_version: 
-  recorded_at: Mon, 17 Sep 2012 22:24:30 GMT
-- request: 
-    method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getContactsPhotos&include_self=1&extras=description%2Clicense%2Cdate_upload%2Cdate_taken%2Cowner_name%2Cicon_server%2Coriginal_format%2Clast_update%2Cgeo%2Ctags%2Cmachine_tags%2Co_dims%2Cviews%2Cmedia%2Cpath_alias%2Curl_sq%2Curl_q%2Curl_t%2Curl_s%2Curl_n%2Curl_m%2Curl_z%2Curl_c%2Curl_l%2Curl_h%2Curl_k%2Curl_o%2Cmedia
-    body: 
-      encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="80de33df4fb6d13afbe2542e940f7f13", oauth_signature="B4ySsVEJxP3ZMmpARL%2B6oQu0QF4%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347920740", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
-  response: 
-    status: 
-      code: 200
-      message: 
-    headers: 
-      date: 
-      - Mon, 17 Sep 2012 22:25:40 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      cache-control: 
-      - private
-      x-served-by: 
-      - www90.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "1025"
-      connection: 
-      - close
-      content-type: 
-      - application/json
-    body: 
-      encoding: ASCII-8BIT
-      string: "{\"photos\":{\"photo\":[{\"id\":\"7995359534\", \"secret\":\"7f3a4ff9db\", \"server\":\"8461\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"description\":{\"_content\":\"\"}, \"license\":\"0\", \"dateupload\":\"1347872871\", \"datetaken\":\"2012-09-17 11:07:51\", \"datetakengranularity\":\"0\", \"ownername\":\"@janko-m\", \"iconserver\":\"8033\", \"iconfarm\":9, \"lastupdate\":\"1347872873\", \"latitude\":0, \"longitude\":0, \"accuracy\":0, \"context\":0, \"tags\":\"\", \"machine_tags\":\"\", \"views\":\"0\", \"media\":\"photo\", \"media_status\":\"ready\", \"pathalias\":null, \"url_sq\":\"http:\\/\\/farm9.staticflickr.com\\/8461\\/7995359534_7f3a4ff9db_s.jpg\", \"height_sq\":75, \"width_sq\":75, \"url_q\":\"http:\\/\\/farm9.staticflickr.com\\/8461\\/7995359534_7f3a4ff9db_q.jpg\", \"height_q\":\"150\", \"width_q\":\"150\", \"url_t\":\"http:\\/\\/farm9.staticflickr.com\\/8461\\/7995359534_7f3a4ff9db_t.jpg\", \"height_t\":\"75\", \"width_t\":\"100\", \"url_s\":\"http:\\/\\/farm9.staticflickr.com\\/8461\\/7995359534_7f3a4ff9db_m.jpg\", \"height_s\":\"180\", \"width_s\":\"240\", \"url_n\":\"http:\\/\\/farm9.staticflickr.com\\/8461\\/7995359534_7f3a4ff9db_n.jpg\", \"height_n\":240, \"width_n\":\"320\", \"url_m\":\"http:\\/\\/farm9.staticflickr.com\\/8461\\/7995359534_7f3a4ff9db.jpg\", \"height_m\":\"375\", \"width_m\":\"500\"}, {\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"description\":{\"_content\":\"\"}, \"license\":\"0\", \"dateupload\":\"1347741844\", \"datetaken\":\"2012-09-15 13:44:04\", \"datetakengranularity\":\"0\", \"ownername\":\"@janko-m\", \"iconserver\":\"8033\", \"iconfarm\":9, \"lastupdate\":\"1347741948\", \"latitude\":0, \"longitude\":0, \"accuracy\":0, \"context\":0, \"tags\":\"\", \"machine_tags\":\"\", \"views\":\"1\", \"media\":\"video\", \"media_status\":\"ready\", \"pathalias\":null, \"url_sq\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c_s.jpg\", \"height_sq\":75, \"width_sq\":75, \"url_q\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c_q.jpg\", \"height_q\":\"150\", \"width_q\":\"150\", \"url_t\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c_t.jpg\", \"height_t\":\"75\", \"width_t\":\"100\", \"url_s\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c_m.jpg\", \"height_s\":\"180\", \"width_s\":\"240\", \"url_n\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c_n.jpg\", \"height_n\":240, \"width_n\":\"320\", \"url_m\":\"http:\\/\\/farm9.staticflickr.com\\/8456\\/7989540600_0515684d4c.jpg\", \"height_m\":\"240\", \"width_m\":\"320\"}, {\"id\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Game of Thrones\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"description\":{\"_content\":\"A poster for the &quot;Game of Thrones&quot; TV series\"}, \"license\":\"0\", \"dateupload\":\"1347653033\", \"datetaken\":\"2012-09-14 13:02:57\", \"datetakengranularity\":\"0\", \"ownername\":\"@janko-m\", \"iconserver\":\"8033\", \"iconfarm\":9, \"lastupdate\":\"1347744394\", \"latitude\":37.792422, \"longitude\":-122.419109, \"accuracy\":\"14\", \"context\":0, \"place_id\":\"W24McYBUV7MWarg33w\", \"woeid\":\"55970967\", \"geo_is_family\":0, \"geo_is_friend\":0, \"geo_is_contact\":0, \"geo_is_public\":1, \"tags\":\"test\", \"machine_tags\":\"\", \"views\":\"5\", \"media\":\"photo\", \"media_status\":\"ready\", \"pathalias\":null, \"url_sq\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_s.jpg\", \"height_sq\":75, \"width_sq\":75, \"url_q\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_q.jpg\", \"height_q\":\"150\", \"width_q\":\"150\", \"url_t\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_t.jpg\", \"height_t\":\"100\", \"width_t\":\"67\", \"url_s\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_m.jpg\", \"height_s\":\"240\", \"width_s\":\"162\", \"url_n\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_n.jpg\", \"height_n\":\"320\", \"width_n\":216, \"url_m\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b.jpg\", \"height_m\":\"500\", \"width_m\":\"337\", \"url_z\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_z.jpg\", \"height_z\":\"640\", \"width_z\":\"432\", \"url_c\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_c.jpg\", \"height_c\":\"800\", \"width_c\":540, \"url_l\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_b.jpg\", \"height_l\":\"1024\", \"width_l\":\"691\", \"url_h\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_e325aa9882_h.jpg\", \"height_h\":\"1600\", \"width_h\":1080, \"url_k\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_081e5978f7_k.jpg\", \"height_k\":\"2048\", \"width_k\":1382}], \"total\":3, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
-    http_version: 
-  recorded_at: Mon, 17 Sep 2012 22:25:40 GMT
+  recorded_at: Tue, 18 Sep 2012 09:56:09 GMT
 recorded_with: VCR 2.2.4

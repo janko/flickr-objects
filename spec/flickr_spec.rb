@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Flickr, :vcr do
+describe Flickr do
   describe ".api_methods" do
     it "works" do
       Flickr.api_methods["flickr.photos.search"].should eq(["Flickr::Media.search", "Flickr::Photo.search", "Flickr::Video.search"])
@@ -16,9 +16,9 @@ describe Flickr, :vcr do
 
   describe "instance" do
     it "has a different client" do
-      expect { Flickr.test_login }.to_not raise_error(Flickr::Client::Error)
+      expect { Flickr.test_login(vcr: "flickr 1") }.to_not raise_error(Flickr::Client::OAuthError)
       flickr = Flickr.new(nil, nil)
-      expect { flickr.test_login }.to raise_error(Flickr::Client::OAuthError)
+      expect { flickr.test_login(vcr: "flickr 2") }.to raise_error(Flickr::Client::OAuthError)
     end
 
     it "is able to make requests" do
