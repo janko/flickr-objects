@@ -8,7 +8,7 @@ COLLECTION_ATTRIBUTES = {
 }
 
 describe Flickr::Collection do
-  before(:all) { @collection = Flickr::Media.search(user_id: USER_ID) }
+  before(:all) { @collection = Flickr.media.search(user_id: USER_ID) }
   subject { @collection }
 
   describe "methods" do

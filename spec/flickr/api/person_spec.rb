@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Flickr::Person do
   describe "flickr.photos.getPublicContactsPhotos" do
-    before(:all) { @person = Flickr::Person.find(USER_ID) }
+    before(:all) { @person = Flickr.people.find(USER_ID) }
 
     it "should return photos or videos" do
       collection = @person.get_public_media_from_contacts(include_self: 1, extras: EXTRAS)

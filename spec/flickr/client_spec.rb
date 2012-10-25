@@ -8,7 +8,7 @@ describe Flickr::Client do
     end
 
     it "handles other errors" do
-      expect { Flickr.client.get "flickr.nonExistingMethod" }.to raise_error(Flickr::Client::Error)
+      expect { Flickr.media.find(nil).get_info! }.to raise_error(Flickr::Client::Error)
     end
 
     it "goes secure when asked for" do
@@ -29,13 +29,13 @@ describe Flickr::Client do
     describe Flickr::Client::Error do
       subject do
         begin
-          Flickr.client.get "flickr.nonExistingMethod"
+          Flickr.media.find(nil).get_info!
         rescue Flickr::Client::Error => error
           error
         end
       end
 
-      its(:code) { should == 112 }
+      its(:code) { should == 1 }
     end
   end
 end

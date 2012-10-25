@@ -1,8 +1,10 @@
 require "flickr/objects/attribute_values/media"
 require "flickr/api/media"
+require "flickr/helpers/base_58"
 
 class Flickr
   class Media < Object
+    include Base58
 
     attribute :id,                   String
     attribute :secret,               String
@@ -12,11 +14,7 @@ class Flickr
     attribute :description,          String
     attribute :license,              Integer
     attribute :visibility,           Visibility
-
     attribute :safety_level,         Integer
-    attribute :safe?,                Boolean
-    attribute :moderate?,            Boolean
-    attribute :restricted?,          Boolean
 
     attribute :owner,                Person
 
@@ -44,9 +42,6 @@ class Flickr
     attribute :location,             Location
     attribute :location_visibility,  Visibility
 
-    attribute :url,                  String
-    attribute :short_url,            String
-
     attribute :largest_size,         String
 
     SIZES = {
@@ -63,5 +58,17 @@ class Flickr
       "Large 2048" => "k",
       "Original"   => "o"
     }
+
+    def safe?;       safety_level <= 1 end
+    def moderate?;   safety_level == 2 end
+    def restricted?; safety_level == 3 end
+
+    def url
+      "http://www.flickr.com/photos/#{owner.id}/#{id}/"
+    end
+
+    def short_url
+      "http://flic.kr/p/#{to_base58(id)}"
+    end
   end
 end

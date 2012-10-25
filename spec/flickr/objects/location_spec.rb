@@ -18,7 +18,7 @@ AREA_ATTRIBUTES = {
 describe Flickr::Location do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @location = Flickr::Media.find(PHOTO_ID).get_info!.location }
+      before(:all) { @location = Flickr.media.find(PHOTO_ID).get_info!.location }
       subject { @location }
 
       LOCATION_ATTRIBUTES.each do |attribute, test|
@@ -37,7 +37,7 @@ describe Flickr::Location do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @location = Flickr::Media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).location }
+      before(:all) { @location = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).location }
       subject { @location }
 
       LOCATION_ATTRIBUTES.each do |attribute, test|

@@ -5,7 +5,7 @@ class Flickr
       coordinates: [->{ [@hash.fetch("x"), @hash.fetch("y")] }],
       width:       [->{ @hash.fetch("w") }],
       height:      [->{ @hash.fetch("h") }],
-      content:     [->{ @hash.fetch("_content") }]
+      content:     [->{ @hash.fetch("_content") }],
     }
   end
 end

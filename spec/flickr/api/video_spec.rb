@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Flickr::Video do
   describe "flickr.photos.search" do
-    before(:all) { @videos = Flickr::Video.search(user_id: USER_ID) }
+    before(:all) { @videos = Flickr.videos.search(user_id: USER_ID) }
 
     it "passes the media type" do
       @videos.should_not be_empty

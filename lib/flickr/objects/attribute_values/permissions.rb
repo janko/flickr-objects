@@ -6,7 +6,7 @@ class Flickr
       can_download?: [->{ @hash.fetch("candownload") }],
       can_blog?:     [->{ @hash.fetch("canblog") }],
       can_print?:    [->{ @hash.fetch("canprint") }],
-      can_share?:    [->{ @hash.fetch("canshare") }]
+      can_share?:    [->{ @hash.fetch("canshare") }],
     }
   end
 end

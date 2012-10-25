@@ -4,7 +4,7 @@ class Flickr
       current_page:  [->{ @hash.fetch("page") }],
       per_page:      [->{ @hash.fetch("per_page") }, ->{ @hash.fetch("perpage") }],
       total_entries: [->{ @hash.fetch("total") }],
-      total_pages:   [->{ @hash.fetch("pages") }]
+      total_pages:   [->{ @hash.fetch("pages") }],
     }
   end
 end

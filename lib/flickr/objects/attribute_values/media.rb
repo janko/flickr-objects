@@ -1,9 +1,5 @@
-require "flickr/base_58"
-
 class Flickr
   class Media < Object
-    include Base58
-
     self.attribute_values = {
       uploaded_at:          [->{ @hash.fetch("dateuploaded") }, ->{ @hash.fetch("dateupload") }],
       favorite?:            [->{ @hash.fetch("isfavorite") }],
@@ -53,19 +49,7 @@ class Flickr
                               }
                             ],
       location:             [->{ @hash.slice("latitude", "longitude", "accuracy", "context", "place_id", "woeid") if @hash["latitude"] }],
-      safe?:                [->{ safety_level <= 1 }],
-      moderate?:            [->{ safety_level == 2 }],
-      restricted?:          [->{ safety_level == 3 }],
-      url:                  [->{ "http://www.flickr.com/photos/#{owner.id}/#{id}/" }],
-      short_url:            [->{ "http://flic.kr/p/#{to_base58(id)}" }],
       largest_size:         [->{ SIZES.key(SIZES.values.reverse.find { |abbr| @hash["url_#{abbr}"] }) }],
-      size:                 [->{ @size }],
     }
-
-    private
-
-    def size_abbr(size = @size)
-      SIZES[size]
-    end
   end
 end

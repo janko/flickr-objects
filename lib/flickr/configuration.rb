@@ -15,9 +15,5 @@ class Flickr
     def fetch(*attributes)
       attributes.map { |attribute| send(attribute) }
     end
-
-    def access_token
-      [access_token_key, access_token_secret]
-    end
   end
 end

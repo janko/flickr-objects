@@ -12,7 +12,7 @@ PERSON_ATTRIBUTES = {
 
 describe Flickr::Person do
   describe "methods" do
-    before(:all) { @person = Flickr::Media.find(PHOTO_ID).get_info!.owner }
+    before(:all) { @person = Flickr.media.find(PHOTO_ID).get_info!.owner }
 
     describe "#buddy_icon_url" do
       context "when person has an avatar" do
@@ -40,7 +40,7 @@ describe Flickr::Person do
     end
 
     context "flickr.photos.getInfo" do
-      before(:all) { @media = Flickr::Media.find(PHOTO_ID).get_info! }
+      before(:all) { @media = Flickr.media.find(PHOTO_ID).get_info! }
 
       describe "photo's owner" do
         subject { @media.owner }
@@ -68,7 +68,7 @@ describe Flickr::Person do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @person = Flickr::Media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).owner }
+      before(:all) { @person = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).owner }
       subject { @person }
 
       PERSON_ATTRIBUTES.except(:real_name, :location).each do |attribute, test|

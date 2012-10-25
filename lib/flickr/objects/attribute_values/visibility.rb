@@ -4,7 +4,7 @@ class Flickr
       public?:   [->{ @hash.fetch("ispublic") }],
       friends?:  [->{ @hash.fetch("isfriend") }],
       family?:   [->{ @hash.fetch("isfamily") }],
-      contacts?: [->{ @hash.fetch("iscontact") }]
+      contacts?: [->{ @hash.fetch("iscontact") }],
     }
   end
 end

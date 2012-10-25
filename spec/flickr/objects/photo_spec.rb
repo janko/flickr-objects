@@ -6,7 +6,7 @@ PHOTO_ATTRIBUTES = {
 
 describe Flickr::Photo do
   describe "methods" do
-    before(:all) { @photo = Flickr::Photo.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
+    before(:all) { @photo = Flickr.photos.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
     subject { @photo }
 
     it "recognizes different sizes" do
@@ -54,7 +54,7 @@ describe Flickr::Photo do
 
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @photo = Flickr::Photo.find(PHOTO_ID).get_info! }
+      before(:all) { @photo = Flickr.photos.find(PHOTO_ID).get_info! }
       subject { @photo }
 
       PHOTO_ATTRIBUTES.each do |attribute, test|

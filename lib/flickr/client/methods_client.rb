@@ -4,15 +4,14 @@ class Flickr
       super(access_token)
     end
 
-    def for(scope)
-      @scope = scope
+    def for(owner)
+      @owner_prefix = (owner.instance_of?(Class) ? "#{owner}." : "#{owner.class}#")
       self
     end
 
     [:get, :post].each do |http_method|
-      define_method(http_method) do |*args|
-        flickr_method = args.first.is_a?(String) ? args.first : resolve_flickr_method
-        params = args.last.is_a?(Hash) ? args.last : {}
+      define_method(http_method) do |method_name, params = {}|
+        flickr_method = resolve_flickr_method(method_name)
         fix_extras(params)
 
         response = super("rest") do |req|
@@ -30,13 +29,8 @@ class Flickr
       FaradayMiddleware::ParseJson
     end
 
-    def resolve_flickr_method
-      method_name = caller[1][/(?<=`).+(?='$)/]
-      full_method_name = if @scope.instance_of?(Class)
-                           "#{@scope}.#{method_name}"
-                         else
-                           "#{@scope.class}##{method_name}"
-                         end
+    def resolve_flickr_method(method_name)
+      full_method_name = "#{@owner_prefix}#{method_name}"
       pair = Flickr.api_methods.find { |_, value| value.include?(full_method_name) }
 
       if pair

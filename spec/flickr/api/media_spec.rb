@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Flickr::Media do
-  let(:media) { Flickr::Media.find(PHOTO_ID) }
+  let(:media) { Flickr.media.find(PHOTO_ID) }
 
   describe "flickr.photos.setContentType" do
     it "works" do

@@ -12,7 +12,7 @@ PERMISSIONS_ATTRIBUTES = {
 describe Flickr::Permissions do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @media = Flickr::Media.find(PHOTO_ID).get_info! }
+      before(:all) { @media = Flickr.media.find(PHOTO_ID).get_info! }
 
       describe "editability" do
         subject { @media.editability }

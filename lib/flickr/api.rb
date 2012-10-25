@@ -9,7 +9,16 @@ class Flickr
     @access_token = access_token.flatten
   end
 
-  clients = Module.new do
+  def self.access_token
+    [configuration.access_token_key, configuration.access_token_secret]
+  end
+
+  def self.instance_and_class_eval(&block)
+    instance_eval(&block)
+    class_eval(&block)
+  end
+
+  instance_and_class_eval do
     def client
       (@client ||= MethodsClient.new(access_token)).for(self)
     end
@@ -18,9 +27,6 @@ class Flickr
       @upload_client ||= UploadClient.new(access_token)
     end
   end
-
-  include clients
-  extend clients
 end
 
 require "flickr/api/flickr"
@@ -28,13 +34,13 @@ require "flickr/api/flickr"
 class Flickr
   def self.map_interface(method, klass)
     define_method(method) do
-      klass.dup.tap do |klass|
+      klass.tap do |klass|
         klass.instance_variable_set("@client", client)
       end
     end
 
     define_singleton_method(method) do
-      klass.dup.tap do |klass|
+      klass.tap do |klass|
         klass.instance_variable_set("@client", client)
       end
     end
@@ -43,4 +49,5 @@ class Flickr
   map_interface :media,  Media
   map_interface :photos, Photo
   map_interface :videos, Video
+  map_interface :people, Person
 end

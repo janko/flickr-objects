@@ -23,7 +23,7 @@ MEDIA_ATTRIBUTES = {
 
 describe Flickr::Media do
   describe "methods" do
-    before(:all) { @media = Flickr::Media.find(PHOTO_ID).get_info! }
+    before(:all) { @media = Flickr.media.find(PHOTO_ID).get_info! }
     subject { @media }
 
     [:safe?, :moderate?, :restricted?].each do |safety_level|
@@ -44,7 +44,7 @@ describe Flickr::Media do
 
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @media = Flickr::Media.find(PHOTO_ID).get_info! }
+      before(:all) { @media = Flickr.media.find(PHOTO_ID).get_info! }
       subject { @media }
 
       MEDIA_ATTRIBUTES.each do |attribute, test|
@@ -53,7 +53,7 @@ describe Flickr::Media do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @media = Flickr::Media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
+      before(:all) { @media = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
       subject { @media }
 
       MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|

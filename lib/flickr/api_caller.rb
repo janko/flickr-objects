@@ -1,48 +1,43 @@
 class Flickr
   module ApiCaller
     def self.included(base)
-      base.send(:include, ClientMethods)
+      base.send(:include, ClientMethods) unless base == Flickr
       base.send(:extend, ApiMethods)
     end
 
     module ClientMethods
       def self.included(base)
-        unless base == Flickr
-          base.class_eval do
-            def client
-              @client.for(self)
-            end
+        base.send(:include, InstanceMethods)
+        base.send(:extend, ClassMethods)
+      end
 
-            def self.client
-              (@client || Flickr.client).for(self)
-            end
-          end
+      module InstanceMethods
+        def client
+          @client.for(self)
+        end
+      end
+
+      module ClassMethods
+        def client
+          @client.for(self)
         end
       end
     end
 
     module ApiMethods
-      attr_reader :class_api_methods
-      def class_api_methods=(hash)
-        @class_api_methods = hash
+      def instance_api_method(method, flickr_method)
+        Flickr.api_methods[flickr_method] << "#{self.name}##{method}"
+
         if respond_to?(:children)
-          children.each {|child| child.class_api_methods = self.class_api_methods }
-        end
-      end
-      attr_reader :instance_api_methods
-      def instance_api_methods=(hash)
-        @instance_api_methods = hash
-        if respond_to?(:children)
-          children.each {|child| child.instance_api_methods = self.instance_api_methods }
+          children.each { |child| Flickr.api_methods[flickr_method] << "#{child.name}##{method}" }
         end
       end
 
-      def register_api_methods!
-        class_api_methods.each do |method, flickr_method|
-          Flickr.api_methods[flickr_method] << "#{name}.#{method}"
-        end
-        instance_api_methods.each do |method, flickr_method|
-          Flickr.api_methods[flickr_method] << "#{name}##{method}"
+      def class_api_method(method, flickr_method)
+        Flickr.api_methods[flickr_method] << "#{self.name}.#{method}"
+
+        if respond_to?(:children)
+          children.each { |child| Flickr.api_methods[flickr_method] << "#{child.name}.#{method}" }
         end
       end
     end
