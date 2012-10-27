@@ -45,9 +45,46 @@ describe Flickr::Collection do
   end
 
   describe "attributes" do
-    before(:all) { @it = Flickr.media.search(user_id: USER_ID) }
-    subject { @it }
+    context "flickr.photos.search" do
+      before(:all) { @it = Flickr.photos.search(user_id: USER_ID, extras: EXTRAS) }
+      subject { @it }
 
-    test_attributes(COLLECTION_ATTRIBUTES)
+      test_attributes(COLLECTION_ATTRIBUTES)
+    end
+
+    context "flickr.people.getPhotos" do
+      before(:all) { @it = Flickr.people.find(USER_ID).get_photos(extras: EXTRAS) }
+      subject { @it }
+
+      test_attributes(COLLECTION_ATTRIBUTES)
+    end
+
+    context "flickr.people.getPublicPhotos" do
+      before(:all) { @it = Flickr.people.find(USER_ID).get_public_photos(extras: EXTRAS) }
+      subject { @it }
+
+      test_attributes(COLLECTION_ATTRIBUTES)
+    end
+
+    context "flickr.photosets.getList" do
+      before(:all) { @it = Flickr.people.find(USER_ID).get_sets }
+      subject { @it }
+
+      test_attributes(COLLECTION_ATTRIBUTES)
+    end
+
+    context "flickr.photos.getContactsPhotos" do
+      before(:all) { @it = Flickr.get_photos_from_contacts }
+      subject { @it }
+
+      test_attributes(COLLECTION_ATTRIBUTES)
+    end
+
+    context "flickr.photosets.getPhotos" do
+      before(:all) { @it = Flickr.sets.find(SET_ID).get_photos }
+      subject { @it }
+
+      test_attributes(COLLECTION_ATTRIBUTES)
+    end
   end
 end

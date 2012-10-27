@@ -35,4 +35,39 @@ http_interactions:
       string: "{\"photos\":{\"photo\":[{\"id\":\"8126288530\", \"secret\":\"6e6eaa53c8\", \"server\":\"8470\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"video\", \"media_status\":\"ready\"}, {\"id\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Game of Thrones\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}], \"total\":3, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
     http_version: 
   recorded_at: Sat, 27 Oct 2012 01:18:51 GMT
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getContactsPhotos&extras=media
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="dec24fa7477cb607a9eb5265cf0f0205", oauth_signature="nHmxcvRQpC1Sqw%2F6V4PkFdI3f3I%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351382350", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sat, 27 Oct 2012 23:59:11 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www226.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "81"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photos\":{\"photo\":[], \"total\":0, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sat, 27 Oct 2012 23:59:11 GMT
 recorded_with: VCR 2.2.4
