@@ -25,12 +25,13 @@ class Flickr
       end
 
       CONVERTERS = {
-        ::Object  => [->(value){ value }],
-        String    => [->(value){ String(value) }],
-        Time      => [->(value){ Time.at(Integer(value)) }, ->(value){ DateTime.parse(value).to_time }],
-        Boolean   => [->(value){ Integer(value) == 1 }],
-        Integer   => [->(value){ Integer(value) }],
-        Float     => [->(value){ Float(value) }],
+        ::Object  => [->(value) { value }],
+        String    => [->(value) { String(value) }],
+        Time      => [->(value) { Time.at(Integer(value)) }, ->(value) { DateTime.parse(value).to_time }],
+        Boolean   => [->(value) { Integer(value) == 1 }],
+        Integer   => [->(value) { Integer(value) }],
+        Float     => [->(value) { Float(value) }],
+        Hash      => [->(value) { value }],
       }
 
       private

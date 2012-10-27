@@ -1,12 +1,12 @@
 class Flickr
   class Permissions < Object
     self.attribute_values = {
-      can_comment?:  [->{ @hash.fetch("cancomment") }, ->{ @hash.fetch("can_comment") }],
-      can_add_meta?: [->{ @hash.fetch("canaddmeta") }],
-      can_download?: [->{ @hash.fetch("candownload") }],
-      can_blog?:     [->{ @hash.fetch("canblog") }],
-      can_print?:    [->{ @hash.fetch("canprint") }],
-      can_share?:    [->{ @hash.fetch("canshare") }],
+      can_comment?:  [->{ @hash["cancomment"] }, ->{ @hash["can_comment"] }],
+      can_add_meta?: [->{ @hash["canaddmeta"] }],
+      can_download?: [->{ @hash["candownload"] }],
+      can_blog?:     [->{ @hash["canblog"] }],
+      can_print?:    [->{ @hash["canprint"] }],
+      can_share?:    [->{ @hash["canshare"] }],
     }
   end
 end

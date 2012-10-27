@@ -1,19 +1,19 @@
 class Flickr
   class Media < Object
     self.attribute_values = {
-      uploaded_at:          [->{ @hash.fetch("dateuploaded") }, ->{ @hash.fetch("dateupload") }],
-      favorite?:            [->{ @hash.fetch("isfavorite") }],
-      posted_at:            [->{ @hash["dates"].fetch("posted") }],
-      taken_at:             [->{ @hash["dates"].fetch("taken") }, ->{ @hash.fetch("datetaken") }],
-      taken_at_granularity: [->{ @hash["dates"].fetch("takengranularity") }, ->{ @hash.fetch("datetakengranularity") }],
-      updated_at:           [->{ @hash["dates"].fetch("lastupdate") }, ->{ @hash.fetch("lastupdate") }],
-      views_count:          [->{ @hash.fetch("views") }],
-      public_editability:   [->{ @hash.fetch("publiceditability") }],
-      comments_count:       [->{ @hash["comments"].fetch("_content") }],
-      has_people?:          [->{ @hash["people"].fetch("haspeople") }],
-      notes:                [->{ @hash["notes"].fetch("note") }],
+      uploaded_at:          [->{ @hash["dateuploaded"] }, ->{ @hash["dateupload"] }],
+      favorite?:            [->{ @hash["isfavorite"] }],
+      posted_at:            [->{ @hash["dates"]["posted"] }],
+      taken_at:             [->{ @hash["dates"]["taken"] }, ->{ @hash["datetaken"] }],
+      taken_at_granularity: [->{ @hash["dates"]["takengranularity"] }, ->{ @hash["datetakengranularity"] }],
+      updated_at:           [->{ @hash["dates"]["lastupdate"] }, ->{ @hash["lastupdate"] }],
+      views_count:          [->{ @hash["views"] }],
+      public_editability:   [->{ @hash["publiceditability"] }],
+      comments_count:       [->{ @hash["comments"]["_content"] }],
+      has_people?:          [->{ @hash["people"]["haspeople"] }],
+      notes:                [->{ @hash["notes"]["note"] }],
       tags:                 [
-                              ->{ @hash["tags"].fetch("tag").map { |h| h.merge("photo_id" => @hash["id"]) } },
+                              ->{ @hash["tags"]["tag"].map { |h| h.merge("photo_id" => @hash["id"]) } },
                               ->{
                                 [
                                   *@hash["tags"].split(" ").map         {|content| {"_content" => content, "machine_tag" => 0} },
@@ -21,9 +21,9 @@ class Flickr
                                 ]
                               }
                             ],
-      visibility:           [->{ @hash.fetch("visibility") }, ->{ @hash.slice("ispublic", "isfriend", "isfamily") }],
-      title:                [->{ @hash["title"].fetch("_content") }],
-      description:          [->{ @hash["description"].fetch("_content") }],
+      visibility:           [->{ @hash["visibility"] }, ->{ @hash.slice("ispublic", "isfriend", "isfamily") }],
+      title:                [->{ @hash["title"]["_content"] }],
+      description:          [->{ @hash["description"]["_content"] }],
       owner:                [
                               ->{
                                 if @hash["owner"].is_a?(String)
@@ -36,9 +36,9 @@ class Flickr
                                 end
                               }
                             ],
-      path_alias:           [->{ @hash.fetch("pathalias") }],
+      path_alias:           [->{ @hash["pathalias"] }],
       location_visibility:  [
-                              ->{ @hash.fetch("geoperms") },
+                              ->{ @hash["geoperms"] },
                               ->{
                                 {
                                   "isfamily"  => @hash.fetch("geo_is_family"),

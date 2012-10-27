@@ -1,13 +1,35 @@
 require "spec_helper"
 
 PERSON_ATTRIBUTES = {
-  id:          proc { be_a_nonempty(String) },
-  nsid:        proc { be_a_nonempty(String) },
-  username:    proc { be_a_nonempty(String) },
-  real_name:   proc { be_a_nonempty(String) },
-  location:    proc { be_a_nonempty(String) },
-  icon_server: proc { be_a(Fixnum) },
-  icon_farm:   proc { be_a(Fixnum) },
+  id:                   proc { be_a_nonempty(String) },
+  nsid:                 proc { be_a_nonempty(String) },
+  username:             proc { be_a_nonempty(String) },
+  real_name:            proc { be_a_nonempty(String) },
+  location:             proc { be_a_nonempty(String) },
+  icon_server:          proc { be_a(Fixnum) },
+  icon_farm:            proc { be_a(Fixnum) },
+  pro?:                 proc { be_a_boolean },
+  path_alias:           proc { be_nil },
+  location:             proc { be_a_nonempty(String) },
+  time_zone:            proc { be_a_nonempty(Hash) },
+  description:          proc { be_a_nonempty(String) },
+  photos_url:           proc { be_a_nonempty(String) },
+  videos_url:           proc { be_a_nonempty(String) },
+  media_url:            proc { be_a_nonempty(String) },
+  profile_url:          proc { be_a_nonempty(String) },
+  mobile_url:           proc { be_a_nonempty(String) },
+  media_count:          proc { be_a(Integer) },
+  photos_count:         proc { be_a(Integer) },
+  videos_count:         proc { be_a(Integer) },
+  media_views_count:    proc { be_a(Integer) },
+  photo_views_count:    proc { be_a(Integer) },
+  video_views_count:    proc { be_a(Integer) },
+  first_photo_taken:    proc { be_a(Time) },
+  first_video_taken:    proc { be_a(Time) },
+  first_media_taken:    proc { be_a(Time) },
+  first_photo_uploaded: proc { be_a(Time) },
+  first_video_uploaded: proc { be_a(Time) },
+  first_media_uploaded: proc { be_a(Time) },
 }
 
 describe Flickr::Person do
@@ -36,7 +58,7 @@ describe Flickr::Person do
         before(:each) { @it = @media.owner }
         subject { @it }
 
-        PERSON_ATTRIBUTES.each do |attribute, test|
+        PERSON_ATTRIBUTES.only(:id, :nsid, :username, :real_name, :location, :icon_server, :icon_farm).each do |attribute, test|
           its(attribute) { should instance_eval(&test) }
         end
       end
@@ -64,7 +86,7 @@ describe Flickr::Person do
       before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).owner }
       subject { @it }
 
-      PERSON_ATTRIBUTES.except(:real_name, :location).each do |attribute, test|
+      PERSON_ATTRIBUTES.only(:id, :nsid, :username, :icon_server, :icon_farm).each do |attribute, test|
         its(attribute) { should instance_eval(&test) }
       end
     end
@@ -74,6 +96,33 @@ describe Flickr::Person do
       subject { @it }
 
       PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
+      end
+    end
+
+    context "flickr.people.findByEmail" do
+      before(:all) { @it = Flickr.people.find_by_email(USER_EMAIL) }
+      subject { @it }
+
+      PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
+      end
+    end
+
+    context "flickr.people.findByUsername" do
+      before(:all) { @it = Flickr.people.find_by_username(USER_USERNAME) }
+      subject { @it }
+
+      PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
+      end
+    end
+
+    context "flickr.people.getInfo" do
+      before(:all) { @it = Flickr.people.find(USER_ID).get_info! }
+      subject { @it }
+
+      PERSON_ATTRIBUTES.each do |attribute, test|
         its(attribute) { should instance_eval(&test) }
       end
     end

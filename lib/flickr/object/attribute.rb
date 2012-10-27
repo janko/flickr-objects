@@ -12,6 +12,10 @@ class Flickr
           value = attribute_finder.find(name)
           attribute_converter.convert(value, type)
         end
+
+        (options[:aliases] || []).each do |alias_name|
+          alias_method alias_name, name
+        end
       end
 
       module InstanceMethods

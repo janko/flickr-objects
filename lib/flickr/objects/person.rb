@@ -4,14 +4,29 @@ require "flickr/api/person"
 class Flickr
   class Person < Object
 
-    attribute :id,             String
-    attribute :nsid,           String
-    attribute :username,       String
-    attribute :real_name,      String
-    attribute :location,       String
+    attribute :id,                   String
+    attribute :nsid,                 String
+    attribute :username,             String
+    attribute :real_name,            String
+    attribute :location,             String
+    attribute :time_zone,            Hash
+    attribute :description,          String
+    attribute :pro?,                 Boolean
 
-    attribute :icon_server,    Integer
-    attribute :icon_farm,      Integer
+    attribute :icon_server,          Integer
+    attribute :icon_farm,            Integer
+
+    attribute :photos_url,           String, aliases: [:videos_url, :media_url]
+    attribute :profile_url,          String
+    attribute :mobile_url,           String
+
+    attribute :first_photo_taken,    Time, aliases: [:first_video_taken, :first_media_taken]
+    attribute :first_photo_uploaded, Time, aliases: [:first_video_uploaded, :first_media_uploaded]
+
+    attribute :photos_count,         Integer, aliases: [:videos_count, :media_count]
+    attribute :photo_views_count,    Integer, aliases: [:video_views_count, :media_views_count]
+
+    attribute :path_alias,           String
 
     def buddy_icon_url
       if icon_farm

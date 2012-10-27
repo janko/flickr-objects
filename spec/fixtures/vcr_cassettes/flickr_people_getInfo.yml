@@ -1,0 +1,38 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.people.getInfo&user_id=78733179%40N04
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="02cb08b34d9de0c3967a848d5038955c", oauth_signature="uvz0kiuoK7bU2U1zXOLplofB1uU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351337241", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sat, 27 Oct 2012 11:27:22 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www228.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "447"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"person\":{\"id\":\"78733179@N04\", \"nsid\":\"78733179@N04\", \"ispro\":0, \"iconserver\":\"8033\", \"iconfarm\":9, \"path_alias\":null, \"username\":{\"_content\":\"@janko-m\"}, \"realname\":{\"_content\":\"Janko Marohni\\u0107\"}, \"mbox_sha1sum\":{\"_content\":\"3e20212c39d8bdf303e314bfb1749073cef17a09\"}, \"location\":{\"_content\":\"Zagreb, Croatia\"}, \"timezone\":{\"label\":\"Sarajevo, Skopje, Warsaw, Zagreb\", \"offset\":\"+01:00\"}, \"description\":{\"_content\":\"I'm an enthusiastic programmer.\"}, \"photosurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/\"}, \"profileurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/people\\/78733179@N04\\/\"}, \"mobileurl\":{\"_content\":\"http:\\/\\/m.flickr.com\\/photostream.gne?id=78701040\"}, \"photos\":{\"firstdatetaken\":{\"_content\":\"2012-09-14 13:02:57\"}, \"firstdate\":{\"_content\":\"1347653033\"}, \"count\":{\"_content\":3}, \"views\":{\"_content\":\"1\"}}}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sat, 27 Oct 2012 11:27:22 GMT
+recorded_with: VCR 2.2.4
