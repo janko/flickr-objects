@@ -1,13 +1,8 @@
-class Flickr
-  class Collection < Array
-    extend Object::Attribute
-  end
-end
-
-require "flickr/objects/attribute_values/collection"
+require_relative "attribute_values/collection"
 
 class Flickr
-  class Collection < Array
+  class Collection < Object
+    include Enumerable
 
     attribute :current_page,  Integer
     attribute :per_page,      Integer
@@ -27,7 +22,7 @@ class Flickr
       end
 
       @hash = hash
-      super(objects)
+      @objects = objects
     end
 
     def find(id = nil)
@@ -36,20 +31,28 @@ class Flickr
       else
         if id.is_a?(Array)
           ids = id.map(&:to_s)
-          select {|object| ids.include?(object.id) }
+          select { |object| ids.include?(object.id) }
         else
-          super() {|object| object.id == id.to_s }
+          super() { |object| object.id == id.to_s }
         end
       end
     end
 
-    def select(*args, &block)
-      self.dup.select!(*args, &block)
+    def each(&block)
+      @objects.each(&block)
+    end
+
+    def empty?
+      @objects.empty?
     end
 
     def select!(*args, &block)
-      super
+      @objects.select!(*args, &block)
       self
+    end
+
+    def select(*args, &block)
+      dup.select!(*args, &block)
     end
   end
 end

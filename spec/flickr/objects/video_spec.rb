@@ -14,8 +14,8 @@ VIDEO_ATTRIBUTES = {
 describe Flickr::Video do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @video = Flickr.videos.find(VIDEO_ID).get_info! }
-      subject { @video }
+      before(:all) { @it = Flickr.videos.find(VIDEO_ID).get_info! }
+      subject { @it }
 
       VIDEO_ATTRIBUTES.each do |attribute, test|
         its(attribute) { should instance_eval(&test) }
@@ -25,12 +25,12 @@ describe Flickr::Video do
 
   describe "methods" do
     context "flickr.photos.search" do
-      before(:all) { @video = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(VIDEO_ID) }
-      subject { @video }
+      before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(VIDEO_ID) }
+      subject { @it }
 
       it "has #thumbnail" do
-        @video.thumbnail("Square 75").should match(URI.regexp)
-        @video.thumbnail("Square 75").should_not eq(@video.thumbnail("Thumbnail"))
+        @it.thumbnail("Square 75").should match URI.regexp
+        @it.thumbnail("Square 75").should_not eq @it.thumbnail("Thumbnail")
       end
     end
   end

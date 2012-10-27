@@ -8,39 +8,39 @@ COLLECTION_ATTRIBUTES = {
 }
 
 describe Flickr::Collection do
-  before(:all) { @collection = Flickr.media.search(user_id: USER_ID) }
-  subject { @collection }
+  before(:each) { @it = Flickr.media.search(user_id: USER_ID) }
+  subject { @it }
 
   describe "methods" do
     describe "#find" do
       it "finds by ID" do
-        @collection.find(PHOTO_ID).should be_a(Flickr::Media)
+        @it.find(PHOTO_ID).should be_a(Flickr::Media)
       end
 
       it "finds by IDs" do
-        @collection.find([PHOTO_ID]).first.should be_a(Flickr::Media)
+        @it.find([PHOTO_ID]).first.should be_a(Flickr::Media)
       end
 
-      it "allows Array#find" do
-        @collection.find { |media| media.id == PHOTO_ID }.should be_a(Flickr::Media)
+      it "allows Enumerable#find" do
+        @it.find { |media| media.id == PHOTO_ID }.should be_a(Flickr::Media)
       end
     end
 
     describe "#each" do
       it "can loop through its elements" do
-        @collection.each { |media| media.is_a?(Flickr::Media) }
+        @it.each { |media| media.is_a?(Flickr::Media) }
       end
     end
 
     describe "#select" do
       it "stays the same type" do
-        Flickr.get_photos_from_contacts.should be_a(described_class)
+        @it.select { true }.should be_a(@it.class)
       end
     end
 
     it "instantiates the according media types" do
-      @collection.find(PHOTO_ID).should be_a(Flickr::Photo)
-      @collection.find(VIDEO_ID).should be_a(Flickr::Video)
+      @it.find(PHOTO_ID).should be_a(Flickr::Photo)
+      @it.find(VIDEO_ID).should be_a(Flickr::Video)
     end
   end
 

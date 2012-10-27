@@ -12,38 +12,29 @@ PERSON_ATTRIBUTES = {
 
 describe Flickr::Person do
   describe "methods" do
-    before(:all) { @person = Flickr.media.find(PHOTO_ID).get_info!.owner }
+    before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info!.owner }
+    subject { @it }
 
     describe "#buddy_icon_url" do
       context "when person has an avatar" do
-        subject { @person }
-
-        its(:buddy_icon_url) { should match(/#{@person.icon_server}/) }
+        its(:buddy_icon_url) { should be_an_existing_url }
       end
 
       context "when prerson doesn't have an avatar" do
-        subject { @person.tap { |person| person.stub(:icon_server) { 0 } } }
+        before(:each) { @it.stub(:icon_server).and_return(0) }
 
-        its(:buddy_icon_url) { should_not match(/\d/) }
+        its(:buddy_icon_url) { should be_an_existing_url }
       end
     end
   end
 
   describe "attributes" do
-    context "flickr.test.login" do
-      before(:all) { @person = Flickr.test_login }
-      subject { @person }
-
-      PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
-    end
-
     context "flickr.photos.getInfo" do
       before(:all) { @media = Flickr.media.find(PHOTO_ID).get_info! }
 
       describe "photo's owner" do
-        subject { @media.owner }
+        before(:each) { @it = @media.owner }
+        subject { @it }
 
         PERSON_ATTRIBUTES.each do |attribute, test|
           its(attribute) { should instance_eval(&test) }
@@ -51,7 +42,8 @@ describe Flickr::Person do
       end
 
       describe "notes' author" do
-        subject { @media.notes.first.author }
+        before(:each) { @it = @media.notes.first.author }
+        subject { @it }
 
         PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
           its(attribute) { should instance_eval(&test) }
@@ -59,7 +51,8 @@ describe Flickr::Person do
       end
 
       describe "tags' author" do
-        subject { @media.tags.first.author }
+        before(:each) { @it = @media.tags.first.author }
+        subject { @it }
 
         PERSON_ATTRIBUTES.only(:id, :nsid).each do |attribute, test|
           its(attribute) { should instance_eval(&test) }
@@ -68,8 +61,8 @@ describe Flickr::Person do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @person = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).owner }
-      subject { @person }
+      before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).owner }
+      subject { @it }
 
       PERSON_ATTRIBUTES.except(:real_name, :location).each do |attribute, test|
         its(attribute) { should instance_eval(&test) }

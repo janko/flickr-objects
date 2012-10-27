@@ -8,20 +8,20 @@ http_interactions:
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="6b877232a5e79c4af5aab6a1f23956e5", oauth_signature="y%2Fz6py%2FbHmTWMfwzVCnDFg%2BDT%2Fo%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962156", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="c1729b1d8dd5cc21b9f8f14e5a17021d", oauth_signature="S0nQ%2FpuR9UllY%2FU8zaaxK10SQQQ%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351295182", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Tue, 18 Sep 2012 09:55:56 GMT
+      - Fri, 26 Oct 2012 23:46:22 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       cache-control: 
       - private
       x-served-by: 
-      - www136.flickr.mud.yahoo.com
+      - www116.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -34,29 +34,29 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Tue, 18 Sep 2012 09:55:57 GMT
+  recorded_at: Fri, 26 Oct 2012 23:46:23 GMT
 - request: 
     method: post
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.setTags&photo_id=7986395865&tags=Test
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.setTags&photo_id=7986395865&tags=test%2Ccool
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="10e7cd9e2a0675f245c9b0db1462927c", oauth_signature="ME6DGWRwEyVib0XTfOh52F59zYo%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962157", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="3a44cff77204a4b0d7bdc463c24bdc44", oauth_signature="hXL%2F0FxzZpe3nErkZwPVg0hGb1U%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351295183", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Tue, 18 Sep 2012 09:55:57 GMT
+      - Fri, 26 Oct 2012 23:46:23 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       cache-control: 
       - private
       x-served-by: 
-      - www160.flickr.mud.yahoo.com
+      - www201.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -69,5 +69,5 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Tue, 18 Sep 2012 09:55:57 GMT
+  recorded_at: Fri, 26 Oct 2012 23:46:23 GMT
 recorded_with: VCR 2.2.4

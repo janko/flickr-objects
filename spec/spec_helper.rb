@@ -11,7 +11,6 @@ Dir["#{RSPEC_DIR}/support/**/*.rb"].each { |f| require f }
 require "#{RSPEC_DIR}/credentials"
 
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.before(:each) do
     Flickr.configure do |config|
       config.api_key = ENV['FLICKR_API_KEY']
@@ -36,5 +35,4 @@ VCR.configure do |config|
   }
   config.filter_sensitive_data('API_KEY')      { ENV['FLICKR_API_KEY'] }
   config.filter_sensitive_data('ACCESS_TOKEN') { ENV['FLICKR_ACCESS_TOKEN'] }
-  config.configure_rspec_metadata!
 end

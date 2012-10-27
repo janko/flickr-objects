@@ -1,4 +1,4 @@
-require "flickr/objects/attribute_values/permissions"
+require_relative "attribute_values/permissions"
 
 class Flickr
   class Permissions < Object

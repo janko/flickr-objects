@@ -18,8 +18,8 @@ AREA_ATTRIBUTES = {
 describe Flickr::Location do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @location = Flickr.media.find(PHOTO_ID).get_info!.location }
-      subject { @location }
+      before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info!.location }
+      subject { @it }
 
       LOCATION_ATTRIBUTES.each do |attribute, test|
         its(attribute) { should instance_eval(&test) }
@@ -27,7 +27,7 @@ describe Flickr::Location do
 
       describe Flickr::Location::Area do
         [:neighbourhood, :locality, :county, :region, :country].each do |area|
-          subject { @location.send(area) }
+          subject { @it.send(area) }
 
           AREA_ATTRIBUTES.each do |attribute, test|
             its(attribute) { should instance_eval(&test) }
@@ -37,8 +37,8 @@ describe Flickr::Location do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @location = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).location }
-      subject { @location }
+      before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).location }
+      subject { @it }
 
       LOCATION_ATTRIBUTES.each do |attribute, test|
         its(attribute) { should instance_eval(&test) }

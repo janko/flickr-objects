@@ -10,8 +10,8 @@ TAG_ATTRIBUTES = {
 describe Flickr::Tag do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @tag = Flickr.media.find(PHOTO_ID).get_info!.tags.first }
-      subject { @tag }
+      before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info!.tags.first }
+      subject { @it }
 
       TAG_ATTRIBUTES.each do |attribute, test|
         its(attribute) { should instance_eval(&test) }
@@ -19,8 +19,8 @@ describe Flickr::Tag do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @tag = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).tags.first }
-      subject { @tag }
+      before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).tags.first }
+      subject { @it }
 
       TAG_ATTRIBUTES.only(:content, :machine_tag?).each do |attribute, test|
         its(attribute) { should instance_eval(&test) }

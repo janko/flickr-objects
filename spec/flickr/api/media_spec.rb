@@ -1,34 +1,35 @@
 require "spec_helper"
 
 describe Flickr::Media do
-  let(:media) { Flickr.media.find(PHOTO_ID) }
+  before(:each) { @it = Flickr.media.find(PHOTO_ID) }
 
   describe "flickr.photos.setContentType" do
     it "works" do
-      media.set_content_type(1)
+      @it.set_content_type(1)
     end
 
     it "has the cool alias" do
-      media.should respond_to(:content_type=)
+      @it.should respond_to(:content_type=)
     end
   end
 
   describe "flickr.photos.addTags" do
     it "works" do
-      media.add_tags "Cool"
-      media.get_info!
-      media.remove_tag(media.tags.last)
+      @it.add_tags "Cool"
+      tag_id = @it.get_info!.tags.last.id
+      @it.remove_tag(tag_id)
     end
   end
 
   describe "flickr.photos.setTags" do
     it "works" do
-      media.set_tags "Cool"
-      media.set_tags "Test"
+      old_tags = @it.get_info!.tags.join(",")
+      @it.set_tags "Cool"
+      @it.set_tags old_tags
     end
 
     it "has the cool alias" do
-      media.should respond_to(:tags=)
+      @it.should respond_to(:tags=)
     end
   end
 end

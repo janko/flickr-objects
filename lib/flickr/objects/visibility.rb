@@ -1,4 +1,4 @@
-require "flickr/objects/attribute_values/visibility"
+require_relative "attribute_values/visibility"
 
 class Flickr
   class Visibility < Object

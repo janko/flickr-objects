@@ -44,7 +44,7 @@ class Flickr
 
         # Response
         builder.use Middleware::CheckStatus
-        builder.use parser
+        builder.use self.parser
         builder.use Middleware::CheckOAuth
 
         builder.adapter :net_http

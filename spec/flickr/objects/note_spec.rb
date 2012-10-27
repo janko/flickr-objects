@@ -10,8 +10,8 @@ NOTE_ATTRIBUTES = {
 describe Flickr::Note do
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @note = Flickr.media.find(PHOTO_ID).get_info!.notes.first }
-      subject { @note }
+      before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info!.notes.first }
+      subject { @it }
 
       NOTE_ATTRIBUTES.each do |attribute, test|
         its(attribute) { should instance_eval(&test) }

@@ -1,33 +1,33 @@
 require "spec_helper"
 
 describe Flickr do
-  describe ".api_methods" do
-    it "works" do
-      Flickr.api_methods["flickr.photos.search"].should eq(["Flickr::Media.search", "Flickr::Photo.search", "Flickr::Video.search"])
-      Flickr.api_methods["flickr.photos.getInfo"].should eq(["Flickr::Media#get_info!", "Flickr::Photo#get_info!", "Flickr::Video#get_info!"])
-    end
+  before(:each) { @it = Flickr }
+
+  it "has a list of registered API methods" do
+    @it.api_methods["flickr.photos.search"].should eq ["Flickr::Media.search", "Flickr::Photo.search", "Flickr::Video.search"]
+    @it.api_methods["flickr.photos.getInfo"].should eq ["Flickr::Media#get_info!", "Flickr::Photo#get_info!", "Flickr::Video#get_info!"]
   end
 
-  describe "interface" do
-    it "maps to object classes" do
-      Flickr.media.methods.should == Flickr::Media.methods
-    end
+  it "has an interface" do
+    @it.media.should eq Flickr::Media
   end
 
   describe "instance" do
-    it "has a different client" do
-      expect { Flickr.test_login(vcr: "flickr 1") }.to_not raise_error(Flickr::Client::OAuthError)
-      flickr = Flickr.new(nil, nil)
-      expect { flickr.test_login(vcr: "flickr 2") }.to raise_error(Flickr::Client::OAuthError)
+    before(:each) { @it = Flickr.new(ENV["FLICKR_ACCESS_TOKEN"], ENV["FLICKR_ACCESS_SECRET"]) }
+
+    it "has clients" do
+      @it.client.should be_a(Flickr::MethodsClient)
+      @it.upload_client.should be_a(Flickr::UploadClient)
     end
 
-    it "is able to make requests" do
-      flickr = Flickr.new(ENV["FLICKR_ACCESS_TOKEN"], ENV["FLICKR_ACCESS_SECRET"])
-      expect { flickr.test_login }.to_not raise_error(Flickr::Client::Error)
+    it "can has a different access token" do
+      expect { @it.client.get "flickr.test.login" }.to_not raise_error(Flickr::Client::OAuthError)
+      @it = Flickr.new(nil, nil)
+      expect { @it.client.get "flickr.test.login", vcr: "without access token" }.to raise_error(Flickr::Client::OAuthError)
     end
 
     it "has the interface" do
-      Flickr.new.media.methods.should == Flickr::Media.methods
+      @it.media.should eq Flickr::Media
     end
   end
 end

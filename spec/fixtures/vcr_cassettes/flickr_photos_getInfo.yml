@@ -8,68 +8,33 @@ http_interactions:
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="bcf8c4838dd1be9196f0da7d401544df", oauth_signature="0qeIZUyvXVtV4GBiGBIGNLkeJ2U%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962155", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="912af549550595df86fa61821f033982", oauth_signature="ig8u3pYEW6ra6BJON28PvDb6lQ4%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351295181", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Tue, 18 Sep 2012 09:55:55 GMT
+      - Fri, 26 Oct 2012 23:46:21 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       cache-control: 
       - private
       x-served-by: 
-      - www174.flickr.mud.yahoo.com
+      - www132.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "953"
+      - "955"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"photo\":{\"id\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"dateuploaded\":\"1347653033\", \"isfavorite\":0, \"license\":\"0\", \"safety_level\":\"0\", \"rotation\":0, \"owner\":{\"nsid\":\"78733179@N04\", \"username\":\"@janko-m\", \"realname\":\"Janko Marohni\\u0107\", \"location\":\"Zagreb, Croatia\", \"iconserver\":\"8033\", \"iconfarm\":9}, \"title\":{\"_content\":\"Game of Thrones\"}, \"description\":{\"_content\":\"A poster for the &quot;Game of Thrones&quot; TV series\"}, \"visibility\":{\"ispublic\":1, \"isfriend\":0, \"isfamily\":0}, \"dates\":{\"posted\":\"1347653033\", \"taken\":\"2012-09-14 13:02:57\", \"takengranularity\":\"0\", \"lastupdate\":\"1347962155\"}, \"permissions\":{\"permcomment\":3, \"permaddmeta\":2}, \"views\":\"15\", \"editability\":{\"cancomment\":1, \"canaddmeta\":1}, \"publiceditability\":{\"cancomment\":1, \"canaddmeta\":0}, \"usage\":{\"candownload\":1, \"canblog\":1, \"canprint\":1, \"canshare\":1}, \"comments\":{\"_content\":\"1\"}, \"notes\":{\"note\":[{\"id\":\"72157631536525795\", \"author\":\"78733179@N04\", \"authorname\":\"@janko-m\", \"x\":\"16\", \"y\":\"16\", \"w\":\"31\", \"h\":\"31\", \"_content\":\"Test\"}]}, \"people\":{\"haspeople\":0}, \"tags\":{\"tag\":[{\"id\":\"78701040-7986395865-320\", \"author\":\"78733179@N04\", \"raw\":\"Test\", \"_content\":\"test\", \"machine_tag\":0}, {\"id\":\"78701040-7986395865-2709\", \"author\":\"78733179@N04\", \"raw\":\"Cool\", \"_content\":\"cool\", \"machine_tag\":0}]}, \"location\":{\"latitude\":37.792422, \"longitude\":-122.419109, \"accuracy\":\"14\", \"context\":\"0\", \"neighbourhood\":{\"_content\":\"Polk Gulch\", \"place_id\":\"W24McYBUV7MWarg33w\", \"woeid\":\"55970967\"}, \"locality\":{\"_content\":\"San Francisco\", \"place_id\":\"7.MJR8tTVrIO1EgB\", \"woeid\":\"2487956\"}, \"county\":{\"_content\":\"San Francisco\", \"place_id\":\".7sOmlRQUL9nK.kMzA\", \"woeid\":\"12587707\"}, \"region\":{\"_content\":\"California\", \"place_id\":\"NsbUWfBTUb4mbyVu\", \"woeid\":\"2347563\"}, \"country\":{\"_content\":\"United States\", \"place_id\":\"nz.gsghTUb4c2WAecA\", \"woeid\":\"23424977\"}, \"place_id\":\"W24McYBUV7MWarg33w\", \"woeid\":\"55970967\"}, \"geoperms\":{\"ispublic\":1, \"iscontact\":0, \"isfriend\":0, \"isfamily\":0}, \"urls\":{\"url\":[{\"type\":\"photopage\", \"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/\"}]}, \"media\":\"photo\"}, \"stat\":\"ok\"}"
+      string: "{\"photo\":{\"id\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"dateuploaded\":\"1347653033\", \"isfavorite\":0, \"license\":\"0\", \"safety_level\":\"0\", \"rotation\":0, \"owner\":{\"nsid\":\"78733179@N04\", \"username\":\"@janko-m\", \"realname\":\"Janko Marohni\\u0107\", \"location\":\"Zagreb, Croatia\", \"iconserver\":\"8033\", \"iconfarm\":9}, \"title\":{\"_content\":\"Game of Thrones\"}, \"description\":{\"_content\":\"A poster for the &quot;Game of Thrones&quot; TV series\"}, \"visibility\":{\"ispublic\":1, \"isfriend\":0, \"isfamily\":0}, \"dates\":{\"posted\":\"1347653033\", \"taken\":\"2012-09-14 13:02:57\", \"takengranularity\":\"0\", \"lastupdate\":\"1351295181\"}, \"permissions\":{\"permcomment\":3, \"permaddmeta\":2}, \"views\":\"33\", \"editability\":{\"cancomment\":1, \"canaddmeta\":1}, \"publiceditability\":{\"cancomment\":1, \"canaddmeta\":0}, \"usage\":{\"candownload\":1, \"canblog\":1, \"canprint\":1, \"canshare\":1}, \"comments\":{\"_content\":\"1\"}, \"notes\":{\"note\":[{\"id\":\"72157631536525795\", \"author\":\"78733179@N04\", \"authorname\":\"@janko-m\", \"x\":\"16\", \"y\":\"16\", \"w\":\"31\", \"h\":\"31\", \"_content\":\"Test\"}]}, \"people\":{\"haspeople\":0}, \"tags\":{\"tag\":[{\"id\":\"78701040-7986395865-320\", \"author\":\"78733179@N04\", \"raw\":\"test\", \"_content\":\"test\", \"machine_tag\":0}, {\"id\":\"78701040-7986395865-2709\", \"author\":\"78733179@N04\", \"raw\":\"cool\", \"_content\":\"cool\", \"machine_tag\":0}]}, \"location\":{\"latitude\":37.792422, \"longitude\":-122.419109, \"accuracy\":\"14\", \"context\":\"0\", \"neighbourhood\":{\"_content\":\"Polk Gulch\", \"place_id\":\"W24McYBUV7MWarg33w\", \"woeid\":\"55970967\"}, \"locality\":{\"_content\":\"San Francisco\", \"place_id\":\"7.MJR8tTVrIO1EgB\", \"woeid\":\"2487956\"}, \"county\":{\"_content\":\"San Francisco\", \"place_id\":\".7sOmlRQUL9nK.kMzA\", \"woeid\":\"12587707\"}, \"region\":{\"_content\":\"California\", \"place_id\":\"NsbUWfBTUb4mbyVu\", \"woeid\":\"2347563\"}, \"country\":{\"_content\":\"United States\", \"place_id\":\"nz.gsghTUb4c2WAecA\", \"woeid\":\"23424977\"}, \"place_id\":\"W24McYBUV7MWarg33w\", \"woeid\":\"55970967\"}, \"geoperms\":{\"ispublic\":1, \"iscontact\":0, \"isfriend\":0, \"isfamily\":0}, \"urls\":{\"url\":[{\"type\":\"photopage\", \"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/\"}]}, \"media\":\"photo\"}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Tue, 18 Sep 2012 09:55:56 GMT
-- request: 
-    method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getInfo&photo_id=7989540600
-    body: 
-      encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="167a45c017bc9703ceb9933d3e146dfa", oauth_signature="h%2FRDI6rH9QuHi%2FgPlk5pTPjvfZA%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962173", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
-  response: 
-    status: 
-      code: 200
-      message: 
-    headers: 
-      date: 
-      - Tue, 18 Sep 2012 09:56:14 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      cache-control: 
-      - private
-      x-served-by: 
-      - www193.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "617"
-      connection: 
-      - close
-      content-type: 
-      - application/json
-    body: 
-      encoding: ASCII-8BIT
-      string: "{\"photo\":{\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"dateuploaded\":\"1347741844\", \"isfavorite\":0, \"license\":\"0\", \"safety_level\":\"0\", \"rotation\":0, \"owner\":{\"nsid\":\"78733179@N04\", \"username\":\"@janko-m\", \"realname\":\"Janko Marohni\\u0107\", \"location\":\"Zagreb, Croatia\", \"iconserver\":\"8033\", \"iconfarm\":9}, \"title\":{\"_content\":\"David Belle - Rush Hour (BBC commercial)\"}, \"description\":{\"_content\":\"\"}, \"visibility\":{\"ispublic\":1, \"isfriend\":0, \"isfamily\":0}, \"dates\":{\"posted\":\"1347741844\", \"taken\":\"2012-09-15 13:44:04\", \"takengranularity\":\"0\", \"lastupdate\":\"1347741948\"}, \"permissions\":{\"permcomment\":3, \"permaddmeta\":2}, \"views\":\"1\", \"editability\":{\"cancomment\":1, \"canaddmeta\":1}, \"publiceditability\":{\"cancomment\":1, \"canaddmeta\":0}, \"usage\":{\"candownload\":1, \"canblog\":1, \"canprint\":1, \"canshare\":1}, \"comments\":{\"_content\":\"0\"}, \"notes\":{\"note\":[]}, \"people\":{\"haspeople\":0}, \"tags\":{\"tag\":[]}, \"urls\":{\"url\":[{\"type\":\"photopage\", \"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7989540600\\/\"}]}, \"media\":\"video\", \"video\":{\"ready\":1, \"failed\":0, \"pending\":0, \"duration\":\"92\", \"width\":\"320\", \"height\":\"240\"}}, \"stat\":\"ok\"}"
-    http_version: 
-  recorded_at: Tue, 18 Sep 2012 09:56:14 GMT
+  recorded_at: Fri, 26 Oct 2012 23:46:22 GMT
 - request: 
     method: get
     uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getInfo&photo_id
@@ -78,14 +43,14 @@ http_interactions:
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="f67f665912e6c5e357f89defc3b14469", oauth_signature="1%2FOdnu3uSmPeLqOuTw9RDhIzQWE%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351170195", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="bb7073d3ca70f4f56d2403e484fb4b5c", oauth_signature="x0l7hQVLhlS4IeQogWll5VlIZiY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351295190", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Thu, 25 Oct 2012 13:03:15 GMT
+      - Fri, 26 Oct 2012 23:46:30 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       access-control-allow-origin: 
@@ -93,7 +58,7 @@ http_interactions:
       cache-control: 
       - private
       x-served-by: 
-      - www134.flickr.mud.yahoo.com
+      - www139.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -106,5 +71,40 @@ http_interactions:
       encoding: ASCII-8BIT
       string: "{\"stat\":\"fail\", \"code\":1, \"message\":\"Photo not found\"}"
     http_version: 
-  recorded_at: Thu, 25 Oct 2012 13:03:16 GMT
+  recorded_at: Fri, 26 Oct 2012 23:46:30 GMT
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getInfo&photo_id=7989540600
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="723d912e5a25466dd3e48b8a1a4bdbed", oauth_signature="k7%2FC1fOyZnPMQeIYw63%2FhKosg1c%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351295196", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Fri, 26 Oct 2012 23:46:36 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www225.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "617"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photo\":{\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"dateuploaded\":\"1347741844\", \"isfavorite\":0, \"license\":\"0\", \"safety_level\":\"0\", \"rotation\":0, \"owner\":{\"nsid\":\"78733179@N04\", \"username\":\"@janko-m\", \"realname\":\"Janko Marohni\\u0107\", \"location\":\"Zagreb, Croatia\", \"iconserver\":\"8033\", \"iconfarm\":9}, \"title\":{\"_content\":\"David Belle - Rush Hour (BBC commercial)\"}, \"description\":{\"_content\":\"\"}, \"visibility\":{\"ispublic\":1, \"isfriend\":0, \"isfamily\":0}, \"dates\":{\"posted\":\"1347741844\", \"taken\":\"2012-09-15 13:44:04\", \"takengranularity\":\"0\", \"lastupdate\":\"1347741948\"}, \"permissions\":{\"permcomment\":3, \"permaddmeta\":2}, \"views\":\"1\", \"editability\":{\"cancomment\":1, \"canaddmeta\":1}, \"publiceditability\":{\"cancomment\":1, \"canaddmeta\":0}, \"usage\":{\"candownload\":1, \"canblog\":1, \"canprint\":1, \"canshare\":1}, \"comments\":{\"_content\":\"0\"}, \"notes\":{\"note\":[]}, \"people\":{\"haspeople\":0}, \"tags\":{\"tag\":[]}, \"urls\":{\"url\":[{\"type\":\"photopage\", \"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7989540600\\/\"}]}, \"media\":\"video\", \"video\":{\"ready\":1, \"failed\":0, \"pending\":0, \"duration\":\"92\", \"width\":\"320\", \"height\":\"240\"}}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Fri, 26 Oct 2012 23:46:36 GMT
 recorded_with: VCR 2.2.4

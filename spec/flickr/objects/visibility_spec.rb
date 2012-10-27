@@ -13,7 +13,8 @@ describe Flickr::Visibility do
       before(:all) { @media = Flickr.media.find(PHOTO_ID).get_info! }
 
       describe "visibility" do
-        subject { @media.visibility }
+        before(:each) { @it = @media.visibility }
+        subject { @it }
 
         VISIBILITY_ATTRIBUTES.except(:contacts?).each do |attribute, test|
           its(attribute) { should instance_eval(&test) }
@@ -21,7 +22,8 @@ describe Flickr::Visibility do
       end
 
       describe "location_visibility" do
-        subject { @media.location_visibility }
+        before(:each) { @it = @media.location_visibility }
+        subject { @it }
 
         VISIBILITY_ATTRIBUTES.each do |attribute, test|
           its(attribute) { should instance_eval(&test) }
@@ -33,7 +35,8 @@ describe Flickr::Visibility do
       before(:all) { @media = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
 
       describe "visibility" do
-        subject { @media.visibility }
+        before(:each) { @it = @media.visibility }
+        subject { @it }
 
         VISIBILITY_ATTRIBUTES.except(:contacts?).each do |attribute, test|
           its(attribute) { should instance_eval(&test) }
@@ -41,7 +44,8 @@ describe Flickr::Visibility do
       end
 
       describe "location_visibility" do
-        subject { @media.location_visibility }
+        before(:each) { @it = @media.location_visibility }
+        subject { @it }
 
         VISIBILITY_ATTRIBUTES.each do |attribute, test|
           its(attribute) { should instance_eval(&test) }

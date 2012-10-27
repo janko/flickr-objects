@@ -1,4 +1,4 @@
-require "flickr/objects/attribute_values/note"
+require_relative "attribute_values/note"
 
 class Flickr
   class Note < Object

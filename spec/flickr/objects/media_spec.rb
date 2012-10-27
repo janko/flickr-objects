@@ -23,8 +23,8 @@ MEDIA_ATTRIBUTES = {
 
 describe Flickr::Media do
   describe "methods" do
-    before(:all) { @media = Flickr.media.find(PHOTO_ID).get_info! }
-    subject { @media }
+    before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info! }
+    subject { @it }
 
     [:safe?, :moderate?, :restricted?].each do |safety_level|
       its(safety_level) { should be_a_boolean }
@@ -32,12 +32,13 @@ describe Flickr::Media do
 
     its(:url) { should be_a_nonempty(String) }
 
-    it "has a short URL", :vcr do
-      connection = Faraday.new(@media.short_url) do |builder|
+    it "has a short URL" do
+      @it.short_url.should be_an_existing_url
+      connection = Faraday.new(@it.short_url) do |builder|
         builder.use FaradayMiddleware::FollowRedirects, limit: 5
         builder.adapter :net_http
       end
-      response = connection.get
+      response = VCR.use_cassette("short URL") { connection.get }
       response.should be_a_success
     end
   end

@@ -8,20 +8,20 @@ http_interactions:
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="6f686a87a0b611f55346c6dafce04994", oauth_signature="QsZFZ6gWDB4xeKaIZh4DecLbEl0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1347962153", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="30c8d45605807186e380a9a769ba12be", oauth_signature="zZ%2B51GcoSXWNuZ47FrgR8gcmsFI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351295178", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Tue, 18 Sep 2012 09:55:53 GMT
+      - Fri, 26 Oct 2012 23:46:18 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       cache-control: 
       - private
       x-served-by: 
-      - www117.flickr.mud.yahoo.com
+      - www166.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -34,5 +34,77 @@ http_interactions:
       encoding: ASCII-8BIT
       string: "{\"user\":{\"id\":\"78733179@N04\", \"username\":{\"_content\":\"@janko-m\"}}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Tue, 18 Sep 2012 09:55:53 GMT
+  recorded_at: Fri, 26 Oct 2012 23:46:18 GMT
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.test.login&vcr=without+access+token
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="ee54d76032be0371643a0638feca81ca", oauth_signature="p1TX3S0XPU3xTZZDUAa7HQzhdMI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351295179", oauth_version="1.0"
+  response: 
+    status: 
+      code: 400
+      message: 
+    headers: 
+      date: 
+      - Fri, 26 Oct 2012 23:46:19 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www224.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "66"
+      connection: 
+      - close
+      content-type: 
+      - text/plain;charset=UTF-8
+    body: 
+      encoding: ASCII-8BIT
+      string: oauth_problem=parameter_absent&oauth_parameters_absent=oauth_token
+    http_version: 
+  recorded_at: Fri, 26 Oct 2012 23:46:19 GMT
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key&method=flickr.test.login&vcr=without+api+key
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_nonce="499c288118e5199b373c9274863878a0", oauth_signature="%2B5DxpPYu%2BnW%2Bmo93XDP9M2uB3xM%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351295190", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Fri, 26 Oct 2012 23:46:31 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      access-control-allow-origin: 
+      - "*"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www151.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "91"
+      connection: 
+      - close
+      content-type: 
+      - text/plain; charset=utf-8
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"stat\":\"fail\", \"code\":100, \"message\":\"Invalid API Key (Key has invalid format)\"}"
+    http_version: 
+  recorded_at: Fri, 26 Oct 2012 23:46:31 GMT
 recorded_with: VCR 2.2.4

@@ -10,6 +10,8 @@ class Flickr
   class Note        < Object; end
   class Tag         < Object; end
   class Location    < Object; end
+
+  class Collection  < Object; end
 end
 
 Flickr::Object.children.each do |klass|
@@ -19,5 +21,3 @@ Flickr::Object.children.each do |klass|
   rescue LoadError
   end
 end
-
-require "flickr/objects/collection"

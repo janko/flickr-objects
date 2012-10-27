@@ -1,9 +1,5 @@
 class Flickr
   class UploadClient < Client
-    def parser
-      FaradayMiddleware::ParseXml
-    end
-
     def initialize(access_token)
       super(access_token) do |builder|
         builder.use Faraday::Request::Multipart
@@ -20,6 +16,10 @@ class Flickr
       file = get_file(media)
       response = post "replace", {photo: file, photo_id: id}.merge(params)
       response.body
+    end
+
+    def parser
+      FaradayMiddleware::ParseXml
     end
 
     private

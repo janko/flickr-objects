@@ -1,4 +1,4 @@
-require "flickr/objects/attribute_values/location"
+require_relative "attribute_values/location"
 
 class Flickr
   class Location < Object

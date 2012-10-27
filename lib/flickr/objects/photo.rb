@@ -1,4 +1,4 @@
-require "flickr/objects/attribute_values/photo"
+require_relative "attribute_values/photo"
 require "flickr/api/photo"
 
 class Flickr

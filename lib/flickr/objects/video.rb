@@ -1,4 +1,4 @@
-require "flickr/objects/attribute_values/video"
+require_relative "attribute_values/video"
 require "flickr/api/video"
 
 class Flickr

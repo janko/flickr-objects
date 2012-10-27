@@ -4,16 +4,8 @@ class Flickr
       super(access_token)
     end
 
-    def for(owner)
-      @owner_prefix = (owner.instance_of?(Class) ? "#{owner}." : "#{owner.class}#")
-      self
-    end
-
     [:get, :post].each do |http_method|
-      define_method(http_method) do |method_name, params = {}|
-        flickr_method = resolve_flickr_method(method_name)
-        fix_extras(params)
-
+      define_method(http_method) do |flickr_method, params = {}|
         response = super("rest") do |req|
           req.params[:method] = flickr_method
           req.params.update(params)
@@ -23,22 +15,11 @@ class Flickr
       end
     end
 
-    private
-
     def parser
       FaradayMiddleware::ParseJson
     end
 
-    def resolve_flickr_method(method_name)
-      full_method_name = "#{@owner_prefix}#{method_name}"
-      pair = Flickr.api_methods.find { |_, value| value.include?(full_method_name) }
-
-      if pair
-        pair.first
-      else
-        raise "method #{full_method_name} not found"
-      end
-    end
+    private
 
     def fix_extras(params)
       if params.delete(:include_sizes)
