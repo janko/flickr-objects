@@ -1,10 +1,10 @@
 class Flickr
   class Set < Object
-    def add_media(media_id, params = {})
+    def add_photo(media_id, params = {})
       client.post flickr_method(__method__), params.merge(photoset_id: id, photo_id: media_id)
     end
-    alias add_photo add_media
-    alias add_video add_media
+    alias add_video add_photo
+    alias add_media add_photo
     instance_api_method :add_media, "flickr.photosets.addPhoto"
     instance_api_method :add_photo, "flickr.photosets.addPhoto"
     instance_api_method :add_video, "flickr.photosets.addPhoto"
@@ -20,6 +20,16 @@ class Flickr
       self
     end
     instance_api_method :delete, "flickr.photosets.delete"
+
+    def edit_photos(params = {})
+      client.post flickr_method(__method__), params.merge(photoset_id: id)
+      self
+    end
+    alias edit_videos edit_photos
+    alias edit_media edit_photos
+    instance_api_method :edit_photos, "flickr.photosets.editPhotos"
+    instance_api_method :edit_videos, "flickr.photosets.editPhotos"
+    instance_api_method :edit_media,  "flickr.photosets.editPhotos"
 
     def get_info!(params = {})
       response = client.get flickr_method(__method__), params.merge(photoset_id: id)
@@ -42,17 +52,17 @@ class Flickr
     instance_api_method :get_videos, "flickr.photosets.getPhotos"
     instance_api_method :get_media,  "flickr.photosets.getPhotos"
 
-    def remove_media(media_id, params = {})
+    def remove_photos(media_id, params = {})
       client.post flickr_method(__method__), params.merge(photoset_id: id, photo_ids: media_id)
     end
-    alias remove_photos remove_media
-    alias remove_videos remove_media
+    alias remove_media remove_photos
+    alias remove_videos remove_photos
     instance_api_method :remove_media,  "flickr.photosets.removePhotos"
     instance_api_method :remove_photos, "flickr.photosets.removePhotos"
     instance_api_method :remove_videos, "flickr.photosets.removePhotos"
 
-    alias remove_photo remove_media
-    alias remove_video remove_media
+    alias remove_photo remove_photos
+    alias remove_video remove_photos
     instance_api_method :remove_media, "flickr.photosets.removePhoto"
     instance_api_method :remove_photo, "flickr.photosets.removePhoto"
     instance_api_method :remove_video, "flickr.photosets.removePhoto"

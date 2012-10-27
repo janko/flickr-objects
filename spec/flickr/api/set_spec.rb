@@ -36,4 +36,13 @@ describe Flickr::Set do
       @it.get_videos.each { |object| object.should be_a(Flickr::Video) }
     end
   end
+
+  describe "flickr.photosets.editPhotos" do
+    it "works" do
+      photo_id = @it.get_photos.first.id
+      @it.edit_photos(primary_photo_id: photo_id, photo_ids: photo_id)
+      @it.edit_videos(primary_photo_id: photo_id, photo_ids: photo_id)
+      @it.edit_media(primary_photo_id: photo_id, photo_ids: photo_id)
+    end
+  end
 end
