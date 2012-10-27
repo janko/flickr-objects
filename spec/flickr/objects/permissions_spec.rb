@@ -41,5 +41,14 @@ describe Flickr::Permissions do
         end
       end
     end
+
+    context "flickr.photosets.getInfo" do
+      before(:all) { @it = Flickr.sets.find(SET_ID).get_info!.permissions }
+      subject { @it }
+
+      PERMISSIONS_ATTRIBUTES.only(:can_comment?).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
+      end
+    end
   end
 end

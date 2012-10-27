@@ -64,5 +64,14 @@ describe Flickr::Media do
         its(attribute) { should instance_eval(&test) }
       end
     end
+
+    context "flickr.photosets.getInfo" do
+      before(:all) { @it = Flickr.sets.find(SET_ID).get_info!.primary_photo }
+      subject { @it }
+
+      MEDIA_ATTRIBUTES.only(:id).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
+      end
+    end
   end
 end

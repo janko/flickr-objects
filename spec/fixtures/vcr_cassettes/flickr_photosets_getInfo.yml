@@ -1,0 +1,38 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photosets.getInfo&photoset_id=72157631860874542
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="72fe7ec5da09f945af8e13340c2fbb44", oauth_signature="3BseBGe%2Bho9WkuCuuz4%2F49hWADk%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351331249", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sat, 27 Oct 2012 09:47:30 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www227.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "256"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photoset\":{\"id\":\"72157631860874542\", \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"primary\":\"8126288530\", \"secret\":\"6e6eaa53c8\", \"server\":\"8470\", \"farm\":9, \"photos\":1, \"count_views\":\"0\", \"count_comments\":\"0\", \"count_photos\":\"1\", \"count_videos\":0, \"title\":{\"_content\":\"Title\"}, \"description\":{\"_content\":\"Description\"}, \"can_comment\":1, \"date_create\":\"1351297929\", \"date_update\":\"1351329428\"}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sat, 27 Oct 2012 09:47:30 GMT
+recorded_with: VCR 2.2.4

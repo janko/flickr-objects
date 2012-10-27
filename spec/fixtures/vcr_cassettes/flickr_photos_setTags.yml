@@ -70,4 +70,39 @@ http_interactions:
       string: "{\"stat\":\"ok\"}"
     http_version: 
   recorded_at: Fri, 26 Oct 2012 23:46:23 GMT
+- request: 
+    method: post
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.setTags&photo_id=7986395865&tags=%23%3CFlickr%3A%3ATag%3A0x007fbcaa10f518%3E
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="f52fe2b3674c127a85f8da591f5a742c", oauth_signature="ThOShHT%2FEoMeyREaU6uIMUa9qDg%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351328941", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sat, 27 Oct 2012 09:09:01 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www214.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "13"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: US-ASCII
+      string: "{\"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sat, 27 Oct 2012 09:09:02 GMT
 recorded_with: VCR 2.2.4

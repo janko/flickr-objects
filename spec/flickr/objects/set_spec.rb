@@ -1,21 +1,46 @@
 require "spec_helper"
 
 SET_ATTRIBUTES = {
-  id:  proc { be_a_nonempty(String) },
-  url: proc { be_a_nonempty(String) },
+  id:               proc { be_a_nonempty(String) },
+  secret:           proc { be_a_nonempty(String) },
+  server:           proc { be_a_nonempty(String) },
+  farm:             proc { be_a(Integer) },
+  url:              proc { be_a_nonempty(String) },
+  title:            proc { be_a_nonempty(String) },
+  description:      proc { be_a_nonempty(String) },
+  owner:            proc { be_a(Flickr::Person) },
+  media_count:      proc { be_a(Integer) },
+  views_count:      proc { be_a(Integer) },
+  comments_count:   proc { be_a(Integer) },
+  photos_count:     proc { be_a(Integer) },
+  videos_count:     proc { be_a(Integer) },
+  created_at:       proc { be_a(Time) },
+  updated_at:       proc { be_a(Time) },
+  primary_media_id: proc { be_a_nonempty(String) },
+  primary_photo:    proc { be_a(Flickr::Photo) },
+  primary_video:    proc { be_a(Flickr::Video) },
 }
 
 describe Flickr::Set do
   describe "attributes" do
     context "flickr.photosets.create and flickr.photosets.delete" do
-      before(:each) { @it = Flickr.sets.create(title: "Title", primary_photo_id: PHOTO_ID) }
+      before(:all) { @it = Flickr.sets.create(title: "Title", primary_photo_id: PHOTO_ID) }
+      subject { @it }
+
+      SET_ATTRIBUTES.only(:id, :url).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
+      end
+
+      after(:each) { @it.delete }
+    end
+
+    context "flickr.photosets.getInfo" do
+      before(:all) { @it = Flickr.sets.find(SET_ID).get_info! }
       subject { @it }
 
       SET_ATTRIBUTES.each do |attribute, test|
         its(attribute) { should instance_eval(&test) }
       end
-
-      after(:each) { @it.delete }
     end
   end
 end

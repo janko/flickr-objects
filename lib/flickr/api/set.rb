@@ -21,6 +21,13 @@ class Flickr
     end
     instance_api_method :delete, "flickr.photosets.delete"
 
+    def get_info!(params = {})
+      response = client.get flickr_method(__method__), params.merge(photoset_id: id)
+      @hash.update(response["photoset"])
+      self
+    end
+    instance_api_method :get_info!, "flickr.photosets.getInfo"
+
     def get_photos(params = {})
       get_media(params.merge(media: "photos"))
     end

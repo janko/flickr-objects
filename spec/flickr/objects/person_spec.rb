@@ -68,5 +68,14 @@ describe Flickr::Person do
         its(attribute) { should instance_eval(&test) }
       end
     end
+
+    context "flickr.photosets.getInfo" do
+      before(:all) { @it = Flickr.sets.find(SET_ID).get_info!.owner }
+      subject { @it }
+
+      PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
+      end
+    end
   end
 end
