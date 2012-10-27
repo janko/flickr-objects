@@ -46,4 +46,5 @@ class Flickr
   map_interface :photos, Photo
   map_interface :videos, Video
   map_interface :people, Person
+  map_interface :sets,   Set
 end

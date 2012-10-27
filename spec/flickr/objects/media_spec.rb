@@ -34,19 +34,13 @@ describe Flickr::Media do
 
     it "has a short URL" do
       @it.short_url.should be_an_existing_url
-      connection = Faraday.new(@it.short_url) do |builder|
-        builder.use FaradayMiddleware::FollowRedirects, limit: 5
-        builder.adapter :net_http
-      end
-      response = VCR.use_cassette("short URL") { connection.get }
-      response.should be_a_success
     end
   end
 
   describe "attributes" do
     context "flickr.photos.getInfo" do
-      before(:all) { @media = Flickr.media.find(PHOTO_ID).get_info! }
-      subject { @media }
+      before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info! }
+      subject { @it }
 
       MEDIA_ATTRIBUTES.each do |attribute, test|
         its(attribute) { should instance_eval(&test) }
@@ -54,8 +48,17 @@ describe Flickr::Media do
     end
 
     context "flickr.photos.search" do
-      before(:all) { @media = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
-      subject { @media }
+      before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
+      subject { @it }
+
+      MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|
+        its(attribute) { should instance_eval(&test) }
+      end
+    end
+
+    context "flickr.photosets.getPhotos" do
+      before(:all) { @it = Flickr.sets.find(SET_ID).get_media(extras: EXTRAS).first }
+      subject { @it }
 
       MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|
         its(attribute) { should instance_eval(&test) }

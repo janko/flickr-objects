@@ -1,10 +1,14 @@
 require "flickr/object"
 
 class Flickr
+  # Official objects
   class Person      < Object; end
   class Media       < Object; end
   class Photo       < Media;  end
   class Video       < Media;  end
+  class Set         < Object; end
+
+  # Meta objects
   class Visibility  < Object; end
   class Permissions < Object; end
   class Note        < Object; end
