@@ -13,18 +13,14 @@ describe Flickr::Tag do
       before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info!.tags.first }
       subject { @it }
 
-      TAG_ATTRIBUTES.each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(TAG_ATTRIBUTES)
     end
 
     context "flickr.photos.search" do
       before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).tags.first }
       subject { @it }
 
-      TAG_ATTRIBUTES.only(:content, :machine_tag?).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(TAG_ATTRIBUTES.only(:content, :machine_tag?))
     end
   end
 end

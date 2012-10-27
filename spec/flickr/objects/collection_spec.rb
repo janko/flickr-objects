@@ -8,10 +8,10 @@ COLLECTION_ATTRIBUTES = {
 }
 
 describe Flickr::Collection do
-  before(:each) { @it = Flickr.media.search(user_id: USER_ID) }
-  subject { @it }
-
   describe "methods" do
+    before(:all) { @it = Flickr.media.search(user_id: USER_ID) }
+    subject { @it }
+
     describe "#find" do
       it "finds by ID" do
         @it.find(PHOTO_ID).should be_a(Flickr::Media)
@@ -45,8 +45,9 @@ describe Flickr::Collection do
   end
 
   describe "attributes" do
-    COLLECTION_ATTRIBUTES.each do |attribute, test|
-      its(attribute) { should instance_eval(&test) }
-    end
+    before(:all) { @it = Flickr.media.search(user_id: USER_ID) }
+    subject { @it }
+
+    test_attributes(COLLECTION_ATTRIBUTES)
   end
 end

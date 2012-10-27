@@ -18,27 +18,21 @@ describe Flickr::Permissions do
         before(:each) { @it = @media.editability }
         subject { @it }
 
-        PERMISSIONS_ATTRIBUTES.only(:can_comment?, :can_add_meta?).each do |attribute, test|
-          its(attribute) { should instance_eval(&test) }
-        end
+        test_attributes(PERMISSIONS_ATTRIBUTES.only(:can_comment?, :can_add_meta?))
       end
 
       describe "public_editability" do
         before(:each) { @it = @media.public_editability }
         subject { @it }
 
-        PERMISSIONS_ATTRIBUTES.only(:can_comment?, :can_add_meta?).each do |attribute, test|
-          its(attribute) { should instance_eval(&test) }
-        end
+        test_attributes(PERMISSIONS_ATTRIBUTES.only(:can_comment?, :can_add_meta?))
       end
 
       describe "usage" do
         before(:each) { @it = @media.usage }
         subject { @it }
 
-        PERMISSIONS_ATTRIBUTES.only(:can_download?, :can_blog?, :can_print?, :can_share?).each do |attribute, test|
-          its(attribute) { should instance_eval(&test) }
-        end
+        test_attributes(PERMISSIONS_ATTRIBUTES.only(:can_download?, :can_blog?, :can_print?, :can_share?))
       end
     end
 
@@ -46,9 +40,7 @@ describe Flickr::Permissions do
       before(:all) { @it = Flickr.sets.find(SET_ID).get_info!.permissions }
       subject { @it }
 
-      PERMISSIONS_ATTRIBUTES.only(:can_comment?).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(PERMISSIONS_ATTRIBUTES.only(:can_comment?))
     end
   end
 end

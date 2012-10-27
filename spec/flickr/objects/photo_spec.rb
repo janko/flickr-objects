@@ -57,9 +57,7 @@ describe Flickr::Photo do
       before(:all) { @it = Flickr.photos.find(PHOTO_ID).get_info! }
       subject { @it }
 
-      PHOTO_ATTRIBUTES.each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(PHOTO_ATTRIBUTES)
     end
   end
 end

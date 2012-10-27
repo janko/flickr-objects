@@ -27,20 +27,16 @@ describe Flickr::Set do
       before(:all) { @it = Flickr.sets.create(title: "Title", primary_photo_id: PHOTO_ID) }
       subject { @it }
 
-      SET_ATTRIBUTES.only(:id, :url).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(SET_ATTRIBUTES.only(:id, :url))
 
-      after(:each) { @it.delete }
+      after(:all) { @it.delete }
     end
 
     context "flickr.photosets.getInfo" do
       before(:all) { @it = Flickr.sets.find(SET_ID).get_info! }
       subject { @it }
 
-      SET_ATTRIBUTES.each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(SET_ATTRIBUTES)
     end
   end
 end

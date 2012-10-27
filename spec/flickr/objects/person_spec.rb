@@ -58,27 +58,21 @@ describe Flickr::Person do
         before(:each) { @it = @media.owner }
         subject { @it }
 
-        PERSON_ATTRIBUTES.only(:id, :nsid, :username, :real_name, :location, :icon_server, :icon_farm).each do |attribute, test|
-          its(attribute) { should instance_eval(&test) }
-        end
+        test_attributes(PERSON_ATTRIBUTES.only(:id, :nsid, :username, :real_name, :location, :icon_server, :icon_farm))
       end
 
       describe "notes' author" do
         before(:each) { @it = @media.notes.first.author }
         subject { @it }
 
-        PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
-          its(attribute) { should instance_eval(&test) }
-        end
+        test_attributes(PERSON_ATTRIBUTES.only(:id, :nsid, :username))
       end
 
       describe "tags' author" do
         before(:each) { @it = @media.tags.first.author }
         subject { @it }
 
-        PERSON_ATTRIBUTES.only(:id, :nsid).each do |attribute, test|
-          its(attribute) { should instance_eval(&test) }
-        end
+        test_attributes(PERSON_ATTRIBUTES.only(:id, :nsid))
       end
     end
 
@@ -86,45 +80,35 @@ describe Flickr::Person do
       before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID).owner }
       subject { @it }
 
-      PERSON_ATTRIBUTES.only(:id, :nsid, :username, :icon_server, :icon_farm).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(PERSON_ATTRIBUTES.only(:id, :nsid, :username, :icon_server, :icon_farm))
     end
 
     context "flickr.photosets.getInfo" do
       before(:all) { @it = Flickr.sets.find(SET_ID).get_info!.owner }
       subject { @it }
 
-      PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(PERSON_ATTRIBUTES.only(:id, :nsid, :username))
     end
 
     context "flickr.people.findByEmail" do
       before(:all) { @it = Flickr.people.find_by_email(USER_EMAIL) }
       subject { @it }
 
-      PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(PERSON_ATTRIBUTES.only(:id, :nsid, :username))
     end
 
     context "flickr.people.findByUsername" do
       before(:all) { @it = Flickr.people.find_by_username(USER_USERNAME) }
       subject { @it }
 
-      PERSON_ATTRIBUTES.only(:id, :nsid, :username).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(PERSON_ATTRIBUTES.only(:id, :nsid, :username))
     end
 
     context "flickr.people.getInfo" do
       before(:all) { @it = Flickr.people.find(USER_ID).get_info! }
       subject { @it }
 
-      PERSON_ATTRIBUTES.each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(PERSON_ATTRIBUTES)
     end
   end
 end

@@ -42,36 +42,28 @@ describe Flickr::Media do
       before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info! }
       subject { @it }
 
-      MEDIA_ATTRIBUTES.each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(MEDIA_ATTRIBUTES)
     end
 
     context "flickr.photos.search" do
       before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
       subject { @it }
 
-      MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?))
     end
 
     context "flickr.photosets.getPhotos" do
       before(:all) { @it = Flickr.sets.find(SET_ID).get_media(extras: EXTRAS).first }
       subject { @it }
 
-      MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?))
     end
 
     context "flickr.photosets.getInfo" do
       before(:all) { @it = Flickr.sets.find(SET_ID).get_info!.primary_photo }
       subject { @it }
 
-      MEDIA_ATTRIBUTES.only(:id).each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(MEDIA_ATTRIBUTES.only(:id))
     end
   end
 end

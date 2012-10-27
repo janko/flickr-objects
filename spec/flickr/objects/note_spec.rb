@@ -13,9 +13,7 @@ describe Flickr::Note do
       before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info!.notes.first }
       subject { @it }
 
-      NOTE_ATTRIBUTES.each do |attribute, test|
-        its(attribute) { should instance_eval(&test) }
-      end
+      test_attributes(NOTE_ATTRIBUTES)
     end
   end
 end
