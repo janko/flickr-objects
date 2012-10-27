@@ -76,5 +76,12 @@ describe Flickr::Media do
 
       test_extras(MEDIA_ATTRIBUTES)
     end
+
+    context "flickr.people.getPublicPhotos" do
+      before(:all) { @it = Flickr.people.find(USER_ID).get_public_photos(extras: EXTRAS).find(PHOTO_ID) }
+      subject { @it }
+
+      test_extras(MEDIA_ATTRIBUTES)
+    end
   end
 end
