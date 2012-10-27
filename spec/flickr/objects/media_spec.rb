@@ -38,6 +38,10 @@ describe Flickr::Media do
   end
 
   describe "attributes" do
+    def self.test_extras(attributes)
+      test_attributes(attributes.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?))
+    end
+
     context "flickr.photos.getInfo" do
       before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info! }
       subject { @it }
@@ -49,14 +53,14 @@ describe Flickr::Media do
       before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
       subject { @it }
 
-      test_attributes(MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?))
+      test_extras(MEDIA_ATTRIBUTES)
     end
 
     context "flickr.photosets.getPhotos" do
       before(:all) { @it = Flickr.sets.find(SET_ID).get_media(extras: EXTRAS).first }
       subject { @it }
 
-      test_attributes(MEDIA_ATTRIBUTES.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?))
+      test_extras(MEDIA_ATTRIBUTES)
     end
 
     context "flickr.photosets.getInfo" do
@@ -64,6 +68,13 @@ describe Flickr::Media do
       subject { @it }
 
       test_attributes(MEDIA_ATTRIBUTES.only(:id))
+    end
+
+    context "flickr.people.getPhotos" do
+      before(:all) { @it = Flickr.people.find(USER_ID).get_photos(extras: EXTRAS).find(PHOTO_ID) }
+      subject { @it }
+
+      test_extras(MEDIA_ATTRIBUTES)
     end
   end
 end

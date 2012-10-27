@@ -19,6 +19,20 @@ class Flickr
     end
     instance_api_method :get_info!, "flickr.people.getInfo"
 
+    def get_photos(params = {})
+      get_media(params).select { |object| object.is_a?(Flickr::Photo) }
+    end
+    def get_videos(params = {})
+      get_media(params).select { |object| object.is_a?(Flickr::Video) }
+    end
+    def get_media(params = {})
+      response = client.get flickr_method(__method__), include_media(params.merge(user_id: id))
+      Collection.new(response["photos"].delete("photo"), Media, response["photos"], client)
+    end
+    instance_api_method :get_photos, "flickr.people.getPhotos"
+    instance_api_method :get_videos, "flickr.people.getPhotos"
+    instance_api_method :get_media,  "flickr.people.getPhotos"
+
     def get_public_photos_from_contacts(params = {})
       get_public_media_from_contacts(params).select {|object| object.is_a?(Flickr::Photo) }
     end
