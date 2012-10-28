@@ -10,6 +10,12 @@ class Flickr
       params[:async] == 1 ? response["ticketid"] : response["photoid"]
     end
 
+    def check_upload_tickets(tickets, params = {})
+      response = client.get flickr_method(__method__), params.merge(tickets: tickets.to_s)
+      Collection.new(response["uploader"].delete("ticket"), UploadTicket, response["uploader"], client)
+    end
+    api_method :check_upload_tickets, "flickr.photos.upload.checkTickets"
+
     def test_login(params = {})
       client.get flickr_method(__method__), params
     end
