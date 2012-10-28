@@ -21,17 +21,6 @@ describe Flickr do
     end
   end
 
-  describe "flickr.photos.getContactsPhotos" do
-    it "returns photos and/or videos" do
-      collection = @it.get_media_from_contacts(include_self: 1)
-      collection.find(PHOTO_ID).should be
-      collection.find(VIDEO_ID).should be
-
-      @it.get_photos_from_contacts(include_self: 1).each { |object| object.should be_a(Flickr::Photo) }
-      @it.get_videos_from_contacts(include_self: 1).each { |object| object.should be_a(Flickr::Video) }
-    end
-  end
-
   describe "flickr.test.login" do
     before(:each) { @response = @it.test_login }
     subject { @response }

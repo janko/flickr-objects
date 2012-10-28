@@ -42,22 +42,29 @@ describe Flickr::Media do
       test_attributes(attributes.except(:favorite?, :safety_level, :posted_at, :comments_count, :has_people?))
     end
 
+    context "flickr.photos.getContactsPhotos" do
+      before(:all) { @it = Flickr.photos.get_from_contacts(extras: EXTRAS, include_self: 1).first }
+      subject { @it }
+
+      test_extras(MEDIA_ATTRIBUTES)
+    end
+
     context "flickr.photos.getInfo" do
-      before(:all) { @it = Flickr.media.find(PHOTO_ID).get_info! }
+      before(:all) { @it = Flickr.photos.find(PHOTO_ID).get_info! }
       subject { @it }
 
       test_attributes(MEDIA_ATTRIBUTES)
     end
 
     context "flickr.photos.search" do
-      before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
+      before(:all) { @it = Flickr.photos.search(user_id: USER_ID, extras: EXTRAS).find(PHOTO_ID) }
       subject { @it }
 
       test_extras(MEDIA_ATTRIBUTES)
     end
 
     context "flickr.photosets.getPhotos" do
-      before(:all) { @it = Flickr.sets.find(SET_ID).get_media(extras: EXTRAS).first }
+      before(:all) { @it = Flickr.sets.find(SET_ID).get_photos(extras: EXTRAS).first }
       subject { @it }
 
       test_extras(MEDIA_ATTRIBUTES)

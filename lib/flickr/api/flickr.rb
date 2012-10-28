@@ -18,20 +18,6 @@ class Flickr
       end
     end
 
-    def get_photos_from_contacts(params = {})
-      get_media_from_contacts(params).select { |media| media.is_a?(Photo) }
-    end
-    def get_videos_from_contacts(params = {})
-      get_media_from_contacts(params).select { |media| media.is_a?(Video) }
-    end
-    def get_media_from_contacts(params = {})
-      response = client.get flickr_method(__method__), include_media(params)
-      Collection.new(response["photos"].delete("photo"), Media, response["photos"], client)
-    end
-    api_method :get_photos_from_contacts, "flickr.photos.getContactsPhotos"
-    api_method :get_videos_from_contacts, "flickr.photos.getContactsPhotos"
-    api_method :get_media_from_contacts,  "flickr.photos.getContactsPhotos"
-
     def test_login(params = {})
       client.get flickr_method(__method__), params
     end

@@ -1,14 +1,21 @@
 require "spec_helper"
 
 describe Flickr::Photo do
-  before(:each) { @it = Flickr.photos.find(PHOTO_ID) }
-
   describe "flickr.photos.search" do
-    before(:each) { @collection = Flickr.photos.search(user_id: USER_ID) }
+    before(:all) { @collection = Flickr.photos.search(user_id: USER_ID) }
 
-    it "passes the media type" do
+    it "instantiates photos" do
       @collection.should_not be_empty
-      @collection.each { |object| object.should be_a(Flickr::Photo) }
+      @collection.each { |object| object.should be_a(described_class) }
+    end
+  end
+
+  describe "flickr.photos.getContactsPhotos" do
+    before(:all) { @collection = Flickr.photos.get_from_contacts(extras: EXTRAS, include_self: 1) }
+
+    it "instantiates photos" do
+      @collection.should_not be_empty
+      @collection.each { |object| object.should be_a(described_class) }
     end
   end
 end

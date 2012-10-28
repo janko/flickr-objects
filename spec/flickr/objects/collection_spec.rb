@@ -74,7 +74,7 @@ describe Flickr::Collection do
     end
 
     context "flickr.photos.getContactsPhotos" do
-      before(:all) { @it = Flickr.get_photos_from_contacts }
+      before(:all) { @it = Flickr.photos.get_from_contacts(extras: EXTRAS, include_self: 1) }
       subject { @it }
 
       test_attributes(COLLECTION_ATTRIBUTES)

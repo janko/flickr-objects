@@ -12,6 +12,12 @@ class Flickr
     end
     instance_api_method :delete, "flickr.photos.delete"
 
+    def self.get_from_contacts(params = {})
+      response = client.get flickr_method(__method__), include_media(params)
+      Collection.new(response["photos"].delete("photo"), Media, response["photos"], client)
+    end
+    class_api_method :get_from_contacts, "flickr.photos.getContactsPhotos"
+
     def get_info!(params = {})
       response = client.get flickr_method(__method__), params.merge(photo_id: id)
       @hash.update(response["photo"])
