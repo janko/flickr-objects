@@ -15,5 +15,3 @@ class Flickr
 
   end
 end
-
-require "flickr/api/tag"

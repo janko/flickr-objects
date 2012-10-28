@@ -2,20 +2,12 @@ class Flickr
   api_methods = proc do
     def upload(media, params = {})
       response = upload_client.upload(media, params)
-      if params[:async] == 1
-        response["ticketid"]
-      else
-        response["photoid"]
-      end
+      params[:async] == 1 ? response["ticketid"] : response["photoid"]
     end
 
     def replace(media, id, params = {})
       response = upload_client.replace(media, id, params)
-      if params[:async] == 1
-        response["ticketid"]
-      else
-        response["photoid"]
-      end
+      params[:async] == 1 ? response["ticketid"] : response["photoid"]
     end
 
     def test_login(params = {})
