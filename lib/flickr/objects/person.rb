@@ -29,8 +29,8 @@ class Flickr
     attribute :path_alias,           String
 
     def buddy_icon_url
-      if icon_farm
-        if icon_server > 0 && id
+      if icon_farm && icon_server && id
+        if icon_server > 0
           "http://farm#{icon_farm}.staticflickr.com/#{icon_server}/buddyicons/#{id}.jpg"
         else
           "http://www.flickr.com/images/buddyicon.jpg"
