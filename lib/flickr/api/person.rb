@@ -60,5 +60,11 @@ class Flickr
     instance_api_method :get_public_photos_from_contacts, "flickr.photos.getContactsPublicPhotos"
     instance_api_method :get_public_videos_from_contacts, "flickr.photos.getContactsPublicPhotos"
     instance_api_method :get_public_media_from_contacts,  "flickr.photos.getContactsPublicPhotos"
+
+    def get_sets(params = {})
+      response = client.get flickr_method(__method__), params.merge(user_id: id)
+      Collection.new(response["photosets"].delete("photoset"), Set, response["photosets"], client)
+    end
+    instance_api_method :get_sets, "flickr.photosets.getList"
   end
 end

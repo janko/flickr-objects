@@ -38,5 +38,12 @@ describe Flickr::Set do
 
       test_attributes(SET_ATTRIBUTES)
     end
+
+    context "flickr.photosets.getList" do
+      before(:all) { @it = Flickr.people.find(USER_ID).get_sets.find(SET_ID) }
+      subject { @it }
+
+      test_attributes(SET_ATTRIBUTES.except(:owner, :url))
+    end
   end
 end
