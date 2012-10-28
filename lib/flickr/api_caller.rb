@@ -62,9 +62,30 @@ class Flickr
       end
 
       module Methods
+        def handle_extras(params)
+          include_sizes(include_media(params))
+        end
+
         def include_media(params)
+          include_in_extras(params, "media")
+        end
+
+        def include_sizes(params)
+          return params if params[:sizes].nil?
+
+          abbrs = case params[:sizes]
+                  when :all
+                    Media::SIZES.values
+                  else
+                    params[:sizes].map { |size| Media::SIZES[size] }
+                  end
+          urls = abbrs.map { |abbr| "url_#{abbr}" }.join(",")
+          include_in_extras(params, urls)
+        end
+
+        def include_in_extras(params, things)
           params.dup.tap do |params|
-            params[:extras] = [params[:extras], "media"].compact.join(",")
+            params[:extras] = [params[:extras], things].compact.join(",")
           end
         end
       end

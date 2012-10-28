@@ -45,7 +45,7 @@ class Flickr
       get_media(params.merge(media: "videos"))
     end
     def get_media(params = {})
-      response = client.get flickr_method(__method__), include_media(params.merge(photoset_id: id))
+      response = client.get flickr_method(__method__), handle_extras(params.merge(photoset_id: id))
       Collection.new(response["photoset"].delete("photo"), Media, response["photoset"], client)
     end
     instance_api_method :get_photos, "flickr.photosets.getPhotos"

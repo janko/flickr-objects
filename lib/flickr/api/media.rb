@@ -13,7 +13,7 @@ class Flickr
     instance_api_method :delete, "flickr.photos.delete"
 
     def self.get_from_contacts(params = {})
-      response = client.get flickr_method(__method__), include_media(params)
+      response = client.get flickr_method(__method__), handle_extras(params)
       Collection.new(response["photos"].delete("photo"), Media, response["photos"], client)
     end
     class_api_method :get_from_contacts, "flickr.photos.getContactsPhotos"
@@ -32,7 +32,7 @@ class Flickr
     instance_api_method :remove_tag, "flickr.photos.removeTag"
 
     def self.search(params = {})
-      response = client.get flickr_method(__method__), include_media(params)
+      response = client.get flickr_method(__method__), handle_extras(params)
       Collection.new(response["photos"].delete("photo"), self, response["photos"], client)
     end
     class_api_method :search, "flickr.photos.search"
