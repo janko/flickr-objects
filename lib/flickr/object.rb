@@ -19,6 +19,16 @@ class Flickr
       new({"id" => id}, client)
     end
 
+    def inspect
+      attribute_values = {}
+      self.class.attributes.each do |name|
+        attribute_values[name] = send(name) unless send(name).nil?
+      end
+      class_name = self.class.name
+      id = "0x%x" % (object_id << 1)
+      "#<#{class_name}:#{id} #{attribute_values.map { |k, v| "#{k}=#{v.inspect}" }.join(" ")}>"
+    end
+
     protected
 
     def initialize(hash, client)

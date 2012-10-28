@@ -7,7 +7,13 @@ class Flickr
         base.send(:include, InstanceMethods)
       end
 
+      def attributes
+        @attributes ||= []
+      end
+
       def attribute(name, type = ::Object, options = {})
+        attributes << name
+
         define_method(name) do |*args|
           value = attribute_finder.find(name, *args)
           attribute_converter.convert(value, type)

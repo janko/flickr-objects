@@ -21,7 +21,7 @@ class Flickr
                                 ]
                               }
                             ],
-      visibility:           [->{ @hash["visibility"] }, ->{ @hash.slice("ispublic", "isfriend", "isfamily") }],
+      visibility:           [->{ @hash["visibility"] }, ->{ @hash.slice("ispublic", "isfriend", "isfamily") if @hash["ispublic"] }],
       title:                [->{ @hash["title"]["_content"] }],
       description:          [->{ @hash["description"]["_content"] }],
       owner:                [
