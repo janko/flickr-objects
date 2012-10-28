@@ -17,9 +17,12 @@ describe Flickr::Video do
       before(:all) { @it = Flickr.media.search(user_id: USER_ID, extras: EXTRAS).find(VIDEO_ID) }
       subject { @it }
 
-      it "has #thumbnail" do
-        @it.thumbnail("Square 75").should match URI.regexp
-        @it.thumbnail("Square 75").should_not eq @it.thumbnail("Thumbnail")
+      it "has thumbnail methods" do
+        @it.thumbnail_url("Square 75").should match URI.regexp
+        @it.thumbnail_url("Square 75").should_not eq @it.thumbnail_url("Thumbnail")
+
+        @it.thumbnail_width("Square 75").should eq 75
+        @it.thumbnail_height("Square 75").should eq 75
       end
     end
   end

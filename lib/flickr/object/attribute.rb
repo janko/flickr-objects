@@ -8,12 +8,12 @@ class Flickr
       end
 
       def attribute(name, type = ::Object, options = {})
-        define_method(name) do
-          value = attribute_finder.find(name)
+        define_method(name) do |*args|
+          value = attribute_finder.find(name, *args)
           attribute_converter.convert(value, type)
         end
 
-        (options[:aliases] || []).each do |alias_name|
+        Array(options[:aliases]).each do |alias_name|
           alias_method alias_name, name
         end
       end
