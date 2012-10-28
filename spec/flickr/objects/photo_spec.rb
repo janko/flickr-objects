@@ -59,5 +59,16 @@ describe Flickr::Photo do
 
       test_attributes(PHOTO_ATTRIBUTES)
     end
+
+    context "flickr.photos.getSizes" do
+      before(:all) { @it = Flickr.photos.find(PHOTO_ID).get_sizes! }
+      subject { @it }
+
+      it "has size attributes" do
+        @it.square(75).source_url.should match URI.regexp
+        @it.square(75).width.should be_a(Integer)
+        @it.square(75).height.should be_a(Integer)
+      end
+    end
   end
 end

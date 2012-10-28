@@ -25,6 +25,13 @@ class Flickr
     end
     instance_api_method :get_info!, "flickr.photos.getInfo"
 
+    def get_sizes!(params = {})
+      response = client.get flickr_method(__method__), params.merge(photo_id: id)
+      @hash.update(response["sizes"])
+      self
+    end
+    instance_api_method :get_sizes!, "flickr.photos.getSizes"
+
     def remove_tag(tag_id, params = {})
       client.post flickr_method(__method__), params.merge(photo_id: id, tag_id: tag_id)
       tag_id
