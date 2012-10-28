@@ -7,8 +7,8 @@ class Flickr
     attribute :rotation,   Integer
 
     attribute :source_url, String
-    attribute :height,     String
-    attribute :width,      String
+    attribute :height,     Integer
+    attribute :width,      Integer
 
     # This creates size methods. For example:
     #
@@ -44,10 +44,5 @@ class Flickr
 
     def largest!; @size = largest_size; self end
     def largest;  dup.largest!               end
-
-    def initialize(*args)
-      super
-      largest!
-    end
   end
 end

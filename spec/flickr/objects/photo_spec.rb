@@ -16,8 +16,9 @@ describe Flickr::Photo do
       @it.square75.height.should_not eq @it.thumbnail.height
     end
 
-    it "has a default size" do
-      @it.size.should eq "Large 2048"
+    it "has dimensions" do
+      @it.square(75).width.should eq 75
+      @it.square(75).height.should eq 75
     end
 
     it "has the other naming style" do

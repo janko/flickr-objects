@@ -1,6 +1,6 @@
 class Flickr
   class Video < Media
-    self.attribute_values = {
+    self.attribute_values = attribute_values.merge(
       ready?:              [->{ @hash["video"]["ready"] }],
       failed?:             [->{ @hash["video"]["failed"] }],
       pending?:            [->{ @hash["video"]["pending"] }],

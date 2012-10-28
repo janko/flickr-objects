@@ -64,7 +64,7 @@ class Flickr
     def restricted?; safety_level == 3 end
 
     def url
-      "http://www.flickr.com/photos/#{owner.id}/#{id}/"
+      "http://www.flickr.com/photos/#{owner.id}/#{id}/" if owner
     end
 
     def short_url

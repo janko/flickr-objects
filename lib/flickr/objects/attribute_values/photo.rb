@@ -1,6 +1,6 @@
 class Flickr
   class Photo < Media
-    self.attribute_values.update(
+    self.attribute_values = attribute_values.merge(
       rotation:   [->{ @hash["rotation"] }],
       source_url: [
                     ->{ @hash["url_#{SIZES[size]}"] },
