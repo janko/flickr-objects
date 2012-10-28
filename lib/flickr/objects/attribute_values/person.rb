@@ -7,7 +7,7 @@ class Flickr
       real_name:            [->{ @hash["realname"] }, ->{ @hash["realname"]["_content"] }],
       icon_server:          [->{ @hash["iconserver"] }],
       icon_farm:            [->{ @hash["iconfarm"] }],
-      pro?:                 [->{ @hash["ispro"] }],
+      has_pro_account?:     [->{ @hash["ispro"] }],
       location:             [->{ @hash["location"]["_content"] }],
       time_zone:            [->{ @hash["timezone"] }],
       description:          [->{ @hash["description"]["_content"] }],

@@ -8,7 +8,7 @@ PERSON_ATTRIBUTES = {
   location:             proc { be_a_nonempty(String) },
   icon_server:          proc { be_a(Fixnum) },
   icon_farm:            proc { be_a(Fixnum) },
-  pro?:                 proc { be_a_boolean },
+  has_pro_account?:     proc { be_a_boolean },
   path_alias:           proc { be_nil },
   location:             proc { be_a_nonempty(String) },
   time_zone:            proc { be_a_nonempty(Hash) },

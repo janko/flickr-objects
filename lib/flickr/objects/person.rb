@@ -11,7 +11,7 @@ class Flickr
     attribute :location,             String
     attribute :time_zone,            Hash
     attribute :description,          String
-    attribute :pro?,                 Boolean
+    attribute :has_pro_account?,     Boolean
 
     attribute :icon_server,          Integer
     attribute :icon_farm,            Integer
