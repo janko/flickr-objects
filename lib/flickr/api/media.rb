@@ -41,14 +41,16 @@ class Flickr
       client.post flickr_method(__method__), params.merge(photo_id: id, content_type: content_type)
       content_type
     end
-    alias content_type= set_content_type
     instance_api_method :set_content_type, "flickr.photos.setContentType"
+    alias content_type= set_content_type
+    instance_api_method :content_type=, "flickr.photos.setContentType"
 
     def set_tags(tags, params = {})
       client.post flickr_method(__method__), params.merge(photo_id: id, tags: tags)
       tags
     end
-    alias tags= set_tags
     instance_api_method :set_tags, "flickr.photos.setTags"
+    alias tags= set_tags
+    instance_api_method :tags=, "flickr.photos.setTags"
   end
 end
