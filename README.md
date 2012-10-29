@@ -30,41 +30,64 @@ If you don't have your API key and shared secret yet, you can apply for them
 Let's start with a general example.
 
 ```ruby
-person_id = "78733179@N04"
-person = Flickr.people.find(preson_id)
-photos = person.get_public_photos #=> API request
+photos = Flickr.photos.search(user_id: "78733179@N04") #=> [#<Flickr::Photo: ...>, #<Flickr::Photo: ...>, ...]
 
 photo = photos.first
-photo.id                 #=> "231233252"
-photo.title              #=> "My cat"
-photo.visibility.public? #=> true
-photo.description        #=> nil
-photo.get_info!          # makes an API request
-photo.description        #=> "He's trying to catch a fly"
+photo.id                  #=> "231233252"
+photo.title               #=> "My cat"
+photo.visibility.public?  #=> true
+photo.tags = "cats funny" # API request
+photo.get_info!           # API request
+photo.tags.join(" ")      #=> "cats funny"
 ```
 
-So, we've seen 2 API requests here:
+So, we've seen 3 API requests here:
 
-- `person.get_public_photos` (`Flickr::Person#get_public_photos`)
+- `Flickr.photos.search` (`Flickr::Photo.search`)
+- `photo.tags=` (`Flickr::Photo#tags=`)
 - `photo.get_info!` (`Flickr::Photo#get_info!`)
 
 They correspond to the API methods listed on Flickr's official [API page](http://flickr.com/api).
-`Flickr::Person#get_public_photos` corresponds to `flickr.people.getPublicPhotos`, and
-`Flickr::Photo#get_info!` corresponds to `flickr.photos.getInfo`.
+In our example, we have this correspondence:
 
-Let's say you want to call Flickr's `flickr.photosets.getList`. To find out how to call it,
-you can use `Flickr.api_methods` in the console. This method acts like a
-documentation for API methods. So, for example:
+- `Flickr::Photo.search`    <=> `flickr.photos.search`
+- `Flickr::Photo#tags=`     <=> `flickr.photos.setTags`
+- `Flickr::Photo#get_info!` <=> `flickr.photos.getInfo`
+
+Raw Flickr's API methods always take a hash of parameters. So, for example,
+`flickr.people.findByEmail` takes the `:find_email` parameter. But this gem
+implies that kind of parameters, so instead of having to call it like this:
+
+```ruby
+Flickr.people.find_by_email(find_email: "janko.marohnic@gmail.com")
+```
+
+you can rather call it like this:
+
+```ruby
+Flickr.people.find_by_email("janko.marohnic@gmail.com")
+```
+
+You can still pass a hash of other parameters as the second argument.
+
+Now, let's say that you want to use a method that fetches all sets from a
+person. And you find out that this method is `flickr.photosets.getList`.
+How can you now find out where it is located in this gem? Well, that's where
+`Flickr.api_methods` comes in handy:
 
 ```ruby
 Flickr.api_methods["flickr.photosets.getList"] #=> ["Flickr::Person#get_sets"]
 ```
 
-Now you found out that it corresponds to `Flickr::Person#get_sets`, which means
-you can call it like this:
+Now you found out that it is located in `Flickr::Person#get_sets`.
 
 ```ruby
+# You can now call it like this:
 sets = Flickr.people.find(person_id).get_sets
+sets.first.id #=> "12312324"
+
+# Or like this:
+sets = Flickr.find_by_username("josh").get_sets
 sets.first.id #=> "12312324"
 ```
 
@@ -81,6 +104,18 @@ photo.height     #=> 280
 
 photo.medium!(500)
 photo.width      #=> 500
+
+# You can also call it like this:
+photo.small240!
+photo.width      #=> 240
+```
+
+So, in your (Rails) application, you could use them like this:
+
+```erb
+<% Flickr.people.find("78733179@N04").get_public_photos(sizes: :all).map(&:medium500!).each do |photo| %>
+  <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
+<% end %>
 ```
 
 ## Authenticated requests
@@ -92,7 +127,7 @@ of a instance, assigning to it user's access token. That instance then has the s
 flickr = Flickr.new("ACCESS_TOKEN_KEY", "ACCESS_TOKEN_SECRET")
 
 flickr.test_login #=> {"id" => "78733179@N04", "username" => ...}
-flickr.people.find(person_id).get_public_photos
+flickr.people.find("78733179@N04").get_photos
 # ...
 ```
 
