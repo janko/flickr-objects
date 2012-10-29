@@ -61,11 +61,11 @@ Flickr.api_methods["flickr.photosets.getList"] #=> ["Flickr::Person#get_sets"]
 ```
 
 Now you found out that it corresponds to `Flickr::Person#get_sets`, which means
-you can do something like this:
+you can call it like this:
 
 ```ruby
 sets = Flickr.people.find(person_id).get_sets
-# ...
+sets.first.id #=> "12312324"
 ```
 
 ## Sizes
@@ -143,9 +143,9 @@ ticket.photo.id #=> "232594385"
 
 For the list of attributes that Flickr objects have, the best place to look at
 is the source code. For example, list of common attributes that `Flickr::Photo`
-and `Flickr::Video` have can be found in `lib/flickr/objects/media`.
+and `Flickr::Video` have can be found in `lib/flickr/objects/media.rb`.
 
-![Flickr::Media](http://farm9.staticflickr.com/8195/8133340670_38c60aaca7_c.jpg)
+![Flickr::Media](http://farm9.staticflickr.com/8195/8133340670_38c60aaca7.jpg)
 
 As you can see, it is very readable ;)
 
