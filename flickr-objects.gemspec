@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Janko Marohnić"]
   gem.email         = ["janko.marohnic@gmail.com"]
 
-  gem.files         = Dir["README.md", "LICENSE.txt", "lib/**/*"]
+  gem.files         = Dir["README.md", "LICENSE", "lib/**/*"]
   gem.require_path  = "lib"
 
   gem.required_ruby_version = ">= 1.9.2"
