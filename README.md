@@ -163,7 +163,7 @@ You can also upload asynchronously, which will return the upload ticket, which
 you can then use to check when the upload has finished.
 
 ```ruby
-ticket_id = Flickr.upload("/path/to/photo.jpg", title: "Dandelions", ansync: true)
+ticket_id = Flickr.upload("/path/to/photo.jpg", title: "Dandelions", async: 1)
 ticket = Flickr.check_upload_tickets(ticket_id).first
 ticket.complete? #=> false
 
