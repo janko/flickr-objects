@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
 
   gem.description   = %q{This gem is an object-oriented wrapper for the Flickr API.}
   gem.summary       = gem.description
-  gem.homepage      = "https://github.com/janko-m/flickr-objects"
+  gem.homepage      = "http://janko-m.github.com/flickr-objects/"
   gem.authors       = ["Janko Marohnić"]
   gem.email         = ["janko.marohnic@gmail.com"]
 
