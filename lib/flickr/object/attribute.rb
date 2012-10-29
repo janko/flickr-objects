@@ -13,6 +13,7 @@ class Flickr
 
       def attribute(name, type = ::Object, options = {})
         attributes << name
+        children.each { |child| child.attributes << name } if respond_to?(:children)
 
         define_method(name) do |*args|
           value = attribute_finder.find(name, *args)
