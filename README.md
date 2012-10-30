@@ -51,16 +51,12 @@ Methods like `Flickr.photos.search` are "class" API methods, and methods like `p
 API methods, of course, under the hood call raw API methods from Flickr's official [API page](http://flickr.com/api).
 In our example, we have this correspondence:
 
-- `Flickr::Photo.search`    <=> **flickr.photos.search**
-- `Flickr::Photo#tags=`     <=> **flickr.photos.setTags**
-- `Flickr::Photo#get_info!` <=> **flickr.photos.getInfo**
-
-Further in the text, whenever something like **flickr.something.somethingelse...** is written in bold,
-that is the name of Flickr's API method (meaning these dots aren't method calls, they're just a part of the name).
-Bold will be used to distinguish that.
+- `Flickr::Photo.search`    <=> "flickr.photos.search"
+- `Flickr::Photo#tags=`     <=> "flickr.photos.setTags"
+- `Flickr::Photo#get_info!` <=> "flickr.photos.getInfo"
 
 Raw Flickr's API methods always take a hash of parameters. So, for example,
-**flickr.people.findByEmail** takes the `:find_email` parameter. But this gem
+"flickr.people.findByEmail" takes the `:find_email` parameter. But this gem
 implies these parameters, so instead of having to call it like this:
 
 ```ruby
@@ -76,7 +72,7 @@ Flickr.people.find_by_email("janko.marohnic@gmail.com")
 You can still pass a hash of other parameters as the last argument.
 
 Now, let's say that you want to use a method that fetches all sets from a
-person. And you find out that this method is **flickr.photosets.getList**.
+person. And you find out that this method is "flickr.photosets.getList".
 How can you now find out where it is located in this gem? Well, that's where
 `Flickr.api_methods` comes in handy. You can call it in the console:
 
