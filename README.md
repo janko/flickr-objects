@@ -41,22 +41,27 @@ photo.get_info!           # API request
 photo.tags.join(" ")      #=> "cats funny"
 ```
 
-So, we've seen 3 API requests here:
+Methods like `Flickr.photos.search` are "class" API methods, and methods like `photo.tags=` and
+`photo.get_info!` are "instance" API methods.
 
-- `Flickr.photos.search` (`Flickr::Photo.search`)
-- `photo.tags=` (`Flickr::Photo#tags=`)
-- `photo.get_info!` (`Flickr::Photo#get_info!`)
+- `Flickr.photos.search` <=> `Flickr::Photo.search`
+- `photo.tags=`          <=> `Flickr::Photo#tags=`
+- `photo.get_info!`      <=> `Flickr::Photo#get_info!`
 
-They correspond to the API methods listed on Flickr's official [API page](http://flickr.com/api).
+API methods, of course, under the hood call raw API methods from Flickr's official [API page](http://flickr.com/api).
 In our example, we have this correspondence:
 
-- `Flickr::Photo.search`    <=> `flickr.photos.search`
-- `Flickr::Photo#tags=`     <=> `flickr.photos.setTags`
-- `Flickr::Photo#get_info!` <=> `flickr.photos.getInfo`
+- `Flickr::Photo.search`    <=> **flickr.photos.search**
+- `Flickr::Photo#tags=`     <=> **flickr.photos.setTags**
+- `Flickr::Photo#get_info!` <=> **flickr.photos.getInfo**
+
+Further in the text, whenever something like **flickr.something.somethingelse...** is written in bold,
+that is the name of Flickr's API method (meaning these dots aren't method calls, they're just a part of the name).
+Bold will be used to distinguish that.
 
 Raw Flickr's API methods always take a hash of parameters. So, for example,
-`flickr.people.findByEmail` takes the `:find_email` parameter. But this gem
-implies that kind of parameters, so instead of having to call it like this:
+**flickr.people.findByEmail** takes the `:find_email` parameter. But this gem
+implies these parameters, so instead of having to call it like this:
 
 ```ruby
 Flickr.people.find_by_email(find_email: "janko.marohnic@gmail.com")
@@ -68,12 +73,12 @@ you can rather call it like this:
 Flickr.people.find_by_email("janko.marohnic@gmail.com")
 ```
 
-You can still pass a hash of other parameters as the second argument.
+You can still pass a hash of other parameters as the last argument.
 
 Now, let's say that you want to use a method that fetches all sets from a
-person. And you find out that this method is `flickr.photosets.getList`.
+person. And you find out that this method is **flickr.photosets.getList**.
 How can you now find out where it is located in this gem? Well, that's where
-`Flickr.api_methods` comes in handy:
+`Flickr.api_methods` comes in handy. You can call it in the console:
 
 ```ruby
 Flickr.api_methods["flickr.photosets.getList"] #=> ["Flickr::Person#get_sets"]
@@ -110,7 +115,7 @@ photo.small240!
 photo.width      #=> 240
 ```
 
-So, in your (Rails) application, you could use them like this:
+So, in your (Rails) application, you could use it like this:
 
 ```erb
 <% Flickr.people.find("78733179@N04").get_public_photos(sizes: :all).map(&:medium500!).each do |photo| %>
@@ -120,15 +125,14 @@ So, in your (Rails) application, you could use them like this:
 
 ## Authenticated requests
 
-If you need to make authenticated API requests (which you'll often want), you can create a kind
-of a instance, assigning to it user's access token. That instance then has the same interface as `Flickr`.
+If you need to make authenticated API requests (which you'll probably often want), you can create a kind
+of a instance, assigning to it the user's access token. That instance then has the same interface as `Flickr`.
 
 ```ruby
 flickr = Flickr.new("ACCESS_TOKEN_KEY", "ACCESS_TOKEN_SECRET")
 
 flickr.test_login #=> {"id" => "78733179@N04", "username" => ...}
-flickr.people.find("78733179@N04").get_photos
-# ...
+flickr.people.find("78733179@N04").get_photos #=> [#<Flickr::Photo ...>, #<Flickr::Photo, ...>, ...]
 ```
 
 If you're in a Rails application, probably the best solution for authenticating
@@ -178,7 +182,7 @@ ticket.photo.id #=> "232594385"
 
 For the list of attributes that Flickr objects have, the best place to look at
 is the source code. For example, list of common attributes that `Flickr::Photo`
-and `Flickr::Video` have can be found in `lib/flickr/objects/media.rb`.
+and `Flickr::Video` have can be found in [`lib/flickr/objects/media.rb`]("https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/objects/media.rb").
 
 ![Flickr::Media](http://farm9.staticflickr.com/8195/8133340670_38c60aaca7.jpg)
 
@@ -186,12 +190,12 @@ As you can see, it is very readable ;)
 
 ## Few words
 
-Most of the API methods are not covered yet (because they are so many for one
-person). All the most important API methods should be implemented, so a person
+Most of the API methods are not covered yet (because they are so many).
+The most important API methods should be already implemented, so a person
 with normal demands should have everything he needs. If you feel like some API
-methods should have higher priority to be covered, feel free to post it in
-issues, and I will try to get it covered in the next version. Pull requests are
-also very welcome :)
+methods (that are not yet covered) should have a higher priority to be covered,
+feel free to let me know (maybe best via Twitter, see below), and I will try to
+get them covered in the next version. Pull requests are also very welcome :)
 
 ## Social
 
