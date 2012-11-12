@@ -69,7 +69,10 @@ you can rather call it like this:
 Flickr.people.find_by_email("janko.marohnic@gmail.com")
 ```
 
-You can still pass a hash of other parameters as the last argument.
+You can still pass a hash of other parameters as the last argument. For the
+documentation on valid arguments, just look at the source code under
+`lib/flickr/api/`. In our example, because `.find_by_email` belongs to `people`,
+the method is located in [`lib/flickr/api/person.rb`](https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/api/person.rb#L3-6).
 
 Now, let's say that you want to use a method that fetches all sets from a
 person. And you find out that this method is "flickr.photosets.getList".
