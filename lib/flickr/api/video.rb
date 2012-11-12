@@ -1,3 +1,5 @@
+require_relative "api_methods/video"
+
 class Flickr
   class Video < Media
     def self.get_from_contacts(params = {})

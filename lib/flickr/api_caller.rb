@@ -25,14 +25,23 @@ class Flickr
       end
 
       module ClassMethods
-        def instance_api_method(method, flickr_method)
-          Flickr.api_methods[flickr_method] << "#{self.name}##{method}"
+        def instance_api_method(method, flickr_method, options = {})
+          [method, *options[:aliases]].each do |method|
+            Flickr.api_methods[flickr_method] << "#{self.name}##{method}"
+          end
           children.each { |child| Flickr.api_methods[flickr_method] << "#{child.name}##{method}" } if respond_to?(:children)
         end
 
-        def class_api_method(method, flickr_method)
-          Flickr.api_methods[flickr_method] << "#{self.name}.#{method}"
+        def class_api_method(method, flickr_method, options = {})
+          [method, *options[:aliases]].each do |method|
+            Flickr.api_methods[flickr_method] << "#{self.name}.#{method}"
+          end
           children.each { |child| Flickr.api_methods[flickr_method] << "#{child.name}.#{method}" } if respond_to?(:children)
+        end
+
+        def api_method(*args)
+          instance_api_method(*args)
+          class_api_method(*args)
         end
 
         def flickr_method(method_name)
