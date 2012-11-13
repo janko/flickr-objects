@@ -6,3 +6,4 @@ tmp/
 *.DS_Store
 .rspec
 TODO.md
+wiki/
