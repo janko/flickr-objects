@@ -97,6 +97,10 @@ sets.first.id #=> "12312324"
 
 ## Sizes
 
+When you upload photos to Flickr, Flickr automatically makes different versions
+(sizes) of your photo. So, for example you have "Medium 500", "Small 320", and
+so on. Here's how you use this in the gem:
+
 ```ruby
 person = Flickr.person.find(person_id)
 photo = person.get_public_photos(sizes: :all).first
@@ -114,10 +118,19 @@ photo.small240!
 photo.width      #=> 240
 ```
 
-So, in your (Rails) application, you could use it like this:
+It is important here that you pass `sizes: :all` to `Flickr::Person#get_public_photos`.
+So, in your (Rails) application, one could use it like this:
 
+```ruby
+class PhotosController < ApplicationController
+  def index
+    person = Flickr.people.find("78733179@N04")
+    @photos = person.get_public_photos(sizes: :all).map(&:medium500!)
+  end
+end
+```
 ```erb
-<% Flickr.people.find("78733179@N04").get_public_photos(sizes: :all).map(&:medium500!).each do |photo| %>
+<% @photos.each do |photo| %>
   <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
 <% end %>
 ```
@@ -150,7 +163,7 @@ Flickr.configure do |config|
 end
 ```
 
-This is useful if you're, for example, using Flickr as a photo storage in your
+This is especially useful if you're, for example, using Flickr as a photo storage in your
 application, and that access token is actually yours.
 
 
@@ -177,10 +190,14 @@ ticket.complete? #=> true
 ticket.photo.id #=> "232594385"
 ```
 
-## Attributes
+## Attributes and methods
 
-For the list of attributes that Flickr objects have, the best place to look at
-is the source code. For example, list of common attributes that `Flickr::Photo`
+For the list of attributes and methods that Flickr objects have, the best place to look at
+is the source code. The source code is delibarately written in a way that it's
+really easy to read, even for someone who doesn't have experience in looking into other
+people's code.
+
+For example, list of common attributes that `Flickr::Photo`
 and `Flickr::Video` have can be found in [`lib/flickr/objects/media.rb`]("https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/objects/media.rb").
 
 ![Flickr::Media](http://farm9.staticflickr.com/8195/8133340670_38c60aaca7.jpg)
@@ -191,10 +208,12 @@ As you can see, it is very readable ;)
 
 Most of the API methods are not covered yet (because they are so many).
 The most important API methods should be already implemented, so a person
-with normal demands should have everything he needs. If you feel like some API
-methods (that are not yet covered) should have a higher priority to be covered,
-feel free to let me know (maybe best via Twitter, see below), and I will try to
-get them covered in the next version. Pull requests are also very welcome :)
+with normal demands should have everything he needs.
+
+If you feel like some API methods (that are not yet covered) should have
+a higher priority to be covered, feel free to let me know (maybe best via
+[Twitter](https://twitter.com/m_janko)), and I will try to get them covered
+in the next version.  Pull requests are also very welcome :)
 
 ## Social
 
