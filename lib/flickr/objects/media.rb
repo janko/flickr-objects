@@ -1,5 +1,3 @@
-require_relative "attribute_values/media"
-require "flickr/api/media"
 require "flickr/helpers/base_58"
 
 class Flickr

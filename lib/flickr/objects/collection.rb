@@ -1,5 +1,3 @@
-require_relative "attribute_values/collection"
-
 class Flickr
   class Collection < Object
     include Enumerable

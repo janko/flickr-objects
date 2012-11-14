@@ -1,5 +1,3 @@
-require_relative "api_methods/media"
-
 class Flickr
   class Media < Object
     def add_tags(tags, params = {})

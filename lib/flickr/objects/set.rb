@@ -1,6 +1,3 @@
-require_relative "attribute_values/set"
-require "flickr/api/set"
-
 class Flickr
   class Set < Object
 

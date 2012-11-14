@@ -1,5 +1,5 @@
 class Flickr
-  class Media
+  class Media < Object
     class_api_method :get_from_contacts, "flickr.photos.getContactsPhotos"
     class_api_method :search,            "flickr.photos.search"
 

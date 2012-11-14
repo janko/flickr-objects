@@ -1,4 +1,4 @@
 class Flickr
-  class Video < Media
+  class Tag < Object
   end
 end

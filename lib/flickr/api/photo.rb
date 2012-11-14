@@ -1,5 +1,3 @@
-require_relative "api_methods/photo"
-
 class Flickr
   class Photo < Media
     def self.get_from_contacts(params = {})

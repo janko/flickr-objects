@@ -1,5 +1,3 @@
-require_relative "api_methods/set"
-
 class Flickr
   class Set < Object
     def add_photo(media_id, params = {})

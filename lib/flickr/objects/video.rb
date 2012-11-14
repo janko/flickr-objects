@@ -1,6 +1,3 @@
-require_relative "attribute_values/video"
-require "flickr/api/video"
-
 class Flickr
   class Video < Media
 

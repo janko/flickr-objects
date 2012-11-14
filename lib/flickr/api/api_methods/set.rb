@@ -1,5 +1,5 @@
 class Flickr
-  class Set
+  class Set < Object
     class_api_method :create, "flickr.photosets.create"
 
     instance_api_method :add_photo,     "flickr.photosets.addPhoto",     aliases: [:add_video, :add_media]

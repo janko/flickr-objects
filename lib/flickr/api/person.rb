@@ -1,5 +1,3 @@
-require_relative "api_methods/person"
-
 class Flickr
   class Person < Object
     def self.find_by_email(email, params = {})

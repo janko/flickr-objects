@@ -1,4 +1,4 @@
 class Flickr
-  class Photo
+  class Photo < Media
   end
 end

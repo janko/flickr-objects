@@ -1,5 +1,3 @@
-require_relative "attribute_values/location"
-
 class Flickr
   class Location < Object
 

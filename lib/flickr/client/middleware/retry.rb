@@ -1,16 +1,7 @@
 class Flickr
   class Client < Faraday::Connection
     module Middleware
-      # A copy-paste from Faraday's master branch
       class Retry < Faraday::Middleware
-        # Public: Initialize middleware
-        #
-        # Options:
-        # max        - Maximum number of retries (default: 2).
-        # interval   - Pause in seconds between retries (default: 0).
-        # exceptions - The list of exceptions to handle. Exceptions can be
-        #              given as Class, Module, or String. (default:
-        #              [Errno::ETIMEDOUT, Timeout::Error, Error::TimeoutError])
         def initialize(app, options = {})
           super(app)
           @retries, options = options, {} if options.is_a? Integer

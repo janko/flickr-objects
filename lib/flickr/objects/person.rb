@@ -1,6 +1,3 @@
-require_relative "attribute_values/person"
-require "flickr/api/person"
-
 class Flickr
   class Person < Object
 
