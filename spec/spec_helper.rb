@@ -7,10 +7,9 @@ Dir["#{RSPEC_DIR}/support/**/*.rb"].each { |f| require f }
 RSpec.configure do |config|
   config.before(:each) do
     Flickr.configure do |config|
-      config.api_key             = CREDENTIALS[:api_key]
-      config.shared_secret       = CREDENTIALS[:shared_secret]
-      config.access_token_key    = CREDENTIALS[:access_token]
-      config.access_token_secret = CREDENTIALS[:access_token_secret]
+      CREDENTIALS.each do |name, value|
+        config.send("#{name}=", value)
+      end
     end
   end
   config.include RSpecHelpers

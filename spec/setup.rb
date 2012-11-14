@@ -22,10 +22,9 @@ Copy spec/flickr.yml.example and fill in your credentials.
 end
 
 Flickr.configure do |config|
-  config.api_key             = CREDENTIALS[:api_key]
-  config.shared_secret       = CREDENTIALS[:shared_secret]
-  config.access_token_key    = CREDENTIALS[:access_token]
-  config.access_token_secret = CREDENTIALS[:access_token_secret]
+  CREDENTIALS.each do |name, value|
+    config.send("#{name}=", value)
+  end
 end
 
 PHOTO_ID      = "7986395865"
