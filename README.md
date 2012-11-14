@@ -41,23 +41,23 @@ photo.get_info!           # API request
 photo.tags.join(" ")      #=> "cats funny"
 ```
 
-Methods like `Flickr.photos.search` are "class" API methods, and methods like `photo.tags=` and
-`photo.get_info!` are "instance" API methods.
+Methods like `Flickr.photos.search` are **class** API methods, and methods like `photo.tags=` and
+`photo.get_info!` are **instance** API methods.
 
 - `Flickr.photos.search` <=> `Flickr::Photo.search`
 - `photo.tags=`          <=> `Flickr::Photo#tags=`
 - `photo.get_info!`      <=> `Flickr::Photo#get_info!`
 
-API methods, of course, under the hood call raw API methods from Flickr's official [API page](http://flickr.com/api).
+API methods under the hood call methods described on Flickr's official [API page](http://flickr.com/api).
 In our example, we have this correspondence:
 
-- `Flickr::Photo.search`    <=> "flickr.photos.search"
-- `Flickr::Photo#tags=`     <=> "flickr.photos.setTags"
-- `Flickr::Photo#get_info!` <=> "flickr.photos.getInfo"
+- `Flickr::Photo.search`    <=> flickr.photos.search
+- `Flickr::Photo#tags=`     <=> flickr.photos.setTags
+- `Flickr::Photo#get_info!` <=> flickr.photos.getInfo
 
 Raw Flickr's API methods always take a hash of parameters. So, for example,
-"flickr.people.findByEmail" takes the `:find_email` parameter. But this gem
-implies these parameters, so instead of having to call it like this:
+flickr.people.findByEmail takes the `:find_email` parameter. But this gem
+implies these kind of obvious parameters, so instead of having to call it like this:
 
 ```ruby
 Flickr.people.find_by_email(find_email: "janko.marohnic@gmail.com")
@@ -156,8 +156,6 @@ You can also assign the access token globally in your configuration.
 
 ```ruby
 Flickr.configure do |config|
-  config.api_key = "API_KEY"
-  config.shared_secret = "SHARED_SECRET"
   config.access_token_key = "ACCESS_TOKEN_KEY"
   config.access_token_secret = "ACCESS_TOKEN_SECRET"
 end
@@ -175,20 +173,11 @@ photo = Flickr.photos.find(photo_id).get_info!
 photo.title #=> "Dandelions"
 ```
 
-You can also upload asynchronously, which will return the upload ticket, which
-you can then use to check when the upload has finished.
+In the first argument you can pass in either a string (path to the file) or an open file.
+For the details on the additional options you can pass in, check out Flickr's [upload
+documentation](http://www.flickr.com/services/api/upload.api.html).
 
-```ruby
-ticket_id = Flickr.upload("/path/to/photo.jpg", title: "Dandelions", async: 1)
-ticket = Flickr.check_upload_tickets(ticket_id).first
-ticket.complete? #=> false
-
-sleep 1
-
-ticket = Flickr.check_upload_tickets(ticked_id).first
-ticket.complete? #=> true
-ticket.photo.id #=> "232594385"
-```
+For asynchronous upload take a look at [this wiki](https://github.com/janko-m/flickr-objects/wiki/Upload).
 
 ## Attributes and methods
 
