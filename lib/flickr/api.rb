@@ -42,9 +42,10 @@ class Flickr
     end
   end
 
-  map_interface :media,  Media
-  map_interface :photos, Photo
-  map_interface :videos, Video
-  map_interface :people, Person
-  map_interface :sets,   Set
+  map_interface :media,          Media
+  map_interface :photos,         Photo
+  map_interface :videos,         Video
+  map_interface :people,         Person
+  map_interface :sets,           Set
+  map_interface :upload_tickets, UploadTicket
 end

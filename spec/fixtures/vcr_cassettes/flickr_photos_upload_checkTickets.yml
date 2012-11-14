@@ -35,4 +35,39 @@ http_interactions:
       string: "{\"uploader\":{\"ticket\":[]}, \"stat\":\"ok\"}"
     http_version: 
   recorded_at: Sun, 28 Oct 2012 16:30:46 GMT
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.upload.checkTickets&tickets=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="e821543d0019c40be9cba2696f359536", oauth_signature="NXkAsqGGdBa67Io4ilnXb%2FyMBAI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1352852931", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Wed, 14 Nov 2012 00:28:52 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control: 
+      - private
+      x-served-by: 
+      - www115.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "77"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"uploader\":{\"ticket\":[{\"id\":\"1\", \"invalid\":1}]}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Wed, 14 Nov 2012 00:28:52 GMT
 recorded_with: VCR 2.2.5

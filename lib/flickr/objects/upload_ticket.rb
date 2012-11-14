@@ -1,5 +1,3 @@
-require_relative "attribute_values/upload_ticket"
-
 class Flickr
   class UploadTicket < Object
 
