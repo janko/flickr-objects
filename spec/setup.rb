@@ -1,6 +1,24 @@
+# This is the file that `$ rake console` requires
+require "yaml"
+require "erb"
 begin
   require "debugger"
 rescue LoadError
+end
+require_relative "support/core_ext"
+
+RSPEC_DIR = File.expand_path(File.dirname(__FILE__))
+CREDENTIALS_FILE = "#{RSPEC_DIR}/flickr.yml"
+
+if File.exists?(CREDENTIALS_FILE)
+  CREDENTIALS = YAML.load(ERB.new(File.read(CREDENTIALS_FILE)).result).symbolize_keys
+else
+  puts <<-EOS
+### ERROR ###
+Credential file not found at spec/flickr.yml.
+Copy spec/flickr.yml.example and fill in your credentials.
+  EOS
+  exit
 end
 
 Flickr.configure do |config|

@@ -1,25 +1,8 @@
 require "flickr-objects"
-require "yaml"
-require "erb"
 require "vcr"
 
-RSPEC_DIR = File.expand_path(File.dirname(__FILE__))
-Dir["#{RSPEC_DIR}/support/**/*.rb"].each { |f| require f }
-
-CREDENTIALS_FILE = "#{RSPEC_DIR}/flickr.yml"
-
-if File.exists?(CREDENTIALS_FILE)
-  CREDENTIALS = YAML.load(ERB.new(File.read(CREDENTIALS_FILE)).result).symbolize_keys
-else
-  puts <<-EOS
-### ERROR ###
-Credential file not found at spec/flickr.yml.
-Copy spec/flickr.yml.example and fill in your credentials.
-  EOS
-  exit
-end
-
 require_relative "setup"
+Dir["#{RSPEC_DIR}/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   config.before(:each) do
