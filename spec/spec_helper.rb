@@ -1,22 +1,33 @@
 require "flickr-objects"
+require "yaml"
+require "erb"
 require "vcr"
-begin
-  require "debugger"
-rescue LoadError
-end
 
 RSPEC_DIR = File.expand_path(File.dirname(__FILE__))
 Dir["#{RSPEC_DIR}/support/**/*.rb"].each { |f| require f }
 
-require "#{RSPEC_DIR}/credentials"
+CREDENTIALS_FILE = "#{RSPEC_DIR}/flickr.yml"
+
+if File.exists?(CREDENTIALS_FILE)
+  CREDENTIALS = YAML.load(ERB.new(File.read(CREDENTIALS_FILE)).result).symbolize_keys
+else
+  puts <<-EOS
+### ERROR ###
+Credential file not found at spec/flickr.yml.
+Copy spec/flickr.yml.example and fill in your credentials.
+  EOS
+  exit
+end
+
+require_relative "setup"
 
 RSpec.configure do |config|
   config.before(:each) do
     Flickr.configure do |config|
-      config.api_key = ENV['FLICKR_API_KEY']
-      config.shared_secret = ENV['FLICKR_SHARED_SECRET']
-      config.access_token_key = ENV['FLICKR_ACCESS_TOKEN']
-      config.access_token_secret = ENV['FLICKR_ACCESS_SECRET']
+      config.api_key             = CREDENTIALS[:api_key]
+      config.shared_secret       = CREDENTIALS[:shared_secret]
+      config.access_token_key    = CREDENTIALS[:access_token]
+      config.access_token_secret = CREDENTIALS[:access_token_secret]
     end
   end
   config.include RSpecHelpers
@@ -33,6 +44,7 @@ VCR.configure do |config|
       VCR.request_matchers.uri_without_param(:api_key) # Don't require the API key.
     ]
   }
-  config.filter_sensitive_data('API_KEY')      { ENV['FLICKR_API_KEY'] }
-  config.filter_sensitive_data('ACCESS_TOKEN') { ENV['FLICKR_ACCESS_TOKEN'] }
+  CREDENTIALS.each do |name, value|
+    config.filter_sensitive_data("<#{name.upcase}>") { value }
+  end
 end
