@@ -5,8 +5,8 @@ require "flickr/client/middleware"
 class Flickr
   class Client < Faraday::Connection
     DEFAULTS = {
-      open_timeout: 3,
-      timeout: 4
+      open_timeout: 4,
+      timeout: 6
     }
 
     def initialize(access_token)
