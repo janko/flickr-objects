@@ -26,14 +26,13 @@ class Flickr
 
     def get_file(object)
       file, content_type, file_path =
-        case object.class.name
-        when "String"
+        if object.is_a?(String)
           [File.open(object), determine_content_type(object), object]
-        when "File"
-          [object, determine_content_type(object.path), object.path]
-        when "ActionDispatch::Http::UploadedFile"
+        elsif object.class.name == "ActionDispatch::Http::UploadedFile"
           [object, object.content_type, object.tempfile]
-        when "Hash" && defined?(Sinatra)
+        elsif object.respond_to?(:read) and object.respond_to?(:path)
+          [object, (object.respond_to?(:content_type) && object.content_type) || determine_content_type(object.path), object.path]
+        elsif object.is_a?(Hash) && defined?(Sinatra)
           [object[:tempfile], object[:type], object[:tempfile].path]
         else
           raise Error, "invalid file format"
