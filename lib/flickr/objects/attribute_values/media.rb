@@ -50,6 +50,7 @@ class Flickr
                             ],
       location:             [->{ @hash.slice("latitude", "longitude", "accuracy", "context", "place_id", "woeid") if @hash["latitude"] }],
       largest_size:         [->{ SIZES.key(SIZES.values.reverse.find { |abbr| @hash["url_#{abbr}"] }) }],
+      available_sizes:      [->{ SIZES.select { |_, abbr| @hash["url_#{abbr}"] }.keys }],
     }
 
     OTHER_SIZES = {

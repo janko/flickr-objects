@@ -97,10 +97,6 @@ sets.first.id #=> "12312324"
 
 ## Sizes
 
-When you upload photos to Flickr, Flickr automatically makes different versions
-(sizes) of your photo. So, for example you have "Medium 500", "Small 320", and
-so on. Here's how you use this in the gem:
-
 ```ruby
 person = Flickr.person.find(person_id)
 photo = person.get_public_photos(sizes: :all).first
@@ -112,10 +108,6 @@ photo.height     #=> 280
 
 photo.medium!(500)
 photo.width      #=> 500
-
-# You can also call it like this:
-photo.small240!
-photo.width      #=> 240
 ```
 
 It is important here that you pass `sizes: :all` to `Flickr::Person#get_public_photos`.
@@ -125,7 +117,7 @@ So, in your (Rails) application, one could use it like this:
 class PhotosController < ApplicationController
   def index
     person = Flickr.people.find("78733179@N04")
-    @photos = person.get_public_photos(sizes: :all).map(&:medium500!)
+    @photos = person.get_public_photos(sizes: :all).map { |photo| photo.medium!(500) }
   end
 end
 ```
@@ -134,6 +126,8 @@ end
   <%= image_tag photo.source_url, size: "#{photo.width}x#{photo.height}" %>
 <% end %>
 ```
+
+To find out more, take a look at [this wiki](https://github.com/janko-m/flickr-objects/wiki/Sizes).
 
 ## Authentication
 
@@ -177,21 +171,18 @@ For asynchronous upload take a look at [this wiki](https://github.com/janko-m/fl
 ## Attributes and methods
 
 For the list of attributes and methods that Flickr objects have, the best place to look at
-is the source code. The source code is delibarately written in a way that it's
-really easy to read, even for someone who doesn't have experience in looking into other
-people's code.
+is the source code. The source code is written in such a simple way that it acts as its
+own documentation, so don't worry if you haven't had experience in looking into other
+people's code :)
 
 For example, list of common attributes that `Flickr::Photo`
 and `Flickr::Video` have can be found in [`lib/flickr/objects/media.rb`]("https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/objects/media.rb").
-
-![Flickr::Media](http://farm9.staticflickr.com/8195/8133340670_38c60aaca7.jpg)
-
-As you can see, it is very readable ;)
+Take a look just to see how it looks like :)
 
 ## Few words
 
 Most of the API methods are not covered yet (because they are so many).
-The most important API methods should be already implemented, so a person
+The most important API methods, however, should be implemented, so a person
 with normal demands should have everything he needs.
 
 If you feel like some API methods (that are not yet covered) should have

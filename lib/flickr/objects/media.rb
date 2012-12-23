@@ -41,6 +41,7 @@ class Flickr
     attribute :location_visibility,  Visibility
 
     attribute :largest_size,         String
+    attribute :available_sizes,      Array(String)
 
     SIZES = {
       "Square 75"  => "sq",
