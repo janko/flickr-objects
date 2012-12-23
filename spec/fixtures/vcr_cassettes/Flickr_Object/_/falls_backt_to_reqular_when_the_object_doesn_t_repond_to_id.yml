@@ -1,0 +1,40 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getInfo&photo_id=7986395865
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="a532e0b4d3f3ea705417d662177d17c6", oauth_signature="3Fk7Q7Pm5nyNz3roTd6JHYotxok%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356260904", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sun, 23 Dec 2012 11:08:24 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=79; expires=Wed, 24-Dec-2014 11:08:24 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www211.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "956"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photo\":{\"id\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"dateuploaded\":\"1347653033\", \"isfavorite\":0, \"license\":\"0\", \"safety_level\":\"0\", \"rotation\":0, \"owner\":{\"nsid\":\"78733179@N04\", \"username\":\"@janko-m\", \"realname\":\"Janko Marohni\\u0107\", \"location\":\"Zagreb, Croatia\", \"iconserver\":\"8033\", \"iconfarm\":9}, \"title\":{\"_content\":\"Game of Thrones\"}, \"description\":{\"_content\":\"A poster for the &quot;Game of Thrones&quot; TV series\"}, \"visibility\":{\"ispublic\":1, \"isfriend\":0, \"isfamily\":0}, \"dates\":{\"posted\":\"1347653033\", \"taken\":\"2012-09-14 13:02:57\", \"takengranularity\":\"0\", \"lastupdate\":\"1356260903\"}, \"permissions\":{\"permcomment\":3, \"permaddmeta\":2}, \"views\":\"37\", \"editability\":{\"cancomment\":1, \"canaddmeta\":1}, \"publiceditability\":{\"cancomment\":1, \"canaddmeta\":0}, \"usage\":{\"candownload\":1, \"canblog\":1, \"canprint\":1, \"canshare\":1}, \"comments\":{\"_content\":\"1\"}, \"notes\":{\"note\":[{\"id\":\"72157631536525795\", \"author\":\"78733179@N04\", \"authorname\":\"@janko-m\", \"x\":\"16\", \"y\":\"16\", \"w\":\"31\", \"h\":\"31\", \"_content\":\"Test\"}]}, \"people\":{\"haspeople\":0}, \"tags\":{\"tag\":[{\"id\":\"78701040-7986395865-14924\", \"author\":\"78733179@N04\", \"raw\":\"Foo\", \"_content\":\"foo\", \"machine_tag\":0}, {\"id\":\"78701040-7986395865-1211\", \"author\":\"78733179@N04\", \"raw\":\"Bar\", \"_content\":\"bar\", \"machine_tag\":0}]}, \"location\":{\"latitude\":37.792422, \"longitude\":-122.419109, \"accuracy\":\"14\", \"context\":\"0\", \"neighbourhood\":{\"_content\":\"Polk Gulch\", \"place_id\":\"W24McYBUV7MWarg33w\", \"woeid\":\"55970967\"}, \"locality\":{\"_content\":\"San Francisco\", \"place_id\":\"7.MJR8tTVrIO1EgB\", \"woeid\":\"2487956\"}, \"county\":{\"_content\":\"San Francisco\", \"place_id\":\".7sOmlRQUL9nK.kMzA\", \"woeid\":\"12587707\"}, \"region\":{\"_content\":\"California\", \"place_id\":\"NsbUWfBTUb4mbyVu\", \"woeid\":\"2347563\"}, \"country\":{\"_content\":\"United States\", \"place_id\":\"nz.gsghTUb4c2WAecA\", \"woeid\":\"23424977\"}, \"place_id\":\"W24McYBUV7MWarg33w\", \"woeid\":\"55970967\"}, \"geoperms\":{\"ispublic\":1, \"iscontact\":0, \"isfriend\":0, \"isfamily\":0}, \"urls\":{\"url\":[{\"type\":\"photopage\", \"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/\"}]}, \"media\":\"photo\"}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 11:08:24 GMT
+recorded_with: VCR 2.3.0

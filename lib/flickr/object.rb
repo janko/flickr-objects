@@ -29,6 +29,14 @@ class Flickr
       "#<#{class_name}:#{id} #{attribute_values.map { |k, v| "#{k}=#{v.inspect}" }.join(" ")}>"
     end
 
+    def ==(other)
+      if (self.respond_to?(:id) && self.id) && (other.respond_to?(:id) && other.id)
+        id == other.id
+      else
+        super
+      end
+    end
+
     protected
 
     def initialize(hash, client)
