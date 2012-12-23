@@ -12,8 +12,16 @@ describe Flickr do
     @it.media.should eq Flickr::Media
   end
 
+  it "has tests written for every implemented API method" do
+    tested_api_methods = Dir[File.join(ROOT, "spec/flickr/api/**/*_spec.rb")].
+      map { |api_spec| File.basename(api_spec).chomp("_spec.rb") }.
+      select { |name| Flickr.api_methods.keys.include?(name) }
+
+    (Flickr.api_methods.keys - tested_api_methods).should eq []
+  end
+
   describe "instance" do
-    before(:each) { @it = Flickr.new(ENV["FLICKR_ACCESS_TOKEN"], ENV["FLICKR_ACCESS_SECRET"]) }
+    before(:each) { @it = Flickr.new(nil, nil) }
 
     it "has clients" do
       @it.client.should be_a(Flickr::MethodsClient)
@@ -21,9 +29,8 @@ describe Flickr do
     end
 
     it "can has a different access token" do
-      expect { @it.client.get "flickr.test.login" }.to_not raise_error(Flickr::Client::OAuthError)
-      @it = Flickr.new(nil, nil)
-      expect { @it.client.get "flickr.test.login", vcr: "without access token" }.to raise_error(Flickr::Client::OAuthError)
+      oauth(@it.client)[:token].should be_nil
+      oauth(@it.client)[:token_secret].should be_nil
     end
 
     it "has the interface" do

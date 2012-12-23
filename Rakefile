@@ -1,10 +1,11 @@
-require "bundler/gem_tasks"
+require "bundler"
 Bundler.setup
+
+Bundler::GemHelper.install_tasks
+
 require "rspec/core/rake_task"
-
-task :default => :spec
-
 RSpec::Core::RakeTask.new
+task :default => :spec
 
 desc "Open the console with credentials (API key, secret etc.) already filled in"
 task :console do
@@ -65,6 +66,31 @@ end
       else
         File.open(full_path, "w") { |f| f.write(lib_content) }
       end
+    end
+  end
+end
+
+task :update_list do
+  require "nokogiri"
+  require "open-uri"
+  require "flickr-objects"
+
+  document = Nokogiri::HTML(open("http://www.flickr.com/services/api"))
+  titles = document.search(:table)[1].search(:td)[1].search(:h3).map(&:text)
+  methods = document.search(:table)[1].search(:td)[1].search(:ul).map { |ul| ul.search(:li).map(&:text) }
+
+  hash = Hash[titles.zip(methods)]
+  File.open("methods.md", "w") do |file|
+    hash.each_with_index do |(title, methods), index|
+      file.write("# #{title}\n\n")
+      methods.each do |method|
+        if Flickr.api_methods.keys.include?(method)
+          file.write("* #{method}\n")
+        else
+          file.write("- #{method}\n")
+        end
+      end
+      file.write("\n") if index < (hash.count - 1)
     end
   end
 end

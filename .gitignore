@@ -1,10 +1,10 @@
 .bundle/
-.yardoc/
+bundle/
 Gemfile.lock
 pkg/
 tmp/
 *.DS_Store
 .rspec
-TODO.md
 wiki/
 spec/flickr.yml
+methods.md

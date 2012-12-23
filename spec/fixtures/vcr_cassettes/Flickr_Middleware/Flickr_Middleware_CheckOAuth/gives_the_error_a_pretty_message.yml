@@ -1,0 +1,40 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.test.login
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="1dc538e83fa631a680cb634fce469bb0", oauth_signature="OqQiUAxZ2OOsr%2F%2BbEzzOBiWQM3E%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356267836", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 401
+      message: 
+    headers: 
+      date: 
+      - Sun, 23 Dec 2012 13:03:56 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=84; expires=Wed, 24-Dec-2014 13:03:56 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www53.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "290"
+      connection: 
+      - close
+      content-type: 
+      - text/plain;charset=UTF-8
+    body: 
+      encoding: ASCII-8BIT
+      string: oauth_problem=signature_invalid&debug_sbs=GET&http%3A%2F%2Fapi.flickr.com%2Fservices%2Frest&api_key%3D<API_KEY>%26format%3Djson%26method%3Dflickr.test.login%26nojsoncallback%3D1%26oauth_consumer_key%3D<API_KEY>%26oauth_nonce%3D1dc538e83fa631a680cb634fce469bb0%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1356267836%26oauth_token%3D<ACCESS_TOKEN_KEY>%26oauth_version%3D1.0
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 13:03:56 GMT
+recorded_with: VCR 2.3.0

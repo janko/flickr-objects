@@ -44,7 +44,7 @@ class Flickr
           class_api_method(*args)
         end
 
-        def flickr_method(method_name)
+        def f(method_name)
           resolve_flickr_method("#{self.name}.#{method_name}")
         end
 
@@ -58,7 +58,7 @@ class Flickr
       end
 
       module InstanceMethods
-        def flickr_method(method_name)
+        def f(method_name)
           self.class.resolve_flickr_method("#{self.class.name}##{method_name}")
         end
       end

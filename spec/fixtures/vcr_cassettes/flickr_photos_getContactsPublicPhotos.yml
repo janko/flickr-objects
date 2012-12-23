@@ -2,37 +2,187 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photos.getContactsPublicPhotos&include_self=1&user_id=78733179%40N04&extras=media
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getContactsPublicPhotos&include_self=1&user_id=78733179%40N04&extras=media
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="7705142fc854fad90c677cd29726f991", oauth_signature="sIalFyarKCBF9TQnPw%2BKodJIgY0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351300731", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="48d9d9117edfa45b22c50f33fa72badb", oauth_signature="CSQIpLLtU7%2B4bpqDn2bLOrsopgQ%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356229771", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 27 Oct 2012 01:18:52 GMT
+      - Sun, 23 Dec 2012 02:29:31 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=96; expires=Wed, 24-Dec-2014 02:29:31 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www97.flickr.mud.yahoo.com
+      - www197.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "323"
+      - "390"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"photos\":{\"photo\":[{\"id\":\"8126288530\", \"secret\":\"6e6eaa53c8\", \"server\":\"8470\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"video\", \"media_status\":\"ready\"}, {\"id\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Game of Thrones\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}], \"total\":3, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
+      string: "{\"photos\":{\"photo\":[{\"id\":\"8298032637\", \"secret\":\"107a0148f6\", \"server\":\"8497\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8133340670\", \"secret\":\"38c60aaca7\", \"server\":\"8195\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Screen Shot 2012-10-29 at 2.26.20 AM\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8130464513\", \"secret\":\"780e01decd\", \"server\":\"8191\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Hana\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8126288530\", \"secret\":\"6e6eaa53c8\", \"server\":\"8470\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"video\", \"media_status\":\"ready\"}], \"total\":5, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sat, 27 Oct 2012 01:18:52 GMT
-recorded_with: VCR 2.2.4
+  recorded_at: Sun, 23 Dec 2012 02:29:31 GMT
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getContactsPublicPhotos&include_self=1&user_id=78733179%40N04&extras=media
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="85ef33b4c2b35215d8c21837870ee947", oauth_signature="25%2BoIWvtbtEWQFbA%2B6ICndp9ubQ%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356229771", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sun, 23 Dec 2012 02:29:31 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=79; expires=Wed, 24-Dec-2014 02:29:31 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www124.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "390"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photos\":{\"photo\":[{\"id\":\"8298032637\", \"secret\":\"107a0148f6\", \"server\":\"8497\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8133340670\", \"secret\":\"38c60aaca7\", \"server\":\"8195\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Screen Shot 2012-10-29 at 2.26.20 AM\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8130464513\", \"secret\":\"780e01decd\", \"server\":\"8191\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Hana\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8126288530\", \"secret\":\"6e6eaa53c8\", \"server\":\"8470\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"video\", \"media_status\":\"ready\"}], \"total\":5, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 02:29:32 GMT
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getContactsPublicPhotos&include_self=1&user_id=78733179%40N04&extras=media
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="50847752ac0ed7ec5d0fedecd1f5087a", oauth_signature="Qb51xdeg%2BbOb3RzB%2Fiemlj0TArs%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356229772", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sun, 23 Dec 2012 02:29:32 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=26; expires=Wed, 24-Dec-2014 02:29:32 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www161.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "390"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photos\":{\"photo\":[{\"id\":\"8298032637\", \"secret\":\"107a0148f6\", \"server\":\"8497\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8133340670\", \"secret\":\"38c60aaca7\", \"server\":\"8195\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Screen Shot 2012-10-29 at 2.26.20 AM\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8130464513\", \"secret\":\"780e01decd\", \"server\":\"8191\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Hana\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8126288530\", \"secret\":\"6e6eaa53c8\", \"server\":\"8470\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"video\", \"media_status\":\"ready\"}], \"total\":5, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 02:29:32 GMT
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getContactsPublicPhotos&include_self=1&user_id=78733179%40N04&extras=media
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="08da34596d274b9b1dca189f98d465b0", oauth_signature="3DE%2Bs2N1iCs8K2hGZzpyZSBPFAI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356229772", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sun, 23 Dec 2012 02:29:32 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=28; expires=Wed, 24-Dec-2014 02:29:32 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www20.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "390"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photos\":{\"photo\":[{\"id\":\"8298032637\", \"secret\":\"107a0148f6\", \"server\":\"8497\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8133340670\", \"secret\":\"38c60aaca7\", \"server\":\"8195\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Screen Shot 2012-10-29 at 2.26.20 AM\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8130464513\", \"secret\":\"780e01decd\", \"server\":\"8191\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Hana\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8126288530\", \"secret\":\"6e6eaa53c8\", \"server\":\"8470\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"video\", \"media_status\":\"ready\"}], \"total\":5, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 02:29:32 GMT
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getContactsPublicPhotos&include_self=1&user_id=78733179%40N04&extras=media
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="04d9461cb9092c550289b86592f7274b", oauth_signature="TAv8Vg9HlOmC9%2Bn2btRx9SCFwmU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356229772", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sun, 23 Dec 2012 02:29:33 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=48; expires=Wed, 24-Dec-2014 02:29:33 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www42.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "390"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photos\":{\"photo\":[{\"id\":\"8298032637\", \"secret\":\"107a0148f6\", \"server\":\"8497\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8133340670\", \"secret\":\"38c60aaca7\", \"server\":\"8195\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Screen Shot 2012-10-29 at 2.26.20 AM\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8130464513\", \"secret\":\"780e01decd\", \"server\":\"8191\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"Hana\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8126288530\", \"secret\":\"6e6eaa53c8\", \"server\":\"8470\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"7989540600\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"owner\":\"78733179@N04\", \"username\":\"@janko-m\", \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"video\", \"media_status\":\"ready\"}], \"total\":5, \"page\":1, \"per_page\":10, \"pages\":1}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 02:29:33 GMT
+recorded_with: VCR 2.3.0

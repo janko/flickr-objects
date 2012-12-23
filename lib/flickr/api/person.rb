@@ -1,17 +1,17 @@
 class Flickr
   class Person < Object
     def self.find_by_email(email, params = {})
-      response = client.get flickr_method(__method__), params.merge(find_email: email)
+      response = client.get f(__method__), params.merge(find_email: email)
       new(response["user"], client)
     end
 
     def self.find_by_username(username, params = {})
-      response = client.get flickr_method(__method__), params.merge(username: username)
+      response = client.get f(__method__), params.merge(username: username)
       new(response["user"], client)
     end
 
     def get_info!(params = {})
-      response = client.get flickr_method(__method__), params.merge(user_id: id)
+      response = client.get f(__method__), params.merge(user_id: id)
       @hash.update(response["person"])
       self
     end
@@ -23,7 +23,7 @@ class Flickr
       get_media(params).select { |object| object.is_a?(Flickr::Video) }
     end
     def get_media(params = {})
-      response = client.get flickr_method(__method__), handle_extras(params.merge(user_id: id))
+      response = client.get f(__method__), handle_extras(params.merge(user_id: id))
       Collection.new(response["photos"].delete("photo"), Media, response["photos"], client)
     end
 
@@ -34,7 +34,7 @@ class Flickr
       get_public_media(params).select { |object| object.is_a?(Flickr::Video) }
     end
     def get_public_media(params = {})
-      response = client.get flickr_method(__method__), handle_extras(params.merge(user_id: id))
+      response = client.get f(__method__), handle_extras(params.merge(user_id: id))
       Collection.new(response["photos"].delete("photo"), Media, response["photos"], client)
     end
 
@@ -45,12 +45,12 @@ class Flickr
       get_public_media_from_contacts(params).select {|object| object.is_a?(Flickr::Video) }
     end
     def get_public_media_from_contacts(params = {})
-      response = client.get flickr_method(__method__), handle_extras(params.merge(user_id: id))
+      response = client.get f(__method__), handle_extras(params.merge(user_id: id))
       Collection.new(response["photos"].delete("photo"), Media, response["photos"], client)
     end
 
     def get_sets(params = {})
-      response = client.get flickr_method(__method__), params.merge(user_id: id)
+      response = client.get f(__method__), params.merge(user_id: id)
       Collection.new(response["photosets"].delete("photoset"), Set, response["photosets"], client)
     end
   end

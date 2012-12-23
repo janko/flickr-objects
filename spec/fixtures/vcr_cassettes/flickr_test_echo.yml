@@ -2,37 +2,39 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.test.echo
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.test.echo
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="e83bd3918e2d57581c987236ce3def25", oauth_signature="WGbxuo4Pr99teUXCJzeTyluT%2FYI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351295179", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="c6d72ccc3c6289dc77ba1e918e1b32eb", oauth_signature="fg8HR3bBTtGwnCBCO96ekJ1O1Tc%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356227780", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Fri, 26 Oct 2012 23:46:20 GMT
+      - Sun, 23 Dec 2012 01:56:21 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=16; expires=Wed, 24-Dec-2014 01:56:21 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www163.flickr.mud.yahoo.com
+      - www9.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "316"
+      - "311"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"format\":{\"_content\":\"json\"}, \"nojsoncallback\":{\"_content\":\"1\"}, \"api_key\":{\"_content\":\"API_KEY\"}, \"method\":{\"_content\":\"flickr.test.echo\"}, \"oauth_consumer_key\":{\"_content\":\"API_KEY\"}, \"oauth_nonce\":{\"_content\":\"e83bd3918e2d57581c987236ce3def25\"}, \"oauth_signature\":{\"_content\":\"WGbxuo4Pr99teUXCJzeTyluT\\/YI=\"}, \"oauth_signature_method\":{\"_content\":\"HMAC-SHA1\"}, \"oauth_timestamp\":{\"_content\":\"1351295179\"}, \"oauth_token\":{\"_content\":\"ACCESS_TOKEN\"}, \"oauth_version\":{\"_content\":\"1.0\"}, \"api_auth_is_oauth\":{\"_content\":\"1\"}, \"api_sig\":{\"_content\":\"WGbxuo4Pr99teUXCJzeTyluT\\/YI=\"}, \"auth_token\":{\"_content\":\"ACCESS_TOKEN\"}, \"stat\":\"ok\"}"
+      string: "{\"format\":{\"_content\":\"json\"}, \"nojsoncallback\":{\"_content\":\"1\"}, \"api_key\":{\"_content\":\"<API_KEY>\"}, \"method\":{\"_content\":\"flickr.test.echo\"}, \"oauth_consumer_key\":{\"_content\":\"<API_KEY>\"}, \"oauth_nonce\":{\"_content\":\"c6d72ccc3c6289dc77ba1e918e1b32eb\"}, \"oauth_signature\":{\"_content\":\"fg8HR3bBTtGwnCBCO96ekJ1O1Tc=\"}, \"oauth_signature_method\":{\"_content\":\"HMAC-SHA1\"}, \"oauth_timestamp\":{\"_content\":\"1356227780\"}, \"oauth_token\":{\"_content\":\"<ACCESS_TOKEN_KEY>\"}, \"oauth_version\":{\"_content\":\"1.0\"}, \"api_auth_is_oauth\":{\"_content\":\"1\"}, \"api_sig\":{\"_content\":\"fg8HR3bBTtGwnCBCO96ekJ1O1Tc=\"}, \"auth_token\":{\"_content\":\"<ACCESS_TOKEN_KEY>\"}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Fri, 26 Oct 2012 23:46:20 GMT
-recorded_with: VCR 2.2.4
+  recorded_at: Sun, 23 Dec 2012 01:56:21 GMT
+recorded_with: VCR 2.3.0

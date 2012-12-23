@@ -1,42 +1,44 @@
 require "spec_helper"
+require "uri"
 
-describe Flickr::Client do
-  describe "exception handling" do
-    it "handles oauth errors" do
-      Flickr.configure { |config| config.access_token_key = nil }
-      expect { Flickr.test_login(vcr: "without access token") }.to raise_error(Flickr::Client::OAuthError)
-    end
-
-    it "handles other errors" do
-      expect { Flickr.media.find(nil).get_info! }.to raise_error(Flickr::Client::Error)
-    end
-
-    it "goes secure when asked for" do
-      Flickr.client.url_prefix.scheme.should eq "http"
-      Flickr.configure { |config| config.secure = true }
-      Flickr.client.url_prefix.scheme.should eq "https"
-      Flickr.configure { |config| config.secure = false }
-      Flickr.client.url_prefix.scheme.should eq "http"
-    end
-
-    it "accepts a proxy" do
-      Flickr.configure { |config| config.proxy = "http://proxy.com" }
-      Flickr.client.proxy[:uri].to_s.should eq "http://proxy.com"
-      Flickr.configure { |config| config.proxy = nil }
-      Flickr.client.proxy.should be_nil
-    end
-
-    describe Flickr::Client::Error do
-      before(:each) do
-        @it = begin
-                Flickr.media.find(nil).get_info!
-              rescue Flickr::Client::Error => error
-                error
-              end
+describe Flickr::Client, :vcr do
+  it "can go over a secure network" do
+    expect {
+      Flickr.configure do |config|
+        config.secure = true
       end
-      subject { @it }
+    }.to change{Flickr.client.url_prefix.scheme}.from("http").to("https")
+    Flickr.test_login["stat"].should eq "ok"
 
-      its(:code) { should eq 1 }
+    Flickr.configure { |config| config.secure = false }
+  end
+
+  it "can go over a proxy" do
+    expect {
+      Flickr.configure do |config|
+        config.proxy = "http://proxy.com"
+      end
+    }.to change{Flickr.client.proxy}.from(nil).to(uri: URI.parse("http://proxy.com"))
+
+    Flickr.configure { |config| config.proxy = nil }
+  end
+
+  context "errors" do
+    it "raises OAuth errors" do
+      Flickr.configure { |config| config.access_token_key = nil }
+      expect { Flickr.test_login }.to raise_error(Flickr::OAuthError)
+    end
+
+    it "raises API errors" do
+      Flickr.configure { |config| config.api_key = nil }
+      expect { Flickr.test_login }.to raise_error(Flickr::ApiError)
+    end
+
+    it "raises timeout errors" do
+      Flickr.configure { |config| config.open_timeout = 0.1 }
+      expect { Flickr.test_login }.to raise_error(Flickr::TimeoutError)
+
+      Flickr.configure { |config| config.open_timeout = nil }
     end
   end
 end

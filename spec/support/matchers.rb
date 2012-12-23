@@ -22,7 +22,7 @@ RSpec::Matchers.define :be_an_existing_url do
       builder.use FaradayMiddleware::FollowRedirects, limit: 5
       builder.adapter :net_http
     end
-    response = VCR.use_cassette("URL") { connection.get }
+    response = connection.get
     response.should be_a_success
   end
 end

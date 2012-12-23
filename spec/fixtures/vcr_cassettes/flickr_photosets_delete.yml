@@ -2,26 +2,65 @@
 http_interactions: 
 - request: 
     method: post
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.photosets.delete&photoset_id=72157631860878086
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photosets.create&title=Title&primary_photo_id=7986395865
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="6fb732a0f3f0b8712e785e16f2019d64", oauth_signature="hpCPdq5%2BjJUMExyidf7XDN%2BAhCM%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351297979", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="8b2e4bea14fbd48f127c55552ea74be4", oauth_signature="WB49k1ldkaZrm6ukJQlQlSm46P8%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356234441", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 27 Oct 2012 00:32:59 GMT
+      - Sun, 23 Dec 2012 03:47:21 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=70; expires=Wed, 24-Dec-2014 03:47:21 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www229.flickr.mud.yahoo.com
+      - www161.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "134"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: US-ASCII
+      string: "{\"photoset\":{\"id\":\"72157632313811453\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/sets\\/72157632313811453\\/\"}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 03:47:21 GMT
+- request: 
+    method: post
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photosets.delete&photoset_id=72157632313811453
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="27bba1809dd83b9a82a9b142f6b2673a", oauth_signature="xbAsfFwYh1JwACk7MqDY6Kej63k%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356234441", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sun, 23 Dec 2012 03:47:22 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=79; expires=Wed, 24-Dec-2014 03:47:22 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www197.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -34,5 +73,79 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sat, 27 Oct 2012 00:32:59 GMT
-recorded_with: VCR 2.2.4
+  recorded_at: Sun, 23 Dec 2012 03:47:22 GMT
+- request: 
+    method: post
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photosets.create&title=Title&primary_photo_id=7986395865
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="54fa191d036870bbd78286464876af36", oauth_signature="i7naxUXh1mEs89xKQ91HHHWS9Yw%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356234442", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sun, 23 Dec 2012 03:47:22 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=45; expires=Wed, 24-Dec-2014 03:47:22 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www180.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "134"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: US-ASCII
+      string: "{\"photoset\":{\"id\":\"72157632313811525\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/sets\\/72157632313811525\\/\"}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 03:47:22 GMT
+- request: 
+    method: post
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photosets.delete&photoset_id=72157632313811525
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="d07d1e0000d6f9083cff9458a425285d", oauth_signature="z0I0VPlg%2Brxokzr0dKGKntmfGT0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356234442", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sun, 23 Dec 2012 03:47:23 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=10; expires=Wed, 24-Dec-2014 03:47:23 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www209.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "13"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: US-ASCII
+      string: "{\"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 03:47:23 GMT
+recorded_with: VCR 2.3.0

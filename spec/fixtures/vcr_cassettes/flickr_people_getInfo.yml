@@ -2,37 +2,291 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=API_KEY&method=flickr.people.getInfo&user_id=78733179%40N04
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.people.getInfo&user_id=78733179%40N04
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="API_KEY", oauth_nonce="02cb08b34d9de0c3967a848d5038955c", oauth_signature="uvz0kiuoK7bU2U1zXOLplofB1uU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1351337241", oauth_token="ACCESS_TOKEN", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="fee20eb872ca880fb91475b1c915bd77", oauth_signature="5fTdcxZaf%2BW1BSiZjq5UR%2BBs2MY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356220633", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 27 Oct 2012 11:27:22 GMT
+      - Sat, 22 Dec 2012 23:57:13 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=34; expires=Tue, 23-Dec-2014 23:57:13 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www228.flickr.mud.yahoo.com
+      - www188.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "447"
+      - "448"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"person\":{\"id\":\"78733179@N04\", \"nsid\":\"78733179@N04\", \"ispro\":0, \"iconserver\":\"8033\", \"iconfarm\":9, \"path_alias\":null, \"username\":{\"_content\":\"@janko-m\"}, \"realname\":{\"_content\":\"Janko Marohni\\u0107\"}, \"mbox_sha1sum\":{\"_content\":\"3e20212c39d8bdf303e314bfb1749073cef17a09\"}, \"location\":{\"_content\":\"Zagreb, Croatia\"}, \"timezone\":{\"label\":\"Sarajevo, Skopje, Warsaw, Zagreb\", \"offset\":\"+01:00\"}, \"description\":{\"_content\":\"I'm an enthusiastic programmer.\"}, \"photosurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/\"}, \"profileurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/people\\/78733179@N04\\/\"}, \"mobileurl\":{\"_content\":\"http:\\/\\/m.flickr.com\\/photostream.gne?id=78701040\"}, \"photos\":{\"firstdatetaken\":{\"_content\":\"2012-09-14 13:02:57\"}, \"firstdate\":{\"_content\":\"1347653033\"}, \"count\":{\"_content\":3}, \"views\":{\"_content\":\"1\"}}}, \"stat\":\"ok\"}"
+      string: "{\"person\":{\"id\":\"78733179@N04\", \"nsid\":\"78733179@N04\", \"ispro\":0, \"iconserver\":\"8033\", \"iconfarm\":9, \"path_alias\":null, \"username\":{\"_content\":\"@janko-m\"}, \"realname\":{\"_content\":\"Janko Marohni\\u0107\"}, \"mbox_sha1sum\":{\"_content\":\"3e20212c39d8bdf303e314bfb1749073cef17a09\"}, \"location\":{\"_content\":\"Zagreb, Croatia\"}, \"timezone\":{\"label\":\"Sarajevo, Skopje, Warsaw, Zagreb\", \"offset\":\"+01:00\"}, \"description\":{\"_content\":\"I'm an enthusiastic programmer.\"}, \"photosurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/\"}, \"profileurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/people\\/78733179@N04\\/\"}, \"mobileurl\":{\"_content\":\"http:\\/\\/m.flickr.com\\/photostream.gne?id=78701040\"}, \"photos\":{\"firstdatetaken\":{\"_content\":\"2012-09-14 13:02:57\"}, \"firstdate\":{\"_content\":\"1347653033\"}, \"count\":{\"_content\":5}, \"views\":{\"_content\":\"2\"}}}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sat, 27 Oct 2012 11:27:22 GMT
-recorded_with: VCR 2.2.4
+  recorded_at: Sat, 22 Dec 2012 23:57:14 GMT
+- request: 
+    method: get
+    uri: http://farm9.staticflickr.com/8033/buddyicons/78733179@N04.jpg
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Sun, 23 Dec 2012 02:07:21 GMT
+      content-type: 
+      - image/jpeg
+      content-length: 
+      - "6604"
+      connection: 
+      - close
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      last-modified: 
+      - Fri, 14 Sep 2012 20:52:55 GMT
+      accept-ranges: 
+      - bytes
+      age: 
+      - "12606"
+      x-cache: 
+      - HIT from photocache904.flickr.bf1.yahoo.com
+      x-cache-lookup: 
+      - HIT from photocache904.flickr.bf1.yahoo.com:81
+      via: 
+      - 1.1 photocache904.flickr.bf1.yahoo.com:81 (squid/2.7.STABLE9)
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        /9j/4AAQSkZJRgABAQEAyADIAAD/4gxYSUNDX1BST0ZJTEUAAQEAAAxITGlu
+        bwIQAABtbnRyUkdCIFhZWiAHzgACAAkABgAxAABhY3NwTVNGVAAAAABJRUMg
+        c1JHQgAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLUhQICAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFjcHJ0AAABUAAA
+        ADNkZXNjAAABhAAAAGx3dHB0AAAB8AAAABRia3B0AAACBAAAABRyWFlaAAAC
+        GAAAABRnWFlaAAACLAAAABRiWFlaAAACQAAAABRkbW5kAAACVAAAAHBkbWRk
+        AAACxAAAAIh2dWVkAAADTAAAAIZ2aWV3AAAD1AAAACRsdW1pAAAD+AAAABRt
+        ZWFzAAAEDAAAACR0ZWNoAAAEMAAAAAxyVFJDAAAEPAAACAxnVFJDAAAEPAAA
+        CAxiVFJDAAAEPAAACAx0ZXh0AAAAAENvcHlyaWdodCAoYykgMTk5OCBIZXds
+        ZXR0LVBhY2thcmQgQ29tcGFueQAAZGVzYwAAAAAAAAASc1JHQiBJRUM2MTk2
+        Ni0yLjEAAAAAAAAAAAAAABJzUkdCIElFQzYxOTY2LTIuMQAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAA
+        AAAAAPNRAAEAAAABFsxYWVogAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABv
+        ogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+E
+        AAC2z2Rlc2MAAAAAAAAAFklFQyBodHRwOi8vd3d3LmllYy5jaAAAAAAAAAAA
+        AAAAFklFQyBodHRwOi8vd3d3LmllYy5jaAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABkZXNjAAAAAAAAAC5JRUMgNjE5
+        NjYtMi4xIERlZmF1bHQgUkdCIGNvbG91ciBzcGFjZSAtIHNSR0IAAAAAAAAA
+        AAAAAC5JRUMgNjE5NjYtMi4xIERlZmF1bHQgUkdCIGNvbG91ciBzcGFjZSAt
+        IHNSR0IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZGVzYwAAAAAAAAAsUmVmZXJl
+        bmNlIFZpZXdpbmcgQ29uZGl0aW9uIGluIElFQzYxOTY2LTIuMQAAAAAAAAAA
+        AAAALFJlZmVyZW5jZSBWaWV3aW5nIENvbmRpdGlvbiBpbiBJRUM2MTk2Ni0y
+        LjEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHZpZXcAAAAAABOk/gAUXy4A
+        EM8UAAPtzAAEEwsAA1yeAAAAAVhZWiAAAAAAAEwJVgBQAAAAVx/nbWVhcwAA
+        AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAo8AAAACc2lnIAAAAABDUlQgY3Vy
+        dgAAAAAAAAQAAAAABQAKAA8AFAAZAB4AIwAoAC0AMgA3ADsAQABFAEoATwBU
+        AFkAXgBjAGgAbQByAHcAfACBAIYAiwCQAJUAmgCfAKQAqQCuALIAtwC8AMEA
+        xgDLANAA1QDbAOAA5QDrAPAA9gD7AQEBBwENARMBGQEfASUBKwEyATgBPgFF
+        AUwBUgFZAWABZwFuAXUBfAGDAYsBkgGaAaEBqQGxAbkBwQHJAdEB2QHhAekB
+        8gH6AgMCDAIUAh0CJgIvAjgCQQJLAlQCXQJnAnECegKEAo4CmAKiAqwCtgLB
+        AssC1QLgAusC9QMAAwsDFgMhAy0DOANDA08DWgNmA3IDfgOKA5YDogOuA7oD
+        xwPTA+AD7AP5BAYEEwQgBC0EOwRIBFUEYwRxBH4EjASaBKgEtgTEBNME4QTw
+        BP4FDQUcBSsFOgVJBVgFZwV3BYYFlgWmBbUFxQXVBeUF9gYGBhYGJwY3BkgG
+        WQZqBnsGjAadBq8GwAbRBuMG9QcHBxkHKwc9B08HYQd0B4YHmQesB78H0gfl
+        B/gICwgfCDIIRghaCG4IggiWCKoIvgjSCOcI+wkQCSUJOglPCWQJeQmPCaQJ
+        ugnPCeUJ+woRCicKPQpUCmoKgQqYCq4KxQrcCvMLCwsiCzkLUQtpC4ALmAuw
+        C8gL4Qv5DBIMKgxDDFwMdQyODKcMwAzZDPMNDQ0mDUANWg10DY4NqQ3DDd4N
+        +A4TDi4OSQ5kDn8Omw62DtIO7g8JDyUPQQ9eD3oPlg+zD88P7BAJECYQQxBh
+        EH4QmxC5ENcQ9RETETERTxFtEYwRqhHJEegSBxImEkUSZBKEEqMSwxLjEwMT
+        IxNDE2MTgxOkE8UT5RQGFCcUSRRqFIsUrRTOFPAVEhU0FVYVeBWbFb0V4BYD
+        FiYWSRZsFo8WshbWFvoXHRdBF2UXiReuF9IX9xgbGEAYZRiKGK8Y1Rj6GSAZ
+        RRlrGZEZtxndGgQaKhpRGncanhrFGuwbFBs7G2MbihuyG9ocAhwqHFIcexyj
+        HMwc9R0eHUcdcB2ZHcMd7B4WHkAeah6UHr4e6R8THz4faR+UH78f6iAVIEEg
+        bCCYIMQg8CEcIUghdSGhIc4h+yInIlUigiKvIt0jCiM4I2YjlCPCI/AkHyRN
+        JHwkqyTaJQklOCVoJZclxyX3JicmVyaHJrcm6CcYJ0kneierJ9woDSg/KHEo
+        oijUKQYpOClrKZ0p0CoCKjUqaCqbKs8rAis2K2krnSvRLAUsOSxuLKIs1y0M
+        LUEtdi2rLeEuFi5MLoIuty7uLyQvWi+RL8cv/jA1MGwwpDDbMRIxSjGCMbox
+        8jIqMmMymzLUMw0zRjN/M7gz8TQrNGU0njTYNRM1TTWHNcI1/TY3NnI2rjbp
+        NyQ3YDecN9c4FDhQOIw4yDkFOUI5fzm8Ofk6Njp0OrI67zstO2s7qjvoPCc8
+        ZTykPOM9Ij1hPaE94D4gPmA+oD7gPyE/YT+iP+JAI0BkQKZA50EpQWpBrEHu
+        QjBCckK1QvdDOkN9Q8BEA0RHRIpEzkUSRVVFmkXeRiJGZ0arRvBHNUd7R8BI
+        BUhLSJFI10kdSWNJqUnwSjdKfUrESwxLU0uaS+JMKkxyTLpNAk1KTZNN3E4l
+        Tm5Ot08AT0lPk0/dUCdQcVC7UQZRUFGbUeZSMVJ8UsdTE1NfU6pT9lRCVI9U
+        21UoVXVVwlYPVlxWqVb3V0RXklfgWC9YfVjLWRpZaVm4WgdaVlqmWvVbRVuV
+        W+VcNVyGXNZdJ114XcleGl5sXr1fD19hX7NgBWBXYKpg/GFPYaJh9WJJYpxi
+        8GNDY5dj62RAZJRk6WU9ZZJl52Y9ZpJm6Gc9Z5Nn6Wg/aJZo7GlDaZpp8WpI
+        ap9q92tPa6dr/2xXbK9tCG1gbbluEm5rbsRvHm94b9FwK3CGcOBxOnGVcfBy
+        S3KmcwFzXXO4dBR0cHTMdSh1hXXhdj52m3b4d1Z3s3gReG54zHkqeYl553pG
+        eqV7BHtje8J8IXyBfOF9QX2hfgF+Yn7CfyN/hH/lgEeAqIEKgWuBzYIwgpKC
+        9INXg7qEHYSAhOOFR4Wrhg6GcobXhzuHn4gEiGmIzokziZmJ/opkisqLMIuW
+        i/yMY4zKjTGNmI3/jmaOzo82j56QBpBukNaRP5GokhGSepLjk02TtpQglIqU
+        9JVflcmWNJaflwqXdZfgmEyYuJkkmZCZ/JpomtWbQpuvnByciZz3nWSd0p5A
+        nq6fHZ+Ln/qgaaDYoUehtqImopajBqN2o+akVqTHpTilqaYapoum/adup+Co
+        UqjEqTepqaocqo+rAqt1q+msXKzQrUStuK4trqGvFq+LsACwdbDqsWCx1rJL
+        ssKzOLOutCW0nLUTtYq2AbZ5tvC3aLfguFm40blKucK6O7q1uy67p7whvJu9
+        Fb2Pvgq+hL7/v3q/9cBwwOzBZ8Hjwl/C28NYw9TEUcTOxUvFyMZGxsPHQce/
+        yD3IvMk6ybnKOMq3yzbLtsw1zLXNNc21zjbOts83z7jQOdC60TzRvtI/0sHT
+        RNPG1EnUy9VO1dHWVdbY11zX4Nhk2OjZbNnx2nba+9uA3AXcit0Q3ZbeHN6i
+        3ynfr+A24L3hROHM4lPi2+Nj4+vkc+T85YTmDeaW5x/nqegy6LzpRunQ6lvq
+        5etw6/vshu0R7ZzuKO6070DvzPBY8OXxcvH/8ozzGfOn9DT0wvVQ9d72bfb7
+        94r4Gfio+Tj5x/pX+uf7d/wH/Jj9Kf26/kv+3P9t////2wBDAAEBAQEBAQEB
+        AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB
+        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
+
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 02:07:21 GMT
+- request: 
+    method: get
+    uri: http://www.flickr.com/images/buddyicon.jpg
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Wed, 19 Dec 2012 08:03:57 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      last-modified: 
+      - Wed, 18 Apr 2012 21:53:08 GMT
+      accept-ranges: 
+      - bytes
+      content-length: 
+      - "927"
+      x-served-by: 
+      - www65.flickr.bf1.yahoo.com
+      cache-control: 
+      - max-age=315360000
+      content-type: 
+      - image/jpeg
+      age: 
+      - "324204"
+      server: 
+      - YTS/1.20.20
+      connection: 
+      - close
+      via: 
+      - HTTP/1.1 r07.ycpi.dee.yahoo.net (YahooTrafficServer/1.20.20 [cHs f ])
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        /9j/4AAQSkZJRgABAgAAZABkAAD/2wBDAAEBAQEBAQEBAQECAQEBAgICAQEC
+        AgMCAgICAgMEAwMDAwMDBAQEBAUEBAQGBgYGBgYICAgICAkJCQkJCQkJCQn/
+        2wBDAQICAgMDAwUEBAUIBgUGCAkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJ
+        CQkJCQkJCQkJCQkJCQkJCQkJCQkJCQn/wAARCAAwADADAREAAhEBAxEB/8QA
+        GQABAQEBAQEAAAAAAAAAAAAAAAgKCQUH/8QAKxAAAAQFAwMDBQEAAAAAAAAA
+        AgMEBQABBgcICRESExQWFRciGSRak9YK/8QAFAEBAAAAAAAAAAAAAAAAAAAA
+        AP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ANhEAgEAgEAg
+        EBOV3sw8R8fKlQ0ZfvKW3NkKwc0JTo20pV9bs1NOShtONNILVlJXFUSaMkZp
+        JgAmSDxmIApSnuGewfVbb3OtteSi2a5FobhMd1bd1H3Hj1e027JXxlX9meYl
+        P7dciMNIN6R5Qyx8RT4jCIM9pynKA9yp6npqiaaqGs6zqFDSNH0ihVulV1W6
+        KykDa2NqAoR6pWrVHiAUSSSUAQzDBikEIZTnOcpSgJytvnVhHeStGa29ocxr
+        V3VuJUfcePUFTdwmF8el/ZkGKj+3Qolhp5vSIKGYPiGfEARCntKU5wFUwCAx
+        Z/6NdJfUEzxzctbd7FGwHurbunLVslNvNQ+VU2x9F6Rvz4tOT9B4ckZ4uJCw
+        kXMIJgny2kKc5ClIO/WifjfejEbTHxnx6yFoz2+vBb7zPy+kPUULt2nq1Vuz
+        kl+6bT1KUzqJVJY/gYLbltPYUpykFU51W3rS8mEeY1obbs3kdxLq2ruFTdBU
+        93BCPv3p8YViJCn66owogrqnmhDzMGEAd9xClKU5wGLPRP0T9TjEbU4xnyFy
+        Fxn9vrP2+8z8vq/zOlHbtPVqUdm1L9q2uylUZ1FSksHwLFty3nsGU5yDfrAI
+        BAIBAIBAIDizqN6YmXGad7qWulYTVYuNgxR7BSqFgcrS0gU8jbXFySr1ysx3
+        Nm3VG0FdY4pUWSLckQuJIdxzlsEIQF9AjUm/Invh+iqf7iAfQI1JvyJ74foq
+        n+4gKpwn0hc3MXsnLZ30u9rO3Uywt3Q3rPkNgKkKfgsr/wCptKtvI7ia2qnI
+        j7U9QBSDkmH8yw7cZ7CCHfqAQCAQCAQCA//Z
+
+    http_version: 
+  recorded_at: Sun, 23 Dec 2012 02:07:21 GMT
+recorded_with: VCR 2.3.0

@@ -1,9 +1,20 @@
 require "cgi"
-require "flickr/client/middleware/retry"
 
 class Flickr
   class Client < Faraday::Connection
     module Middleware
+      class CheckStatus < Faraday::Response::Middleware
+        def on_complete(env)
+          env[:body] = env[:body]["rsp"] || env[:body]
+
+          if env[:body]["stat"] != "ok"
+            message = env[:body]["message"] || env[:body]["err"]["msg"]
+            code = env[:body]["code"] || env[:body]["err"]["code"]
+            raise ApiError.new(message, code)
+          end
+        end
+      end
+
       class CheckOAuth < Faraday::Response::Middleware
         def on_complete(env)
           if env[:status] != 200
@@ -14,28 +25,29 @@ class Flickr
         end
       end
 
-      class CheckStatus < Faraday::Response::Middleware
-        def on_complete(env)
-          env[:body] = env[:body]["rsp"] || env[:body]
+      # A copy from Faraday (credits to @mislav)
+      class Retry < Faraday::Middleware
+        def initialize(app, options = {})
+          super(app)
+          @retries, options = options, {} if options.is_a? Integer
+          @retries ||= options.fetch(:max, 2).to_i
+          @sleep     = options.fetch(:interval, 0).to_f
+          @errmatch  = options.fetch(:exceptions) { [Errno::ETIMEDOUT, 'Timeout::Error', Faraday::Error::TimeoutError] }
+        end
 
-          if env[:body]["stat"] != "ok"
-            message = env[:body]["message"] || env[:body]["err"]["msg"]
-            code = env[:body]["code"] || env[:body]["err"]["code"]
-            raise Error.new(message, code)
+        def call(env)
+          retries = @retries
+          begin
+            @app.call(env)
+          rescue *@errmatch => error
+            if retries > 0
+              retries -= 1
+              sleep @sleep if @sleep > 0
+              retry
+            end
+            raise Flickr::TimeoutError, error.message
           end
         end
-      end
-    end
-
-    class OAuthError < ArgumentError
-    end
-
-    class Error < StandardError
-      attr_reader :code
-
-      def initialize(message, code = nil)
-        super(message)
-        @code = code.to_i
       end
     end
   end

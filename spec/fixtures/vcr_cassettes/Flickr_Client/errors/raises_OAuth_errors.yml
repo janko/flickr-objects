@@ -1,0 +1,40 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.test.login
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="59cda8a6f2f6baa28bf3235c78865ddc", oauth_signature="eogl9P4U9BN3pKWBHY8yAN4K%2FvI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356214883", oauth_version="1.0"
+  response: 
+    status: 
+      code: 400
+      message: 
+    headers: 
+      date: 
+      - Sat, 22 Dec 2012 22:21:24 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=47; expires=Tue, 23-Dec-2014 22:21:24 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www49.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "66"
+      connection: 
+      - close
+      content-type: 
+      - text/plain;charset=UTF-8
+    body: 
+      encoding: ASCII-8BIT
+      string: oauth_problem=parameter_absent&oauth_parameters_absent=oauth_token
+    http_version: 
+  recorded_at: Sat, 22 Dec 2012 22:21:24 GMT
+recorded_with: VCR 2.3.0

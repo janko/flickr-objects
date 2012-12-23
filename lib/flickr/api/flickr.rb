@@ -13,20 +13,19 @@ class Flickr
     end
 
     def check_upload_tickets(tickets, params = {})
-      response = client.get flickr_method(__method__), params.merge(tickets: tickets.to_s)
-      Collection.new(response["uploader"].delete("ticket"), UploadTicket, response["uploader"], client)
+      upload_tickets.check(tickets, params)
     end
 
     def test_login(params = {})
-      client.get flickr_method(__method__), params
+      client.get f(__method__), params
     end
 
     def test_echo(params = {})
-      client.get flickr_method(__method__), params
+      client.get f(__method__), params
     end
 
     def test_null(params = {})
-      client.get flickr_method(__method__), params
+      client.get f(__method__), params
     end
   end
 
