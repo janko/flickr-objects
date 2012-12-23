@@ -52,5 +52,14 @@ class Flickr
     def select(*args, &block)
       dup.select!(*args, &block)
     end
+
+    def method_missing(name, *args, &block)
+      if name.to_s =~ /find_by_\w+/
+        attribute_name = name[/(?<=find_by_)\w+/]
+        @objects.find { |object| object.send(attribute_name) == args.first }
+      else
+        super
+      end
+    end
   end
 end

@@ -21,6 +21,12 @@ describe Flickr::Collection do
     it "allows Enumerable#find" do
       @it.find { |media| media.id == PHOTO_ID }.should be_a(Flickr::Media)
     end
+
+    it "has dynamic finders" do
+      photo = @it.find(PHOTO_ID)
+      @it.find_by_id(photo.id).should eq photo
+      @it.find_by_title(photo.title).should eq photo
+    end
   end
 
   describe "#each" do
