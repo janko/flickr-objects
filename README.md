@@ -135,22 +135,21 @@ end
 <% end %>
 ```
 
-## Authenticated requests
+## Authentication
 
-If you need to make authenticated API requests (which you'll probably often want), you can create a kind
-of a instance, assigning to it the user's access token. That instance then has the same interface as `Flickr`.
+If you need to make authenticated API requests (which you'll probably often want), you should create an
+instance, assigning it the user's access token.
 
 ```ruby
 flickr = Flickr.new("ACCESS_TOKEN_KEY", "ACCESS_TOKEN_SECRET")
 
+# It has the same interface as `Flickr`
 flickr.test_login #=> {"id" => "78733179@N04", "username" => ...}
 flickr.people.find("78733179@N04").get_photos #=> [#<Flickr::Photo ...>, #<Flickr::Photo, ...>, ...]
 ```
 
-If you're in a Rails application, probably the best solution for authenticating
-users through Flickr (thus obtaining their access tokens) is the
-[omniauth-flickr](https://github.com/timbreitkreutz/omniauth-flickr) gem.
-Another (more lightweight) solution would be [flickr-login](https://github.com/janko-m/flickr-login).
+For details on how to authenticate (obtain the access token) take a look at
+[this wiki](http://github.com/janko-m/flickr-objects/wiki/Authentication).
 
 You can also assign the access token globally in your configuration.
 
@@ -160,10 +159,6 @@ Flickr.configure do |config|
   config.access_token_secret = "ACCESS_TOKEN_SECRET"
 end
 ```
-
-This is especially useful if you're, for example, using Flickr as a photo storage in your
-application, and that access token is actually yours.
-
 
 ## Upload
 

@@ -1,7 +1,6 @@
 require "faraday"
 require "faraday_middleware"
-require "flickr/client/middleware"
-require "flickr/errors"
+require "flickr/middleware"
 
 class Flickr
   class Client < Faraday::Connection

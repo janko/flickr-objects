@@ -19,3 +19,4 @@ end
 
 require "flickr/objects"
 require "flickr/api"
+require "flickr/oauth"
