@@ -75,11 +75,11 @@ this gem has the convention of calling it like this:
 Flickr.people.find_by_email("janko.marohnic@gmail.com")
 ```
 
-Obvious parameters will always be passed like this. You can still pass a hash of
+This is always the case with required parameters. You can still pass a hash of
 other parameters as the last argument.
 
 For documentation on valid arguments, just look at the source code under
-[`lib/flickr/api`](https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/api).
+[`lib/flickr/api`](https://github.com/janko-m/flickr-objects/tree/master/lib/flickr/api).
 There you will find listed all the API methods of a specific object.
 
 ## Sizes
@@ -163,7 +163,7 @@ own documentation, so don't be discouraged if you haven't had experience in look
 people's code yet :)
 
 For example, list of `Flickr::Photo`'s attributes can be found in
-[`lib/flickr/objects/media.rb`](https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/objects/media.rb).
+[`lib/flickr/objects/photo.rb`](https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/objects/photo.rb).
 Take a look just to see how it looks like :)
 
 ## Few words
