@@ -16,6 +16,11 @@ class Flickr
       find(id).delete(params)
     end
 
+    def self.get_not_in_set(params = {})
+      response = client.get f(__method__), handle_extras(params)
+      new_list(response["photos"].delete("photo"), client, response["photos"])
+    end
+
     def get_info!(params = {})
       response = client.get f(__method__), params.merge(photo_id: id)
       @hash.update(response["photo"])

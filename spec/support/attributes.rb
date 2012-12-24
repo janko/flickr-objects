@@ -35,6 +35,8 @@ ATTRIBUTES[:photo] = {
   rotation:             proc { be_a(Integer) },
 }
 
+EXTRAS_KEYS = ["id", "owner", "secret", "server", "farm", "title", "ispublic", "isfriend", "isfamily"]
+
 ATTRIBUTES[:person] = {
   id:                   proc { be_a_nonempty(String) },
   nsid:                 proc { be_a_nonempty(String) },

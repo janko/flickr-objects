@@ -3,6 +3,7 @@ class Flickr
     class_api_method :get_from_contacts, "flickr.photos.getContactsPhotos"
     class_api_method :search,            "flickr.photos.search"
     class_api_method :delete,            "flickr.photos.delete"
+    class_api_method :get_not_in_set,    "flickr.photos.getNotInSet"
 
     instance_api_method :add_tags,         "flickr.photos.addTags"
     instance_api_method :delete,           "flickr.photos.delete"
