@@ -13,6 +13,7 @@ class Flickr
     end
 
     def check_upload_tickets(tickets, params = {})
+      Flickr.deprecation_warn "`Flickr.check_upload_tickets` is deprecated. Use `Flickr.upload_tickets.check` instead."
       upload_tickets.check(tickets, params)
     end
 

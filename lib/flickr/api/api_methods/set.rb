@@ -1,6 +1,7 @@
 class Flickr
   class Set < Object
     class_api_method :create, "flickr.photosets.create"
+    class_api_method :delete, "flickr.photosets.delete"
 
     instance_api_method :add_photo,     "flickr.photosets.addPhoto"
     instance_api_method :delete,        "flickr.photosets.delete"

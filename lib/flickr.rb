@@ -15,6 +15,10 @@ class Flickr
   def self.api_methods
     @api_methods ||= Hash.new { |hash, key| hash[key] = [] }
   end
+
+  def self.deprecation_warn(message)
+    warn "[FLICKR OBJECTS] #{message}"
+  end
 end
 
 require "flickr/objects"

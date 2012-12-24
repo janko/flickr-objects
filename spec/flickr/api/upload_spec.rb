@@ -23,7 +23,7 @@ describe "upload", :vcr do
 
     after(:each) {
       # sleep 3
-      Flickr.check_upload_tickets(@response).find(@response).photo.delete
+      Flickr.upload_tickets.check(@response).find(@response).photo.delete
     }
   end
 end
