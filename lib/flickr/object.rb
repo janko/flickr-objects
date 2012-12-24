@@ -18,8 +18,8 @@ class Flickr
       new({"id" => id}, client)
     end
 
-    def self.new_collection(hashes, client, collection_hash)
-      Collection.new(hashes.map { |hash| new(hash, client) }, collection_hash)
+    def self.new_list(hashes, client, list_hash)
+      List.new(hashes.map { |hash| new(hash, client) }, list_hash)
     end
 
     def inspect

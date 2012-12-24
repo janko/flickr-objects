@@ -1,5 +1,5 @@
 class Flickr
-  class Collection < Object
+  class List < Object
     include Enumerable
 
     attribute :current_page,  Integer

@@ -18,22 +18,22 @@ class Flickr
 
     def get_photos(params = {})
       response = client.get f(__method__), handle_extras(params.merge(user_id: id))
-      Photo.new_collection(response["photos"].delete("photo"), client, response["photos"])
+      Photo.new_list(response["photos"].delete("photo"), client, response["photos"])
     end
 
     def get_public_photos(params = {})
       response = client.get f(__method__), handle_extras(params.merge(user_id: id))
-      Photo.new_collection(response["photos"].delete("photo"), client, response["photos"])
+      Photo.new_list(response["photos"].delete("photo"), client, response["photos"])
     end
 
     def get_public_photos_from_contacts(params = {})
       response = client.get f(__method__), handle_extras(params.merge(user_id: id))
-      Photo.new_collection(response["photos"].delete("photo"), client, response["photos"])
+      Photo.new_list(response["photos"].delete("photo"), client, response["photos"])
     end
 
     def get_sets(params = {})
       response = client.get f(__method__), params.merge(user_id: id)
-      Set.new_collection(response["photosets"].delete("photoset"), client, response["photosets"])
+      Set.new_list(response["photosets"].delete("photoset"), client, response["photosets"])
     end
   end
 end

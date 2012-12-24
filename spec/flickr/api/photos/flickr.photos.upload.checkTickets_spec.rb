@@ -12,8 +12,8 @@ describe "flickr.photos.upload.checkTickets" do
 
   after(:each) { @ticket.photo.delete }
 
-  it "returns a Flickr::Collection" do
-    @response.should be_a(Flickr::Collection)
+  it "returns a Flickr::List" do
+    @response.should be_a(Flickr::List)
   end
 
   describe Flickr::UploadTicket do

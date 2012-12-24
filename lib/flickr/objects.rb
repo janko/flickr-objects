@@ -14,7 +14,7 @@ class Flickr
   class Location     < Object; end
   class UploadTicket < Object; end
 
-  class Collection < Object; end
+  class List < Object; end
 end
 
 objects = Flickr::Object.children.dup

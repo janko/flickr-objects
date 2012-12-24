@@ -8,8 +8,8 @@ describe "flickr.photosets.getList" do
     @set = @response.find(SET_ID)
   }
 
-  it "returns a Flickr::Collection" do
-    @response.should be_a(Flickr::Collection)
+  it "returns a Flickr::List" do
+    @response.should be_a(Flickr::List)
   end
 
   describe Flickr::Set do

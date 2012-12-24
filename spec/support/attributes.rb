@@ -86,7 +86,7 @@ ATTRIBUTES[:tag] = {
   machine_tag?: proc { be_a_boolean },
 }
 
-ATTRIBUTES[:collection] = {
+ATTRIBUTES[:list] = {
   current_page:  proc { be_a(Integer) },
   total_pages:   proc { be_a(Integer) },
   per_page:      proc { be_a(Integer) },

@@ -27,7 +27,7 @@ class Flickr
 
     def get_photos(params = {})
       response = client.get f(__method__), handle_extras(params.merge(photoset_id: id))
-      Photo.new_collection(response["photoset"].delete("photo"), client, response["photoset"])
+      Photo.new_list(response["photoset"].delete("photo"), client, response["photoset"])
     end
 
     def add_photo(photo_id, params = {})

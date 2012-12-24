@@ -8,8 +8,8 @@ describe "flickr.photos.getContactsPhotos" do
     @photo = @response.first
   }
 
-  it "returns a Flickr::Collection" do
-    @response.should be_a(Flickr::Collection)
+  it "returns a Flickr::List" do
+    @response.should be_a(Flickr::List)
   end
 
   it "assigns attributes correctly" do

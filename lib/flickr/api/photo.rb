@@ -2,12 +2,12 @@ class Flickr
   class Photo < Object
     def self.search(params = {})
       response = client.get f(__method__), handle_extras(params)
-      new_collection(response["photos"].delete("photo"), client, response["photos"])
+      new_list(response["photos"].delete("photo"), client, response["photos"])
     end
 
     def self.get_from_contacts(params = {})
       response = client.get f(__method__), handle_extras(params)
-      new_collection(response["photos"].delete("photo"), client, response["photos"])
+      new_list(response["photos"].delete("photo"), client, response["photos"])
     end
 
     def self.delete(id, params = {})

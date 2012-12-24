@@ -1,12 +1,12 @@
 require "spec_helper"
 
-describe Flickr::Collection do
+describe Flickr::List do
   use_vcr_cassette
 
   before(:each) { @it = Flickr.photos.search(user_id: PERSON_ID) }
 
   it "has correct attributes" do
-    test_attributes(@it, ATTRIBUTES[:collection])
+    test_attributes(@it, ATTRIBUTES[:list])
   end
 
   describe "#find" do
