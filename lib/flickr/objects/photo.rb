@@ -28,8 +28,8 @@ class Flickr
     attribute :public_editability,   Permissions
     attribute :usage,                Permissions
 
-    attribute :notes,                Array(Note)
-    attribute :tags,                 Array(Tag)
+    attribute :notes,                Array[Note]
+    attribute :tags,                 Array[Tag]
 
     attribute :has_people?,          Boolean
     attribute :favorite?,            Boolean
@@ -42,7 +42,7 @@ class Flickr
     attribute :rotation,             Integer
 
     attribute :largest_size,         String
-    attribute :available_sizes,      Array(String)
+    attribute :available_sizes,      Array[String]
 
     attribute :source_url,           String
     attribute :height,               Integer

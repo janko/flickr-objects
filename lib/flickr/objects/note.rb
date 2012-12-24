@@ -3,7 +3,7 @@ class Flickr
 
     attribute :id,          String
     attribute :author,      Person
-    attribute :coordinates, Array(Integer)
+    attribute :coordinates, Array[Integer]
     attribute :width,       Integer
     attribute :height,      Integer
     attribute :content,     String
