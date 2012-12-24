@@ -5,6 +5,7 @@ class Flickr
 
     instance_api_method :get_info!,                       "flickr.people.getInfo"
     instance_api_method :get_photos,                      "flickr.people.getPhotos"
+    instance_api_method :get_photos_of,                   "flickr.people.getPhotosOf"
     instance_api_method :get_public_photos,               "flickr.people.getPublicPhotos"
     instance_api_method :get_public_photos_from_contacts, "flickr.photos.getContactsPublicPhotos"
     instance_api_method :get_sets,                        "flickr.photosets.getList"

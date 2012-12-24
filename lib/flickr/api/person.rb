@@ -23,6 +23,11 @@ class Flickr
       Photo.new_list(response["photos"].delete("photo"), client, response["photos"])
     end
 
+    def get_photos_of(params = {})
+      response = client.get f(__method__), handle_extras(params.merge(user_id: id))
+      Photo.new_list(response["photos"].delete("photo"), client, response["photos"])
+    end
+
     def get_public_photos(params = {})
       response = client.get f(__method__), handle_extras(params.merge(user_id: id))
       Photo.new_list(response["photos"].delete("photo"), client, response["photos"])
