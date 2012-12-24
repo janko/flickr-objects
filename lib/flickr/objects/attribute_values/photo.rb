@@ -29,7 +29,7 @@ class Flickr
                                 if @hash["owner"].is_a?(String)
                                   {
                                     "id"         => @hash["owner"],
-                                    "username"   => @hash["ownername"],
+                                    "username"   => @hash["ownername"] || @hash["username"],
                                     "iconserver" => @hash["iconserver"],
                                     "iconfarm"   => @hash["iconfarm"],
                                   }

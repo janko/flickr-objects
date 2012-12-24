@@ -8,16 +8,6 @@ describe "flickr.photos.search" do
     @photo = @response.find(PHOTO_ID)
   end
 
-  it "returns a Flickr::List" do
-    @response.should be_a(Flickr::List)
-    test_attributes(@response, ATTRIBUTES[:list])
-  end
-
-  it "handles extras" do
-    @photo.available_sizes.should include("Thumbnail")
-  end
-
-  it "assigns attributes correctly" do
-    @photo.id.should be_a_nonempty(String)
-  end
+  it_behaves_like "list"
+  include_examples "extras"
 end

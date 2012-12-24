@@ -8,16 +8,10 @@ describe "flickr.photos.getContactsPhotos" do
     @photo = @response.first
   }
 
-  it "returns a Flickr::List" do
-    @response.should be_a(Flickr::List)
-    test_attributes(@response, ATTRIBUTES[:list])
-  end
+  it_behaves_like "list"
+  include_examples "extras"
 
-  it "handles extras" do
-    @photo.available_sizes.should include("Thumbnail")
-  end
-
-  it "assigns attributes correctly" do
-    @photo.id.should be_a_nonempty(String)
+  it "has owner's username" do
+    @photo.owner.username.should_not be_empty
   end
 end
