@@ -15,11 +15,5 @@ describe "flickr.photosets.addPhoto" do
   it "works" do
     @set.add_photo(@id)
     @set.remove_photo(@id)
-
-    @set.add_video(@id)
-    @set.remove_video(@id)
-
-    @set.add_media(@id)
-    @set.remove_media(@id)
   end
 end

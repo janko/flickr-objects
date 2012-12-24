@@ -5,12 +5,12 @@ describe "flickr.photos.addTags" do
 
   before(:each) {
     id = Flickr.upload file("photo.jpg")
-    @media = Flickr.photos.find(id)
+    @photo = Flickr.photos.find(id)
   }
 
-  after(:each) { @media.delete }
+  after(:each) { @photo.delete }
 
   it "works" do
-    @media.add_tags "Foo"
+    @photo.add_tags "Foo"
   end
 end

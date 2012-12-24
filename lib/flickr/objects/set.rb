@@ -11,20 +11,16 @@ class Flickr
 
     attribute :owner,          Person
 
-    attribute :media_count,    Integer
+    attribute :photos_count,   Integer
     attribute :views_count,    Integer
     attribute :comments_count, Integer
-    attribute :photos_count,   Integer
-    attribute :videos_count,   Integer
 
     attribute :permissions,    Permissions
 
     attribute :created_at,     Time
     attribute :updated_at,     Time
 
-    attribute :primary_media,  Media
     attribute :primary_photo,  Photo
-    attribute :primary_video,  Video
 
   end
 end

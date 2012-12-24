@@ -2,13 +2,13 @@ require_relative "api_methods/flickr"
 
 class Flickr
   api_methods = proc do
-    def upload(media, params = {})
-      response = upload_client.upload(media, params)
+    def upload(photo, params = {})
+      response = upload_client.upload(photo, params)
       params[:async] == 1 ? response["ticketid"] : response["photoid"]
     end
 
-    def replace(media, id, params = {})
-      response = upload_client.replace(media, id, params)
+    def replace(photo, id, params = {})
+      response = upload_client.replace(photo, id, params)
       params[:async] == 1 ? response["ticketid"] : response["photoid"]
     end
 

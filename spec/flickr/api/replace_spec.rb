@@ -7,7 +7,7 @@ describe "replace", :vcr, :pro do
       @response = Flickr.replace file("photo.jpg"), id
     }
 
-    it "returns a valid media ID" do
+    it "returns a valid photo ID" do
       expect {
         Flickr.photos.find(@response).get_info!
       }.to_not raise_error

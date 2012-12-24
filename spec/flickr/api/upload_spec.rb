@@ -4,7 +4,7 @@ describe "upload", :vcr do
   context "synchronous" do
     before(:each) { @response = Flickr.upload file("photo.jpg") }
 
-    it "returns a valid media ID" do
+    it "returns a valid photo ID" do
       expect {
         Flickr.photos.find(@response).get_info!
       }.to_not raise_error

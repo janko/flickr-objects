@@ -8,35 +8,35 @@ http_interactions:
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="b64cb6739b53d90c6b9e551ecbfee85d", oauth_signature="HG37vteF5NhQoGkMSExgrdV0pHk%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356227785", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="43fa7172d0a73d78951637be04ff76ac", oauth_signature="f3gAinqohayZP6I%2FvgNHtISUFRc%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358004", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sun, 23 Dec 2012 01:56:26 GMT
+      - Mon, 24 Dec 2012 14:06:45 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=71; expires=Wed, 24-Dec-2014 01:56:26 GMT; path=/; domain=.flickr.com
+      - xb=29; expires=Thu, 25-Dec-2014 14:06:45 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www37.flickr.mud.yahoo.com
+      - www132.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "448"
+      - "447"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"person\":{\"id\":\"78733179@N04\", \"nsid\":\"78733179@N04\", \"ispro\":0, \"iconserver\":\"8033\", \"iconfarm\":9, \"path_alias\":null, \"username\":{\"_content\":\"@janko-m\"}, \"realname\":{\"_content\":\"Janko Marohni\\u0107\"}, \"mbox_sha1sum\":{\"_content\":\"3e20212c39d8bdf303e314bfb1749073cef17a09\"}, \"location\":{\"_content\":\"Zagreb, Croatia\"}, \"timezone\":{\"label\":\"Sarajevo, Skopje, Warsaw, Zagreb\", \"offset\":\"+01:00\"}, \"description\":{\"_content\":\"I'm an enthusiastic programmer.\"}, \"photosurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/\"}, \"profileurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/people\\/78733179@N04\\/\"}, \"mobileurl\":{\"_content\":\"http:\\/\\/m.flickr.com\\/photostream.gne?id=78701040\"}, \"photos\":{\"firstdatetaken\":{\"_content\":\"2012-09-14 13:02:57\"}, \"firstdate\":{\"_content\":\"1347653033\"}, \"count\":{\"_content\":5}, \"views\":{\"_content\":\"2\"}}}, \"stat\":\"ok\"}"
+      string: "{\"person\":{\"id\":\"78733179@N04\", \"nsid\":\"78733179@N04\", \"ispro\":0, \"iconserver\":\"8033\", \"iconfarm\":9, \"path_alias\":null, \"username\":{\"_content\":\"@janko-m\"}, \"realname\":{\"_content\":\"Janko Marohni\\u0107\"}, \"mbox_sha1sum\":{\"_content\":\"3e20212c39d8bdf303e314bfb1749073cef17a09\"}, \"location\":{\"_content\":\"Zagreb, Croatia\"}, \"timezone\":{\"label\":\"Sarajevo, Skopje, Warsaw, Zagreb\", \"offset\":\"+01:00\"}, \"description\":{\"_content\":\"I'm an enthusiastic programmer.\"}, \"photosurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/\"}, \"profileurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/people\\/78733179@N04\\/\"}, \"mobileurl\":{\"_content\":\"http:\\/\\/m.flickr.com\\/photostream.gne?id=78701040\"}, \"photos\":{\"firstdatetaken\":{\"_content\":\"2012-09-14 13:02:57\"}, \"firstdate\":{\"_content\":\"1347653033\"}, \"count\":{\"_content\":2}, \"views\":{\"_content\":\"2\"}}}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sun, 23 Dec 2012 01:56:26 GMT
+  recorded_at: Mon, 24 Dec 2012 14:06:45 GMT
 - request: 
     method: get
     uri: http://farm9.staticflickr.com/8033/buddyicons/78733179@N04.jpg
@@ -51,7 +51,7 @@ http_interactions:
       message: 
     headers: 
       date: 
-      - Sun, 23 Dec 2012 02:07:25 GMT
+      - Mon, 24 Dec 2012 14:06:46 GMT
       content-type: 
       - image/jpeg
       content-length: 
@@ -65,7 +65,7 @@ http_interactions:
       accept-ranges: 
       - bytes
       age: 
-      - "12610"
+      - "142171"
       x-cache: 
       - HIT from photocache904.flickr.bf1.yahoo.com
       x-cache-lookup: 
@@ -224,7 +224,7 @@ http_interactions:
         THkfPkokS8/qZn9efH8bd7+u/wDfp9OFoU9C+v8AXj//2Q==
 
     http_version: 
-  recorded_at: Sun, 23 Dec 2012 02:07:25 GMT
+  recorded_at: Mon, 24 Dec 2012 14:06:46 GMT
 - request: 
     method: get
     uri: http://www.flickr.com/images/buddyicon.jpg
@@ -239,7 +239,7 @@ http_interactions:
       message: 
     headers: 
       date: 
-      - Fri, 21 Dec 2012 14:41:15 GMT
+      - Wed, 19 Dec 2012 08:23:32 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       last-modified: 
@@ -249,19 +249,19 @@ http_interactions:
       content-length: 
       - "927"
       x-served-by: 
-      - www31.flickr.bf1.yahoo.com
+      - www35.flickr.bf1.yahoo.com
       cache-control: 
       - max-age=315360000
       content-type: 
       - image/jpeg
       age: 
-      - "127570"
+      - "452594"
       server: 
       - YTS/1.20.20
       connection: 
       - close
       via: 
-      - HTTP/1.1 r20.ycpi.ams.yahoo.net (YahooTrafficServer/1.20.20 [cHs f ])
+      - HTTP/1.1 r20.ycpi.dee.yahoo.net (YahooTrafficServer/1.20.20 [cHs f ])
     body: 
       encoding: ASCII-8BIT
       string: !binary |
@@ -288,5 +288,5 @@ http_interactions:
         j7U9QBSDkmH8yw7cZ7CCHfqAQCAQCAQCA//Z
 
     http_version: 
-  recorded_at: Sun, 23 Dec 2012 02:07:25 GMT
+  recorded_at: Mon, 24 Dec 2012 14:06:46 GMT
 recorded_with: VCR 2.3.0

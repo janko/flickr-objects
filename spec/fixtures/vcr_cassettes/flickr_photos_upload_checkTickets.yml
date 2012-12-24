@@ -1385,7 +1385,7 @@ http_interactions:
 
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="f069325650274ea22d4344a66bd76e33", oauth_signature="VpyuuQCjPm9SBvPQkjjudwuVdG0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356228264", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="8181b23df84745ff1adfbee96ad2cdcd", oauth_signature="4ZBVzHR8iFqe5PZdjdLKV0a3GFw%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358781", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
       Content-Type: 
       - multipart/form-data;boundary=-----------RubyMultipartPost
       Content-Length: 
@@ -1396,11 +1396,11 @@ http_interactions:
       message: 
     headers: 
       date: 
-      - Sun, 23 Dec 2012 02:04:25 GMT
+      - Mon, 24 Dec 2012 14:19:41 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=11; expires=Wed, 24-Dec-2014 02:04:26 GMT; path=/; domain=.flickr.com
+      - xb=42; expires=Thu, 25-Dec-2014 14:19:42 GMT; path=/; domain=.flickr.com
       connection: 
       - close
       content-length: 
@@ -1408,7 +1408,7 @@ http_interactions:
       cache-control: 
       - private
       x-served-by: 
-      - www109.flickr.mud.yahoo.com
+      - www34.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-type: 
@@ -1418,71 +1418,71 @@ http_interactions:
       string: |-
         <?xml version="1.0" encoding="utf-8" ?>
         <rsp stat="ok">
-        <ticketid>78701040-72157632313199435</ticketid>
+        <ticketid>78701040-72157632330476594</ticketid>
         </rsp>
     http_version: 
-  recorded_at: Sun, 23 Dec 2012 02:04:26 GMT
+  recorded_at: Mon, 24 Dec 2012 14:19:43 GMT
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.upload.checkTickets&tickets=78701040-72157632313199435
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.upload.checkTickets&tickets=78701040-72157632330476594
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="a3d894c5e918ce89d14a3137fb81ef46", oauth_signature="DIKbQNQpRFUe8U8kcm%2FkBppTpgU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356228269", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="0a91bd9e42bdd9eb3c649de7197d1e72", oauth_signature="fs28%2B9BSZXfekzT5kx%2F5km%2FGX9o%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358786", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sun, 23 Dec 2012 02:04:30 GMT
+      - Mon, 24 Dec 2012 14:19:46 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=26; expires=Wed, 24-Dec-2014 02:04:30 GMT; path=/; domain=.flickr.com
+      - xb=41; expires=Thu, 25-Dec-2014 14:19:46 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www189.flickr.mud.yahoo.com
+      - www141.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "133"
+      - "132"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"uploader\":{\"ticket\":[{\"id\":\"78701040-72157632313199435\", \"complete\":1, \"photoid\":\"8298008943\", \"imported\":\"1356228266\"}]}, \"stat\":\"ok\"}"
+      string: "{\"uploader\":{\"ticket\":[{\"id\":\"78701040-72157632330476594\", \"complete\":1, \"photoid\":\"8304127124\", \"imported\":\"1356358782\"}]}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sun, 23 Dec 2012 02:04:30 GMT
+  recorded_at: Mon, 24 Dec 2012 14:19:46 GMT
 - request: 
     method: post
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.delete&photo_id=8298008943
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.delete&photo_id=8304127124
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="a81dcd52fa48df4037fce6d1a4bf3d2d", oauth_signature="jeWLwADxWn%2B%2F9f3tkOGaUDQodWw%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356228270", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="c82dac4f491b9faa90a80a5f2904df6a", oauth_signature="kmiDhL9849iqq%2FFlk727r9k7aTk%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358786", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sun, 23 Dec 2012 02:04:30 GMT
+      - Mon, 24 Dec 2012 14:19:46 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=87; expires=Wed, 24-Dec-2014 02:04:30 GMT; path=/; domain=.flickr.com
+      - xb=72; expires=Thu, 25-Dec-2014 14:19:46 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www1.flickr.mud.yahoo.com
+      - www12.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -1495,42 +1495,42 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sun, 23 Dec 2012 02:04:30 GMT
+  recorded_at: Mon, 24 Dec 2012 14:19:47 GMT
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.upload.checkTickets&tickets=78701040-72157632313199435
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.upload.checkTickets&tickets=78701040-72157632330476594
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="3887519ed8186a8b59739daf2ac0da2f", oauth_signature="eHHIBReDcU69bG%2FNnvgNkFoGcps%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356228273", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="0a2b41461ae7372c60c65282dd48bc2d", oauth_signature="GYC6Y5baglPMGZN0SOLnYQI48Es%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358790", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sun, 23 Dec 2012 02:04:34 GMT
+      - Mon, 24 Dec 2012 14:19:50 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=71; expires=Wed, 24-Dec-2014 02:04:34 GMT; path=/; domain=.flickr.com
+      - xb=48; expires=Thu, 25-Dec-2014 14:19:50 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www184.flickr.mud.yahoo.com
+      - www32.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "130"
+      - "129"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"uploader\":{\"ticket\":[{\"id\":\"78701040-72157632313199435\", \"complete\":1, \"photoid\":\"8298008943\", \"imported\":null}]}, \"stat\":\"ok\"}"
+      string: "{\"uploader\":{\"ticket\":[{\"id\":\"78701040-72157632330476594\", \"complete\":1, \"photoid\":\"8304127124\", \"imported\":null}]}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sun, 23 Dec 2012 02:04:34 GMT
+  recorded_at: Mon, 24 Dec 2012 14:19:50 GMT
 recorded_with: VCR 2.3.0

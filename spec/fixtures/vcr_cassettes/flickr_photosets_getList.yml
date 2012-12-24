@@ -8,33 +8,33 @@ http_interactions:
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="1634307e7d4462290b6da18e847c653f", oauth_signature="9aoS%2FO3YGbwgn9ttX5iL8Bcy0WU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356233640", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="803962efe46f0e4c22c8c9d830ddb124", oauth_signature="qqZUneuw6gd1P0eUQHoLrzf%2BPq0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358843", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sun, 23 Dec 2012 03:34:01 GMT
+      - Mon, 24 Dec 2012 14:20:44 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=89; expires=Wed, 24-Dec-2014 03:34:01 GMT; path=/; domain=.flickr.com
+      - xb=84; expires=Thu, 25-Dec-2014 14:20:44 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www95.flickr.mud.yahoo.com
+      - www135.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "349"
+      - "282"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"photosets\":{\"cancreate\":1, \"page\":1, \"pages\":1, \"perpage\":2, \"total\":2, \"photoset\":[{\"id\":\"72157632008788084\", \"primary\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"photos\":\"1\", \"videos\":0, \"title\":{\"_content\":\"New set\"}, \"description\":{\"_content\":\"\"}, \"needs_interstitial\":0, \"visibility_can_see_set\":1, \"count_views\":\"0\", \"count_comments\":\"0\", \"can_comment\":1, \"date_create\":\"1352909686\", \"date_update\":\"1352924250\"}, {\"id\":\"72157631860874542\", \"primary\":\"8126288530\", \"secret\":\"6e6eaa53c8\", \"server\":\"8470\", \"farm\":9, \"photos\":\"2\", \"videos\":0, \"title\":{\"_content\":\"Title\"}, \"description\":{\"_content\":\"Description\"}, \"needs_interstitial\":0, \"visibility_can_see_set\":1, \"count_views\":\"0\", \"count_comments\":\"0\", \"can_comment\":1, \"date_create\":\"1351297929\", \"date_update\":\"1356233639\"}]}, \"stat\":\"ok\"}"
+      string: "{\"photosets\":{\"cancreate\":1, \"page\":1, \"pages\":1, \"perpage\":1, \"total\":1, \"photoset\":[{\"id\":\"72157631860874542\", \"primary\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"photos\":\"1\", \"videos\":0, \"title\":{\"_content\":\"Title\"}, \"description\":{\"_content\":\"Description\"}, \"needs_interstitial\":0, \"visibility_can_see_set\":1, \"count_views\":\"0\", \"count_comments\":\"0\", \"can_comment\":1, \"date_create\":\"1351297929\", \"date_update\":\"1356358843\"}]}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sun, 23 Dec 2012 03:34:01 GMT
+  recorded_at: Mon, 24 Dec 2012 14:20:44 GMT
 recorded_with: VCR 2.3.0

@@ -11,12 +11,15 @@ class Flickr
       child.send(:extend, Attribute)
       child.send(:include, ApiCaller)
 
-      children << child
-      Object.children << child if self != Object
+      Object.children << child
     end
 
     def self.find(id)
       new({"id" => id}, client)
+    end
+
+    def self.new_collection(hashes, client, collection_hash)
+      Collection.new(hashes.map { |hash| new(hash, client) }, collection_hash)
     end
 
     def inspect

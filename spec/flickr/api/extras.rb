@@ -6,16 +6,16 @@ describe "Extras" do
 
   before(:each) {
     @response = Flickr.photos.search(user_id: PERSON_ID, extras: EXTRAS)
-    @media = @response.find(MEDIA_ID)
-    @person = @media.owner
-    @visibility = @media.visibility
-    @location = @media.location
-    @tag = @media.tags.first
+    @photo = @response.find(PHOTO_ID)
+    @person = @photo.owner
+    @visibility = @photo.visibility
+    @location = @photo.location
+    @tag = @photo.tags.first
   }
 
-  describe Flickr::Media do
+  describe Flickr::Photo do
     it "has correct attributes" do
-      test_attributes(@media, ATTRIBUTES[:media].slice(:id, :secret, :server, :farm, :uploaded_at, :license, :title, :description, :taken_at, :taken_at_granularity, :updated_at, :views_count, :path_alias))
+      test_attributes(@photo, ATTRIBUTES[:photo].slice(:id, :secret, :server, :farm, :uploaded_at, :license, :title, :description, :taken_at, :taken_at_granularity, :updated_at, :views_count, :path_alias))
     end
   end
 

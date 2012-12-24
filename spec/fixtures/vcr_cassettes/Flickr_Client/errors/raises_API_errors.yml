@@ -8,24 +8,24 @@ http_interactions:
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_nonce="efd37e6ae45d952b5abffdcf87cf62da", oauth_signature="RUq%2B9pqXUus%2BKjmBdtADx6yMVJc%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356214884", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_nonce="3bac45fdec27d66592cad9300552a3aa", oauth_signature="ZSqc4bHCEy16OPF%2FvxzVkoJTpkI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356357950", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 22 Dec 2012 22:21:24 GMT
+      - Mon, 24 Dec 2012 14:05:50 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=49; expires=Tue, 23-Dec-2014 22:21:24 GMT; path=/; domain=.flickr.com
+      - xb=18; expires=Thu, 25-Dec-2014 14:05:50 GMT; path=/; domain=.flickr.com
       access-control-allow-origin: 
       - "*"
       cache-control: 
       - private
       x-served-by: 
-      - www83.flickr.mud.yahoo.com
+      - www69.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -38,5 +38,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: "{\"stat\":\"fail\", \"code\":100, \"message\":\"Invalid API Key (Key has invalid format)\"}"
     http_version: 
-  recorded_at: Sat, 22 Dec 2012 22:21:24 GMT
+  recorded_at: Mon, 24 Dec 2012 14:05:50 GMT
 recorded_with: VCR 2.3.0

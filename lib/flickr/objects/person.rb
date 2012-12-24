@@ -13,15 +13,15 @@ class Flickr
     attribute :icon_server,          Integer
     attribute :icon_farm,            Integer
 
-    attribute :photos_url,           String, aliases: [:videos_url, :media_url]
+    attribute :photos_url,           String
     attribute :profile_url,          String
     attribute :mobile_url,           String
 
-    attribute :first_photo_taken,    Time, aliases: [:first_video_taken, :first_media_taken]
-    attribute :first_photo_uploaded, Time, aliases: [:first_video_uploaded, :first_media_uploaded]
+    attribute :first_photo_taken,    Time
+    attribute :first_photo_uploaded, Time
 
-    attribute :photos_count,         Integer, aliases: [:videos_count, :media_count]
-    attribute :photo_views_count,    Integer, aliases: [:video_views_count, :media_views_count]
+    attribute :photos_count,         Integer
+    attribute :photo_views_count,    Integer
 
     attribute :path_alias,           String
 

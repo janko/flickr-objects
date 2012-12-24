@@ -4,11 +4,11 @@ describe "flickr.photos.setContentType" do
   use_vcr_cassette
 
   before(:each) {
-    @media = Flickr.media.find(MEDIA_ID)
+    @photo = Flickr.photos.find(PHOTO_ID)
   }
 
   it "works" do
-    @media.set_content_type(1)
-    @media.content_type = 1
+    @photo.set_content_type(1)
+    @photo.content_type = 1
   end
 end

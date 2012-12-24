@@ -2,39 +2,39 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.search&user_id=78733179%40N04&extras=media
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.search&user_id=78733179%40N04
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="727d9648c5d249130fe03513d7492ca6", oauth_signature="IfaGvHflFJUIXPGB%2F0qjnhQFhIs%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356227885", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="6db3ef85598e880111568669a4cc7893", oauth_signature="eY0xM5vRpG5Nevf736kI1dFhjts%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356357997", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sun, 23 Dec 2012 01:58:06 GMT
+      - Mon, 24 Dec 2012 14:06:38 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=75; expires=Wed, 24-Dec-2014 01:58:06 GMT; path=/; domain=.flickr.com
+      - xb=31; expires=Thu, 25-Dec-2014 14:06:38 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www174.flickr.mud.yahoo.com
+      - www185.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "388"
+      - "230"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"photos\":{\"page\":1, \"pages\":1, \"perpage\":100, \"total\":\"5\", \"photo\":[{\"id\":\"8133340670\", \"owner\":\"78733179@N04\", \"secret\":\"38c60aaca7\", \"server\":\"8195\", \"farm\":9, \"title\":\"Screen Shot 2012-10-29 at 2.26.20 AM\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8130464513\", \"owner\":\"78733179@N04\", \"secret\":\"780e01decd\", \"server\":\"8191\", \"farm\":9, \"title\":\"Hana\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"8126288530\", \"owner\":\"78733179@N04\", \"secret\":\"6e6eaa53c8\", \"server\":\"8470\", \"farm\":9, \"title\":\"photo\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}, {\"id\":\"7989540600\", \"owner\":\"78733179@N04\", \"secret\":\"0515684d4c\", \"server\":\"8456\", \"farm\":9, \"title\":\"David Belle - Rush Hour (BBC commercial)\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"video\", \"media_status\":\"ready\"}, {\"id\":\"7986395865\", \"owner\":\"78733179@N04\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"title\":\"Game of Thrones\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"media\":\"photo\", \"media_status\":\"ready\"}]}, \"stat\":\"ok\"}"
+      string: "{\"photos\":{\"page\":1, \"pages\":1, \"perpage\":100, \"total\":\"2\", \"photo\":[{\"id\":\"8130464513\", \"owner\":\"78733179@N04\", \"secret\":\"780e01decd\", \"server\":\"8191\", \"farm\":9, \"title\":\"Hana\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0}, {\"id\":\"7986395865\", \"owner\":\"78733179@N04\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"title\":\"Game of Thrones\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0}]}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sun, 23 Dec 2012 01:58:06 GMT
+  recorded_at: Mon, 24 Dec 2012 14:06:38 GMT
 recorded_with: VCR 2.3.0

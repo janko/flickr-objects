@@ -6,15 +6,13 @@ class Flickr
       end
     end
 
-    def upload(media, params = {})
-      file = get_file(media)
-      response = post "upload", {photo: file}.merge(params)
+    def upload(photo, params = {})
+      response = post "upload", {photo: get_file(photo)}.merge(params)
       response.body
     end
 
-    def replace(media, id, params = {})
-      file = get_file(media)
-      response = post "replace", {photo: file, photo_id: id}.merge(params)
+    def replace(photo, id, params = {})
+      response = post "replace", {photo: get_file(photo), photo_id: id}.merge(params)
       response.body
     end
 
@@ -59,16 +57,6 @@ class Flickr
       %w[.svg .svgz]                      => 'image/svg+xml',
       %w[.tiff .tif]                      => 'image/tiff',
       %w[.ico]                            => 'image/vnd.microsoft.icon',
-
-      %w[.mpg .mpeg .m1v .m1a .m2a .mpa .mpv] => 'video/mpeg',
-      %w[.mp4 .m4a .m4p .m4b .m4r .m4v]       => 'video/mp4',
-      %w[.ogv .oga .ogx .ogg .spx]            => 'video/ogg',
-      %w[.mov .qt]                            => 'video/quicktime',
-      %w[.webm]                               => 'video/webm',
-      %w[.mkv .mk3d .mka .mks]                => 'video/x-matroska',
-      %w[.wmv]                                => 'video/x-ms-wmv',
-      %w[.flv .f4v .f4p .f4a .f4b]            => 'video/x-flv',
-      %w[.avi]                                => 'video/avi'
     }
   end
 end

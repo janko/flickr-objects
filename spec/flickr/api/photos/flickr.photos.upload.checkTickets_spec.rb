@@ -12,7 +12,7 @@ describe "flickr.photos.upload.checkTickets" do
 
   after(:each) { @ticket.photo.delete }
 
-  it "initializes a collection of tickets" do
+  it "returns a Flickr::Collection" do
     @response.should be_a(Flickr::Collection)
   end
 
@@ -22,11 +22,9 @@ describe "flickr.photos.upload.checkTickets" do
     end
   end
 
-  describe Flickr::Media do
+  describe Flickr::Photo do
     it "has correct attributes" do
-      test_attributes(@ticket.media, ATTRIBUTES[:media].slice(:id))
-      test_attributes(@ticket.photo, ATTRIBUTES[:media].slice(:id))
-      test_attributes(@ticket.video, ATTRIBUTES[:media].slice(:id))
+      test_attributes(@ticket.photo, ATTRIBUTES[:photo].slice(:id))
     end
   end
 

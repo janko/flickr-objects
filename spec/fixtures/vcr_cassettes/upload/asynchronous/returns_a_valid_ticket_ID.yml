@@ -1385,7 +1385,7 @@ http_interactions:
 
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="02b250f7cb63d82f528860feefa06218", oauth_signature="F8VFInu%2BL0634sHq%2BzazxAWoPiE%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356218589", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="995a68a30bc0b63b23135ec5d16195a1", oauth_signature="Gbzf4xhKt5puzBKtI8ZuDaOHGE4%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358746", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
       Content-Type: 
       - multipart/form-data;boundary=-----------RubyMultipartPost
       Content-Length: 
@@ -1396,11 +1396,11 @@ http_interactions:
       message: 
     headers: 
       date: 
-      - Sat, 22 Dec 2012 23:23:09 GMT
+      - Mon, 24 Dec 2012 14:19:07 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=41; expires=Tue, 23-Dec-2014 23:23:11 GMT; path=/; domain=.flickr.com
+      - xb=83; expires=Thu, 25-Dec-2014 14:19:08 GMT; path=/; domain=.flickr.com
       connection: 
       - close
       content-length: 
@@ -1408,7 +1408,7 @@ http_interactions:
       cache-control: 
       - private
       x-served-by: 
-      - www164.flickr.mud.yahoo.com
+      - www40.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-type: 
@@ -1418,35 +1418,35 @@ http_interactions:
       string: |
         <?xml version="1.0" encoding="utf-8" ?>
         <rsp stat="ok">
-        <ticketid>78701040-72157632312182827</ticketid>
+        <ticketid>78701040-72157632330472904</ticketid>
         </rsp>
 
     http_version: 
-  recorded_at: Sat, 22 Dec 2012 23:23:11 GMT
+  recorded_at: Mon, 24 Dec 2012 14:19:08 GMT
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.upload.checkTickets&tickets=78701040-72157632312182827
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.upload.checkTickets&tickets=78701040-72157632330472904
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="90cf2172d0fff694821623a940090716", oauth_signature="cn7sdxSdypULaT3gSBQo6kt36%2B4%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356218591", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="7a28acff004e39a683a3b5d1b76dcd95", oauth_signature="rSxHYEaD19SykjjHVOgPMANn7Bk%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358748", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 22 Dec 2012 23:23:11 GMT
+      - Mon, 24 Dec 2012 14:19:08 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=97; expires=Tue, 23-Dec-2014 23:23:11 GMT; path=/; domain=.flickr.com
+      - xb=60; expires=Thu, 25-Dec-2014 14:19:08 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www226.flickr.mud.yahoo.com
+      - www141.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -1457,33 +1457,33 @@ http_interactions:
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"uploader\":{\"ticket\":[{\"id\":\"78701040-72157632312182827\", \"complete\":0}]}, \"stat\":\"ok\"}"
+      string: "{\"uploader\":{\"ticket\":[{\"id\":\"78701040-72157632330472904\", \"complete\":0}]}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sat, 22 Dec 2012 23:23:11 GMT
+  recorded_at: Mon, 24 Dec 2012 14:19:08 GMT
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.upload.checkTickets&tickets=78701040-72157632312182827
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.upload.checkTickets&tickets=78701040-72157632330472904
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="6af8aacd1bb8d767a2d876dad6b1ff56", oauth_signature="kYj9MyVZujZKvCw9E6NnQn9eNqI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356218594", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="3f7919ab7ab44936368a5e09031e7d89", oauth_signature="tPMH6XPoHo04LD1oTKQSGHL732Y%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358751", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 22 Dec 2012 23:23:14 GMT
+      - Mon, 24 Dec 2012 14:19:12 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=87; expires=Tue, 23-Dec-2014 23:23:14 GMT; path=/; domain=.flickr.com
+      - xb=69; expires=Thu, 25-Dec-2014 14:19:12 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www202.flickr.mud.yahoo.com
+      - www169.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -1494,33 +1494,33 @@ http_interactions:
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"uploader\":{\"ticket\":[{\"id\":\"78701040-72157632312182827\", \"complete\":1, \"photoid\":\"8297636409\", \"imported\":\"1356218590\"}]}, \"stat\":\"ok\"}"
+      string: "{\"uploader\":{\"ticket\":[{\"id\":\"78701040-72157632330472904\", \"complete\":1, \"photoid\":\"8304125876\", \"imported\":\"1356358747\"}]}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sat, 22 Dec 2012 23:23:14 GMT
+  recorded_at: Mon, 24 Dec 2012 14:19:12 GMT
 - request: 
     method: post
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.delete&photo_id=8297636409
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.delete&photo_id=8304125876
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="63a53f82dc472df4c1c4a3826f86317e", oauth_signature="8DoMqTlpvRuSzep%2FZJZqtb7fO38%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356218594", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="b2d7a77be932ae35f03ca06692a044a6", oauth_signature="%2FyQ9XxxUE84VMg6EJNMucnKfzBU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358752", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 22 Dec 2012 23:23:15 GMT
+      - Mon, 24 Dec 2012 14:19:12 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=91; expires=Tue, 23-Dec-2014 23:23:15 GMT; path=/; domain=.flickr.com
+      - xb=87; expires=Thu, 25-Dec-2014 14:19:12 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www194.flickr.mud.yahoo.com
+      - www212.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -1533,5 +1533,5 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sat, 22 Dec 2012 23:23:15 GMT
+  recorded_at: Mon, 24 Dec 2012 14:19:12 GMT
 recorded_with: VCR 2.3.0

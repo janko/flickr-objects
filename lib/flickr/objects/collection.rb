@@ -7,18 +7,7 @@ class Flickr
     attribute :total_pages,   Integer
     attribute :total_entries, Integer
 
-    def initialize(collection, klass, hash, client)
-      unless klass == Media
-        objects = collection.map! do |hash|
-          klass.new(hash, client)
-        end
-      else
-        objects = collection.map! do |hash|
-          klass = Flickr.const_get(hash["media"].capitalize)
-          klass.new(hash, client)
-        end
-      end
-
+    def initialize(objects, hash)
       @hash = hash
       @objects = objects
     end
@@ -61,5 +50,6 @@ class Flickr
         super
       end
     end
+
   end
 end

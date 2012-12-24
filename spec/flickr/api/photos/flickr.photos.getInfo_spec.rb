@@ -4,19 +4,11 @@ describe "flickr.photos.getInfo" do
   use_vcr_cassette
 
   before(:each) {
-    @response = Flickr.media.find(MEDIA_ID).get_info!
-    @media = @response
-    @photo = Flickr.photos.find(PHOTO_ID).get_info!
-    @video = Flickr.videos.find(VIDEO_ID).get_info!
-    @note = @media.notes.first
-    @tag = @media.tags.first
+    @response = Flickr.photos.find(PHOTO_ID).get_info!
+    @photo = @response
+    @note = @photo.notes.first
+    @tag = @photo.tags.first
   }
-
-  describe Flickr::Media do
-    it "has correct attributes" do
-      test_attributes(@media, ATTRIBUTES[:media])
-    end
-  end
 
   describe Flickr::Photo do
     it "has correct attributes" do
@@ -24,15 +16,9 @@ describe "flickr.photos.getInfo" do
     end
   end
 
-  describe Flickr::Video do
-    it "has correct attributes" do
-      test_attributes(@video, ATTRIBUTES[:video].except(:source_url, :download_url, :mobile_download_url))
-    end
-  end
-
   describe Flickr::Person do
     it "has correct attributes" do
-      test_attributes(@media.owner, ATTRIBUTES[:person].slice(:id, :nsid, :username, :real_name, :location, :icon_server, :icon_farm))
+      test_attributes(@photo.owner, ATTRIBUTES[:person].slice(:id, :nsid, :username, :real_name, :location, :icon_server, :icon_farm))
       test_attributes(@note.author, ATTRIBUTES[:person].slice(:id, :nsid, :username))
       test_attributes(@tag.author, ATTRIBUTES[:person].slice(:id, :nsid))
     end
@@ -52,27 +38,27 @@ describe "flickr.photos.getInfo" do
 
   describe Flickr::Visibility do
     it "has correct attributes" do
-      test_attributes(@media.visibility, ATTRIBUTES[:visibility].slice(:public?, :friends?, :family?))
+      test_attributes(@photo.visibility, ATTRIBUTES[:visibility].slice(:public?, :friends?, :family?))
     end
   end
 
   describe Flickr::Permissions do
     it "has correct attributes" do
-      test_attributes(@media.editability, ATTRIBUTES[:permissions].slice(:can_comment?, :can_add_meta?))
-      test_attributes(@media.public_editability, ATTRIBUTES[:permissions].slice(:can_comment?, :can_add_meta?))
-      test_attributes(@media.usage, ATTRIBUTES[:permissions].slice(:can_download?, :can_blog?, :can_print?, :can_share?))
+      test_attributes(@photo.editability, ATTRIBUTES[:permissions].slice(:can_comment?, :can_add_meta?))
+      test_attributes(@photo.public_editability, ATTRIBUTES[:permissions].slice(:can_comment?, :can_add_meta?))
+      test_attributes(@photo.usage, ATTRIBUTES[:permissions].slice(:can_download?, :can_blog?, :can_print?, :can_share?))
     end
   end
 
   describe Flickr::Location do
     it "has correct attributes" do
-      test_attributes(@media.location, ATTRIBUTES[:location])
+      test_attributes(@photo.location, ATTRIBUTES[:location])
     end
 
     describe Flickr::Location::Area do
       [:neighbourhood, :locality, :county, :region, :country].each do |area|
         it "has correct attributes" do
-          test_attributes(@media.location.send(area), ATTRIBUTES[:area])
+          test_attributes(@photo.location.send(area), ATTRIBUTES[:area])
         end
       end
     end

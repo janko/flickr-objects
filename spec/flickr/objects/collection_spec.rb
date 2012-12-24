@@ -3,7 +3,7 @@ require "spec_helper"
 describe Flickr::Collection do
   use_vcr_cassette
 
-  before(:each) { @it = Flickr.media.search(user_id: PERSON_ID) }
+  before(:each) { @it = Flickr.photos.search(user_id: PERSON_ID) }
 
   it "has correct attributes" do
     test_attributes(@it, ATTRIBUTES[:collection])
@@ -11,15 +11,15 @@ describe Flickr::Collection do
 
   describe "#find" do
     it "finds by ID" do
-      @it.find(PHOTO_ID).should be_a(Flickr::Media)
+      @it.find(PHOTO_ID).should be_a(Flickr::Photo)
     end
 
     it "finds by IDs" do
-      @it.find([PHOTO_ID]).first.should be_a(Flickr::Media)
+      @it.find([PHOTO_ID]).first.should be_a(Flickr::Photo)
     end
 
     it "allows Enumerable#find" do
-      @it.find { |media| media.id == PHOTO_ID }.should be_a(Flickr::Media)
+      @it.find { |photo| photo.id == PHOTO_ID }.should be_a(Flickr::Photo)
     end
 
     it "has dynamic finders" do
@@ -31,7 +31,7 @@ describe Flickr::Collection do
 
   describe "#each" do
     it "can loop through its elements" do
-      @it.each { |media| media.is_a?(Flickr::Media) }
+      @it.each { |photo| photo.is_a?(Flickr::Photo) }
     end
   end
 
@@ -39,10 +39,5 @@ describe Flickr::Collection do
     it "stays the same type" do
       @it.select { true }.should be_a(@it.class)
     end
-  end
-
-  it "instantiates the according media types" do
-    @it.find(PHOTO_ID).should be_a(Flickr::Photo)
-    @it.find(VIDEO_ID).should be_a(Flickr::Video)
   end
 end

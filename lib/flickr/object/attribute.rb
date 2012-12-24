@@ -1,5 +1,3 @@
-require "flickr/helpers/inheritable_attr_accessor"
-
 class Flickr
   class Object
     module Attribute
@@ -13,7 +11,6 @@ class Flickr
 
       def attribute(name, type = ::Object, options = {})
         attributes << name
-        children.each { |child| child.attributes << name } if respond_to?(:children)
 
         define_method(name) do |*args|
           value = attribute_finder.find(name, *args)
@@ -35,8 +32,7 @@ class Flickr
         end
       end
 
-      extend InheritableAttrAccessor
-      inheritable_attr_accessor :attribute_values
+      attr_accessor :attribute_values
     end
   end
 end

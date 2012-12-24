@@ -1385,7 +1385,7 @@ http_interactions:
 
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="5ed13afa901c8cf0c8c518d917ab29e1", oauth_signature="jrCVFWQMsn%2BsJu2VrxpIpQPtXQw%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356219574", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="5c60d1619d793cff5ceb6a8dc1b9e589", oauth_signature="gQWoD0z7m8PZfN95MUJKWA%2FyEZs%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358670", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
       Content-Type: 
       - multipart/form-data;boundary=-----------RubyMultipartPost
       Content-Length: 
@@ -1396,11 +1396,11 @@ http_interactions:
       message: 
     headers: 
       date: 
-      - Sat, 22 Dec 2012 23:39:34 GMT
+      - Mon, 24 Dec 2012 14:17:50 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=38; expires=Tue, 23-Dec-2014 23:39:37 GMT; path=/; domain=.flickr.com
+      - xb=14; expires=Thu, 25-Dec-2014 14:17:53 GMT; path=/; domain=.flickr.com
       connection: 
       - close
       content-length: 
@@ -1408,7 +1408,7 @@ http_interactions:
       cache-control: 
       - private
       x-served-by: 
-      - www66.flickr.mud.yahoo.com
+      - www35.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-type: 
@@ -1418,72 +1418,72 @@ http_interactions:
       string: |
         <?xml version="1.0" encoding="utf-8" ?>
         <rsp stat="ok">
-        <photoid>8298723338</photoid>
+        <photoid>8303069725</photoid>
         </rsp>
 
     http_version: 
-  recorded_at: Sat, 22 Dec 2012 23:39:37 GMT
+  recorded_at: Mon, 24 Dec 2012 14:17:53 GMT
 - request: 
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getInfo&photo_id=8298723338
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getInfo&photo_id=8303069725
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="30d9f2fe6aaae7aee41f946f9df2af91", oauth_signature="VyCQyJnu7Cl73r2G6zMXVLceZH0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356219577", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="9512edeb1004984c85c45ee154b2ce7d", oauth_signature="UjJmJhLTY3LvuQA1xqvqkQXTM44%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358673", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 22 Dec 2012 23:39:37 GMT
+      - Mon, 24 Dec 2012 14:17:53 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=38; expires=Tue, 23-Dec-2014 23:39:37 GMT; path=/; domain=.flickr.com
+      - xb=98; expires=Thu, 25-Dec-2014 14:17:53 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www184.flickr.mud.yahoo.com
+      - www201.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
-      - "529"
+      - "530"
       connection: 
       - close
       content-type: 
       - application/json
     body: 
       encoding: ASCII-8BIT
-      string: "{\"photo\":{\"id\":\"8298723338\", \"secret\":\"8b215317be\", \"server\":\"8491\", \"farm\":9, \"dateuploaded\":\"1356219575\", \"isfavorite\":0, \"license\":\"0\", \"safety_level\":\"0\", \"rotation\":0, \"owner\":{\"nsid\":\"78733179@N04\", \"username\":\"@janko-m\", \"realname\":\"Janko Marohni\\u0107\", \"location\":\"Zagreb, Croatia\", \"iconserver\":\"8033\", \"iconfarm\":9}, \"title\":{\"_content\":\"Title\"}, \"description\":{\"_content\":\"\"}, \"visibility\":{\"ispublic\":1, \"isfriend\":0, \"isfamily\":0}, \"dates\":{\"posted\":\"1356219575\", \"taken\":\"2012-12-23 00:39:35\", \"takengranularity\":\"0\", \"lastupdate\":\"1356219576\"}, \"permissions\":{\"permcomment\":3, \"permaddmeta\":2}, \"views\":\"0\", \"editability\":{\"cancomment\":1, \"canaddmeta\":1}, \"publiceditability\":{\"cancomment\":1, \"canaddmeta\":0}, \"usage\":{\"candownload\":1, \"canblog\":1, \"canprint\":1, \"canshare\":1}, \"comments\":{\"_content\":\"0\"}, \"notes\":{\"note\":[]}, \"people\":{\"haspeople\":0}, \"tags\":{\"tag\":[]}, \"urls\":{\"url\":[{\"type\":\"photopage\", \"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/8298723338\\/\"}]}, \"media\":\"photo\"}, \"stat\":\"ok\"}"
+      string: "{\"photo\":{\"id\":\"8303069725\", \"secret\":\"0c83986da3\", \"server\":\"8491\", \"farm\":9, \"dateuploaded\":\"1356358671\", \"isfavorite\":0, \"license\":\"0\", \"safety_level\":\"0\", \"rotation\":0, \"owner\":{\"nsid\":\"78733179@N04\", \"username\":\"@janko-m\", \"realname\":\"Janko Marohni\\u0107\", \"location\":\"Zagreb, Croatia\", \"iconserver\":\"8033\", \"iconfarm\":9}, \"title\":{\"_content\":\"Title\"}, \"description\":{\"_content\":\"\"}, \"visibility\":{\"ispublic\":1, \"isfriend\":0, \"isfamily\":0}, \"dates\":{\"posted\":\"1356358671\", \"taken\":\"2012-12-24 15:17:51\", \"takengranularity\":\"0\", \"lastupdate\":\"1356358673\"}, \"permissions\":{\"permcomment\":3, \"permaddmeta\":2}, \"views\":\"0\", \"editability\":{\"cancomment\":1, \"canaddmeta\":1}, \"publiceditability\":{\"cancomment\":1, \"canaddmeta\":0}, \"usage\":{\"candownload\":1, \"canblog\":1, \"canprint\":1, \"canshare\":1}, \"comments\":{\"_content\":\"0\"}, \"notes\":{\"note\":[]}, \"people\":{\"haspeople\":0}, \"tags\":{\"tag\":[]}, \"urls\":{\"url\":[{\"type\":\"photopage\", \"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/8303069725\\/\"}]}, \"media\":\"photo\"}, \"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sat, 22 Dec 2012 23:39:37 GMT
+  recorded_at: Mon, 24 Dec 2012 14:17:53 GMT
 - request: 
     method: post
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.delete&photo_id=8298723338
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.delete&photo_id=8303069725
     body: 
       encoding: US-ASCII
       string: ""
     headers: 
       Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="0d1c1a95035b285f181363307088284e", oauth_signature="PLIHR5C8Kt3%2FZyqSBe3rYAst5lU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356219577", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="5fdffcc7b57054522fbbbc22277f7cac", oauth_signature="vgk3PqdPmN449UWFK%2FXM090acak%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358673", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
   response: 
     status: 
       code: 200
       message: 
     headers: 
       date: 
-      - Sat, 22 Dec 2012 23:39:37 GMT
+      - Mon, 24 Dec 2012 14:17:54 GMT
       p3p: 
       - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
       set-cookie: 
-      - xb=93; expires=Tue, 23-Dec-2014 23:39:38 GMT; path=/; domain=.flickr.com
+      - xb=69; expires=Thu, 25-Dec-2014 14:17:54 GMT; path=/; domain=.flickr.com
       cache-control: 
       - private
       x-served-by: 
-      - www128.flickr.mud.yahoo.com
+      - www57.flickr.mud.yahoo.com
       vary: 
       - Accept-Encoding
       content-length: 
@@ -1496,5 +1496,5 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"stat\":\"ok\"}"
     http_version: 
-  recorded_at: Sat, 22 Dec 2012 23:39:38 GMT
+  recorded_at: Mon, 24 Dec 2012 14:17:54 GMT
 recorded_with: VCR 2.3.0

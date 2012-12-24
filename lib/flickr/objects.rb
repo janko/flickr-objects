@@ -3,9 +3,7 @@ require "flickr/object"
 class Flickr
   # Official objects
   class Person < Object; end
-  class Media  < Object; end
-  class Photo  < Media;  end
-  class Video  < Media;  end
+  class Photo  < Object; end
   class Set    < Object; end
 
   # Meta objects
@@ -16,7 +14,7 @@ class Flickr
   class Location     < Object; end
   class UploadTicket < Object; end
 
-  class Collection  < Object; end
+  class Collection < Object; end
 end
 
 objects = Flickr::Object.children.dup

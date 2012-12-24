@@ -22,11 +22,6 @@ describe Flickr::UploadClient, :vcr do
       Flickr.photos.delete(response["photoid"])
     end
 
-    it "uploads videos" do
-      response = @it.upload file("video.mov")
-      Flickr.videos.delete(response["photoid"])
-    end
-
     it "uploads open files" do
       response = @it.upload File.open(file("photo.jpg"))
       Flickr.photos.delete(response["photoid"])

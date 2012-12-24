@@ -6,12 +6,10 @@ ATTRIBUTES[:upload_ticket] = {
   invalid?:  proc { be_a_boolean },
   complete?: proc { be_a_boolean },
   failed?:   proc { be_a_boolean },
-  media:     proc { be_a(Flickr::Media) },
   photo:     proc { be_a(Flickr::Photo) },
-  video:     proc { be_a(Flickr::Video) },
 }
 
-ATTRIBUTES[:media] = {
+ATTRIBUTES[:photo] = {
   id:                   proc { be_a_nonempty(String) },
   secret:               proc { be_a_nonempty(String) },
   server:               proc { be_a_nonempty(String) },
@@ -34,24 +32,7 @@ ATTRIBUTES[:media] = {
   comments_count:       proc { be_a(Fixnum) },
   has_people?:          proc { be_a_boolean },
   path_alias:           proc { be_nil },
-}
-
-ATTRIBUTES[:photo] = {
-  rotation: proc { be_a(Integer) },
-}
-
-ATTRIBUTES[:video] = {
-  ready?:              proc { be_a_boolean },
-  failed?:             proc { be_a_boolean },
-  pending?:            proc { be_a_boolean },
-
-  duration:            proc { be_a(Integer) },
-  width:               proc { be_a(Integer) },
-  height:              proc { be_a(Integer) },
-
-  source_url:          proc { be_a_nonempty(String) },
-  download_url:        proc { be_a_nonempty(String) },
-  mobile_download_url: proc { be_a_nonempty(String) },
+  rotation:             proc { be_a(Integer) },
 }
 
 ATTRIBUTES[:person] = {
@@ -68,22 +49,12 @@ ATTRIBUTES[:person] = {
   time_zone:            proc { be_a_nonempty(Hash) },
   description:          proc { be_a_nonempty(String) },
   photos_url:           proc { be_a_nonempty(String) },
-  videos_url:           proc { be_a_nonempty(String) },
-  media_url:            proc { be_a_nonempty(String) },
   profile_url:          proc { be_a_nonempty(String) },
   mobile_url:           proc { be_a_nonempty(String) },
-  media_count:          proc { be_a(Integer) },
   photos_count:         proc { be_a(Integer) },
-  videos_count:         proc { be_a(Integer) },
-  media_views_count:    proc { be_a(Integer) },
   photo_views_count:    proc { be_a(Integer) },
-  video_views_count:    proc { be_a(Integer) },
   first_photo_taken:    proc { be_a(Time) },
-  first_video_taken:    proc { be_a(Time) },
-  first_media_taken:    proc { be_a(Time) },
   first_photo_uploaded: proc { be_a(Time) },
-  first_video_uploaded: proc { be_a(Time) },
-  first_media_uploaded: proc { be_a(Time) },
 }
 
 ATTRIBUTES[:visibility] = {
@@ -147,14 +118,10 @@ ATTRIBUTES[:set] = {
   title:          proc { be_a_nonempty(String) },
   description:    proc { be_a_nonempty(String) },
   owner:          proc { be_a(Flickr::Person) },
-  media_count:    proc { be_a(Integer) },
+  photos_count:   proc { be_a(Integer) },
   views_count:    proc { be_a(Integer) },
   comments_count: proc { be_a(Integer) },
-  photos_count:   proc { be_a(Integer) },
-  videos_count:   proc { be_a(Integer) },
   created_at:     proc { be_a(Time) },
   updated_at:     proc { be_a(Time) },
-  primary_media:  proc { be_a(Flickr::Media) },
   primary_photo:  proc { be_a(Flickr::Photo) },
-  primary_video:  proc { be_a(Flickr::Video) },
 }

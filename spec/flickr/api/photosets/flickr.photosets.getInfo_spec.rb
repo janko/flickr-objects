@@ -20,11 +20,9 @@ describe "flickr.photosets.getInfo" do
     end
   end
 
-  describe Flickr::Media do
+  describe Flickr::Photo do
     it "has correct attributes" do
-      test_attributes(@set.primary_media, ATTRIBUTES[:media].slice(:id))
-      test_attributes(@set.primary_photo, ATTRIBUTES[:media].slice(:id))
-      test_attributes(@set.primary_video, ATTRIBUTES[:media].slice(:id))
+      test_attributes(@set.primary_photo, ATTRIBUTES[:photo].slice(:id))
     end
   end
 end

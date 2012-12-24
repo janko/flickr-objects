@@ -29,14 +29,12 @@ class Flickr
           [method, *options[:aliases]].each do |method|
             Flickr.api_methods[flickr_method] << "#{self.name}##{method}"
           end
-          children.each { |child| Flickr.api_methods[flickr_method] << "#{child.name}##{method}" } if respond_to?(:children)
         end
 
         def class_api_method(method, flickr_method, options = {})
           [method, *options[:aliases]].each do |method|
             Flickr.api_methods[flickr_method] << "#{self.name}.#{method}"
           end
-          children.each { |child| Flickr.api_methods[flickr_method] << "#{child.name}.#{method}" } if respond_to?(:children)
         end
 
         def api_method(*args)
@@ -72,11 +70,7 @@ class Flickr
 
       module Methods
         def handle_extras(params)
-          include_sizes(include_media(params))
-        end
-
-        def include_media(params)
-          include_in_extras(params, "media")
+          include_sizes(params)
         end
 
         def include_sizes(params)
@@ -84,9 +78,9 @@ class Flickr
 
           abbrs = case params[:sizes]
                   when :all
-                    Media::SIZES.values
+                    Photo::SIZES.values
                   else
-                    params[:sizes].map { |size| Media::SIZES[size] }
+                    params[:sizes].map { |size| Photo::SIZES[size] }
                   end
           urls = abbrs.map { |abbr| "url_#{abbr}" }.join(",")
           include_in_extras(params, urls)

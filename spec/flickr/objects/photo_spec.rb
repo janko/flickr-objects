@@ -6,6 +6,12 @@ describe Flickr::Photo do
 
   before(:each) { @it = Flickr.photos.search(user_id: PERSON_ID, extras: EXTRAS).find(PHOTO_ID) }
 
+  describe "#short_url" do
+    it "is valid" do
+      @it.short_url.should be_an_existing_url
+    end
+  end
+
   context "sizes" do
     it "recognizes different sizes" do
       @it.square75.size.should eq "Square 75"

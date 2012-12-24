@@ -4,11 +4,11 @@ describe "flickr.photos.removeTag" do
   use_vcr_cassette
 
   before(:each) {
-    @media = Flickr.media.find(MEDIA_ID).get_info!
+    @photo = Flickr.photos.find(PHOTO_ID).get_info!
   }
 
   it "works" do
-    @media.remove_tag(@media.tags.first.id)
-    @media.set_tags("Test")
+    @photo.remove_tag(@photo.tags.first.id)
+    @photo.set_tags("Test")
   end
 end

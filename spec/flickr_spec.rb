@@ -4,12 +4,12 @@ describe Flickr do
   before(:each) { @it = Flickr }
 
   it "has a list of registered API methods" do
-    @it.api_methods["flickr.photos.search"].should eq ["Flickr::Media.search", "Flickr::Photo.search", "Flickr::Video.search"]
-    @it.api_methods["flickr.photos.getInfo"].should eq ["Flickr::Media#get_info!", "Flickr::Photo#get_info!", "Flickr::Video#get_info!"]
+    @it.api_methods["flickr.photos.search"].should eq ["Flickr::Photo.search"]
+    @it.api_methods["flickr.photos.getInfo"].should eq ["Flickr::Photo#get_info!"]
   end
 
   it "has an interface" do
-    @it.media.should eq Flickr::Media
+    @it.photos.should eq Flickr::Photo
   end
 
   it "has tests written for every implemented API method" do
@@ -34,7 +34,7 @@ describe Flickr do
     end
 
     it "has the interface" do
-      @it.media.should eq Flickr::Media
+      @it.photos.should eq Flickr::Photo
     end
   end
 end

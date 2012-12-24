@@ -4,11 +4,11 @@ describe "flickr.photos.setTags" do
   use_vcr_cassette
 
   before(:each) {
-    @media = Flickr.media.find(MEDIA_ID)
+    @photo = Flickr.photos.find(PHOTO_ID)
   }
 
   it "works" do
-    @media.set_tags("Test")
-    @media.tags = "Test"
+    @photo.set_tags("Test")
+    @photo.tags = "Test"
   end
 end

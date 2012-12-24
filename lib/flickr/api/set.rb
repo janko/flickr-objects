@@ -1,11 +1,5 @@
 class Flickr
   class Set < Object
-    def add_photo(media_id, params = {})
-      client.post f(__method__), params.merge(photoset_id: id, photo_id: media_id)
-    end
-    alias add_video add_photo
-    alias add_media add_photo
-
     def self.create(params = {})
       response = client.post f(__method__), params
       new(response["photoset"], client)
@@ -24,8 +18,6 @@ class Flickr
       client.post f(__method__), params.merge(photoset_id: id)
       self
     end
-    alias edit_videos edit_photos
-    alias edit_media edit_photos
 
     def get_info!(params = {})
       response = client.get f(__method__), params.merge(photoset_id: id)
@@ -34,23 +26,20 @@ class Flickr
     end
 
     def get_photos(params = {})
-      get_media(params.merge(media: "photos"))
-    end
-    def get_videos(params = {})
-      get_media(params.merge(media: "videos"))
-    end
-    def get_media(params = {})
       response = client.get f(__method__), handle_extras(params.merge(photoset_id: id))
-      Collection.new(response["photoset"].delete("photo"), Media, response["photoset"], client)
+      Photo.new_collection(response["photoset"].delete("photo"), client, response["photoset"])
     end
 
-    def remove_photos(media_id, params = {})
-      client.post f(__method__), params.merge(photoset_id: id, photo_ids: media_id)
+    def add_photo(photo_id, params = {})
+      client.post f(__method__), params.merge(photoset_id: id, photo_id: photo_id)
     end
-    alias remove_videos remove_photos
-    alias remove_media remove_photos
 
-    alias remove_photo remove_photos
-    alias remove_video remove_photos
+    def remove_photos(photo_ids, params = {})
+      client.post f(__method__), params.merge(photoset_id: id, photo_ids: photo_ids)
+    end
+
+    def remove_photo(photo_id, params = {})
+      client.post f(__method__), params.merge(photoset_id: id, photo_id: photo_id)
+    end
   end
 end
