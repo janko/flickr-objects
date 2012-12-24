@@ -5,12 +5,12 @@ class Flickr
         @instance = instance
       end
 
-      def find(attribute, *args)
+      def find(attribute)
         attribute_values = @instance.class.attribute_values[attribute] || []
         attribute_values << ->{ @hash.fetch(attribute.to_s) }
 
         try_each(attribute_values) do |attribute_value|
-          result = @instance.instance_exec(*args, &attribute_value)
+          result = @instance.instance_exec(&attribute_value)
           return result unless result.nil?
         end
 
