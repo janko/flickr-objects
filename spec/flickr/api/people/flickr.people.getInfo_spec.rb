@@ -10,7 +10,7 @@ describe "flickr.people.getInfo" do
 
   describe Flickr::Person do
     it "has correct attributes" do
-      test_attributes(@person, ATTRIBUTES[:person])
+      test_attributes(@person, ATTRIBUTES[:person].except(:favorited_at))
     end
   end
 end

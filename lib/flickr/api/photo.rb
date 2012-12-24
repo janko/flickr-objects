@@ -28,6 +28,11 @@ class Flickr
       self
     end
 
+    def get_favorites(params = {})
+      response = client.get f(__method__), params.merge(photo_id: id)
+      Person.new_list(response["photo"].delete("person"), client, response["photo"])
+    end
+
     def delete(params = {})
       client.post f(__method__), params.merge(photo_id: id)
       self

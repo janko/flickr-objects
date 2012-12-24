@@ -22,6 +22,7 @@ class Flickr
 
     attribute :first_photo_taken,    Time
     attribute :first_photo_uploaded, Time
+    attribute :favorited_at,         Time
 
     attribute :photos_count,         Integer
     attribute :photo_views_count,    Integer

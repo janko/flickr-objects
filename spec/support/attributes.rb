@@ -55,6 +55,7 @@ ATTRIBUTES[:person] = {
   photo_views_count:    proc { be_a(Integer) },
   first_photo_taken:    proc { be_a(Time) },
   first_photo_uploaded: proc { be_a(Time) },
+  favorited_at:         proc { be_a(Time) },
 }
 
 ATTRIBUTES[:visibility] = {

@@ -16,6 +16,7 @@ class Flickr
       mobile_url:           [->{ @hash["mobileurl"]["_content"] }],
       first_photo_taken:    [->{ @hash["photos"]["firstdatetaken"]["_content"] }],
       first_photo_uploaded: [->{ @hash["photos"]["firstdate"]["_content"] }],
+      favorited_at:         [->{ @hash["favedate"] }],
       photos_count:         [->{ @hash["photos"]["count"]["_content"] }],
       photo_views_count:    [->{ @hash["photos"]["views"]["_content"] }],
     }
