@@ -1,10 +1,16 @@
+def benchmark(name = "benchmark", &block)
+  time = Time.now
+  return_value = block.call
+  puts "#{name} (#{Time.now - time})"
+  return_value
+end
+
 require_relative "setup_load_paths"
+require_relative "setup"
+Dir[File.join(ROOT, "spec/support/**/*.rb")].each { |f| require f }
 
 require "flickr-objects"
 require "vcr"
-
-require_relative "setup"
-Dir[File.join(ROOT, "spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.filter_run_excluding pro: true

@@ -11,9 +11,9 @@ desc "Open the console with credentials (API key, secret etc.) already filled in
 task :console do
   begin
     require "pry"
-    sh "pry --require 'flickr-objects' --require './spec/setup'"
+    sh "pry --require './spec/setup'"
   rescue LoadError
-    sh "irb -r 'flickr-objects' -r './spec/setup'"
+    sh "irb -r './spec/setup'"
   end
 end
 

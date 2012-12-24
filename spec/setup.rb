@@ -6,6 +6,7 @@ begin
   require "pry"
 rescue LoadError
 end
+require "flickr-objects"
 
 ROOT = File.expand_path("..", File.dirname(__FILE__))
 
