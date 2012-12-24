@@ -22,78 +22,65 @@ Flickr.configure do |config|
 end
 ```
 
-If you don't have your API key and shared secret yet, you can apply for them
-[here](http://www.flickr.com/services/apps/create/apply).
+If you don't have them yet, you can apply for them [here](http://www.flickr.com/services/apps/create/apply).
+
+For list of possible configuration options, take a look at [this
+wiki](https://github.com/janko-m/flickr-objects/wiki/Configuration).
 
 ## Usage
 
-Let's start with a general example.
+This gem maps [Flickr's API methods](http://flickr.com/api) to methods on objects.
+A handy reference for those mappings is in `Flickr.api_methods`:
+
+```ruby
+Flickr.api_methods["flickr.photos.search"]     #=> ["Flickr::Photo.search"]
+Flickr.api_methods["flickr.photosets.getList"] #=> ["Flickr::Person#get_sets"]
+```
+
+As you see, sometimes names can differ, but you can always find out this way.
+So, `Flickr::Photo.search` is a **class** API method, and
+`Flickr::Person#get_sets` is an **instance** API method.
+
+Here's an example:
 
 ```ruby
 photos = Flickr.photos.search(user_id: "78733179@N04") #=> [#<Flickr::Photo: ...>, #<Flickr::Photo: ...>, ...]
 
 photo = photos.first
-photo.id                  #=> "231233252"
-photo.title               #=> "My cat"
-photo.visibility.public?  #=> true
-photo.tags = "cats funny" # API request
-photo.get_info!           # API request
-photo.tags.join(" ")      #=> "cats funny"
+photo.id                 #=> "231233252"
+photo.title              #=> "My cat"
+photo.visibility.public? #=> true
+
+person = Flickr.people.find("78733179@N04")
+sets = person.get_sets #=> [#<Flickr::Set: ...>, #<Flickr::Set: ...>, ...]
+
+set = sets.first
+set.id           #=> "11243423"
+set.photos_count #=> 40
 ```
 
-Methods like `Flickr.photos.search` are **class** API methods, and methods like `photo.tags=` and
-`photo.get_info!` are **instance** API methods.
+You can always manually instantiate objects with `Flickr.objects.find(id)`
+(in the above example we called `Flickr.people.find(id)`).
 
-- `Flickr.photos.search` <=> `Flickr::Photo.search`
-- `photo.tags=`          <=> `Flickr::Photo#tags=`
-- `photo.get_info!`      <=> `Flickr::Photo#get_info!`
-
-API methods under the hood call methods described on Flickr's official [API page](http://flickr.com/api).
-In our example, we have this correspondence:
-
-- `Flickr::Photo.search`    <=> flickr.photos.search
-- `Flickr::Photo#tags=`     <=> flickr.photos.setTags
-- `Flickr::Photo#get_info!` <=> flickr.photos.getInfo
-
-Raw Flickr's API methods always take a hash of parameters. So, for example,
-flickr.people.findByEmail takes the `:find_email` parameter. But this gem
-implies these kind of obvious parameters, so instead of having to call it like this:
+Parameters to API methods are not always passed as a hash. For example, instead
+of calling "flickr.people.findByEmail" like this:
 
 ```ruby
 Flickr.people.find_by_email(find_email: "janko.marohnic@gmail.com")
 ```
 
-you can rather call it like this:
+this gem has the convention of calling it like this:
 
 ```ruby
 Flickr.people.find_by_email("janko.marohnic@gmail.com")
 ```
 
-You can still pass a hash of other parameters as the last argument. For the
-documentation on valid arguments, just look at the source code under
-`lib/flickr/api/`. In our example, because `.find_by_email` belongs to `people`,
-the method is located in [`lib/flickr/api/person.rb`](https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/api/person.rb#L3-6).
+Obvious parameters will always be passed like this. You can still pass a hash of
+other parameters as the last argument.
 
-Now, let's say that you want to use a method that fetches all sets from a
-person. And you find out that this method is "flickr.photosets.getList".
-How can you now find out where it is located in this gem? Well, that's where
-`Flickr.api_methods` comes in handy. You can call it in the console:
-
-```ruby
-Flickr.api_methods["flickr.photosets.getList"] #=> ["Flickr::Person#get_sets"]
-```
-
-Now you found out that it is located in `Flickr::Person#get_sets`.
-
-```ruby
-# You can now call it like this:
-sets = Flickr.people.find(person_id).get_sets
-sets.first.id #=> "12312324"
-
-# Or like this:
-sets = Flickr.find_by_username("josh").get_sets
-sets.first.id #=> "12312324"
-```
+For documentation on valid arguments, just look at the source code under
+[`lib/flickr/api`](https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/api).
+There you will find listed all the API methods of a specific object.
 
 ## Sizes
 
@@ -172,23 +159,20 @@ For asynchronous upload take a look at [this wiki](https://github.com/janko-m/fl
 
 For the list of attributes and methods that Flickr objects have, the best place to look at
 is the source code. The source code is written in such a simple way that it acts as its
-own documentation, so don't worry if you haven't had experience in looking into other
-people's code :)
+own documentation, so don't be discouraged if you haven't had experience in looking into other
+people's code yet :)
 
-For example, list of common attributes that `Flickr::Photo`
-and `Flickr::Video` have can be found in [`lib/flickr/objects/media.rb`]("https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/objects/media.rb").
+For example, list of `Flickr::Photo`'s attributes can be found in
+[`lib/flickr/objects/media.rb`](https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/objects/media.rb).
 Take a look just to see how it looks like :)
 
 ## Few words
 
-Most of the API methods are not covered yet (because they are so many).
-The most important API methods, however, should be implemented, so a person
-with normal demands should have everything he needs.
+Most of the API methods are not covered yet (because they are so many). I will
+be covering new ones regularly.
 
-If you feel like some API methods (that are not yet covered) should have
-a higher priority to be covered, feel free to let me know (maybe best via
-[Twitter](https://twitter.com/m_janko)), and I will try to get them covered
-in the next version.  Pull requests are also very welcome :)
+Feel free to speed up covering certain API methods by contacting me through
+[Twitter](https://twitter.com/m_janko). Pull requests are also very welcome :)
 
 ## Social
 
