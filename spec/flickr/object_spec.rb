@@ -15,9 +15,22 @@ describe Flickr::Object, :vcr do
       photo.tags.first.should_not eq photo.tags.last
     end
 
-    it "falls backt to reqular #== when the object doesn't repond to #id" do
+    it "falls back to reqular #== when the object doesn't repond to #id" do
       visibility = Flickr.photos.find(PHOTO_ID).get_info!.visibility
       visibility.should eq visibility
     end
+  end
+
+  describe "#find" do
+    it "instantiates the object with an ID" do
+      photo = Flickr.photos.find(11111)
+      photo.should be_a(Flickr::Photo)
+      photo.id.should eq "11111"
+    end
+  end
+
+  it "doesn't raise errors on missing attributes" do
+    photo = Flickr.photos.find(11111)
+    expect { photo.title }.to_not raise_error
   end
 end

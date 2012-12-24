@@ -27,8 +27,4 @@ describe "flickr.photos.upload.checkTickets" do
       test_attributes(@ticket.photo, ATTRIBUTES[:photo].slice(:id))
     end
   end
-
-  it "has aliases" do
-    Flickr.check_upload_tickets(@id)
-  end
 end

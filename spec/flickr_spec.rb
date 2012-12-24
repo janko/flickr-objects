@@ -5,7 +5,7 @@ describe Flickr do
 
   it "has a list of registered API methods" do
     @it.api_methods["flickr.photos.search"].should eq ["Flickr::Photo.search"]
-    @it.api_methods["flickr.photos.getInfo"].should eq ["Flickr::Photo#get_info!"]
+    @it.api_methods["flickr.photos.delete"].should eq ["Flickr::Photo.delete", "Flickr::Photo#delete"]
   end
 
   it "has an interface" do
