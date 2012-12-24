@@ -76,16 +76,6 @@
 <span class="n">photo</span><span class="o">.</span><span class="n">updated_at</span>  <span class="c1">#=&gt; 2012-10-28 11:56:46 +0100</span>
 </pre></div>
 
-<h3>Videos:</h3>
-
-<div class="highlight"><pre><span class="n">person</span> <span class="o">=</span> <span class="no">Flickr</span><span class="o">.</span><span class="n">people</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"78733179@N04"</span><span class="p">)</span>
-<span class="n">video</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="n">get_public_videos</span><span class="p">(</span><span class="ss">:sizes</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">"Small 320"</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">first</span>
-<span class="n">video</span><span class="o">.</span><span class="n">get_info!</span>
-
-<span class="n">video</span><span class="o">.</span><span class="n">duration</span>  <span class="c1">#=&gt; 92</span>
-<span class="n">video</span><span class="o">.</span><span class="n">thumbnail_url</span><span class="p">(</span><span class="s2">"Small 320"</span><span class="p">)</span> <span class="c1">#=&gt; "http://farm9.staticflickr.com/..."</span>
-</pre></div>
-
 <h3>People:</h3>
 
 <div class="highlight"><pre><span class="n">person</span> <span class="o">=</span> <span class="no">Flickr</span><span class="o">.</span><span class="n">people</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"78733179@N04"</span><span class="p">)</span>
