@@ -1,3 +1,5 @@
+require_relative "attribute_values/tag"
+
 class Flickr
   class Tag < Object
 

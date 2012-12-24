@@ -1,3 +1,5 @@
+require_relative "api_methods/photo"
+
 class Flickr
   class Photo < Object
     def self.search(params = {})

@@ -1,3 +1,5 @@
+require_relative "api_methods/upload_ticket"
+
 class Flickr
   class UploadTicket < Object
     def self.check(tickets, params = {})

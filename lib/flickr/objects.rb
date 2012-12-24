@@ -21,7 +21,4 @@ objects = Flickr::Object.children.dup
 objects.each do |object|
   underscored_name = object.name.split("::").last.split(/(?<=\w)(?=[A-Z])/).map(&:downcase).join("_")
   require "flickr/objects/#{underscored_name}"
-  require "flickr/objects/attribute_values/#{underscored_name}"
-  require "flickr/api/#{underscored_name}"
-  require "flickr/api/api_methods/#{underscored_name}"
 end

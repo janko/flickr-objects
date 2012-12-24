@@ -53,3 +53,5 @@ class Flickr
 
   end
 end
+
+require_relative "attribute_values/list"

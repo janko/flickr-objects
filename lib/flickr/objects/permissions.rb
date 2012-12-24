@@ -1,3 +1,5 @@
+require_relative "attribute_values/permissions"
+
 class Flickr
   class Permissions < Object
 

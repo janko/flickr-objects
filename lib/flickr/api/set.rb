@@ -1,3 +1,5 @@
+require_relative "api_methods/set"
+
 class Flickr
   class Set < Object
     def self.create(params = {})
