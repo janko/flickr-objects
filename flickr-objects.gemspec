@@ -30,4 +30,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "vcr", ">= 2"
   gem.add_development_dependency "rack-test"
   gem.add_development_dependency "activesupport", ">= 3"
+  gem.add_development_dependency "will_paginate", ">= 3"
+  gem.add_development_dependency "kaminari", ">= 0.14"
 end

@@ -1,5 +1,5 @@
 class Flickr
-  class List < Object
+  class List
     self.attribute_values = {
       current_page:  [->{ @hash["page"] }],
       per_page:      [->{ @hash["per_page"] }, ->{ @hash["perpage"] }],

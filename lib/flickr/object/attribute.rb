@@ -13,8 +13,7 @@ class Flickr
         attributes << name
 
         define_method(name) do
-          value = attribute_finder.find(name)
-          attribute_converter.convert(value, type)
+          retrieve_value(name, type)
         end
 
         Array(options[:aliases]).each do |alias_name|
@@ -29,6 +28,11 @@ class Flickr
 
         def attribute_converter
           Converter.new(self)
+        end
+
+        def retrieve_value(name, type)
+          value = attribute_finder.find(name)
+          attribute_converter.convert(value, type)
         end
       end
 

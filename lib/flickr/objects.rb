@@ -14,7 +14,7 @@ class Flickr
   class Location     < Object; end
   class UploadTicket < Object; end
 
-  class List < Object; end
+  autoload :List, "flickr/objects/list"
 end
 
 objects = Flickr::Object.children.dup

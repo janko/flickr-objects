@@ -12,6 +12,8 @@ class Flickr
     attr_accessor :secure
     attr_accessor :proxy
 
+    attr_accessor :pagination
+
     def fetch(*attributes)
       attributes.map { |attribute| send(attribute) }
     end

@@ -24,7 +24,8 @@ describe Flickr::Configuration do
       :api_key, :shared_secret,
       :access_token_key, :access_token_secret,
       :open_timeout, :timeout,
-      :secure, :proxy
+      :secure, :proxy,
+      :pagination
     ]
     attributes.each do |attribute|
       Flickr.configuration.should respond_to(attribute)
