@@ -26,6 +26,26 @@ class Flickr
       new_list(response["photos"].delete("photo"), client, response["photos"])
     end
 
+    def self.get_untagged(params = {})
+      response = client.get f(__method__), handle_extras(params)
+      new_list(response["photos"].delete("photo"), client, response["photos"])
+    end
+
+    def self.get_with_geo_data(params = {})
+      response = client.get f(__method__), handle_extras(params)
+      new_list(response["photos"].delete("photo"), client, response["photos"])
+    end
+
+    def self.get_without_geo_data(params = {})
+      response = client.get f(__method__), handle_extras(params)
+      new_list(response["photos"].delete("photo"), client, response["photos"])
+    end
+
+    def self.get_recently_updated(params = {})
+      response = client.get f(__method__), handle_extras(params)
+      new_list(response["photos"].delete("photo"), client, response["photos"])
+    end
+
     def get_info!(params = {})
       response = client.get f(__method__), params.merge(photo_id: id)
       @hash.update(response["photo"])

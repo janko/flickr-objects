@@ -1,0 +1,40 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.RecentlyUpdated&sizes=all&min_date=123456789&extras=url_sq%2Curl_t%2Curl_q%2Curl_s%2Curl_n%2Curl_m%2Curl_z%2Curl_c%2Curl_l%2Curl_h%2Curl_k%2Curl_o
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="c081f83549fc6b0b0952fcb7b9be43e2", oauth_signature="t4tSEiBLxJ2OOrN7MGLoYuiR%2Bks%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356394483", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Tue, 25 Dec 2012 00:14:44 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=43; expires=Fri, 26-Dec-2014 00:14:44 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www190.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "583"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"photos\":{\"page\":1, \"pages\":1, \"perpage\":100, \"total\":\"2\", \"photo\":[{\"id\":\"7986395865\", \"owner\":\"78733179@N04\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"title\":\"Game of Thrones\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"url_sq\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_s.jpg\", \"height_sq\":75, \"width_sq\":75, \"url_t\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_t.jpg\", \"height_t\":\"100\", \"width_t\":\"67\", \"url_q\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_q.jpg\", \"height_q\":\"150\", \"width_q\":\"150\", \"url_s\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_m.jpg\", \"height_s\":\"240\", \"width_s\":\"162\", \"url_n\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_n.jpg\", \"height_n\":\"320\", \"width_n\":216, \"url_m\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b.jpg\", \"height_m\":\"500\", \"width_m\":\"337\", \"url_z\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_z.jpg\", \"height_z\":\"640\", \"width_z\":\"432\", \"url_c\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_c.jpg\", \"height_c\":\"800\", \"width_c\":540, \"url_l\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_b.jpg\", \"height_l\":\"1024\", \"width_l\":\"691\", \"url_h\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_e325aa9882_h.jpg\", \"height_h\":\"1600\", \"width_h\":1080, \"url_k\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_081e5978f7_k.jpg\", \"height_k\":\"2048\", \"width_k\":1382}, {\"id\":\"8130464513\", \"owner\":\"78733179@N04\", \"secret\":\"780e01decd\", \"server\":\"8191\", \"farm\":9, \"title\":\"Hana\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"url_sq\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_s.jpg\", \"height_sq\":75, \"width_sq\":75, \"url_t\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_t.jpg\", \"height_t\":\"75\", \"width_t\":\"100\", \"url_q\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_q.jpg\", \"height_q\":\"150\", \"width_q\":\"150\", \"url_s\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_m.jpg\", \"height_s\":\"180\", \"width_s\":\"240\", \"url_n\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_n.jpg\", \"height_n\":240, \"width_n\":\"320\", \"url_m\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd.jpg\", \"height_m\":\"375\", \"width_m\":\"500\", \"url_z\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_z.jpg\", \"height_z\":\"480\", \"width_z\":\"640\", \"url_c\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_c.jpg\", \"height_c\":600, \"width_c\":\"800\", \"url_l\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_b.jpg\", \"height_l\":\"600\", \"width_l\":\"800\"}]}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Tue, 25 Dec 2012 00:14:44 GMT
+recorded_with: VCR 2.3.0
