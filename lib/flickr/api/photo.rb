@@ -109,5 +109,10 @@ class Flickr
       client.post f(__method__), params.merge(photo_id: id)
       params
     end
+
+    def rotate(degrees, params = {})
+      client.post f(__method__), params.merge(photo_id: id, degrees: degrees)
+      degrees
+    end
   end
 end

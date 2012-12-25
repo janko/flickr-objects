@@ -11,6 +11,11 @@ class Flickr
       find(id).delete(params)
     end
 
+    def self.order(set_ids, params = {})
+      client.post f(__method__), params.merge(photoset_ids: set_ids)
+      set_ids
+    end
+
     def delete(params = {})
       client.post f(__method__), params.merge(photoset_id: id)
       self
@@ -34,14 +39,33 @@ class Flickr
 
     def add_photo(photo_id, params = {})
       client.post f(__method__), params.merge(photoset_id: id, photo_id: photo_id)
+      photo_id
     end
 
     def remove_photos(photo_ids, params = {})
       client.post f(__method__), params.merge(photoset_id: id, photo_ids: photo_ids)
+      photo_ids
     end
 
     def remove_photo(photo_id, params = {})
       client.post f(__method__), params.merge(photoset_id: id, photo_id: photo_id)
+      photo_id
     end
+
+    def edit_meta(params = {})
+      client.post f(__method__), params.merge(photoset_id: id)
+      params
+    end
+
+    def reorder_photos(photo_ids, params = {})
+      client.post f(__method__), params.merge(photoset_id: id, photo_ids: photo_ids)
+      photo_ids
+    end
+
+    def set_primary_photo(photo, params = {})
+      client.post f(__method__), params.merge(photoset_id: id, photo_id: (photo.is_a?(Photo) ? photo.id : photo))
+      photo
+    end
+    alias primary_photo= set_primary_photo
   end
 end
