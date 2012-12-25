@@ -59,8 +59,12 @@ set.id           #=> "11243423"
 set.photos_count #=> 40
 ```
 
-You can always manually instantiate objects with `Flickr.objects.find(id)`
-(in the above example we called `Flickr.people.find(id)`).
+We can learn few things here:
+
+- Interface to object's class methods is always the plural of object's name
+  (above we called `Flickr::Photo.search` with `Flickr.photos.search`).
+- You can always manually instantiate objects with `Flickr.<objects>.find(id)`
+  (in the above example we did `Flickr.people.find(id)`).
 
 Parameters to API methods are not always passed as a hash. For example, instead
 of calling "flickr.people.findByEmail" like this:
@@ -75,12 +79,12 @@ this gem has the convention of calling it like this:
 Flickr.people.find_by_email("janko.marohnic@gmail.com")
 ```
 
-This is always the case with required parameters. You can still pass a hash of
-other parameters as the last argument.
+This is always the case with obvious (and required) parameters. You can still
+always pass a hash of other parameters as the last argument.
 
-For documentation on valid arguments, just look at the source code under
-[`lib/flickr/api`](https://github.com/janko-m/flickr-objects/tree/master/lib/flickr/api).
-There you will find listed all the API methods of a specific object.
+For documentation on valid arguments, just look at the source code at
+[`lib/flickr/api`](https://github.com/janko-m/flickr-objects/tree/master/lib/flickr/api),
+under a specific object.
 
 ## Sizes
 
