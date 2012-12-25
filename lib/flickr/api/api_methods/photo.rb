@@ -18,5 +18,9 @@ class Flickr
     instance_api_method :remove_tag,       "flickr.photos.removeTag"
     instance_api_method :set_content_type, "flickr.photos.setContentType", aliases: [:content_type=]
     instance_api_method :set_tags,         "flickr.photos.setTags",        aliases: [:tags=]
+    instance_api_method :set_dates,        "flickr.photos.setDates"
+    instance_api_method :set_meta,         "flickr.photos.setMeta"
+    instance_api_method :set_permissions,  "flickr.photos.setPerms"
+    instance_api_method :set_safety_level, "flickr.photos.setSafetyLevel"
   end
 end

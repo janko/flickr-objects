@@ -1,0 +1,40 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.setPerms&is_public=1&is_friend=0&is_family=0&perm_comment=3&perm_addmeta=0&photo_id=7986395865
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="c97e0fcafdfa3bb9558389427e819ef9", oauth_signature="p4uGG5rXV9AM%2F7Rx80OXcuVJyK0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356395286", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Tue, 25 Dec 2012 00:28:06 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=12; expires=Fri, 26-Dec-2014 00:28:07 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www86.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "94"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: US-ASCII
+      string: "{\"photoid\":{\"_content\":\"7986395865\", \"secret\":\"5f670c825b\", \"originalsecret\":\"\"}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Tue, 25 Dec 2012 00:28:07 GMT
+recorded_with: VCR 2.3.0

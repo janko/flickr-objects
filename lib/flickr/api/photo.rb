@@ -89,5 +89,25 @@ class Flickr
       client.post f(__method__), params.merge(photo_id: id, tag_id: tag_id)
       tag_id
     end
+
+    def set_dates(params = {})
+      client.post f(__method__), params.merge(photo_id: id)
+      params
+    end
+
+    def set_meta(params = {})
+      client.post f(__method__), params.merge(photo_id: id)
+      params
+    end
+
+    def set_permissions(params = {})
+      client.post f(__method__), params.merge(photo_id: id)
+      params
+    end
+
+    def set_safety_level(params = {})
+      client.post f(__method__), params.merge(photo_id: id)
+      params
+    end
   end
 end
