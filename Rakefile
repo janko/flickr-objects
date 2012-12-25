@@ -30,46 +30,6 @@ task :methods_covered do
   puts "#{covered}/#{total}"
 end
 
-desc "Create all the necessary files for a new Flickr object"
-task :new_object do
-  name = ENV["NAME"]
-  camelized_name = name.split("_").map(&:capitalize).join
-
-  filenames = [
-    "lib/flickr/objects/#{name}.rb",
-    "lib/flickr/objects/attribute_values/#{name}.rb",
-    "lib/flickr/api/#{name}.rb",
-    "lib/flickr/api/api_methods/#{name}.rb",
-    "spec/flickr/objects/#{name}_spec.rb",
-    "spec/flickr/api/#{name}_spec.rb",
-  ]
-  lib_content = <<-EOS
-class Flickr
-  class #{camelized_name} < Object
-  end
-end
-  EOS
-  spec_content = <<-EOS
-require "spec_helper"
-
-describe Flickr::#{camelized_name} do
-end
-  EOS
-
-  ROOT = File.expand_path(File.dirname(__FILE__))
-  filenames.each do |filename|
-    full_path = File.join(ROOT, filename)
-
-    unless File.exists?(full_path)
-      if filename =~ /_spec\.rb$/
-        File.open(full_path, "w") { |f| f.write(spec_content) }
-      else
-        File.open(full_path, "w") { |f| f.write(lib_content) }
-      end
-    end
-  end
-end
-
 task :update_list do
   require "nokogiri"
   require "open-uri"
