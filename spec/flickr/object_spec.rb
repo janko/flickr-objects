@@ -33,4 +33,9 @@ describe Flickr::Object, :vcr do
     photo = Flickr.photos.find(11111)
     expect { photo.title }.to_not raise_error
   end
+
+  it "successfully inspects the object" do
+    photo = Flickr.photos.find(PHOTO_ID).get_info!
+    photo.inspect
+  end
 end
