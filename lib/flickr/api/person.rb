@@ -12,6 +12,11 @@ class Flickr
       new(response["user"], client)
     end
 
+    def self.get_upload_status(params = {})
+      response = client.get f(__method__), params
+      UploadStatus.new(response["user"], client)
+    end
+
     def get_info!(params = {})
       response = client.get f(__method__), params.merge(user_id: id)
       @hash.update(response["person"])

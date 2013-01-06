@@ -1,0 +1,40 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.people.getUploadStatus
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Authorization: 
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="34606d14e3cfc88eb9477d0dbb5561e0", oauth_signature="sjGoqJ%2FlkC15ssbgFiLHqfIQkwY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1357244980", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response: 
+    status: 
+      code: 200
+      message: 
+    headers: 
+      date: 
+      - Thu, 03 Jan 2013 20:29:41 GMT
+      p3p: 
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      set-cookie: 
+      - xb=95; expires=Sun, 04-Jan-2015 20:29:41 GMT; path=/; domain=.flickr.com
+      cache-control: 
+      - private
+      x-served-by: 
+      - www31.flickr.mud.yahoo.com
+      vary: 
+      - Accept-Encoding
+      content-length: 
+      - "257"
+      connection: 
+      - close
+      content-type: 
+      - application/json
+    body: 
+      encoding: ASCII-8BIT
+      string: "{\"user\":{\"id\":\"78733179@N04\", \"ispro\":0, \"username\":{\"_content\":\"@janko-m\"}, \"bandwidth\":{\"max\":322121728, \"used\":0, \"maxbytes\":314572800, \"usedbytes\":0, \"remainingbytes\":314572800, \"maxkb\":314572, \"usedkb\":0, \"remainingkb\":314572, \"unlimited\":0}, \"filesize\":{\"max\":31457280, \"maxbytes\":31457280, \"maxkb\":30720, \"maxmb\":30}, \"sets\":{\"created\":null, \"remaining\":\"lots\"}, \"videosize\":{\"maxbytes\":157286400, \"maxkb\":153600, \"maxmb\":150}, \"videos\":{\"uploaded\":0, \"remaining\":2}}, \"stat\":\"ok\"}"
+    http_version: 
+  recorded_at: Thu, 03 Jan 2013 20:29:41 GMT
+recorded_with: VCR 2.3.0
