@@ -14,6 +14,7 @@ class Flickr
   class Location             < Object; end
   class UploadTicket         < Object; end
   class Person::UploadStatus < Object; end
+  class Photo::Exif          < Object; end
 
   autoload :List, "flickr/objects/list"
 end

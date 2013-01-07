@@ -18,5 +18,10 @@ module RSpecHelpers
   end
 
   module ClassMethods
+    def test_attributes(attributes)
+      it "has correct attributes" do
+        test_attributes(@it, attributes)
+      end
+    end
   end
 end

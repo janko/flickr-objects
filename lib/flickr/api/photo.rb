@@ -58,6 +58,11 @@ class Flickr
       self
     end
 
+    def get_exif(params = {})
+      response = client.get f(__method__), params.merge(photo_id: id)
+      Exif.new(response["photo"].slice("exif", "camera"), client)
+    end
+
     def get_favorites(params = {})
       response = client.get f(__method__), params.merge(photo_id: id)
       Person.new_list(response["photo"].delete("person"), client, response["photo"])
