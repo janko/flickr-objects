@@ -22,6 +22,5 @@ class Flickr
     instance_api_method :set_meta,         "flickr.photos.setMeta"
     instance_api_method :set_permissions,  "flickr.photos.setPerms"
     instance_api_method :set_safety_level, "flickr.photos.setSafetyLevel"
-    instance_api_method :rotate,           "flickr.photos.transform.rotate"
   end
 end
