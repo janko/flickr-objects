@@ -1,5 +1,31 @@
 # Changelog
 
+## Version 0.2.0
+
+- Covered 17 more methods:
+
+```
+flickr.people.getPhotosOf
+flickr.people.getUploadStatus
+
+flickr.photos.getFavorites
+flickr.photos.getNotInSet
+flickr.photos.getRecent
+flickr.photos.RecentlyUpdated
+flickr.photos.getUntagged
+flickr.photos.getWithGeoData
+flickr.photos.getWithoutGeoData
+flickr.photos.setDates
+flickr.photos.setMeta
+flickr.photos.setPerms
+flickr.photos.setSafetyLevel
+
+flickr.photosets.editMeta
+flickr.photosets.orderSets
+flickr.photosets.reorderPhotos
+flickr.photosets.setPrimaryPhoto
+```
+
 ## Version 0.1.0
 
 - On objects that have an ID, `#==` will now compare their IDs (useful when you
