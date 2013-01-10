@@ -1,12 +1,7 @@
 require "spec_helper"
 
-describe "flickr.people.findByUsername" do
-  use_vcr_cassette
-
-  before(:each) {
-    @response = Flickr.people.find_by_username(PERSON_USERNAME)
-    @person = @response
-  }
+describe "flickr.people.findByUsername", :api_method do
+  before(:each) { @person = Flickr.people.find_by_username(PERSON_USERNAME) }
 
   describe Flickr::Person do
     it "has correct attributes" do

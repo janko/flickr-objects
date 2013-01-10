@@ -64,6 +64,7 @@ class Flickr
                               ->{ @hash["width_#{SIZES[size]}"] },
                               ->{ @hash["size"].find { |hash| hash["label"] == OTHER_SIZES[size] }["width"] }
                             ],
+      exif:                 [->{ {"items" => @hash.fetch("exif")} }],
     }
 
     OTHER_SIZES = {

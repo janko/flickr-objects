@@ -9,7 +9,6 @@ class Flickr
     end
 
     self.attribute_values = {
-      items: [->{ @hash["exif"] }],
     }
   end
 end

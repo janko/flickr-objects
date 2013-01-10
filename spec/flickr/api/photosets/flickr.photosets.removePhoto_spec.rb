@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.photosets.removePhoto" do
-  use_vcr_cassette
-
+describe "flickr.photosets.removePhoto", :api_method do
   before(:each) { @set = Flickr.sets.find(SET_ID) }
 
   it "works" do

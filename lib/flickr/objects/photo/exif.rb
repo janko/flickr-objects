@@ -11,7 +11,6 @@ class Flickr
       attribute :clean,       String
     end
 
-    attribute :camera, String
     attribute :items,  Array[Item]
 
     def [](label)

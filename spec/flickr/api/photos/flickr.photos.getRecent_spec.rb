@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.photos.getRecent" do
-  use_vcr_cassette
-
+describe "flickr.photos.getRecent", :api_method do
   before(:each) {
     @response = Flickr.photos.get_recent(sizes: :all)
     @photo = @response.first

@@ -1,11 +1,8 @@
 require "spec_helper"
 
-describe "flickr.photos.getInfo" do
-  use_vcr_cassette
-
+describe "flickr.photos.getInfo", :api_method do
   before(:each) {
-    @response = Flickr.photos.find(PHOTO_ID).get_info!
-    @photo = @response
+    @photo = Flickr.photos.find(PHOTO_ID).get_info!
     @note = @photo.notes.first
     @tag = @photo.tags.first
   }

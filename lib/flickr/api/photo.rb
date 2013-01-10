@@ -58,9 +58,10 @@ class Flickr
       self
     end
 
-    def get_exif(params = {})
+    def get_exif!(params = {})
       response = client.get f(__method__), params.merge(photo_id: id)
-      Exif.new(response["photo"].slice("exif", "camera"), client)
+      @hash.update(response["photo"])
+      self
     end
 
     def get_favorites(params = {})

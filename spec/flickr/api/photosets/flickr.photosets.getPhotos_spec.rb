@@ -1,18 +1,11 @@
 require "spec_helper"
 
-describe "flickr.photosets.getPhotos" do
-  use_vcr_cassette
-
+describe "flickr.photosets.getPhotos", :api_method do
   before(:each) do
-    @response = Flickr.sets.find(SET_ID).get_photos(extras: EXTRAS)
+    @response = Flickr.sets.find(SET_ID).get_photos(sizes: :all)
     @photo = @response.find(PHOTO_ID)
   end
 
-  it "returns a Flickr::List" do
-    @response.should be_a(Flickr::List)
-  end
-
-  it "assigns attributes correctly" do
-    @photo.id.should be_a_nonempty(String)
-  end
+  it_behaves_like "list"
+  include_examples "extras"
 end

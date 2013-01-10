@@ -1,14 +1,5 @@
 ATTRIBUTES = {}
 
-ATTRIBUTES[:upload_ticket] = {
-  id:        proc { be_a_nonempty(String) },
-  status:    proc { be_a(Integer) },
-  invalid?:  proc { be_a_boolean },
-  complete?: proc { be_a_boolean },
-  failed?:   proc { be_a_boolean },
-  photo:     proc { be_a(Flickr::Photo) },
-}
-
 ATTRIBUTES[:photo] = {
   id:                   proc { be_a_nonempty(String) },
   secret:               proc { be_a_nonempty(String) },
@@ -34,8 +25,6 @@ ATTRIBUTES[:photo] = {
   path_alias:           proc { be_nil },
   rotation:             proc { be_a(Integer) },
 }
-
-EXTRAS_KEYS = ["id", "owner", "secret", "server", "farm", "title", "username", "ispublic", "isfriend", "isfamily"]
 
 ATTRIBUTES[:person] = {
   id:                   proc { be_a_nonempty(String) },

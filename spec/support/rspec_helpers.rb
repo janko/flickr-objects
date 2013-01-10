@@ -11,17 +11,19 @@ module RSpecHelpers
     File.join(ROOT, "spec/fixtures/files/#{filename}")
   end
 
-  def test_attributes(variable, attributes)
+  def test_attributes(object, attributes)
     attributes.each do |attribute, test|
-      variable.send(attribute).should instance_eval(&test)
+      object.send(attribute).should instance_eval(&test)
     end
   end
 
   module ClassMethods
-    def test_attributes(attributes)
-      it "has correct attributes" do
-        test_attributes(@it, attributes)
-      end
-    end
   end
+end
+
+def benchmark(name = "benchmark", &block)
+  time = Time.now
+  return_value = block.call
+  puts "#{name} (#{Time.now - time})"
+  return_value
 end

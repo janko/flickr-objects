@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.photos.getWithoutGeoData" do
-  use_vcr_cassette
-
+describe "flickr.photos.getWithoutGeoData", :api_method do
   before(:each) {
     @response = Flickr.photos.get_without_geo_data(sizes: :all)
     @photo = @response.first

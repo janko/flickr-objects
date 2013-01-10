@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.photos.getWithGeoData" do
-  use_vcr_cassette
-
+describe "flickr.photos.getWithGeoData", :api_method do
   before(:each) {
     @response = Flickr.photos.get_with_geo_data(sizes: :all)
     @photo = @response.first

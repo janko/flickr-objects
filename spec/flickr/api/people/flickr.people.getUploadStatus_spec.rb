@@ -1,21 +1,22 @@
 require "spec_helper"
 
-describe "flickr.people.getUploadStatus" do
-  use_vcr_cassette
-
-  before(:each) {
-    @response = Flickr.people.get_upload_status
-    @upload_status = @response
-  }
+describe "flickr.people.getUploadStatus", :api_method do
+  before(:each) { @upload_status = Flickr.people.get_upload_status }
 
   describe Flickr::Person::UploadStatus do
-    before(:each) { @it = @upload_status }
-
     it "has correct attributes" do
-      @it.current_month.maximum.should be_a(Integer)
-      @it.current_month.used.should be_a(Integer)
-      @it.current_month.remaining.should be_a(Integer)
-      @it.maximum_photo_size.should be_a(Integer)
+      test_attributes(@upload_status, ATTRIBUTES[:upload_status])
+      test_attributes(@upload_status.current_month, ATTRIBUTES[:upload_status_month])
     end
   end
 end
+
+ATTRIBUTES[:upload_status] = {
+  maximum_photo_size: proc { be_a(Integer) },
+}
+
+ATTRIBUTES[:upload_status_month] = {
+  maximum:   proc { be_a(Integer) },
+  used:      proc { be_a(Integer) },
+  remaining: proc { be_a(Integer) },
+}

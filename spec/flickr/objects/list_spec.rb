@@ -69,6 +69,7 @@ describe Flickr::List do
 
     context "when kaminari" do
       before(:each) {
+        stub_const("Sinatra", Module.new) # To not trigger Kaminari's warning messages
         Flickr.configure { |config| config.pagination = :kaminari }
         reload_list
       }

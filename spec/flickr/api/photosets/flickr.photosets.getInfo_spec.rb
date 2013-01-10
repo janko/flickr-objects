@@ -1,12 +1,7 @@
 require "spec_helper"
 
-describe "flickr.photosets.getInfo" do
-  use_vcr_cassette
-
-  before(:each) {
-    @response = Flickr.sets.find(SET_ID).get_info!
-    @set = @response
-  }
+describe "flickr.photosets.getInfo", :api_method do
+  before(:each) { @set = Flickr.sets.find(SET_ID).get_info!  }
 
   describe Flickr::Set do
     it "has correct attributes" do

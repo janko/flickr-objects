@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.photos.getUntagged" do
-  use_vcr_cassette
-
+describe "flickr.photos.getUntagged", :api_method do
   before(:each) {
     @response = Flickr.photos.get_untagged(sizes: :all)
     @photo = @response.first

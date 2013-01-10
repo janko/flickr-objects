@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.photos.getNotInSet" do
-  use_vcr_cassette
-
+describe "flickr.photos.getNotInSet", :api_method do
   before(:each) {
     @response = Flickr.photos.get_not_in_set(sizes: :all)
     @photo = @response.first

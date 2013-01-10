@@ -1,5 +1,6 @@
 require_relative "attribute_values/photo"
 require "flickr/api/photo"
+require_relative "photo/exif"
 require "flickr/helpers/base_58"
 
 class Flickr
@@ -32,6 +33,9 @@ class Flickr
 
     attribute :notes,                Array[Note]
     attribute :tags,                 Array[Tag]
+
+    attribute :camera,               String
+    attribute :exif,                 Exif
 
     attribute :has_people?,          Boolean
     attribute :favorite?,            Boolean

@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.people.getPhotos" do
-  use_vcr_cassette
-
+describe "flickr.people.getPhotos", :api_method do
   before(:each) {
     @response = Flickr.people.find(PERSON_ID).get_photos(sizes: :all)
     @photo = @response.find(PHOTO_ID)

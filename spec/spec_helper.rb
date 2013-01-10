@@ -1,16 +1,9 @@
-def benchmark(name = "benchmark", &block)
-  time = Time.now
-  return_value = block.call
-  puts "#{name} (#{Time.now - time})"
-  return_value
-end
-
-require_relative "setup_load_paths"
+require "bundler/setup"
 require_relative "setup"
-Dir[File.join(ROOT, "spec/support/**/*.rb")].each { |f| require f }
 
 require "flickr-objects"
 require "vcr"
+Dir[File.join(ROOT, "spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.filter_run_excluding pro: true
@@ -19,6 +12,16 @@ RSpec.configure do |config|
     Flickr.configure do |config|
       CREDENTIALS.each do |name, value|
         config.send("#{name}=", value)
+      end
+    end
+  end
+  config.around(:each) do |example|
+    if example.metadata[:api_method]
+      api_method_name = example.metadata[:example_group]
+      api_method_name = api_method_name[:example_group] while api_method_name[:example_group]
+      api_method_name = api_method_name[:description_args]
+      VCR.use_cassette api_method_name do
+        example.run
       end
     end
   end

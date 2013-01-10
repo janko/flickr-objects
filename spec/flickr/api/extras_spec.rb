@@ -7,10 +7,6 @@ describe "Extras" do
   before(:each) {
     @response = Flickr.photos.search(user_id: PERSON_ID, extras: EXTRAS)
     @photo = @response.find(PHOTO_ID)
-    @person = @photo.owner
-    @visibility = @photo.visibility
-    @location = @photo.location
-    @tag = @photo.tags.first
   }
 
   describe Flickr::Photo do
@@ -21,25 +17,25 @@ describe "Extras" do
 
   describe Flickr::Person do
     it "has correct attributes" do
-      test_attributes(@person, ATTRIBUTES[:person].slice(:id, :nsid, :username, :icon_server, :icon_farm))
+      test_attributes(@photo.owner, ATTRIBUTES[:person].slice(:id, :nsid, :username, :icon_server, :icon_farm))
     end
   end
 
   describe Flickr::Visibility do
     it "has correct attributes" do
-      test_attributes(@visibility, ATTRIBUTES[:visibility].slice(:public?, :friends?, :family?))
+      test_attributes(@photo.visibility, ATTRIBUTES[:visibility].slice(:public?, :friends?, :family?))
     end
   end
 
   describe Flickr::Location do
     it "has correct attributes" do
-      test_attributes(@location, ATTRIBUTES[:location])
+      test_attributes(@photo.location, ATTRIBUTES[:location])
     end
   end
 
   describe Flickr::Tag do
     it "has correct attributes" do
-      test_attributes(@tag, ATTRIBUTES[:tag].slice(:content, :machine_tag?))
+      test_attributes(@photo.tags.first, ATTRIBUTES[:tag].slice(:content, :machine_tag?))
     end
   end
 end

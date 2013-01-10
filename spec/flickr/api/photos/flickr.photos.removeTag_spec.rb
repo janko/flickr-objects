@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.photos.removeTag" do
-  use_vcr_cassette
-
+describe "flickr.photos.removeTag", :api_method do
   before(:each) {
     @photo = Flickr.photos.find(PHOTO_ID).get_info!
   }

@@ -1,9 +1,6 @@
-require "set"
-
 shared_examples "list" do
   context Flickr::List do
     it "has correct attributes" do
-      @response.should be_a(Flickr::List)
       test_attributes(@response, ATTRIBUTES[:list])
     end
   end
@@ -23,3 +20,5 @@ shared_examples "extras" do
     end
   end
 end
+
+EXTRAS_KEYS = ["id", "owner", "secret", "server", "farm", "title", "username", "ispublic", "isfriend", "isfamily", "isprimary"]

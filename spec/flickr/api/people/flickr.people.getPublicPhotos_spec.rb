@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.people.getPublicPhotos" do
-  use_vcr_cassette
-
+describe "flickr.people.getPublicPhotos", :api_method do
   before(:each) do
     @response = Flickr.people.find(PERSON_ID).get_public_photos(sizes: :all)
     @photo = @response.find(PHOTO_ID)
