@@ -13,6 +13,12 @@ describe "Extras" do
     it "has correct attributes" do
       test_attributes(@photo, ATTRIBUTES[:photo].slice(:id, :secret, :server, :farm, :uploaded_at, :license, :title, :description, :taken_at, :taken_at_granularity, :updated_at, :views_count, :path_alias))
     end
+
+    describe Flickr::Photo::Tag do
+      it "has correct attributes" do
+        test_attributes(@photo.tags.first, ATTRIBUTES[:tag].slice(:content, :machine_tag?))
+      end
+    end
   end
 
   describe Flickr::Person do
@@ -30,12 +36,6 @@ describe "Extras" do
   describe Flickr::Location do
     it "has correct attributes" do
       test_attributes(@photo.location, ATTRIBUTES[:location])
-    end
-  end
-
-  describe Flickr::Tag do
-    it "has correct attributes" do
-      test_attributes(@photo.tags.first, ATTRIBUTES[:tag].slice(:content, :machine_tag?))
     end
   end
 end

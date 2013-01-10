@@ -11,6 +11,18 @@ describe "flickr.photos.getInfo", :api_method do
     it "has correct attributes" do
       test_attributes(@photo, ATTRIBUTES[:photo])
     end
+
+    describe Flickr::Photo::Tag do
+      it "has correct attributes" do
+        test_attributes(@tag, ATTRIBUTES[:tag])
+      end
+    end
+
+    describe Flickr::Photo::Note do
+      it "has correct attributes" do
+        test_attributes(@note, ATTRIBUTES[:note])
+      end
+    end
   end
 
   describe Flickr::Person do
@@ -18,18 +30,6 @@ describe "flickr.photos.getInfo", :api_method do
       test_attributes(@photo.owner, ATTRIBUTES[:person].slice(:id, :nsid, :username, :real_name, :location, :icon_server, :icon_farm))
       test_attributes(@note.author, ATTRIBUTES[:person].slice(:id, :nsid, :username))
       test_attributes(@tag.author, ATTRIBUTES[:person].slice(:id, :nsid))
-    end
-  end
-
-  describe Flickr::Tag do
-    it "has correct attributes" do
-      test_attributes(@tag, ATTRIBUTES[:tag])
-    end
-  end
-
-  describe Flickr::Note do
-    it "has correct attributes" do
-      test_attributes(@note, ATTRIBUTES[:note])
     end
   end
 

@@ -1,6 +1,8 @@
 require_relative "attribute_values/photo"
 require "flickr/api/photo"
 require_relative "photo/exif"
+require_relative "photo/tag"
+require_relative "photo/note"
 require "flickr/helpers/base_58"
 
 class Flickr

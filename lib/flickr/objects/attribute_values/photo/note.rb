@@ -1,5 +1,5 @@
 class Flickr
-  class Note < Object
+  class Photo::Note < Object
     self.attribute_values = {
       author:      [->{ {"id" => @hash.fetch("author"), "username" => @hash["authorname"]} }],
       coordinates: [->{ [@hash.fetch("x"), @hash.fetch("y")] }],

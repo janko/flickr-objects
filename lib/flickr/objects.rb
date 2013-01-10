@@ -9,8 +9,6 @@ class Flickr
   # Meta objects
   class Visibility           < Object; end
   class Permissions          < Object; end
-  class Note                 < Object; end
-  class Tag                  < Object; end
   class Location             < Object; end
   class UploadTicket         < Object; end
   class Person::UploadStatus < Object; end

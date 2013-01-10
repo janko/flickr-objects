@@ -1,7 +1,7 @@
-require_relative "attribute_values/tag"
+require_relative "../attribute_values/photo/tag"
 
 class Flickr
-  class Tag < Object
+  class Photo::Tag < Object
 
     attribute :id,           String
     attribute :author,       Person

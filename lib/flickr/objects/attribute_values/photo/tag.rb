@@ -1,5 +1,5 @@
 class Flickr
-  class Tag < Object
+  class Photo::Tag < Object
     self.attribute_values = {
       author:       [->{ {"id" => @hash.fetch("author")} }],
       content:      [->{ @hash["_content"] }],

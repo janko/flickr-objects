@@ -1,7 +1,7 @@
-require_relative "attribute_values/note"
+require_relative "../attribute_values/photo/note"
 
 class Flickr
-  class Note < Object
+  class Photo::Note < Object
 
     attribute :id,          String
     attribute :author,      Person
