@@ -1,60 +1,8 @@
-class Flickr
-  case Flickr.configuration.pagination
-  when nil
-
-    class List < Array
-      extend Flickr::Object::Attribute
-
-      attribute :current_page,  Integer
-      attribute :per_page,      Integer
-      attribute :total_pages,   Integer
-      attribute :total_entries, Integer
-
-      def initialize(objects, hash)
-        @hash = hash
-        super(objects)
-      end
-    end
-
-  when :will_paginate
-
-    require "will_paginate/collection"
-
-    class List < WillPaginate::Collection
-      extend Flickr::Object::Attribute
-
-      def initialize(objects, hash)
-        @hash = hash
-        super(
-          retrieve_value(:current_page, Integer),
-          retrieve_value(:per_page, Integer),
-          retrieve_value(:total_entries, Integer)
-        )
-        replace(objects)
-      end
-    end
-
-  when :kaminari
-
-    require "kaminari"
-    require "kaminari/models/array_extension"
-
-    class List < Kaminari::PaginatableArray
-      extend Flickr::Object::Attribute
-
-      def initialize(objects, hash)
-        @hash = hash
-        super(objects,
-          offset:      retrieve_value(:current_page, Integer),
-          limit:       retrieve_value(:per_page, Integer),
-          total_count: retrieve_value(:total_entries, Integer)
-        )
-      end
-    end
-
-  else
-    raise Error, "supported paginations are :will_paginate or :kaminari (you put \":#{Flickr.configuration.pagination}\")"
-  end
+case Flickr.configuration.pagination
+when nil            then require_relative "list/array"
+when :will_paginate then require_relative "list/will_paginate"
+when :kaminari      then require_relative "list/kaminari"
+else                     raise Flickr::Error, "supported paginations are :will_paginate or :kaminari (you put #{Flickr.configuration.pagination.inspect})"
 end
 
 require_relative "attribute_values/list"

@@ -27,7 +27,8 @@ describe Flickr::List do
 
   describe "pagination" do
     def reload_list
-      Flickr.send(:remove_const, "List")
+      Flickr.send(:remove_const, "List") if defined?(Flickr::List)
+      load "flickr/objects/list/#{Flickr.configuration.pagination || "array"}.rb"
       load "flickr/objects/list.rb"
       load "flickr/objects/attribute_values/list.rb"
     end
@@ -95,9 +96,7 @@ describe Flickr::List do
 
     after(:all) {
       Flickr.configure { |config| config.pagination = nil }
-      Flickr.send(:remove_const, "List") if defined?(Flickr::List)
-      load "flickr/objects/list.rb"
-      load "flickr/objects/attribute_values/list.rb"
+      reload_list
     }
   end
 end
