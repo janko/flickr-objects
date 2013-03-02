@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe Flickr::List do
-  use_vcr_cassette
-
+describe Flickr::List, :vcr do
   let(:it) { Flickr.photos.search(user_id: PERSON_ID, page: 2, per_page: 1) }
 
   describe "#find" do

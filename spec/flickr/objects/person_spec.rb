@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe Flickr::Person do
-  use_vcr_cassette
-
+describe Flickr::Person, :vcr do
   before(:each) { @it = Flickr.people.find(PERSON_ID).get_info! }
 
   describe "#buddy_icon_url" do

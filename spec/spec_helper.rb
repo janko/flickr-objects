@@ -15,6 +15,7 @@ RSpec.configure do |config|
       end
     end
   end
+
   config.around(:each) do |example|
     if example.metadata[:api_method]
       api_method_name = example.metadata[:example_group]
@@ -27,7 +28,6 @@ RSpec.configure do |config|
   end
 
   config.include RSpecHelpers
-  config.extend VCR::RSpec::Macros
 
   config.treat_symbols_as_metadata_keys_with_true_values = true
 end
@@ -37,7 +37,6 @@ VCR.configure do |config|
   config.hook_into :faraday
   config.default_cassette_options = {
     record: :new_episodes,
-    serialize_with: :syck, # So that Ruby doesn't dump response bodies in binary format
     match_requests_on: [
       :method,
       VCR.request_matchers.uri_without_param(:api_key) # Don't require the API key.

@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.test.null" do
-  use_vcr_cassette
-
+describe "flickr.test.null", :api_method do
   before(:each) { @response = Flickr.test_null }
 
   it "returns a response" do

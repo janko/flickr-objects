@@ -1,9 +1,7 @@
 require "spec_helper"
 require "uri"
 
-describe Flickr::Photo do
-  use_vcr_cassette
-
+describe Flickr::Photo, :vcr do
   before(:each) { @it = Flickr.photos.search(user_id: PERSON_ID, extras: EXTRAS).find(PHOTO_ID) }
 
   describe "#short_url" do

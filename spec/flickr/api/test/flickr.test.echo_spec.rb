@@ -1,8 +1,6 @@
 require "spec_helper"
 
-describe "flickr.test.echo" do
-  use_vcr_cassette
-
+describe "flickr.test.echo", :api_method do
   before(:each) { @response = Flickr.test_echo }
 
   it "returns a response" do

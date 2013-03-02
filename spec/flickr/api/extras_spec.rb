@@ -1,9 +1,7 @@
 require "spec_helper"
 
 # It tests common attributes for all API calls that have :extras
-describe "Extras" do
-  use_vcr_cassette
-
+describe "Extras", :vcr do
   before(:each) {
     @response = Flickr.photos.search(user_id: PERSON_ID, extras: EXTRAS)
     @photo = @response.find(PHOTO_ID)
