@@ -1,5 +1,18 @@
 # Changelog
 
+## Version 0.3.0
+
+- The code has been thoroughly refactored, and fully
+  [documented](http://rubydoc.info/gems/flickr-objects). Yay!
+- Removed `Flickr.api_methods` – the consequences of its existence made the
+  code uglier.
+- Added `#find_by` and `#filter` to
+  [`Flickr::Object::List`](http://rubydoc.info/gems/flickr-objects/Flickr/Object/List).
+- You can now access the raw JSON response of a Flickr object with
+  `#attributes`.
+- Increased the default timeouts, so now the HTTP requests shouldn't timeout on
+  normal internet connections
+
 ## Version 0.2.0
 
 - Covered 17 more methods:

@@ -1,40 +1,143 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.search&user_id=78733179%40N04&sizes=all&extras=url_sq%2Curl_t%2Curl_q%2Curl_s%2Curl_n%2Curl_m%2Curl_z%2Curl_c%2Curl_l%2Curl_h%2Curl_k%2Curl_o
-    body: 
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.search&user_id=78733179%40N04&extras=
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="a07aff6a5e1e51ba505e5e8703a0307e", oauth_signature="e7R0lCkeK41X8wPB%2FLRDhNoU5SU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356388500", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
-  response: 
-    status: 
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="0e9f31964c6b32c966f12d53154b0517",
+        oauth_signature="jE7LLi4qDJq%2Btx%2FsY6ad%2FAy5yo0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1380985868", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      date: 
-      - Mon, 24 Dec 2012 22:35:01 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      set-cookie: 
-      - xb=57; expires=Thu, 25-Dec-2014 22:35:01 GMT; path=/; domain=.flickr.com
-      cache-control: 
+    headers:
+      age:
+      - '0'
+      cache-control:
       - private
-      x-served-by: 
-      - www143.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "586"
-      connection: 
+      connection:
       - close
-      content-type: 
+      content-length:
+      - '182'
+      content-type:
       - application/json
-    body: 
-      encoding: ASCII-8BIT
-      string: "{\"photos\":{\"page\":1, \"pages\":1, \"perpage\":100, \"total\":\"2\", \"photo\":[{\"id\":\"8130464513\", \"owner\":\"78733179@N04\", \"secret\":\"780e01decd\", \"server\":\"8191\", \"farm\":9, \"title\":\"Hana\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"url_sq\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_s.jpg\", \"height_sq\":75, \"width_sq\":75, \"url_t\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_t.jpg\", \"height_t\":\"75\", \"width_t\":\"100\", \"url_q\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_q.jpg\", \"height_q\":\"150\", \"width_q\":\"150\", \"url_s\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_m.jpg\", \"height_s\":\"180\", \"width_s\":\"240\", \"url_n\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_n.jpg\", \"height_n\":240, \"width_n\":\"320\", \"url_m\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd.jpg\", \"height_m\":\"375\", \"width_m\":\"500\", \"url_z\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_z.jpg\", \"height_z\":\"480\", \"width_z\":\"640\", \"url_c\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_c.jpg\", \"height_c\":600, \"width_c\":\"800\", \"url_l\":\"http:\\/\\/farm9.staticflickr.com\\/8191\\/8130464513_780e01decd_b.jpg\", \"height_l\":\"600\", \"width_l\":\"800\"}, {\"id\":\"7986395865\", \"owner\":\"78733179@N04\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"title\":\"Game of Thrones\", \"ispublic\":1, \"isfriend\":0, \"isfamily\":0, \"url_sq\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_s.jpg\", \"height_sq\":75, \"width_sq\":75, \"url_t\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_t.jpg\", \"height_t\":\"100\", \"width_t\":\"67\", \"url_q\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_q.jpg\", \"height_q\":\"150\", \"width_q\":\"150\", \"url_s\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_m.jpg\", \"height_s\":\"240\", \"width_s\":\"162\", \"url_n\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_n.jpg\", \"height_n\":\"320\", \"width_n\":216, \"url_m\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b.jpg\", \"height_m\":\"500\", \"width_m\":\"337\", \"url_z\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_z.jpg\", \"height_z\":\"640\", \"width_z\":\"432\", \"url_c\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_c.jpg\", \"height_c\":\"800\", \"width_c\":540, \"url_l\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_b.jpg\", \"height_l\":\"1024\", \"width_l\":\"691\", \"url_h\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_e325aa9882_h.jpg\", \"height_h\":\"1600\", \"width_h\":1080, \"url_k\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_081e5978f7_k.jpg\", \"height_k\":\"2048\", \"width_k\":1382}]}, \"stat\":\"ok\"}"
+      date:
+      - Sat, 05 Oct 2013 15:11:06 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=933974; expires=Tue, 06-Oct-2015 15:11:06 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r11.ycpi.dee.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www110.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"photos":{"page":1, "pages":1, "perpage":100, "total":"1", "photo":[{"id":"8130464513",
+        "owner":"78733179@N04", "secret":"780e01decd", "server":"8191", "farm":9,
+        "title":"Hana", "ispublic":1, "isfriend":0, "isfamily":0}]}, "stat":"ok"}'
     http_version: 
-  recorded_at: Mon, 24 Dec 2012 22:35:01 GMT
-recorded_with: VCR 2.3.0
+  recorded_at: Sat, 05 Oct 2013 15:11:09 GMT
+- request:
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.search&user_id=78733179%40N04&extras=description%2Clicense%2Cdate_upload%2Cdate_taken%2Cowner_name%2Cicon_server%2Coriginal_format%2Clast_update%2Cgeo%2Ctags%2Cmachine_tags%2Co_dims%2Cviews%2Cmedia%2Cpath_alias%2Curl_sq%2Curl_q%2Curl_t%2Curl_s%2Curl_n%2Curl_m%2Curl_z%2Curl_c%2Curl_l%2Curl_h%2Curl_k%2Curl_o
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="1cda473558231a97aad0011281918cb6",
+        oauth_signature="3fbDmitbnMu8ls7h3euBCsZ2nuE%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1381067846", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private
+      connection:
+      - close
+      content-length:
+      - '953'
+      content-type:
+      - application/json
+      date:
+      - Sun, 06 Oct 2013 13:57:19 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=935401; expires=Wed, 07-Oct-2015 13:57:19 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r01.ycpi.ams.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www9.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"photos":{"page":1, "pages":1, "perpage":100, "total":"2", "photo":[{"id":"10115956703",
+        "owner":"78733179@N04", "secret":"b14e1be9d0", "server":"2822", "farm":3,
+        "title":"Jon Snow", "ispublic":1, "isfriend":0, "isfamily":0, "description":{"_content":"It''s
+        a photo"}, "license":"0", "dateupload":"1381061206", "datetaken":"2013-10-06
+        14:06:41", "datetakengranularity":"0", "ownername":"@janko-m", "iconserver":"8033",
+        "iconfarm":9, "originalsecret":"e40de5bf26", "originalformat":"jpg", "lastupdate":"1381067365",
+        "latitude":45.807258, "longitude":15.967599, "accuracy":"11", "context":0,
+        "place_id":"00j4IylZV7scWik", "woeid":"851128", "geo_is_family":0, "geo_is_friend":0,
+        "geo_is_contact":0, "geo_is_public":1, "tags":"foo vision:night=077", "machine_tags":"",
+        "views":"0", "media":"photo", "media_status":"ready", "pathalias":null, "url_sq":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_s.jpg",
+        "height_sq":75, "width_sq":75, "url_q":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_q.jpg",
+        "height_q":"150", "width_q":"150", "url_t":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_t.jpg",
+        "height_t":"63", "width_t":"100", "url_s":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_m.jpg",
+        "height_s":"150", "width_s":"240", "url_n":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_n.jpg",
+        "height_n":200, "width_n":"320", "url_m":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0.jpg",
+        "height_m":"313", "width_m":"500", "url_z":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_z.jpg",
+        "height_z":"400", "width_z":"640", "url_c":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_c.jpg",
+        "height_c":500, "width_c":"800", "url_l":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_b.jpg",
+        "height_l":"640", "width_l":"1024", "url_h":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_253e5b1ab0_h.jpg",
+        "height_h":1000, "width_h":"1600", "url_k":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_67c9dd116f_k.jpg",
+        "height_k":1280, "width_k":"2048", "url_o":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_e40de5bf26_o.jpg",
+        "height_o":"1600", "width_o":"2560"}, {"id":"8130464513", "owner":"78733179@N04",
+        "secret":"780e01decd", "server":"8191", "farm":9, "title":"Photo", "ispublic":1,
+        "isfriend":0, "isfamily":0, "description":{"_content":""}, "license":"0",
+        "dateupload":"2013", "datetaken":"2012-10-28 11:32:03", "datetakengranularity":"0",
+        "ownername":"@janko-m", "iconserver":"8033", "iconfarm":9, "originalsecret":"941c686b6a",
+        "originalformat":"jpg", "lastupdate":"1380990008", "latitude":45.807258, "longitude":15.967599,
+        "accuracy":"11", "context":0, "place_id":"00j4IylZV7scWik", "woeid":"851128",
+        "geo_is_family":0, "geo_is_friend":0, "geo_is_contact":0, "geo_is_public":1,
+        "tags":"foo", "machine_tags":"", "views":"3", "media":"photo", "media_status":"ready",
+        "pathalias":null, "url_sq":"http:\/\/farm9.staticflickr.com\/8191\/8130464513_780e01decd_s.jpg",
+        "height_sq":75, "width_sq":75, "url_q":"http:\/\/farm9.staticflickr.com\/8191\/8130464513_780e01decd_q.jpg",
+        "height_q":"150", "width_q":"150", "url_t":"http:\/\/farm9.staticflickr.com\/8191\/8130464513_780e01decd_t.jpg",
+        "height_t":"75", "width_t":"100", "url_s":"http:\/\/farm9.staticflickr.com\/8191\/8130464513_780e01decd_m.jpg",
+        "height_s":"180", "width_s":"240", "url_n":"http:\/\/farm9.staticflickr.com\/8191\/8130464513_780e01decd_n.jpg",
+        "height_n":240, "width_n":"320", "url_m":"http:\/\/farm9.staticflickr.com\/8191\/8130464513_780e01decd.jpg",
+        "height_m":"375", "width_m":"500", "url_z":"http:\/\/farm9.staticflickr.com\/8191\/8130464513_780e01decd_z.jpg",
+        "height_z":"480", "width_z":"640", "url_c":"http:\/\/farm9.staticflickr.com\/8191\/8130464513_780e01decd_c.jpg",
+        "height_c":600, "width_c":"800", "url_l":"http:\/\/farm9.staticflickr.com\/8191\/8130464513_780e01decd_b.jpg",
+        "height_l":"600", "width_l":"800", "url_o":"http:\/\/farm9.staticflickr.com\/8191\/8130464513_941c686b6a_o.jpg",
+        "height_o":"600", "width_o":"800"}]}, "stat":"ok"}'
+    http_version: 
+  recorded_at: Sun, 06 Oct 2013 13:57:27 GMT
+recorded_with: VCR 2.5.0

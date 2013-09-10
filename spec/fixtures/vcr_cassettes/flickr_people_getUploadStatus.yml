@@ -1,40 +1,58 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: get
     uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.people.getUploadStatus
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="34606d14e3cfc88eb9477d0dbb5561e0", oauth_signature="sjGoqJ%2FlkC15ssbgFiLHqfIQkwY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1357244980", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
-  response: 
-    status: 
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="7c800414cf61daa76b21293e58c9a235",
+        oauth_signature="lPN%2FW9g4SZsLXiH%2FjQM7jbtHOu8%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1380985799", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      date: 
-      - Thu, 03 Jan 2013 20:29:41 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      set-cookie: 
-      - xb=95; expires=Sun, 04-Jan-2015 20:29:41 GMT; path=/; domain=.flickr.com
-      cache-control: 
+    headers:
+      age:
+      - '0'
+      cache-control:
       - private
-      x-served-by: 
-      - www31.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "257"
-      connection: 
+      connection:
       - close
-      content-type: 
+      content-length:
+      - '262'
+      content-type:
       - application/json
-    body: 
-      encoding: ASCII-8BIT
-      string: "{\"user\":{\"id\":\"78733179@N04\", \"ispro\":0, \"username\":{\"_content\":\"@janko-m\"}, \"bandwidth\":{\"max\":322121728, \"used\":0, \"maxbytes\":314572800, \"usedbytes\":0, \"remainingbytes\":314572800, \"maxkb\":314572, \"usedkb\":0, \"remainingkb\":314572, \"unlimited\":0}, \"filesize\":{\"max\":31457280, \"maxbytes\":31457280, \"maxkb\":30720, \"maxmb\":30}, \"sets\":{\"created\":null, \"remaining\":\"lots\"}, \"videosize\":{\"maxbytes\":157286400, \"maxkb\":153600, \"maxmb\":150}, \"videos\":{\"uploaded\":0, \"remaining\":2}}, \"stat\":\"ok\"}"
+      date:
+      - Sat, 05 Oct 2013 15:09:57 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=576561; expires=Tue, 06-Oct-2015 15:09:57 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r16.ycpi.dee.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www48.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"user":{"id":"78733179@N04", "ispro":0, "username":{"_content":"@janko-m"},
+        "bandwidth":{"max":2147483648, "used":0, "maxbytes":214748364800, "usedbytes":0,
+        "remainingbytes":214748364800, "maxkb":209715200, "usedkb":0, "remainingkb":209715200,
+        "unlimited":1}, "filesize":{"max":209715200, "maxbytes":209715200, "maxkb":204800,
+        "maxmb":200}, "sets":{"created":null, "remaining":"lots"}, "videosize":{"maxbytes":1073741824,
+        "maxkb":1048576, "maxmb":1024}, "videos":{"uploaded":0, "remaining":"lots"}},
+        "stat":"ok"}'
     http_version: 
-  recorded_at: Thu, 03 Jan 2013 20:29:41 GMT
-recorded_with: VCR 2.3.0
+  recorded_at: Sat, 05 Oct 2013 15:10:00 GMT
+recorded_with: VCR 2.5.0

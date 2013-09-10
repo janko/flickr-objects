@@ -1,40 +1,72 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getExif&photo_id=7986395865
-    body: 
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getExif&photo_id=8130464513
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="a9b522c68351f42d9ef9b8c44096bb56", oauth_signature="r%2F2Br%2FGjK%2F2xaqEXcV4gMv46aK4%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1357595051", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
-  response: 
-    status: 
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="2b573b135701313032834db6dfd788c3",
+        oauth_signature="svMgilNs0e40LZq8grgHSnLCMuU%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1380986282", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      date: 
-      - Mon, 07 Jan 2013 21:44:12 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      set-cookie: 
-      - xb=75; expires=Thu, 08-Jan-2015 21:44:12 GMT; path=/; domain=.flickr.com
-      cache-control: 
+    headers:
+      age:
+      - '0'
+      cache-control:
       - private
-      x-served-by: 
-      - www160.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "605"
-      connection: 
+      connection:
       - close
-      content-type: 
+      content-length:
+      - '457'
+      content-type:
       - application/json
-    body: 
-      encoding: ASCII-8BIT
-      string: "{\"photo\":{\"id\":\"7986395865\", \"secret\":\"10b20ff529\", \"server\":\"8306\", \"farm\":9, \"camera\":\"\", \"exif\":[{\"tagspace\":\"JFIF\", \"tagspaceid\":0, \"tag\":\"JFIFVersion\", \"label\":\"JFIFVersion\", \"raw\":{\"_content\":\"1.02\"}}, {\"tagspace\":\"JFIF\", \"tagspaceid\":0, \"tag\":\"ResolutionUnit\", \"label\":\"Resolution Unit\", \"raw\":{\"_content\":\"inches\"}}, {\"tagspace\":\"JFIF\", \"tagspaceid\":0, \"tag\":\"XResolution\", \"label\":\"X-Resolution\", \"raw\":{\"_content\":\"200\"}, \"clean\":{\"_content\":\"200 dpi\"}}, {\"tagspace\":\"JFIF\", \"tagspaceid\":0, \"tag\":\"YResolution\", \"label\":\"Y-Resolution\", \"raw\":{\"_content\":\"200\"}, \"clean\":{\"_content\":\"200 dpi\"}}, {\"tagspace\":\"Photoshop\", \"tagspaceid\":0, \"tag\":\"DisplayedUnitsX\", \"label\":\"Displayed Units X\", \"raw\":{\"_content\":\"inches\"}}, {\"tagspace\":\"Photoshop\", \"tagspaceid\":0, \"tag\":\"DisplayedUnitsY\", \"label\":\"Displayed Units Y\", \"raw\":{\"_content\":\"inches\"}}, {\"tagspace\":\"ICC-view\", \"tagspaceid\":0, \"tag\":\"ViewingCondIlluminant\", \"label\":\"Viewing Cond Illuminant\", \"raw\":{\"_content\":\"19.6445 20.3718 16.8089\"}}, {\"tagspace\":\"ICC-view\", \"tagspaceid\":0, \"tag\":\"ViewingCondSurround\", \"label\":\"Viewing Cond Surround\", \"raw\":{\"_content\":\"3.92889 4.07439 3.36179\"}}, {\"tagspace\":\"ICC-view\", \"tagspaceid\":0, \"tag\":\"ViewingCondIlluminantType\", \"label\":\"Viewing Conditions Illuminant Type\", \"raw\":{\"_content\":\"D50\"}}, {\"tagspace\":\"ICC-meas\", \"tagspaceid\":0, \"tag\":\"MeasurementObserver\", \"label\":\"Measurement Observer\", \"raw\":{\"_content\":\"CIE 1931\"}}, {\"tagspace\":\"ICC-meas\", \"tagspaceid\":0, \"tag\":\"MeasurementBacking\", \"label\":\"Measurement Backing\", \"raw\":{\"_content\":\"0 0 0\"}}, {\"tagspace\":\"ICC-meas\", \"tagspaceid\":0, \"tag\":\"MeasurementGeometry\", \"label\":\"Measurement Geometry\", \"raw\":{\"_content\":\"Unknown (0)\"}}, {\"tagspace\":\"ICC-meas\", \"tagspaceid\":0, \"tag\":\"MeasurementFlare\", \"label\":\"Measurement Flare\", \"raw\":{\"_content\":\"0.999%\"}}, {\"tagspace\":\"ICC-meas\", \"tagspaceid\":0, \"tag\":\"MeasurementIlluminant\", \"label\":\"Measurement Illuminant\", \"raw\":{\"_content\":\"D65\"}}, {\"tagspace\":\"Adobe\", \"tagspaceid\":0, \"tag\":\"DCTEncodeVersion\", \"label\":\"DCTEncode Version\", \"raw\":{\"_content\":\"100\"}}, {\"tagspace\":\"Adobe\", \"tagspaceid\":0, \"tag\":\"APP14Flags0\", \"label\":\"APP14 Flags0\", \"raw\":{\"_content\":\"Encoded with Blend=1 downsampling\"}}, {\"tagspace\":\"Adobe\", \"tagspaceid\":0, \"tag\":\"APP14Flags1\", \"label\":\"APP14 Flags1\", \"raw\":{\"_content\":\"(none)\"}}, {\"tagspace\":\"Adobe\", \"tagspaceid\":0, \"tag\":\"ColorTransform\", \"label\":\"Color Transform\", \"raw\":{\"_content\":\"YCbCr\"}}]}, \"stat\":\"ok\"}"
+      date:
+      - Sat, 05 Oct 2013 15:17:59 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=152440; expires=Tue, 06-Oct-2015 15:17:59 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r17.ycpi.dee.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www268.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"photo":{"id":"8130464513", "secret":"780e01decd", "server":"8191",
+        "farm":9, "camera":"", "exif":[{"tagspace":"JFIF", "tagspaceid":0, "tag":"JFIFVersion",
+        "label":"JFIFVersion", "raw":{"_content":"1.01"}}, {"tagspace":"JFIF", "tagspaceid":0,
+        "tag":"ResolutionUnit", "label":"Resolution Unit", "raw":{"_content":"inches"}},
+        {"tagspace":"JFIF", "tagspaceid":0, "tag":"XResolution", "label":"X-Resolution",
+        "raw":{"_content":"72"}, "clean":{"_content":"72 dpi"}}, {"tagspace":"JFIF",
+        "tagspaceid":0, "tag":"YResolution", "label":"Y-Resolution", "raw":{"_content":"72"},
+        "clean":{"_content":"72 dpi"}}, {"tagspace":"ICC-view", "tagspaceid":0, "tag":"ViewingCondIlluminant",
+        "label":"Viewing Cond Illuminant", "raw":{"_content":"19.6445 20.3718 16.8089"}},
+        {"tagspace":"ICC-view", "tagspaceid":0, "tag":"ViewingCondSurround", "label":"Viewing
+        Cond Surround", "raw":{"_content":"3.92889 4.07439 3.36179"}}, {"tagspace":"ICC-view",
+        "tagspaceid":0, "tag":"ViewingCondIlluminantType", "label":"Viewing Conditions
+        Illuminant Type", "raw":{"_content":"D50"}}, {"tagspace":"ICC-meas", "tagspaceid":0,
+        "tag":"MeasurementObserver", "label":"Measurement Observer", "raw":{"_content":"CIE
+        1931"}}, {"tagspace":"ICC-meas", "tagspaceid":0, "tag":"MeasurementBacking",
+        "label":"Measurement Backing", "raw":{"_content":"0 0 0"}}, {"tagspace":"ICC-meas",
+        "tagspaceid":0, "tag":"MeasurementGeometry", "label":"Measurement Geometry",
+        "raw":{"_content":"Unknown (0)"}}, {"tagspace":"ICC-meas", "tagspaceid":0,
+        "tag":"MeasurementFlare", "label":"Measurement Flare", "raw":{"_content":"0.999%"}},
+        {"tagspace":"ICC-meas", "tagspaceid":0, "tag":"MeasurementIlluminant", "label":"Measurement
+        Illuminant", "raw":{"_content":"D65"}}]}, "stat":"ok"}'
     http_version: 
-  recorded_at: Mon, 07 Jan 2013 21:44:12 GMT
-recorded_with: VCR 2.3.0
+  recorded_at: Sat, 05 Oct 2013 15:18:02 GMT
+recorded_with: VCR 2.5.0

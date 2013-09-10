@@ -1,40 +1,57 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: get
     uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photosets.getList&user_id=78733179%40N04
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="803962efe46f0e4c22c8c9d830ddb124", oauth_signature="qqZUneuw6gd1P0eUQHoLrzf%2BPq0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358843", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
-  response: 
-    status: 
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="02ac27a58f39fbc331638352164279e6",
+        oauth_signature="euTb0FoCy2BP4Gz%2Fweaj8HSZTzA%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1380985802", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      date: 
-      - Mon, 24 Dec 2012 14:20:44 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      set-cookie: 
-      - xb=84; expires=Thu, 25-Dec-2014 14:20:44 GMT; path=/; domain=.flickr.com
-      cache-control: 
+    headers:
+      age:
+      - '0'
+      cache-control:
       - private
-      x-served-by: 
-      - www135.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "282"
-      connection: 
+      connection:
       - close
-      content-type: 
+      content-length:
+      - '282'
+      content-type:
       - application/json
-    body: 
-      encoding: ASCII-8BIT
-      string: "{\"photosets\":{\"cancreate\":1, \"page\":1, \"pages\":1, \"perpage\":1, \"total\":1, \"photoset\":[{\"id\":\"72157631860874542\", \"primary\":\"7986395865\", \"secret\":\"5f670c825b\", \"server\":\"8306\", \"farm\":9, \"photos\":\"1\", \"videos\":0, \"title\":{\"_content\":\"Title\"}, \"description\":{\"_content\":\"Description\"}, \"needs_interstitial\":0, \"visibility_can_see_set\":1, \"count_views\":\"0\", \"count_comments\":\"0\", \"can_comment\":1, \"date_create\":\"1351297929\", \"date_update\":\"1356358843\"}]}, \"stat\":\"ok\"}"
+      date:
+      - Sat, 05 Oct 2013 15:09:59 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=132609; expires=Tue, 06-Oct-2015 15:09:59 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r07.ycpi.ams.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www272.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"photosets":{"cancreate":1, "page":1, "pages":1, "perpage":1, "total":1,
+        "photoset":[{"id":"72157636215603524", "primary":"10100895983", "secret":"617545ac10",
+        "server":"7392", "farm":8, "photos":"1", "videos":0, "title":{"_content":"Set"},
+        "description":{"_content":"It''s a set"}, "needs_interstitial":0, "visibility_can_see_set":1,
+        "count_views":"0", "count_comments":"0", "can_comment":1, "date_create":"1380985779",
+        "date_update":"0"}]}, "stat":"ok"}'
     http_version: 
-  recorded_at: Mon, 24 Dec 2012 14:20:44 GMT
-recorded_with: VCR 2.3.0
+  recorded_at: Sat, 05 Oct 2013 15:10:02 GMT
+recorded_with: VCR 2.5.0

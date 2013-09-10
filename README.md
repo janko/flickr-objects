@@ -1,9 +1,10 @@
 # Flickr Objects
 
 This gem is an object-oriented wrapper for the [Flickr API](http://flickr.com/api).
-To see its capability, take a look at this nice demonstration:
 
-[http://janko-m.github.com/flickr-objects/](http://janko-m.github.com/flickr-objects/)
+- Web page: [http://janko-m.github.com/flickr-objects/](http://janko-m.github.com/flickr-objects/)
+- Home page: [https://github.com/janko-m/flickr-objects](https://github.com/janko-m/flickr-objects)
+- API Documentation: [http://rubydoc.info/gems/flickr-objects/](http://rubydoc.info/gems/flickr-objects/)
 
 ## Installation and setup
 
@@ -17,34 +18,34 @@ Now create an initializer where you set your Flickr credentials.
 
 ```ruby
 Flickr.configure do |config|
-  config.api_key = "API_KEY"
+  config.api_key       = "API_KEY"
   config.shared_secret = "SHARED_SECRET"
 end
 ```
 
-If you don't have them yet, you can apply for them [here](http://www.flickr.com/services/apps/create/apply).
+If you don't have them yet, you can apply for them
+[here](http://www.flickr.com/services/apps/create/apply).
 
-For list of possible configuration options, take a look at [this
-wiki](https://github.com/janko-m/flickr-objects/wiki/Configuration).
+For list of possible configuration options, take a look at
+[`Flickr::Configuration`](http://rubydoc.info/gems/flickr-objects/Flickr/Configuration).
 
 ## Usage
 
-This gem maps [Flickr's API methods](http://flickr.com/api) to methods on objects.
-A handy reference for those mappings is in `Flickr.api_methods`:
+This gem maps [Flickr's API methods](http://flickr.com/api) to Ruby methods.
 
 ```ruby
-Flickr.api_methods["flickr.photos.search"]     #=> ["Flickr::Photo.search"]
-Flickr.api_methods["flickr.photosets.getList"] #=> ["Flickr::Person#get_sets"]
+Flickr.photos.search(...)   # flickr.photos.search
+Flickr.person.get_sets(...) # flickr.photosets.getList
 ```
 
-As you see, sometimes names can differ, but you can always find out this way.
-So, `Flickr::Photo.search` is a **class** API method, and
-`Flickr::Person#get_sets` is an **instance** API method.
+For the list of all API methods (and their related Flickr's methods), see the
+[`Flickr::Api`](http://rubydoc.info/gems/flickr-objects/Flickr/Api) module.
+These methods are included to the `Flickr` module.
 
-Here's an example:
+Example:
 
 ```ruby
-photos = Flickr.photos.search(user_id: "78733179@N04") #=> [#<Flickr::Photo: ...>, #<Flickr::Photo: ...>, ...]
+photos = Flickr.photos.search(user_id: "78733179@N04") #=> [#<Flickr::Object::Photo: ...>, #<Flickr::Object::Photo: ...>, ...]
 
 photo = photos.first
 photo.id                 #=> "231233252"
@@ -52,45 +53,45 @@ photo.title              #=> "My cat"
 photo.visibility.public? #=> true
 
 person = Flickr.people.find("78733179@N04")
-sets = person.get_sets #=> [#<Flickr::Set: ...>, #<Flickr::Set: ...>, ...]
-
-set = sets.first
+set = person.sets.first
 set.id           #=> "11243423"
 set.photos_count #=> 40
 ```
 
-We can learn few things here:
+Few notes here:
 
-- Interface to object's class methods is always the plural of object's name
-  (above we called `Flickr::Photo.search` with `Flickr.photos.search`).
-- You can always manually instantiate objects with `Flickr.<objects>.find(id)`
+- flickr-objects distinguishes **instance** from **class** API methods. So,
+  `Flickr.photos.search` is a class API method. And `Flickr.people.get_sets`
+  is by its nature an **instance** API method, because we're finding sets
+  *from a person*; in that case we can call `#get_sets` on an instance of
+  person (so that our code looks better).
+- Flickr objects can always be instantiated with `Flickr.<objects>.find(id)`
   (in the above example we did `Flickr.people.find(id)`).
 
-Parameters to API methods are not always passed as a hash. For example, instead
-of calling "flickr.people.findByEmail" like this:
+## Arguments to API methods
+
+By its nature, API methods always accept a hash of parameters. Using that approach,
+this would be the call for "flickr.people.findByEmail":
 
 ```ruby
 Flickr.people.find_by_email(find_email: "janko.marohnic@gmail.com")
 ```
 
-this gem has the convention of calling it like this:
+But that looks lame. Luckily, in these kind of methods flickr-objects improves
+the argument list:
 
 ```ruby
 Flickr.people.find_by_email("janko.marohnic@gmail.com")
 ```
 
-This is always the case with obvious (and required) parameters. You can still
-always pass a hash of other parameters as the last argument.
-
-For documentation on valid arguments, just look at the source code at
-[`lib/flickr/api`](https://github.com/janko-m/flickr-objects/tree/master/lib/flickr/api),
-under a specific object.
+Of course, all parameters are documented:
+[`Flickr::Api::Person#find_by_email`](http://rubydoc.info/gems/flickr-objects/Flickr/Api/Person#find_by_email-instance_method)
 
 ## Sizes
 
 ```ruby
-person = Flickr.person.find(person_id)
-photo = person.get_public_photos(sizes: :all).first
+person = Flickr.person.find("78733179@N04")
+photo = person.public_photos(sizes: true).first
 
 photo.small!(320)
 photo.source_url #=> "http://farm9.staticflickr.com/8191/8130464513_780e01decd_n.jpg"
@@ -101,14 +102,14 @@ photo.medium!(500)
 photo.width      #=> 500
 ```
 
-It is important here that you pass `sizes: :all` to `Flickr::Person#get_public_photos`.
+It is important here that you pass `sizes: true` to `Flickr::Person#public_photos`.
 So, in your (Rails) application, one could use it like this:
 
 ```ruby
 class PhotosController < ApplicationController
   def index
     person = Flickr.people.find("78733179@N04")
-    @photos = person.get_public_photos(sizes: :all).map { |photo| photo.medium!(500) }
+    @photos = person.public_photos(sizes: true).map(&:medium500!)
   end
 end
 ```
@@ -118,12 +119,11 @@ end
 <% end %>
 ```
 
-To find out more, take a look at [this wiki](https://github.com/janko-m/flickr-objects/wiki/Sizes).
+To find out more, see [`Flickr::Object::Photo`](http://rubydoc.info/gems/flickr-objects/Flickr/Object/Photo).
 
 ## Authentication
 
-If you need to make authenticated API requests (which you'll probably often want), you should create an
-instance, assigning it the user's access token.
+You may need to make authenticated API requests, using an access token.
 
 ```ruby
 flickr = Flickr.new("ACCESS_TOKEN_KEY", "ACCESS_TOKEN_SECRET")
@@ -133,10 +133,10 @@ flickr.test_login #=> {"id" => "78733179@N04", "username" => ...}
 flickr.people.find("78733179@N04").get_photos #=> [#<Flickr::Photo ...>, #<Flickr::Photo, ...>, ...]
 ```
 
-For details on how to authenticate (obtain the access token) take a look at
-[this wiki](http://github.com/janko-m/flickr-objects/wiki/Authentication).
+For details on how to authenticate, i.e. obtain the access token, see
+[`Flickr::OAuth`](http://rubydoc.info/gems/flickr-objects/Flickr/OAuth).
 
-You can also assign the access token globally in your configuration.
+If you want, you can also assign the access token globally in your configuration.
 
 ```ruby
 Flickr.configure do |config|
@@ -144,6 +144,8 @@ Flickr.configure do |config|
   config.access_token_secret = "ACCESS_TOKEN_SECRET"
 end
 ```
+
+Naturally, this way you don't need to create an instance like above.
 
 ## Upload
 
@@ -153,30 +155,14 @@ photo = Flickr.photos.find(photo_id).get_info!
 photo.title #=> "Dandelions"
 ```
 
-In the first argument you can pass in either a string (path to the file) or an open file.
-For the details on the additional options you can pass in, check out Flickr's [upload
-documentation](http://www.flickr.com/services/api/upload.api.html).
-
-For asynchronous upload take a look at [this wiki](https://github.com/janko-m/flickr-objects/wiki/Upload).
-
-## Attributes and methods
-
-For the list of attributes and methods that Flickr objects have, the best place to look at
-is the source code. The source code is written in such a simple way that it acts as its
-own documentation, so don't be discouraged if you haven't had experience in looking into other
-people's code yet :)
-
-For example, list of `Flickr::Photo`'s attributes can be found in
-[`lib/flickr/objects/photo.rb`](https://github.com/janko-m/flickr-objects/blob/master/lib/flickr/objects/photo.rb).
-Take a look just to see how it looks like :)
+See [`Flickr.upload`](http://rubydoc.info/gems/flickr-objects/Flickr/Api/General#upload-instance_method)
 
 ## Few words
 
-Most of the API methods are not covered yet (because they are so many). I will
-be covering new ones regularly.
-
-Feel free to speed up covering certain API methods by contacting me through
-[Twitter](https://twitter.com/m_janko). Pull requests are also very welcome :)
+Many of the API methods are not covered yet (because they are so many).
+I believe I covered all the important ones, but if you wish for me to
+cover certain new ones, feel free to contact me via [Twitter](https://twitter.com/m_janko).
+I also wouldn't mind getting a pull request ;)
 
 ## Social
 
@@ -184,4 +170,4 @@ You can follow me on Twitter, I'm [@m_janko](https://twitter.com/m_janko).
 
 ## License
 
-This project is released under the [MIT license](https://github.com/janko-m/flickr-objects/blob/master/LICENSE).
+This project is released under the [MIT license](LICENSE).

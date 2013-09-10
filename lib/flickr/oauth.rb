@@ -1,109 +1,124 @@
-require "faraday"
-require "faraday_middleware"
-require "flickr/middleware"
+require "uri"
 
-class Flickr
+module Flickr
+
+  ##
+  # Interface for authenticating through OAuth.
+  #
+  # Example:
+  #
+  #     request_token = Flickr::OAuth.get_request_token
+  #     request_token.authorize_url
+  #
+  #     # ... user visits the authorize URL, and gets the verifier ...
+  #
+  #     access_token = request_token.get_access_token(verifier)
+  #
+  #     access_token.key       # "..."
+  #     access_token.secret    # "..."
+  #     access_token.user_info # {username: "...", nsid: "...", ...}
+  #
   module OAuth
-    URL = "http://www.flickr.com/services/oauth".freeze
-    NO_CALLBACK = 'oob'.freeze
-    DEFAULTS = Client::DEFAULTS
 
     extend self
 
-    def get_request_token(options = {})
-      response = connection.get "request_token" do |req|
-        req.params[:oauth_callback] = options[:callback_url] || NO_CALLBACK
-      end
-
-      RequestToken.new(response.body)
+    ##
+    # @param params [Hash]
+    # @option params [String] :callback_url If the user is being authorized
+    #   through another web application, this parameter can be used to redirect
+    #   the user back to that application.
+    #
+    # @return [Flickr::OAuth::RequestToken]
+    #
+    def get_request_token(params = {})
+      params[:oauth_callback] = params.delete(:callback_url)
+      response = client.get_request_token(params)
+      RequestToken.new(response[:oauth_token], response[:oauth_token_secret])
     end
 
-    def get_access_token(verifier, request_token)
-      response = connection(request_token.to_a).get "access_token" do |req|
-        req.params[:oauth_verifier] = verifier
-      end
-
-      AccessToken.new(response.body)
+    ##
+    # @param oauth_verifier [String] The code provided by Flickr after visiting
+    #   the authorize URL.
+    # @param request_token [RequestToken, Array(String, String)]
+    #
+    # @return [Flickr::OAuth::AccessToken]
+    #
+    def get_access_token(oauth_verifier, request_token)
+      params = {oauth_verifier: oauth_verifier}
+      response = client(request_token.to_a).get_access_token(params)
+      AccessToken.new(response[:oauth_token], response[:oauth_token_secret],
+        response.reject { |key, value| [:oauth_token, :oauth_token_secret].include?(key) })
     end
 
     class Token
-      attr_reader :token, :secret
+      attr_reader :key, :secret
+      alias token key
 
-      def initialize(*args)
-        if args.first.is_a?(Hash)
-          @token = args.first[:oauth_token]
-          @secret = args.first[:oauth_token_secret]
-        else
-          @token = args.first
-          @secret = args.last
-        end
+      ##
+      # @param key [String]
+      # @param secret [String]
+      #
+      def initialize(key, secret)
+        @key, @secret = key, secret
       end
 
       def to_a
-        [token, secret]
+        [key, secret]
       end
     end
 
     class RequestToken < Token
+      ##
+      # @param params [Hash]
+      # @option params [String] :perms Optional. Can be `read`, `write`, or `delete`,
+      #   depending on which permissions you want (for example, "flickr.photos.delete"
+      #   requires `delete` permissions). If not specified, defaults to `write`.
+      #
       def authorize_url(params = {})
-        require 'uri'
-        url = URI.parse(URL)
-        url.path += '/authorize'
+        url = URI.parse("http://www.flickr.com/services/oauth")
+        url.path += "/authorize"
         query_params = {oauth_token: token}.merge(params)
-        url.query = query_params.map { |k,v| "#{k}=#{v}" }.join('&')
+        url.query = query_params.map { |k, v| "#{k}=#{v}" }.join("&")
         url.to_s
       end
 
-      def get_access_token(verifier)
-        OAuth.get_access_token(verifier, self)
+      ##
+      # @param oauth_verifier [String]
+      # @see Flickr::OAuth.get_access_token.
+      #
+      def get_access_token(oauth_verifier)
+        Flickr::OAuth.get_access_token(oauth_verifier, self)
       end
     end
 
     class AccessToken < Token
+      ##
+      # Holds user's information after authentication.
+      #
+      # @example
+      #   {
+      #     fullname:  "Janko Marohnić",
+      #     user_nsid: "78733179@N04",
+      #     username:  "@janko-m"
+      #   }
+      #
       attr_reader :user_info
 
-      def initialize(info)
-        super
-        @user_info = info.tap do |info|
-          info.delete(:oauth_token)
-          info.delete(:oauth_token_secret)
-        end
+      ##
+      # @private
+      #
+      def initialize(key, secret, user_info)
+        super(key, secret)
+        @user_info = user_info
       end
     end
 
     private
 
-    def connection(request_token = nil)
-      api_key, shared_secret = Flickr.configuration.fetch(:api_key, :shared_secret)
-
-      open_timeout = Flickr.configuration.open_timeout || DEFAULTS[:open_timeout]
-      timeout      = Flickr.configuration.timeout      || DEFAULTS[:timeout]
-
-      url = URL
-      proxy = Flickr.configuration.proxy
-
-      params = {
-        url: url,
-        request: {
-          open_timeout: open_timeout,
-          timeout: timeout
-        },
-        proxy: proxy
-      }
-
-      Faraday.new(params) do |builder|
-        builder.use Middleware::Retry
-        builder.use FaradayMiddleware::OAuth,
-         consumer_key: api_key,
-         consumer_secret: shared_secret,
-         token: Array(request_token).first,
-         token_secret: Array(request_token).last
-
-        builder.use Middleware::ParseOAuth
-        builder.use Middleware::CheckOAuth
-
-        builder.adapter :net_http
-      end
+    def client(request_token = nil)
+      Flickr::Client::OAuth.new(request_token)
     end
+
   end
+
 end

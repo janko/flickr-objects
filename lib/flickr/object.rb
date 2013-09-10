@@ -1,49 +1,140 @@
-require "flickr/object/attribute"
-require "flickr/api_caller"
+require "flickr/attributes"
 
-class Flickr
+module Flickr
+
+  ##
+  # Every Flickr object inherits from this class. It provides interface for defining
+  # attributes and some helper methods.
+  #
   class Object
-    def self.children
-      @children ||= []
+
+    extend Flickr::Attributes
+    extend Flickr::AutoloadHelper
+
+    autoload_names \
+      :List, :Photo, :Person, :Set, :UploadTicket, :Permissions, :Location,
+      :Visibility
+
+    ##
+    # @private
+    #
+    def self.api_class
+      Flickr::Api.const_get(name.match(/^Flickr::Object::/).post_match)
     end
 
-    def self.inherited(child)
-      child.send(:extend, Attribute)
-      child.send(:include, ApiCaller)
-
-      Object.children << child
+    ##
+    # Overriding Flickr::Attributes#attribute to add a default location.
+    # This means that `:<attribute>` will always first be searched in
+    # `@attributes["<attribute>"]`.
+    #
+    # @!macro [attach] attribute
+    #   @attribute [r] $1
+    #   @return [$2]
+    #
+    # @private
+    #
+    def self.attribute(name, type)
+      new_attribute = super
+      new_attribute.add_locations([-> { @attributes[name.to_s] }])
     end
 
-    def self.find(id)
-      new({"id" => id}, client)
+    ##
+    # @private
+    #
+    def initialize(attributes, access_token = [])
+      raise ArgumentError, "attributes should not be nil" if attributes.nil?
+
+      @attributes = attributes
+      @access_token = access_token
     end
 
-    def self.new_list(hashes, client, list_hash)
-      List.new(hashes.map { |hash| new(hash, client) }, list_hash)
+    ##
+    # @private
+    #
+    attr_reader :access_token
+    ##
+    # The raw hash of attributes returned from Flickr.
+    #
+    # @return [Hash]
+    # @see #[]
+    #
+    attr_reader :attributes
+
+    ##
+    # Shorthand for accessing the raw hash of attributes returned
+    # from Flickr.
+    #
+    # @see #attributes
+    #
+    def [](key)
+      @attributes[key]
     end
 
-    def inspect
-      attribute_values = {}
-      self.class.attributes.each do |name|
-        attribute_values[name] = send(name) unless send(name).nil?
-      end
-      class_name = self.class.name
-      "#<#{class_name}: #{attribute_values.map { |k, v| "#{k}=#{v.inspect}" }.join(" ")}>"
-    end
-
+    ##
+    # Compares by ID (if that object has an ID), otherwise compares by attributes.
+    #
     def ==(other)
-      if (self.respond_to?(:id) && self.id) && (other.respond_to?(:id) && other.id)
-        id == other.id
+      if not other.is_a?(Flickr::Object)
+        raise ArgumentError "can't compare Flickr::Object with #{other.class}"
+      end
+
+      if [self, other].all? { |object| object.respond_to?(:id) && object.id }
+        self.id == other.id
       else
-        super
+        self.attributes == other.attributes
+      end
+    end
+    alias eql? ==
+
+    ##
+    # Displays all the attributes and their values.
+    #
+    def inspect
+      attribute_values = self.class.attributes
+        .inject({}) { |hash, attribute| hash.update(attribute.name => send(attribute.name)) }
+        .reject { |name, value| value.nil? or (value.respond_to?(:empty?) and value.empty?) }
+      attributes = attribute_values
+        .map { |name, value| "#{name}=#{value.inspect}" }
+        .join(" ")
+
+      class_name = self.class.name
+      hex_code = "0x#{(object_id >> 1).to_s(16)}"
+
+      "#<#{class_name}:#{hex_code} #{attributes}>"
+    end
+
+    ##
+    # Tests if the object matches a hash of attributes. Supports nesting
+    # (see the example).
+    #
+    # @param attributes [Hash]
+    # @return [Boolean]
+    # @example
+    #   photo.matches?(owner: {username: "janko"})
+    #
+    def matches?(attributes)
+      attributes.all? do |name, value|
+        if send(name).is_a?(Flickr::Object) and value.is_a?(Hash)
+          send(name).matches?(value)
+        else
+          send(name) == value
+        end
       end
     end
 
-    protected
+    ##
+    # @private
+    #
+    def update(attributes)
+      @attributes.update(attributes)
+      self
+    end
 
-    def initialize(hash, client)
-      @hash = hash || {}
-      @client = client
+    private
+
+    def api
+      self.class.api_class.new(@access_token)
     end
   end
+
 end

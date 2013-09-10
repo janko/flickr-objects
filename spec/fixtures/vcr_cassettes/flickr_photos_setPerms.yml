@@ -1,40 +1,53 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: post
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.setPerms&is_public=1&is_friend=0&is_family=0&perm_comment=3&perm_addmeta=0&photo_id=7986395865
-    body: 
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.setPerms&is_public=1&is_friend=1&is_family=1&perm_comment=1&perm_addmeta=1&photo_id=8130464513
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="c97e0fcafdfa3bb9558389427e819ef9", oauth_signature="p4uGG5rXV9AM%2F7Rx80OXcuVJyK0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356395286", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
-  response: 
-    status: 
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="f6a4a37f1d85607d79db06524abced52",
+        oauth_signature="Qj5i99WJUrSaYhuAzP2kSI91Ilg%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1380986558", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      date: 
-      - Tue, 25 Dec 2012 00:28:06 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      set-cookie: 
-      - xb=12; expires=Fri, 26-Dec-2014 00:28:07 GMT; path=/; domain=.flickr.com
-      cache-control: 
+    headers:
+      age:
+      - '0'
+      cache-control:
       - private
-      x-served-by: 
-      - www86.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "94"
-      connection: 
+      connection:
       - close
-      content-type: 
+      content-length:
+      - '98'
+      content-type:
       - application/json
-    body: 
-      encoding: US-ASCII
-      string: "{\"photoid\":{\"_content\":\"7986395865\", \"secret\":\"5f670c825b\", \"originalsecret\":\"\"}, \"stat\":\"ok\"}"
+      date:
+      - Sat, 05 Oct 2013 15:22:35 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=886938; expires=Tue, 06-Oct-2015 15:22:35 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r11.ycpi.ams.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www213.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"photoid":{"_content":"8130464513", "secret":"780e01decd", "originalsecret":""},
+        "stat":"ok"}'
     http_version: 
-  recorded_at: Tue, 25 Dec 2012 00:28:07 GMT
-recorded_with: VCR 2.3.0
+  recorded_at: Sat, 05 Oct 2013 15:22:38 GMT
+recorded_with: VCR 2.5.0

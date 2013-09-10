@@ -1,0 +1,8 @@
+api_key: "..."
+shared_secret: "..."
+access_token_key: "..."
+access_token_secret: "..."
+open_timeout: null
+timeout: null
+use_ssl: null
+proxy: null

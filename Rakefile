@@ -1,56 +1,36 @@
+require "flickr-objects"
+require_relative "spec/support/settings"
 require "bundler"
-Bundler.setup
 
 Bundler::GemHelper.install_tasks
 
-require "rspec/core/rake_task"
-RSpec::Core::RakeTask.new
-task :default => :spec
-
-desc "Open the console with credentials (API key, secret etc.) already filled in"
-task :console do
-  begin
+namespace :flickr do
+  desc "Open the console with credentials (API key, secret etc.) already set up"
+  task :console do
     require "pry"
-    sh "pry --require './spec/setup'"
-  rescue LoadError
-    sh "irb -r './spec/setup'"
+    Pry.start
   end
-end
 
-desc "Find out how many methods are covered"
-task :methods_covered do
-  require "nokogiri"
-  require "open-uri"
-  require "flickr-objects"
+  desc "Obtain your access token and NSID"
+  task :authorize do
+    request_token = Flickr::OAuth.get_request_token
 
-  page = Nokogiri::HTML(open("http://www.flickr.com/api"))
-  all_methods = page.search(:table).last.search(:td).last.search(:li).map { |li| li.at(:a).text }
-  covered = Flickr.api_methods.count
-  total = all_methods.count
-  puts "#{covered}/#{total}"
-end
+    print <<-EOS.chomp
+Visit this URL: #{request_token.authorize_url(perms: "delete")}
+After you authorize, paste here the big number in the black box: 
+    EOS
 
-task :update_list do
-  require "nokogiri"
-  require "open-uri"
-  require "flickr-objects"
+    oauth_verifier = STDIN.gets.strip
+    access_token = request_token.get_access_token(oauth_verifier)
 
-  document = Nokogiri::HTML(open("http://www.flickr.com/services/api"))
-  titles = document.search(:table)[1].search(:td)[1].search(:h3).map(&:text)
-  methods = document.search(:table)[1].search(:td)[1].search(:ul).map { |ul| ul.search(:li).map(&:text) }
+    puts <<-EOS
 
-  hash = Hash[titles.zip(methods)]
-  File.open("methods.md", "w") do |file|
-    hash.each_with_index do |(title, methods), index|
-      file.write("# #{title}\n\n")
-      methods.each do |method|
-        if Flickr.api_methods.keys.include?(method)
-          file.write("* #{method}\n")
-        else
-          file.write("- #{method}\n")
-        end
-      end
-      file.write("\n") if index < (hash.count - 1)
-    end
+access_token_key:    #{access_token.key}
+access_token_secret: #{access_token.secret}
+
+fullname: #{access_token.user_info[:fullname]}
+nsid:     #{access_token.user_info[:user_nsid]}
+username: #{access_token.user_info[:username]}
+    EOS
   end
 end

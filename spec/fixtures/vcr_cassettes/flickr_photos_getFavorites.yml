@@ -1,40 +1,55 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getFavorites&photo_id=8300578776
-    body: 
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getFavorites&photo_id=7316710626
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="e2442ca6b666b8e05bd1ed5027b560cd", oauth_signature="qZ%2BljjP9GVQlkRScyXVx%2FTNE5uQ%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356389742", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
-  response: 
-    status: 
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="d0546560d272ad49db0b818a753fc875",
+        oauth_signature="XK7cB14u2JK48WHBjFtZ6huPpF4%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1380986286", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      date: 
-      - Mon, 24 Dec 2012 22:55:42 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      set-cookie: 
-      - xb=62; expires=Thu, 25-Dec-2014 22:55:42 GMT; path=/; domain=.flickr.com
-      cache-control: 
+    headers:
+      age:
+      - '0'
+      cache-control:
       - private
-      x-served-by: 
-      - www111.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "473"
-      connection: 
+      connection:
       - close
-      content-type: 
+      content-length:
+      - '192'
+      content-type:
       - application/json
-    body: 
-      encoding: ASCII-8BIT
-      string: "{\"photo\":{\"person\":[{\"nsid\":\"50056377@N07\", \"username\":\"Billy | \\u5c0f\\u9ea5\", \"favedate\":\"1356318534\", \"iconserver\":\"8053\", \"iconfarm\":9}, {\"nsid\":\"91437101@N07\", \"username\":\"tildenchristmas\", \"favedate\":\"1356313988\", \"iconserver\":\"0\", \"iconfarm\":0}, {\"nsid\":\"89780399@N04\", \"username\":\"atibob\", \"favedate\":\"1356303968\", \"iconserver\":\"8342\", \"iconfarm\":9}, {\"nsid\":\"46973482@N04\", \"username\":\"lulecimhikmet\", \"favedate\":\"1356300493\", \"iconserver\":\"8487\", \"iconfarm\":9}, {\"nsid\":\"41281124@N07\", \"username\":\"Phil Marett.\", \"favedate\":\"1356291448\", \"iconserver\":\"3203\", \"iconfarm\":4}, {\"nsid\":\"98715688@N00\", \"username\":\"agnellina\", \"favedate\":\"1356287964\", \"iconserver\":\"8199\", \"iconfarm\":9}, {\"nsid\":\"48392371@N08\", \"username\":\"Auensen\", \"favedate\":\"1356286745\", \"iconserver\":\"6021\", \"iconfarm\":7}, {\"nsid\":\"50346081@N04\", \"username\":\"Wolfgang Kraus\", \"favedate\":\"1356285303\", \"iconserver\":\"3336\", \"iconfarm\":4}, {\"nsid\":\"34456202@N03\", \"username\":\"CarvinConcrete\", \"favedate\":\"1356284544\", \"iconserver\":\"8348\", \"iconfarm\":9}, {\"nsid\":\"91387060@N05\", \"username\":\"ApollointheSky\", \"favedate\":\"1356283330\", \"iconserver\":\"8080\", \"iconfarm\":9}], \"id\":\"8300578776\", \"secret\":\"c860ef48cb\", \"server\":\"8493\", \"farm\":9, \"page\":1, \"pages\":2, \"perpage\":10, \"total\":\"15\"}, \"stat\":\"ok\"}"
+      date:
+      - Sat, 05 Oct 2013 15:18:04 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=263852; expires=Tue, 06-Oct-2015 15:18:04 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r09.ycpi.dee.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www251.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"photo":{"person":[{"nsid":"78733179@N04", "username":"@janko-m",
+        "favedate":"1380986243", "iconserver":"8033", "iconfarm":9}], "id":"7316710626",
+        "secret":"cf80b743d9", "server":"7094", "farm":8, "page":1, "pages":1, "perpage":10,
+        "total":"1"}, "stat":"ok"}'
     http_version: 
-  recorded_at: Mon, 24 Dec 2012 22:55:42 GMT
-recorded_with: VCR 2.3.0
+  recorded_at: Sat, 05 Oct 2013 15:18:07 GMT
+recorded_with: VCR 2.5.0

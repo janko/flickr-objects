@@ -1,40 +1,78 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getSizes&photo_id=7986395865
-    body: 
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.getSizes&photo_id=10115956703
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="1b9787a91becc1dc526d8e583457ae7c", oauth_signature="3IhiAKBGOhjVyj8APjctd5I%2FU7M%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358829", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
-  response: 
-    status: 
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="3cd8bbdc01224b5f1d4f8211f6d26a0f",
+        oauth_signature="%2FnVBh85YXNNlXv%2B100byXsNSTig%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1381061466", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      date: 
-      - Mon, 24 Dec 2012 14:20:29 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      set-cookie: 
-      - xb=63; expires=Thu, 25-Dec-2014 14:20:29 GMT; path=/; domain=.flickr.com
-      cache-control: 
+    headers:
+      age:
+      - '2'
+      cache-control:
       - private
-      x-served-by: 
-      - www210.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "440"
-      connection: 
+      connection:
       - close
-      content-type: 
+      content-length:
+      - '466'
+      content-type:
       - application/json
-    body: 
-      encoding: ASCII-8BIT
-      string: "{\"sizes\":{\"canblog\":1, \"canprint\":1, \"candownload\":1, \"size\":[{\"label\":\"Square\", \"width\":75, \"height\":75, \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_s.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/sq\\/\", \"media\":\"photo\"}, {\"label\":\"Large Square\", \"width\":\"150\", \"height\":\"150\", \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_q.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/q\\/\", \"media\":\"photo\"}, {\"label\":\"Thumbnail\", \"width\":\"67\", \"height\":\"100\", \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_t.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/t\\/\", \"media\":\"photo\"}, {\"label\":\"Small\", \"width\":\"162\", \"height\":\"240\", \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_m.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/s\\/\", \"media\":\"photo\"}, {\"label\":\"Small 320\", \"width\":216, \"height\":\"320\", \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_n.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/n\\/\", \"media\":\"photo\"}, {\"label\":\"Medium\", \"width\":\"337\", \"height\":\"500\", \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/m\\/\", \"media\":\"photo\"}, {\"label\":\"Medium 640\", \"width\":\"432\", \"height\":\"640\", \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_z.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/z\\/\", \"media\":\"photo\"}, {\"label\":\"Medium 800\", \"width\":540, \"height\":\"800\", \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_c.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/c\\/\", \"media\":\"photo\"}, {\"label\":\"Large\", \"width\":\"691\", \"height\":\"1024\", \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_5f670c825b_b.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/l\\/\", \"media\":\"photo\"}, {\"label\":\"Large 1600\", \"width\":1080, \"height\":\"1600\", \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_e325aa9882_h.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/h\\/\", \"media\":\"photo\"}, {\"label\":\"Large 2048\", \"width\":1382, \"height\":\"2048\", \"source\":\"http:\\/\\/farm9.staticflickr.com\\/8306\\/7986395865_081e5978f7_k.jpg\", \"url\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/7986395865\\/sizes\\/k\\/\", \"media\":\"photo\"}]}, \"stat\":\"ok\"}"
+      date:
+      - Sun, 06 Oct 2013 12:10:59 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=644141; expires=Wed, 07-Oct-2015 12:11:00 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r11.ycpi.dee.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www219.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"sizes":{"canblog":1, "canprint":1, "candownload":1, "size":[{"label":"Square",
+        "width":75, "height":75, "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_s.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/sq\/",
+        "media":"photo"}, {"label":"Large Square", "width":"150", "height":"150",
+        "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_q.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/q\/",
+        "media":"photo"}, {"label":"Thumbnail", "width":"100", "height":"63", "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_t.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/t\/",
+        "media":"photo"}, {"label":"Small", "width":"240", "height":"150", "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_m.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/s\/",
+        "media":"photo"}, {"label":"Small 320", "width":"320", "height":200, "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_n.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/n\/",
+        "media":"photo"}, {"label":"Medium", "width":"500", "height":"313", "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/m\/",
+        "media":"photo"}, {"label":"Medium 640", "width":"640", "height":"400", "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_z.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/z\/",
+        "media":"photo"}, {"label":"Medium 800", "width":"800", "height":500, "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_c.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/c\/",
+        "media":"photo"}, {"label":"Large", "width":"1024", "height":"640", "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_b14e1be9d0_b.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/l\/",
+        "media":"photo"}, {"label":"Large 1600", "width":"1600", "height":1000, "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_253e5b1ab0_h.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/h\/",
+        "media":"photo"}, {"label":"Large 2048", "width":"2048", "height":1280, "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_67c9dd116f_k.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/k\/",
+        "media":"photo"}, {"label":"Original", "width":"2560", "height":"1600", "source":"http:\/\/farm3.staticflickr.com\/2822\/10115956703_e40de5bf26_o.jpg",
+        "url":"http:\/\/www.flickr.com\/photos\/78733179@N04\/10115956703\/sizes\/o\/",
+        "media":"photo"}]}, "stat":"ok"}'
     http_version: 
-  recorded_at: Mon, 24 Dec 2012 14:20:29 GMT
-recorded_with: VCR 2.3.0
+  recorded_at: Sun, 06 Oct 2013 12:11:07 GMT
+recorded_with: VCR 2.5.0

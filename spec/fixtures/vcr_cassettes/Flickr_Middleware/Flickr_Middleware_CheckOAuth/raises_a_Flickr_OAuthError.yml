@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.test.login
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="25c119e4ac3c85613820b34957dcd26d",
+        oauth_signature="MvPhATX9kOrNziDH1j6xbj%2F76fU%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1380993553", oauth_version="1.0"
+  response:
+    status:
+      code: 400
+      message: 
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private
+      connection:
+      - close
+      content-length:
+      - '66'
+      content-type:
+      - text/plain;charset=UTF-8
+      date:
+      - Sat, 05 Oct 2013 17:19:10 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=145546; expires=Tue, 06-Oct-2015 17:19:10 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r14.ycpi.dee.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www224.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: oauth_problem=parameter_absent&oauth_parameters_absent=oauth_token
+    http_version: 
+  recorded_at: Sat, 05 Oct 2013 17:19:13 GMT
+recorded_with: VCR 2.5.0

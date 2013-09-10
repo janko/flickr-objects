@@ -1,40 +1,61 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: get
     uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.people.getInfo&user_id=78733179%40N04
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
-    headers: 
-      Authorization: 
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="cd6a0cd674d16ff1d335af461a443796", oauth_signature="STJeNbYdDiYvt17nvnr3ChBOMl8%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1356358812", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
-  response: 
-    status: 
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="f65df87cfc88da5e95b4e4c3fd4a817f",
+        oauth_signature="aHe%2BlDeQyTtdot7RbjQECHkg2No%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1380985800", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
       code: 200
       message: 
-    headers: 
-      date: 
-      - Mon, 24 Dec 2012 14:20:12 GMT
-      p3p: 
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      set-cookie: 
-      - xb=51; expires=Thu, 25-Dec-2014 14:20:13 GMT; path=/; domain=.flickr.com
-      cache-control: 
+    headers:
+      age:
+      - '0'
+      cache-control:
       - private
-      x-served-by: 
-      - www136.flickr.mud.yahoo.com
-      vary: 
-      - Accept-Encoding
-      content-length: 
-      - "447"
-      connection: 
+      connection:
       - close
-      content-type: 
+      content-length:
+      - '439'
+      content-type:
       - application/json
-    body: 
-      encoding: ASCII-8BIT
-      string: "{\"person\":{\"id\":\"78733179@N04\", \"nsid\":\"78733179@N04\", \"ispro\":0, \"iconserver\":\"8033\", \"iconfarm\":9, \"path_alias\":null, \"username\":{\"_content\":\"@janko-m\"}, \"realname\":{\"_content\":\"Janko Marohni\\u0107\"}, \"mbox_sha1sum\":{\"_content\":\"3e20212c39d8bdf303e314bfb1749073cef17a09\"}, \"location\":{\"_content\":\"Zagreb, Croatia\"}, \"timezone\":{\"label\":\"Sarajevo, Skopje, Warsaw, Zagreb\", \"offset\":\"+01:00\"}, \"description\":{\"_content\":\"I'm an enthusiastic programmer.\"}, \"photosurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/photos\\/78733179@N04\\/\"}, \"profileurl\":{\"_content\":\"http:\\/\\/www.flickr.com\\/people\\/78733179@N04\\/\"}, \"mobileurl\":{\"_content\":\"http:\\/\\/m.flickr.com\\/photostream.gne?id=78701040\"}, \"photos\":{\"firstdatetaken\":{\"_content\":\"2012-09-14 13:02:57\"}, \"firstdate\":{\"_content\":\"1347653033\"}, \"count\":{\"_content\":2}, \"views\":{\"_content\":\"2\"}}}, \"stat\":\"ok\"}"
+      date:
+      - Sat, 05 Oct 2013 15:09:57 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=999766; expires=Tue, 06-Oct-2015 15:09:57 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r05.ycpi.dee.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www126.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"person":{"id":"78733179@N04", "nsid":"78733179@N04", "ispro":0, "iconserver":"8033",
+        "iconfarm":9, "path_alias":null, "username":{"_content":"@janko-m"}, "realname":{"_content":"Janko
+        Marohni\u0107"}, "mbox_sha1sum":{"_content":"3e20212c39d8bdf303e314bfb1749073cef17a09"},
+        "location":{"_content":"Zagreb, Croatia"}, "timezone":{"label":"Sarajevo,
+        Skopje, Warsaw, Zagreb", "offset":"+01:00"}, "description":{"_content":"I''m
+        an enthusiastic programmer."}, "photosurl":{"_content":"http:\/\/www.flickr.com\/photos\/78733179@N04\/"},
+        "profileurl":{"_content":"http:\/\/www.flickr.com\/people\/78733179@N04\/"},
+        "mobileurl":{"_content":"http:\/\/m.flickr.com\/photostream.gne?id=78701040"},
+        "photos":{"firstdatetaken":{"_content":"2012-10-28 11:32:03"}, "firstdate":{"_content":"2013"},
+        "count":{"_content":2}, "views":{"_content":"4"}}}, "stat":"ok"}'
     http_version: 
-  recorded_at: Mon, 24 Dec 2012 14:20:13 GMT
-recorded_with: VCR 2.3.0
+  recorded_at: Sat, 05 Oct 2013 15:10:00 GMT
+recorded_with: VCR 2.5.0

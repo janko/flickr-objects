@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key&method=flickr.test.null
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_nonce="2f7b72858b09bc1163feee664593be99", oauth_signature="X%2BFaqx5n9g03AmbpV1HIbzXlswo%3D",
+        oauth_signature_method="HMAC-SHA1", oauth_timestamp="1380993552", oauth_token="<ACCESS_TOKEN_KEY>",
+        oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private
+      connection:
+      - close
+      content-length:
+      - '91'
+      content-type:
+      - text/plain; charset=utf-8
+      date:
+      - Sat, 05 Oct 2013 17:19:09 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=211476; expires=Tue, 06-Oct-2015 17:19:09 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r22.ycpi.ams.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www95.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"stat":"fail", "code":100, "message":"Invalid API Key (Key has invalid
+        format)"}'
+    http_version: 
+  recorded_at: Sat, 05 Oct 2013 17:19:12 GMT
+recorded_with: VCR 2.5.0
