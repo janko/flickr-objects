@@ -2,9 +2,9 @@
 
 This gem is an object-oriented wrapper for the [Flickr API](http://flickr.com/api).
 
-- Web page: [http://janko-m.github.com/flickr-objects/](http://janko-m.github.com/flickr-objects/)
+- Web page: [http://janko-m.github.com/flickr-objects](http://janko-m.github.com/flickr-objects)
 - Home page: [https://github.com/janko-m/flickr-objects](https://github.com/janko-m/flickr-objects)
-- API Documentation: [http://rubydoc.info/gems/flickr-objects/](http://rubydoc.info/gems/flickr-objects/)
+- API Documentation: [http://rubydoc.info/github/janko-m/flickr-objects/master/frames](http://rubydoc.info/github/janko-m/flickr-objects/master/frames)
 
 ## Installation and setup
 
@@ -27,7 +27,7 @@ If you don't have them yet, you can apply for them
 [here](http://www.flickr.com/services/apps/create/apply).
 
 For list of possible configuration options, take a look at
-[`Flickr::Configuration`](http://rubydoc.info/gems/flickr-objects/Flickr/Configuration).
+[`Flickr::Configuration`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Configuration).
 
 ## Usage
 
@@ -39,7 +39,7 @@ Flickr.person.get_sets(...) # flickr.photosets.getList
 ```
 
 For the list of all API methods (and their related Flickr's methods), see the
-[`Flickr::Api`](http://rubydoc.info/gems/flickr-objects/Flickr/Api) module.
+[`Flickr::Api`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api) module.
 These methods are included to the `Flickr` module.
 
 Example:
@@ -85,7 +85,7 @@ Flickr.people.find_by_email("janko.marohnic@gmail.com")
 ```
 
 Of course, all parameters are documented:
-[`Flickr::Api::Person#find_by_email`](http://rubydoc.info/gems/flickr-objects/Flickr/Api/Person#find_by_email-instance_method)
+[`Flickr::Api::Person#find_by_email`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api/Person#find_by_email-instance_method)
 
 ## Sizes
 
@@ -119,7 +119,7 @@ end
 <% end %>
 ```
 
-To find out more, see [`Flickr::Object::Photo`](http://rubydoc.info/gems/flickr-objects/Flickr/Object/Photo).
+To find out more, see [`Flickr::Object::Photo`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Object/Photo).
 
 ## Authentication
 
@@ -134,7 +134,7 @@ flickr.people.find("78733179@N04").get_photos #=> [#<Flickr::Photo ...>, #<Flick
 ```
 
 For details on how to authenticate, i.e. obtain the access token, see
-[`Flickr::OAuth`](http://rubydoc.info/gems/flickr-objects/Flickr/OAuth).
+[`Flickr::OAuth`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/OAuth).
 
 If you want, you can also assign the access token globally in your configuration.
 
@@ -155,7 +155,7 @@ photo = Flickr.photos.find(photo_id).get_info!
 photo.title #=> "Dandelions"
 ```
 
-See [`Flickr.upload`](http://rubydoc.info/gems/flickr-objects/Flickr/Api/General#upload-instance_method)
+See [`Flickr.upload`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api/General#upload-instance_method)
 
 ## Few words
 
