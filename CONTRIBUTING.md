@@ -29,4 +29,4 @@ And that's it, you're done.
 
 You'll notice that in `settings.yml` you have some additional parameters that
 are set to null. You can override them if you wish to. For their explanation,
-take a look at [`Flickr::Configuration`](http://rubydoc.info/gems/flickr-objects/Flickr/Configuration)
+take a look at [`Flickr::Configuration`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Configuration)
