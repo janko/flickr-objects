@@ -5,6 +5,8 @@ module Flickr
 
       ##
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.photos.search](http://www.flickr.com/services/api/flickr.photos.search.html)
       #
@@ -15,6 +17,8 @@ module Flickr
 
       ##
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.photos.getContactsPhotos](http://www.flickr.com/services/api/flickr.photos.getContactsPhotos.html)
       #
@@ -25,6 +29,8 @@ module Flickr
 
       ##
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.photos.getNotInSet](http://www.flickr.com/services/api/flickr.photos.getNotInSet.html)
       #
@@ -35,6 +41,8 @@ module Flickr
 
       ##
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.photos.getRecent](http://www.flickr.com/services/api/flickr.photos.getRecent.html)
       #
@@ -45,6 +53,8 @@ module Flickr
 
       ##
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.photos.getUntagged](http://www.flickr.com/services/api/flickr.photos.getUntagged.html)
       #
@@ -55,6 +65,8 @@ module Flickr
 
       ##
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.photos.getWithGeoData](http://www.flickr.com/services/api/flickr.photos.getWithGeoData.html)
       #
@@ -65,6 +77,8 @@ module Flickr
 
       ##
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.photos.getWithoutGeoData](http://www.flickr.com/services/api/flickr.photos.getWithoutGeoData.html)
       #
@@ -75,6 +89,8 @@ module Flickr
 
       ##
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.photos.RecentlyUpdated](http://www.flickr.com/services/api/flickr.photos.RecentlyUpdated.html)
       #

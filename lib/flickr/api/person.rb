@@ -45,6 +45,8 @@ module Flickr
       ##
       # @param person_id [String]
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.people.getPhotos](http://www.flickr.com/services/api/flickr.people.getPhotos.html)
       #
@@ -56,6 +58,8 @@ module Flickr
       ##
       # @param person_id [String]
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.people.getPhotosOf](http://www.flickr.com/services/api/flickr.people.getPhotosOf.html)
       #
@@ -67,6 +71,8 @@ module Flickr
       ##
       # @param person_id [String]
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.people.getPublicPhotos](http://www.flickr.com/services/api/flickr.people.getPublicPhotos.html)
       #
@@ -78,6 +84,8 @@ module Flickr
       ##
       # @param person_id [String]
       # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
       # @return [Flickr::Object::List<Flickr::Object::Photo>]
       # @docs [flickr.photos.getContactsPublicPhotos](http://www.flickr.com/services/api/flickr.photos.getContactsPublicPhotos.html)
       #
