@@ -4,8 +4,8 @@
 
 Run the tests with:
 
-```
-bundle exec rspec
+```sh
+$ bundle exec rspec
 ```
 
 ## Writing new tests
