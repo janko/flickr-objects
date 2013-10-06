@@ -26,7 +26,7 @@ end
 If you don't have them yet, you can apply for them
 [here](http://www.flickr.com/services/apps/create/apply).
 
-For list of possible configuration options, take a look at
+For list of possible configuration options, see
 [`Flickr::Configuration`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Configuration).
 
 ## Usage
@@ -38,8 +38,8 @@ Flickr.photos.search(...)   # flickr.photos.search
 Flickr.person.get_sets(...) # flickr.photosets.getList
 ```
 
-For the list of all API methods (and their related Flickr's methods), see the
-[`Flickr::Api`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api) module.
+For the list of all API methods (and their related Flickr's methods), see
+[`Flickr::Api`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api).
 These methods are included to the `Flickr` module.
 
 Example:
@@ -85,7 +85,7 @@ Flickr.people.find_by_email("janko.marohnic@gmail.com")
 ```
 
 Of course, all parameters are documented:
-[`Flickr::Api::Person#find_by_email`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api/Person#find_by_email-instance_method)
+[`Flickr::Api::Person#find_by_email`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api/Person#find_by_email-instance_method).
 
 ## Sizes
 
@@ -155,7 +155,7 @@ photo = Flickr.photos.find(photo_id).get_info!
 photo.title #=> "Dandelions"
 ```
 
-See [`Flickr.upload`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api/General#upload-instance_method)
+See [`Flickr.upload`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api/General#upload-instance_method).
 
 ## Few words
 
