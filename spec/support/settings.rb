@@ -3,14 +3,10 @@ require "yaml"
 require "erb"
 require "active_support/core_ext/hash/keys"
 
-begin
-  path = File.join(Bundler.root, "spec/settings.yml")
-  yaml = ERB.new(File.read(path)).result
-  settings = YAML.load(yaml).symbolize_keys
-  SETTINGS = settings
-rescue Errno::ENOENT
-  SETTINGS = {}
-end
+file_path = ["spec/settings.yml", "spec/settings.yml.example"].find &File.method(:exists?)
+yaml = ERB.new(File.read(file_path)).result
+settings = YAML.load(yaml).symbolize_keys
+SETTINGS = settings
 
 Flickr.configure do |config|
   SETTINGS.each do |name, value|
