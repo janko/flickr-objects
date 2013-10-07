@@ -13,7 +13,7 @@ $ bundle exec rspec
 If you want to write new tests, you'll need to create an account on Flickr
 and apply for the API key.
 
-First, copy `settings.yml.example` into `settings.yml`.
+First, copy `spec/settings.yml.example` into `spec/settings.yml`.
 
 The API key and shared secret you obtain by applying for them [here](http://www.flickr.com/services/apps/create/apply).
 (You'll need to provide the reason to Flickr for why you need them, but you'll
@@ -25,8 +25,9 @@ After that you'll just need to authorize your account:
 $ bundle exec rake flickr:authorize
 ```
 
-And that's it, you're done.
+And then you enter the access token in your `spec/settings.yml`. And that's it,
+you're done. Note that you can also use ERB.
 
-You'll notice that in `settings.yml` you have some additional parameters that
+You'll notice that in `spec/settings.yml` you have some additional parameters that
 are set to null. You can override them if you wish to. For their explanation,
 take a look at [`Flickr::Configuration`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Configuration)
