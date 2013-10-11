@@ -6,6 +6,8 @@ module Flickr
       # Does processing of parameters passed to API requests, to enable nicer
       # syntax.
       #
+      # @private
+      #
       class ParamsProcessor
 
         attr_reader :params
