@@ -5,6 +5,8 @@ module Flickr
     # This class abstracts the interface for communication with the Flickr API.
     #
     # @see Flickr::ApiError
+    # @see Flickr::OAuthError
+    # @see Flickr::TimeoutError
     #
     class Abstract
 
