@@ -3,7 +3,7 @@
 This gem is an object-oriented wrapper for the [Flickr API](http://flickr.com/api).
 
 - Web page: [http://janko-m.github.com/flickr-objects](http://janko-m.github.com/flickr-objects)
-- Home page: [https://github.com/janko-m/flickr-objects](https://github.com/janko-m/flickr-objects)
+- Source code: [https://github.com/janko-m/flickr-objects](https://github.com/janko-m/flickr-objects)
 - API Documentation: [http://rubydoc.info/github/janko-m/flickr-objects/master/frames](http://rubydoc.info/github/janko-m/flickr-objects/master/frames)
 
 ## Installation and setup
@@ -61,10 +61,10 @@ set.photos_count #=> 40
 Few notes here:
 
 - flickr-objects distinguishes **instance** from **class** API methods. So,
-  `Flickr.photos.search` is a class API method. And `Flickr.people.get_sets`
+  `Flickr.photos.search` is a **class** API method. And `Flickr.people.get_sets`
   is by its nature an **instance** API method, because we're finding sets
-  *from a person*; in that case we can call `#get_sets` on an instance of
-  person (so that our code looks better).
+  *from a person*; in that case it's nicer to call `#get_sets` on an instance of
+  person.
 - Flickr objects can always be instantiated with `Flickr.<objects>.find(id)`
   (in the above example we did `Flickr.people.find(id)`).
 
@@ -84,7 +84,7 @@ the argument list:
 Flickr.people.find_by_email("janko.marohnic@gmail.com")
 ```
 
-Of course, all parameters are documented:
+These arguments are documented:
 [`Flickr::Api::Person#find_by_email`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api/Person#find_by_email-instance_method).
 
 ## Sizes
@@ -103,7 +103,7 @@ photo.width      #=> 500
 ```
 
 It is important here that you pass `sizes: true` to `Flickr::Person#public_photos`.
-So, in your (Rails) application, one could use it like this:
+So, in your (Rails) application, you could use it like this:
 
 ```ruby
 class PhotosController < ApplicationController
@@ -133,7 +133,7 @@ flickr.test_login #=> {"id" => "78733179@N04", "username" => ...}
 flickr.people.find("78733179@N04").get_photos #=> [#<Flickr::Photo ...>, #<Flickr::Photo, ...>, ...]
 ```
 
-For details on how to authenticate, i.e. obtain the access token, see
+For details on how to authenticate the user, that is, obtain his access token, see
 [`Flickr::OAuth`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/OAuth).
 
 If you want, you can also assign the access token globally in your configuration.
