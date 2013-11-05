@@ -11,6 +11,7 @@ API_REQUESTS = {
   "flickr.photos.search"                  => -> { Flickr.photos.search(user_id: "78733179@N04", extras: EXTRAS) },
   "flickr.photos.getNotInSet"             => -> { Flickr.photos.get_not_in_set(extras: EXTRAS) },
   "flickr.photos.getRecent"               => -> { Flickr.photos.get_recent(extras: EXTRAS) },
+  "flickr.interestingness.getList"        => -> { Flickr.photos.get_interesting(extras: EXTRAS) },
   "flickr.photos.getUntagged"             => -> { Flickr.photos.get_untagged(extras: EXTRAS) },
   "flickr.photos.getWithGeoData"          => -> { Flickr.photos.get_with_geo_data(extras: EXTRAS) },
   "flickr.photos.getWithoutGeoData"       => -> { Flickr.photos.get_without_geo_data(extras: EXTRAS) },

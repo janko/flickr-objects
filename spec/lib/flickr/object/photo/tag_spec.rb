@@ -13,6 +13,7 @@ describe Flickr::Object::Photo::Tag do
              "flickr.photos.getContactsPhotos",
              "flickr.photos.getNotInSet",
              "flickr.photos.getRecent",
+             "flickr.interestingness.getList",
              "flickr.photos.getWithGeoData",
              "flickr.photos.getWithoutGeoData",
              "flickr.photos.recentlyUpdated",

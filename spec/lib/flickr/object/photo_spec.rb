@@ -307,6 +307,12 @@ describe Flickr::Object::Photo do
            description taken_at taken_at_granularity updated_at
            views_count path_alias available_sizes largest_size]
     end
+    api_call "flickr.interestingness.getList" do
+      object -> { self[0] },
+        %w[id secret server farm url uploaded_at license title
+           description taken_at taken_at_granularity updated_at
+           views_count path_alias available_sizes largest_size]
+    end
     api_call "flickr.photos.getInfo" do
       object -> { self },
         %w[id secret server farm url uploaded_at license title

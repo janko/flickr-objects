@@ -50,7 +50,7 @@ module Flickr
         response = get "photos.getRecent", params
         new_list(:Photo, response["photos"].delete("photo"), response["photos"])
       end
-      
+
       ##
       # @param params [Hash] See documentation below
       # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones

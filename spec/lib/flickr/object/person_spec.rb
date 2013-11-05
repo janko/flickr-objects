@@ -87,6 +87,7 @@ describe Flickr::Object::Person do
              "flickr.photos.getContactsPhotos",
              "flickr.photos.getNotInSet",
              "flickr.photos.getRecent",
+             "flickr.interestingness.getList",
              "flickr.photos.getUntagged",
              "flickr.photos.getWithGeoData",
              "flickr.photos.getWithoutGeoData",
