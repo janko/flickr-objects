@@ -25,6 +25,14 @@ describe Flickr::Api::Photo do
     end
   end
 
+  describe "#get_interesting" do
+    it "returns a list of photos" do
+      photos = it.get_interesting
+      expect(photos).to be_a_list_of(Flickr::Object::Photo)
+    end
+  end
+
+
   describe "#get_recent" do
     it "returns a list of photos" do
       photos = it.get_recent
