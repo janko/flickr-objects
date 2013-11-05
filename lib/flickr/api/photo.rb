@@ -50,6 +50,18 @@ module Flickr
         response = get "photos.getRecent", params
         new_list(:Photo, response["photos"].delete("photo"), response["photos"])
       end
+      
+      ##
+      # @param params [Hash] See documentation below
+      # @option params [Boolean, Array<String>] :sizes For all sizes use `true`, for specific ones
+      #   chuck them into an array (e.g. `["Square 75", "Medium 500"]`).
+      # @return [Flickr::Object::List<Flickr::Object::Photo>]
+      # @docs [flickr.interestingness.getList](www.flickr.com/services/api/flickr.interestingness.getList.html)
+      #
+      def get_interesting(params = {})
+        response = get "interestingness.getList", params
+        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+      end
 
       ##
       # @param params [Hash] See documentation below

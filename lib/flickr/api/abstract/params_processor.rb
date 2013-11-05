@@ -52,6 +52,7 @@ module Flickr
             "photos.search",
             "photos.getNotInSet",
             "photos.getRecent",
+            "interestingness.getList",
             "photos.getUntagged",
             "photos.getWithGeoData",
             "photos.getWithoutGeoData",
