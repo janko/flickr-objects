@@ -48,20 +48,28 @@ module Flickr
         end
 
         def add_sizes?(flickr_method)
-          [ "photos.getContactsPhotos",
-            "photos.search",
-            "photos.getNotInSet",
-            "photos.getRecent",
+          [ "favorites.getPublicList",
+            "favorites.getList",
+            "galleries.getPhotos",
+            "groups.pools.getPhotos",
             "interestingness.getList",
-            "photos.getUntagged",
-            "photos.getWithGeoData",
-            "photos.getWithoutGeoData",
-            "photos.RecentlyUpdated",
-            "photosets.getPhotos",
             "people.getPhotos",
             "people.getPhotosOf",
+            "panda.getPhotos",
             "people.getPublicPhotos",
-            "people.getContactsPublicPhotos" ].include?(flickr_method)
+            "photos.comments.getRecentForContacts",
+            "photos.geo.getLocation",
+            "photos.geo.photosForLocation",
+            "photos.getContactsPhotos",
+            "photos.getContactsPublicPhotos",
+            "photos.getNotInSet",
+            "photos.getRecent",
+            "photos.getWithGeoData",
+            "photos.getUntagged",
+            "photos.getWithoutGeoData",
+            "photos.search",
+            "photos.recentlyUpdated",
+            "photosets.getPhotos" ].include?(flickr_method)
         end
 
       end

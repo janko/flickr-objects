@@ -2,57 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.recentlyUpdated&min_date=2013-09-08
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.8
-      Authorization:
-      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="d333c006a28ff0746bc1169c612d83a2",
-        oauth_signature="IMXfybNuerCdkDNFi0IIv2tCwD4%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1380985909", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      age:
-      - '0'
-      cache-control:
-      - private
-      connection:
-      - close
-      content-length:
-      - '182'
-      content-type:
-      - application/json
-      date:
-      - Sat, 05 Oct 2013 15:11:46 GMT
-      p3p:
-      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
-        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
-        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
-      server:
-      - YTS/1.19.11
-      set-cookie:
-      - xb=149919; expires=Tue, 06-Oct-2015 15:11:46 GMT; path=/; domain=.flickr.com
-      vary:
-      - Accept-Encoding
-      via:
-      - HTTP/1.1 r18.ycpi.dee.yahoo.net UserFiberFramework/1.0
-      x-served-by:
-      - www207.flickr.bf1.yahoo.com
-    body:
-      encoding: UTF-8
-      string: '{"photos":{"page":1, "pages":1, "perpage":100, "total":"1", "photo":[{"id":"8130464513",
-        "owner":"78733179@N04", "secret":"780e01decd", "server":"8191", "farm":9,
-        "title":"Hana", "ispublic":1, "isfriend":0, "isfamily":0}]}, "stat":"ok"}'
-    http_version: 
-  recorded_at: Sat, 05 Oct 2013 15:11:49 GMT
-- request:
-    method: get
     uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.recentlyUpdated&min_date=2013-09-08&extras=description%2Clicense%2Cdate_upload%2Cdate_taken%2Cowner_name%2Cicon_server%2Coriginal_format%2Clast_update%2Cgeo%2Ctags%2Cmachine_tags%2Co_dims%2Cviews%2Cmedia%2Cpath_alias%2Curl_sq%2Curl_q%2Curl_t%2Curl_s%2Curl_n%2Curl_m%2Curl_z%2Curl_c%2Curl_l%2Curl_h%2Curl_k%2Curl_o
     body:
       encoding: US-ASCII
@@ -141,4 +90,57 @@ http_interactions:
         "height_o":"600", "width_o":"800"}]}, "stat":"ok"}'
     http_version: 
   recorded_at: Sun, 06 Oct 2013 13:57:29 GMT
+- request:
+    method: get
+    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.recentlyUpdated&min_date=2013-09-08&extras=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="8729b3ac95402adaeb6690a4e577cca6",
+        oauth_signature="Kpyo4VW%2FbdJ93RbZHX9ilP9TGOE%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1383698150", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      age:
+      - '0'
+      cache-control:
+      - private
+      connection:
+      - close
+      content-length:
+      - '229'
+      content-type:
+      - application/json
+      date:
+      - Wed, 06 Nov 2013 00:35:50 GMT
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      server:
+      - YTS/1.19.11
+      set-cookie:
+      - xb=789771; expires=Sat, 07-Nov-2015 00:35:50 GMT; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      via:
+      - HTTP/1.1 r17.ycpi.dee.yahoo.net UserFiberFramework/1.0
+      x-served-by:
+      - www224.flickr.bf1.yahoo.com
+    body:
+      encoding: UTF-8
+      string: '{"photos":{"page":1, "pages":1, "perpage":100, "total":"2", "photo":[{"id":"10115956703",
+        "owner":"78733179@N04", "secret":"b14e1be9d0", "server":"2822", "farm":3,
+        "title":"Jon Snow", "ispublic":1, "isfriend":0, "isfamily":0}, {"id":"8130464513",
+        "owner":"78733179@N04", "secret":"780e01decd", "server":"8191", "farm":9,
+        "title":"Photo", "ispublic":1, "isfriend":0, "isfamily":0}]}, "stat":"ok"}'
+    http_version: 
+  recorded_at: Wed, 06 Nov 2013 00:35:50 GMT
 recorded_with: VCR 2.5.0
