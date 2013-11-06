@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.4.0
+
+- Added `flickr.interestingness.getList`.
+- Fixed `sizes: true` not applying to `flickr.photos.getContactsPublicPhotos` and
+  `flickr.photos.recentlyUpdated`.
+
 ## Version 0.3.0
 
 - The code has been thoroughly refactored, and fully
