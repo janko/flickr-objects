@@ -65,7 +65,7 @@ module Flickr
       end
 
       ##
-      # @deprecated It provides #find_by_<attribute> methods, but they are now
+      # @deprecated It provides `#find_by_<attribute>` methods, but they are now
       #   deprecated in favor of the obviously superior {#find_by} (repeating
       #   ActiveRecord's mistake :P).
       #
