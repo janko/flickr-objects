@@ -157,6 +157,24 @@ photo.title #=> "Dandelions"
 
 See [`Flickr.upload`](http://rubydoc.info/github/janko-m/flickr-objects/master/Flickr/Api/General#upload-instance_method).
 
+## Pagination
+
+```ruby
+Flickr.configure do |config|
+  config.pagination = :will_paginate
+end
+```
+```ruby
+@photos = Flickr.photos.search(user_id: "78733179@N04", page: params[:page], per_page: 10)
+```
+```erb
+<%= will_paginate @photos %>
+```
+
+Flickr gives you pagination on almost every request that returns a collection of objects.
+This gem supports both [WillPaginate](https://github.com/mislav/will_paginate) (`:will_paginate`)
+and [Kaminari](https://github.com/amatsuda/kaminari) (`:kaminari`).
+
 ## Few words
 
 Many of the API methods are not covered yet (because they are so many).
