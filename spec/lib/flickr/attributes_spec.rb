@@ -24,6 +24,10 @@ describe Flickr::Attributes do
 end
 
 describe Flickr::Attribute do
+  def access_token
+    ["key", "value"]
+  end
+
   describe "#find_value" do
     it "finds the value based on @locations" do
       attribute = described_class.new(:foo, String)
@@ -119,12 +123,18 @@ describe Flickr::Attribute do
       expect(attribute.value(self)).to eq [1, 2]
     end
 
+    it "does lists" do
+      attribute = described_class.new(:foo, Flickr::Object::List[Flickr::Object::Photo])
+      attribute.stub(:find_value) { [{"id" => "1"}, {"id" => "2"}] }
+
+      expect(attribute.value(self).map(&:id)).to eq ["1", "2"]
+    end
+
     it "does Flickr::Object's" do
       attribute = described_class.new(:foo, Flickr::Object)
       attribute.stub(:find_value) { {} }
-      context = double(access_token: ["key", "value"])
 
-      expect(attribute.value(context)).to be_an_instance_of(Flickr::Object)
+      expect(attribute.value(self)).to be_an_instance_of(Flickr::Object)
     end
   end
 end
