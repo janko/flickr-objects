@@ -179,12 +179,12 @@ and [Kaminari](https://github.com/amatsuda/kaminari) (`:kaminari`).
 
 Many of the API methods are not covered yet (because they are so many).
 I believe I covered all the important ones, but if you wish for me to
-cover certain new ones, feel free to contact me via [Twitter](https://twitter.com/m_janko).
+cover certain new ones, feel free to contact me via [Twitter](https://twitter.com/jankomarohnic).
 I also wouldn't mind getting a pull request ;)
 
 ## Social
 
-You can follow me on Twitter, I'm [@m_janko](https://twitter.com/m_janko).
+You can follow me on Twitter, I'm [@jankomarohnic](https://twitter.com/jankomarohnic).
 
 ## License
 
