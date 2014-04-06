@@ -16,13 +16,6 @@ module Flickr
       :Visibility
 
     ##
-    # @private
-    #
-    def self.api_class
-      Flickr::Api.const_get(name.match(/^Flickr::Object::/).post_match)
-    end
-
-    ##
     # Overriding Flickr::Attributes#attribute to add a default location.
     # This means that `:<attribute>` will always first be searched in
     # `@attributes["<attribute>"]`.
@@ -133,7 +126,9 @@ module Flickr
     private
 
     def api
-      self.class.api_class.new(@access_token)
+      api_name = self.class.name.match(/^Flickr::Object::/).post_match
+      api_class = Flickr::Api.const_get(api_name)
+      api_class.new(@access_token)
     end
   end
 
