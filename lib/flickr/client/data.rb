@@ -34,11 +34,7 @@ module Flickr
       end
 
       def url
-        if use_ssl?
-          "https://secure.flickr.com/services"
-        else
-          "http://api.flickr.com/services"
-        end
+        "https://api.flickr.com/services"
       end
 
     end
