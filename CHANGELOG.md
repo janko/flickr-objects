@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.4.1
+
+- Flickr's API transferred to SSL, and the calls over http:// no longer work,
+  so flickr-objects now makes calls always over SSL.
+
 ## Version 0.4.0
 
 - Added `flickr.interestingness.getList`.
