@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.5.0
+
+- Add support for caching reponses.
+
 ## Version 0.4.1
 
 - Flickr's API transferred to SSL, and the calls over http:// no longer work,
