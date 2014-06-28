@@ -33,6 +33,7 @@ module Flickr
       @connection = Faraday.new(url, connection_options) do |builder|
         builder.use Flickr::Middleware::CatchTimeout
         yield builder if block_given?
+        builder.use FaradayMiddleware::Caching, Flickr.cache if Flickr.cache
 
         builder.adapter :net_http
       end

@@ -175,6 +175,25 @@ Flickr gives you pagination on almost every request that returns a collection of
 This gem supports both [WillPaginate](https://github.com/mislav/will_paginate) (`:will_paginate`)
 and [Kaminari](https://github.com/amatsuda/kaminari) (`:kaminari`).
 
+## Caching
+
+To enable caching responses, just pass in a cache object (an object that responds
+to `#read`, `#write` and `#fetch`) in the configuration.
+
+```ruby
+require "active_support/cache"
+require "active_support/core_ext/numeric/time"
+
+Flickr.configure do |config|
+  config.cache = ActiveSupport::Cache::MemoryStore(expires_in: 1.week)
+end
+```
+
+```ruby
+Flickr.photos.recent # Makes an API call
+Flickr.photos.recent # Uses the cache
+```
+
 ## Few words
 
 Many of the API methods are not covered yet (because they are so many).

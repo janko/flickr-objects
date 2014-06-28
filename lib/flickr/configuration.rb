@@ -91,6 +91,14 @@ module Flickr
     #
     attr_accessor :pagination
 
+    ##
+    # Enables caching responses. An object that is passed must respond to
+    # `#read`, `#write` and `#fetch`.
+    #
+    #     config.cache = ActiveSupport::Cache::MemoryStore.new(expires_in: 1.hour)
+    #
+    attr_accessor :cache
+
   end
 
 end
