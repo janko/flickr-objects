@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.upload.checkTickets&tickets=78701040-72157636215045495
+    uri: https://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.upload.checkTickets&tickets=78701040-72157636215045495
     body:
       encoding: US-ASCII
       string: ''

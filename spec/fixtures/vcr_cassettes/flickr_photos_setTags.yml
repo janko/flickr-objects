@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.setTags&photo_id=8130464513&tags=foo
+    uri: https://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.setTags&photo_id=8130464513&tags=foo
     body:
       encoding: US-ASCII
       string: ''

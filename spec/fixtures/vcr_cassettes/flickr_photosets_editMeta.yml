@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photosets.editMeta&title=Set&photoset_id=72157636216289703
+    uri: https://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photosets.editMeta&title=Set&photoset_id=72157636216289703
     body:
       encoding: US-ASCII
       string: ''

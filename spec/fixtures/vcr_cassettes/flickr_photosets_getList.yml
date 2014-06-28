@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photosets.getList&user_id=78733179%40N04
+    uri: https://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photosets.getList&user_id=78733179%40N04
     body:
       encoding: US-ASCII
       string: ''

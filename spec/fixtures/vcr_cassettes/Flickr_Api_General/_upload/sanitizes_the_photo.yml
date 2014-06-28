@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://api.flickr.com/services/upload?format=json&nojsoncallback=1&api_key=<API_KEY>
+    uri: https://api.flickr.com/services/upload?format=json&nojsoncallback=1&api_key=<API_KEY>
     body:
       encoding: ASCII-8BIT
       string: !binary |-

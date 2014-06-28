@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.people.findByEmail&find_email=flickriegem%40yahoo.com
+    uri: https://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.people.findByEmail&find_email=flickriegem%40yahoo.com
     body:
       encoding: US-ASCII
       string: ''
