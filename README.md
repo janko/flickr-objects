@@ -6,6 +6,12 @@ This gem is an object-oriented wrapper for the [Flickr API](http://flickr.com/ap
 - Source code: [https://github.com/janko-m/flickr-objects](https://github.com/janko-m/flickr-objects)
 - API Documentation: [http://rubydoc.info/github/janko-m/flickr-objects/master/frames](http://rubydoc.info/github/janko-m/flickr-objects/master/frames)
 
+The gem has been tested on the following Ruby versions:
+
+- MRI 1.9.3
+- MRI 2.0
+- MRI 2.1
+
 ## Installation and setup
 
 Add it to your `Gemfile`, and run `bundle install`.
