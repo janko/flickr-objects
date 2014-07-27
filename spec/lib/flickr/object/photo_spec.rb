@@ -11,15 +11,23 @@ describe Flickr::Object::Photo do
       end
     end
 
+    describe "#source_url" do
+      let(:it) { Flickr.photos.get_info("8130464513") }
+
+      it "is generated from photo's info" do
+        expect(it.medium500.source_url).to be_a_nonempty(String)
+      end
+
+      it "generates original image URLs" do
+        described_class.any_instance.unstub(:available_sizes)
+        expect(it.original.source_url).to be_a_nonempty(String)
+      end
+    end
+
     describe "#size!" do
       it "changes the size" do
         it.send(:size!, "Square 75")
         expect(it.size).to eq "Square 75"
-      end
-
-      it "only changes the size if available" do
-        it.send(:size!, "Small 240")
-        expect(it.size).to eq nil
       end
 
       it "raises an error if size doesn't exist" do

@@ -332,11 +332,7 @@ module Flickr
           raise ArgumentError, "\"#{name}\" isn't a valid photo size"
         end
 
-        if available_sizes.include? name
-          @size = Size.new(name)
-        else
-          @size = nil
-        end
+        @size = Size.new(name)
 
         self
       end

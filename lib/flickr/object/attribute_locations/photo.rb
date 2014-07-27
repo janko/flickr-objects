@@ -129,7 +129,7 @@ module Flickr
               @attributes["sizes"] && @attributes["sizes"]["size"].find { |h| h["label"] == size.label }
             end
 
-            sizes.map(&:name)
+            SIZES.first(9) | sizes.map(&:name) | ["Original"]
           },
         ],
         largest_size: [
@@ -140,15 +140,29 @@ module Flickr
         ],
         source_url: [
           -> { @attributes["url_#{@size.abbreviation}"] },
-          -> { @attributes["sizes"]["size"].find { |hash| hash["label"] == @size.label }["source"] }
+          -> { @attributes["sizes"]["size"].find { |hash| hash["label"] == @size.label }["source"] },
+          -> {
+            if @size.between?(Size.new("Square 75"), Size.new("Large 1024"))
+              url = "https://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}"
+              url << "_#{@size.other_abbreviation}" if @size.other_abbreviation =~ /\w/
+              url << ".jpg"
+              url
+            elsif @size == Size.new("Original")
+              url = "https://farm#{farm}.staticflickr.com/#{server}/#{id}"
+              url << "_#{@attributes.fetch("originalsecret")}"
+              url << "_o"
+              url << ".#{@attributes.fetch("originalformat")}"
+              url
+            end
+          },
         ],
         height: [
           -> { @attributes["height_#{@size.abbreviation}"] },
-          -> { @attributes["sizes"]["size"].find { |hash| hash["label"] == @size.label }["height"] }
+          -> { @attributes["sizes"]["size"].find { |hash| hash["label"] == @size.label }["height"] },
         ],
         width: [
           -> { @attributes["width_#{@size.abbreviation}"] },
-          -> { @attributes["sizes"]["size"].find { |hash| hash["label"] == @size.label }["width"] }
+          -> { @attributes["sizes"]["size"].find { |hash| hash["label"] == @size.label }["width"] },
         ],
         url: [
           -> { "http://www.flickr.com/photos/#{owner.id}/#{id}" if owner.id && id },
