@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 0.5.1
+
+- Generate different size's source URLs from photo's info
+  ([docs](https://www.flickr.com/services/api/misc.urls.html)), if sizes are
+  missing. That means that for some sizes ("Square 75" to "Large 1024")
+  there is no need to pass in the `sizes: true` option.
+
 ## Version 0.5.0
 
 - Add support for caching reponses.
