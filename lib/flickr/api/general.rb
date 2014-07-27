@@ -14,6 +14,7 @@ module Flickr
       # @return [String] ID of the uploaded photo (if synchronous)
       # @return [String] ID of the upload ticket (if asynchronous). See {Flickr::Api::UploadTicket#check}.
       # @docs [Upload API](http://www.flickr.com/services/api/upload.api.html)
+      # @docs [Asynchronous Uploading](https://www.flickr.com/services/api/upload.async.html)
       #
       def upload(photo, params = {})
         response = super params.merge(photo: SanitizedFile.new(photo))
@@ -30,6 +31,7 @@ module Flickr
       # @return [String] ID of the uploaded photo (if synchronous)
       # @return [String] ID of the upload ticket (if asynchronous)
       # @docs [Replace API](http://www.flickr.com/services/api/replace.api.html)
+      # @docs [Asynchronous Uploading](https://www.flickr.com/services/api/upload.async.html)
       #
       def replace(photo, photo_id, params = {})
         response = super params.merge(photo: SanitizedFile.new(photo), photo_id: photo_id)
