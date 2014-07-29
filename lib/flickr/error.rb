@@ -38,7 +38,7 @@ module Flickr
     ##
     # @private
     #
-    def initialize(message, code = nil)
+    def initialize(message = nil, code = nil)
       super(message)
       @code = code.to_i
     end
