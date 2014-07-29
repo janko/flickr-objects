@@ -1,3 +1,5 @@
+require "flickr/error"
+
 module Flickr
 
   ##
