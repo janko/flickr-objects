@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.5.2
+
+- Require Flickr errors, so that they're rescuable (thanks to @erik-eide)
+- Make `Flickr::ApiError`'s message optional, so that it can be used by RSpec's
+  `raise_error` matcher, without having to provide a second argument
+
 ## Version 0.5.1
 
 - Generate different size's source URLs from photo's info
