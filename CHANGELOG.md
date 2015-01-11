@@ -1,5 +1,14 @@
 # Changelog
 
+## Version 0.6.0
+
+- Add license methods:
+
+  ```
+  flickr.photos.licenses.getInfo
+  flickr.photos.licenses.setLicense
+  ```
+
 ## Version 0.5.2
 
 - Require Flickr errors, so that they're rescuable (thanks to @erik-eide)
