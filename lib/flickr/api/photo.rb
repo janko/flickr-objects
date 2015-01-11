@@ -240,6 +240,15 @@ module Flickr
         post "photos.setSafetyLevel", params.merge(photo_id: photo_id)
       end
 
+      ##
+      # @param params [Hash] See documentation below
+      # @return [response]
+      # @docs [flickr.photos.licenses.setLicense](https://www.flickr.com/services/api/flickr.photos.licenses.setLicense.html)
+      #
+      def set_license(photo_id, license_id, params = {})
+        post "photos.licenses.setLicense", params.merge(photo_id: photo_id, license_id: license_id)
+      end
+
     end
 
   end

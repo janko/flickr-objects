@@ -13,7 +13,7 @@ module Flickr
 
     autoload_names \
       :List, :Photo, :Person, :Set, :UploadTicket, :Permissions, :Location,
-      :Visibility
+      :Visibility, :License
 
     ##
     # Overriding Flickr::Attributes#attribute to add a default location.

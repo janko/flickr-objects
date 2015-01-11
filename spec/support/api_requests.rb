@@ -21,6 +21,7 @@ API_REQUESTS = {
   "flickr.photos.getExif"                 => -> { Flickr.photos.get_exif("8130464513") },
   "flickr.photos.getSizes"                => -> { Flickr.photos.get_sizes("10115956703") },
   "flickr.photos.upload.checkTickets"     => -> { Flickr.upload_tickets.check("78701040-72157636215045495") },
+  "flickr.photos.licenses.getInfo"        => -> { Flickr.licenses.all },
   "flickr.photosets.getPhotos"            => -> { Flickr.sets.get_photos("72157636248463994", extras: EXTRAS) },
   "flickr.photosets.getList"              => -> { Flickr.people.get_sets("78733179@N04") },
   "flickr.photosets.getInfo"              => -> { Flickr.sets.get_info("72157636216289703") },

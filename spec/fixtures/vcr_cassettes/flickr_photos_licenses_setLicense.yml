@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.licenses.setLicense&photo_id=8130464513&license_id=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="6b8f8c3774a6b2a10401c6b8a0d3df99",
+        oauth_signature="Cw2z3JfA41kvs%2FUbdYfqeFBAlQQ%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1420975321", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      date:
+      - Sun, 11 Jan 2015 11:22:01 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '33'
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control:
+      - private
+      x-served-by:
+      - www243.flickr.bf1.yahoo.com
+      vary:
+      - Accept-Encoding
+      age:
+      - '2'
+      via:
+      - http/1.1 fts102.flickr.bf1.yahoo.com (ApacheTrafficServer/4.0.2 [cMsSf ]),
+        http/1.1 r23.ycpi.ir2.yahoo.net (ApacheTrafficServer [cMsSf ])
+      server:
+      - ATS
+      connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: '{"stat":"ok"}'
+    http_version: 
+  recorded_at: Sun, 11 Jan 2015 11:22:02 GMT
+recorded_with: VCR 2.5.0

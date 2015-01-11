@@ -149,4 +149,10 @@ describe Flickr::Api::Photo do
       it.set_safety_level("8130464513", safety_level: 1)
     end
   end
+
+  describe "#set_license" do
+    it "make the API call" do
+      it.set_license("8130464513", 0)
+    end
+  end
 end

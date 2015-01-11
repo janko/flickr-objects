@@ -279,6 +279,15 @@ describe Flickr::Object::Photo do
     end
   end
 
+  describe "#set_license" do
+    before { it.update("id" => "8130464513") }
+
+    it "makes the API call" do
+      expect_any_instance_of(Flickr::Api::Photo).to receive(:set_license).and_call_original
+      it.set_license(0)
+    end
+  end
+
   test_attributes do
     api_call "flickr.people.getPhotos",
              "flickr.people.getPhotosOf",

@@ -5,7 +5,7 @@ module Flickr
     extend Flickr::AutoloadHelper
 
     autoload_names \
-      :Abstract, :General, :Photo, :Person, :Set, :UploadTicket
+      :Abstract, :General, :Photo, :Person, :Set, :UploadTicket, :License
 
     ##
     # @return [Flickr::Api::Photo]
@@ -33,6 +33,13 @@ module Flickr
     #
     def upload_tickets
       Flickr::Api::UploadTicket.new(access_token)
+    end
+
+    ##
+    # @return [Flickr::Api::License]
+    #
+    def licenses
+      Flickr::Api::License.new(access_token)
     end
 
     ##

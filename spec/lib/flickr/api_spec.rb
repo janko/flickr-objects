@@ -5,10 +5,11 @@ describe Flickr::Api do
   record_api_methods
 
   it "provides interface for API calls" do
-    expect(it.photos).to be_a(Flickr::Api::Photo)
-    expect(it.people).to be_a(Flickr::Api::Person)
-    expect(it.sets).to be_a(Flickr::Api::Set)
+    expect(it.photos).to         be_a(Flickr::Api::Photo)
+    expect(it.people).to         be_a(Flickr::Api::Person)
+    expect(it.sets).to           be_a(Flickr::Api::Set)
     expect(it.upload_tickets).to be_a(Flickr::Api::UploadTicket)
+    expect(it.licenses).to       be_a(Flickr::Api::License)
   end
 
   describe "#upload" do

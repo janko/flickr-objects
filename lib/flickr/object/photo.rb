@@ -322,6 +322,14 @@ module Flickr
         api.set_safety_level(id, params)
       end
 
+      ##
+      # @return [response]
+      # @see Flickr::Api::Photo#set_license
+      #
+      def set_license(license_id, params = {})
+        api.set_license(id, license_id, params)
+      end
+
       private
 
       ##

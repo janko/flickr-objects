@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.flickr.com/services/rest?format=json&nojsoncallback=1&api_key=<API_KEY>&method=flickr.photos.licenses.getInfo
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.9
+      Authorization:
+      - OAuth oauth_consumer_key="<API_KEY>", oauth_nonce="ac28d2ec5f3bba6cd0e021ef4927f713",
+        oauth_signature="VsS8PwA4LSy9SsZoUzUGTwLyg2Y%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1420974908", oauth_token="<ACCESS_TOKEN_KEY>", oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      date:
+      - Sun, 11 Jan 2015 11:15:09 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '314'
+      p3p:
+      - policyref="http://info.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV
+        TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY
+        ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC GOV"
+      cache-control:
+      - private
+      x-served-by:
+      - www44.flickr.bf1.yahoo.com
+      vary:
+      - Accept-Encoding
+      age:
+      - '2'
+      via:
+      - http/1.1 fts114.flickr.bf1.yahoo.com (ApacheTrafficServer/4.0.2 [cMsSf ]),
+        http/1.1 r20.ycpi.ams.yahoo.net (ApacheTrafficServer [cMsSf ])
+      server:
+      - ATS
+      connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: '{"licenses":{"license":[{"id":"0","name":"All Rights Reserved","url":""},{"id":"4","name":"Attribution
+        License","url":"https:\/\/creativecommons.org\/licenses\/by\/2.0\/"},{"id":"6","name":"Attribution-NoDerivs
+        License","url":"https:\/\/creativecommons.org\/licenses\/by-nd\/2.0\/"},{"id":"3","name":"Attribution-NonCommercial-NoDerivs
+        License","url":"https:\/\/creativecommons.org\/licenses\/by-nc-nd\/2.0\/"},{"id":"2","name":"Attribution-NonCommercial
+        License","url":"https:\/\/creativecommons.org\/licenses\/by-nc\/2.0\/"},{"id":"1","name":"Attribution-NonCommercial-ShareAlike
+        License","url":"https:\/\/creativecommons.org\/licenses\/by-nc-sa\/2.0\/"},{"id":"5","name":"Attribution-ShareAlike
+        License","url":"https:\/\/creativecommons.org\/licenses\/by-sa\/2.0\/"},{"id":"7","name":"No
+        known copyright restrictions","url":"https:\/\/www.flickr.com\/commons\/usage\/"},{"id":"8","name":"United
+        States Government Work","url":"http:\/\/www.usa.gov\/copyright.shtml"}]},"stat":"ok"}'
+    http_version: 
+  recorded_at: Sun, 11 Jan 2015 11:15:09 GMT
+recorded_with: VCR 2.5.0

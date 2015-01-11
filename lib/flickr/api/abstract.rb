@@ -103,7 +103,7 @@ module Flickr
       #          #    [#<Flickr::Object::Photo:0x007ffe6b4ff760 owner=#<Flickr::Object::Person:0x007ffe6b52d408 >>,
       #          #     #<Flickr::Object::Photo:0x007ffe6b4fdcd0 owner=#<Flickr::Object::Person:0x007ffe6b556ab0 >>]>
       #
-      def new_list(class_name, attributes_list, list_attributes)
+      def new_list(class_name, attributes_list, list_attributes = {})
         objects = attributes_list.map { |attributes| new_object(class_name, attributes) }
         list = Flickr::Object::List.new(list_attributes)
         list.populate(objects)
