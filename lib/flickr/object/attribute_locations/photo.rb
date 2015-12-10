@@ -129,7 +129,7 @@ module Flickr
               @attributes["sizes"] && @attributes["sizes"]["size"].find { |h| h["label"] == size.label }
             end
 
-            SIZES.first(9) | sizes.map(&:name) | ["Original"]
+            sizes.map(&:name) | ["Original"]
           },
         ],
         largest_size: [
