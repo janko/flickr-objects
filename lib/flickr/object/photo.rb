@@ -214,6 +214,19 @@ module Flickr
       end
 
       ##
+      # Changes the size of the photo.
+      #
+      def size!(name)
+        if name != nil and not Size.exists?(name)
+          raise ArgumentError, "\"#{name}\" isn't a valid photo size"
+        end
+
+        @size = Size.new(name)
+
+        self
+      end
+
+      ##
       # @return [self]
       # @see Flickr::Api::Photo#get_info
       #
@@ -328,21 +341,6 @@ module Flickr
       #
       def set_license(license_id, params = {})
         api.set_license(id, license_id, params)
-      end
-
-      private
-
-      ##
-      # Changes the size of the photo.
-      #
-      def size!(name)
-        if name != nil and not Size.exists?(name)
-          raise ArgumentError, "\"#{name}\" isn't a valid photo size"
-        end
-
-        @size = Size.new(name)
-
-        self
       end
 
     end
