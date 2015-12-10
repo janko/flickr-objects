@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 0.6.1
+
+- Remove the default timeout options, so the timeout will happen only if the
+  user sets one.
+
 ## Version 0.6.0
 
 - Add license methods:
