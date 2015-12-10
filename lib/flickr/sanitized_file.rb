@@ -36,10 +36,10 @@ module Flickr
         @file = @original[:tempfile]
         @content_type = @original[:type]
         @path = @original[:tempfile].path
-      elsif file?
+      elsif io?
         @file = @original
         @content_type = @original.content_type if @original.respond_to?(:content_type)
-        @path = @original.path
+        @path = @original.path if @original.respond_to?(:path)
       elsif string?
         @file = File.open(@original)
         @content_type = nil
@@ -57,8 +57,8 @@ module Flickr
       defined?(Sinatra) and @original.is_a?(Hash)
     end
 
-    def file?
-      @original.respond_to?(:read) and @original.respond_to?(:path)
+    def io?
+      @original.respond_to?(:read)
     end
 
     def string?
