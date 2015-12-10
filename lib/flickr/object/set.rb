@@ -56,6 +56,7 @@ module Flickr
       def get_photos(params = {})
         api.get_photos(id, params)
       end
+      alias photos get_photos
 
       ##
       # @return [response]
