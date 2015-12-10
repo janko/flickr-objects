@@ -50,14 +50,10 @@ module Flickr
     # Time to wait for the connection to Flickr to open. After that
     # {Flickr::TimeoutError} is thrown.
     #
-    # Default is `5` seconds.
-    #
     attr_accessor :open_timeout
     ##
     # Time to wait for the first block of response from Flickr. After that
     # {Flickr::TimeoutError} is thrown.
-    #
-    # Default is `10` seconds.
     #
     attr_accessor :timeout
 

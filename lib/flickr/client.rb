@@ -24,11 +24,6 @@ module Flickr
       :Upload => "upload",
       :OAuth  => "oauth"
 
-    DEFAULTS = {
-      open_timeout: 8,
-      timeout:      10,
-    }
-
     def initialize
       @connection = Faraday.new(url, connection_options) do |builder|
         builder.use Flickr::Middleware::CatchTimeout
@@ -82,11 +77,11 @@ module Flickr
     end
 
     def open_timeout
-      Flickr.open_timeout || DEFAULTS[:open_timeout]
+      Flickr.open_timeout
     end
 
     def timeout
-      Flickr.timeout || DEFAULTS[:timeout]
+      Flickr.timeout
     end
 
     def use_ssl?
