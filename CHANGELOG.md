@@ -5,6 +5,16 @@
 - Remove the default timeout options, so the timeout will happen only if the
   user sets one.
 
+- Make `Flickr::Object::Photo#size!` public.
+
+- Allow uploading any kind of IO, not just files.
+
+- Make `Flickr::Object::Photo#available_sizes` return only sizes that are
+  actually available.
+
+- Add `Flickr::Object::Set#photos` as an alias to `#get_photos`, to be
+  consistent with other objects.
+
 ## Version 0.6.0
 
 - Add license methods:
