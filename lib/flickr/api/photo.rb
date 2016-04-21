@@ -12,7 +12,7 @@ module Flickr
       #
       def search(params = {})
         response = get "photos.search", params
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -24,7 +24,7 @@ module Flickr
       #
       def get_from_contacts(params = {})
         response = get "photos.getContactsPhotos", params
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -36,7 +36,7 @@ module Flickr
       #
       def get_not_in_set(params = {})
         response = get "photos.getNotInSet", params
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -48,7 +48,7 @@ module Flickr
       #
       def get_recent(params = {})
         response = get "photos.getRecent", params
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -60,7 +60,7 @@ module Flickr
       #
       def get_interesting(params = {})
         response = get "interestingness.getList", params
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -72,7 +72,7 @@ module Flickr
       #
       def get_untagged(params = {})
         response = get "photos.getUntagged", params
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -84,7 +84,7 @@ module Flickr
       #
       def get_with_geo_data(params = {})
         response = get "photos.getWithGeoData", params
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -96,7 +96,7 @@ module Flickr
       #
       def get_without_geo_data(params = {})
         response = get "photos.getWithoutGeoData", params
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -108,7 +108,7 @@ module Flickr
       #
       def get_recently_updated(params = {})
         response = get "photos.recentlyUpdated", params
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -148,7 +148,7 @@ module Flickr
       #
       def get_favorites(photo_id, params = {})
         response = get "photos.getFavorites", params.merge(photo_id: photo_id)
-        new_list(:Person, response["photo"].delete("person"), response["photo"])
+        new_list(:Person, response["photo"]["person"], response["photo"])
       end
 
       ##

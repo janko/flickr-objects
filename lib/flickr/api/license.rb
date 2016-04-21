@@ -10,7 +10,7 @@ module Flickr
       #
       def all(params = {})
         response = get "photos.licenses.getInfo", params
-        new_list(:License, response["licenses"].delete("license"))
+        new_list(:License, response["licenses"]["license"])
       end
 
     end

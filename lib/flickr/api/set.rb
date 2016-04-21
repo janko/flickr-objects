@@ -62,7 +62,7 @@ module Flickr
       #
       def get_photos(set_id, params = {})
         response = get "photosets.getPhotos", params.merge(photoset_id: set_id)
-        new_list(:Photo, response["photoset"].delete("photo").map { |h| h.merge("owner" => response["photoset"]["owner"]) }, response["photoset"])
+        new_list(:Photo, response["photoset"]["photo"].map { |h| h.merge("owner" => response["photoset"]["owner"]) }, response["photoset"])
       end
 
       ##

@@ -52,7 +52,7 @@ module Flickr
       #
       def get_photos(person_id, params = {})
         response = get "people.getPhotos", params.merge(user_id: person_id)
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -65,7 +65,7 @@ module Flickr
       #
       def get_photos_of(person_id, params = {})
         response = get "people.getPhotosOf", params.merge(user_id: person_id)
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -78,7 +78,7 @@ module Flickr
       #
       def get_public_photos(person_id, params = {})
         response = get "people.getPublicPhotos", params.merge(user_id: person_id)
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -91,7 +91,7 @@ module Flickr
       #
       def get_public_photos_from_contacts(person_id, params = {})
         response = get "photos.getContactsPublicPhotos", params.merge(user_id: person_id)
-        new_list(:Photo, response["photos"].delete("photo"), response["photos"])
+        new_list(:Photo, response["photos"]["photo"], response["photos"])
       end
 
       ##
@@ -102,7 +102,7 @@ module Flickr
       #
       def get_sets(person_id, params = {})
         response = get "photosets.getList", params.merge(user_id: person_id)
-        new_list(:Set, response["photosets"].delete("photoset"), response["photosets"])
+        new_list(:Set, response["photosets"]["photoset"], response["photosets"])
       end
 
     end

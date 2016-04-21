@@ -12,7 +12,7 @@ module Flickr
       #
       def check(ticket_ids, params = {})
         response = get "photos.upload.checkTickets", params.merge(tickets: ticket_ids)
-        new_list(:UploadTicket, response["uploader"].delete("ticket"), response["uploader"])
+        new_list(:UploadTicket, response["uploader"]["ticket"], response["uploader"])
       end
 
     end
