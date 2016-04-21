@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 0.6.2
+
+- Don't modify the parsed response hash anymore. When Flickr is used with a
+  memory cache, the response hash is hashed in memory. Because we were
+  modifying this hash, this also modified the cached result, causing errors
+  because of missing data.
+
 ## Version 0.6.1
 
 - Remove the default timeout options, so the timeout will happen only if the
