@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.6.3
+
+- Add ability to upload any IO-like objects
+
 ## Version 0.6.2
 
 - Don't modify the parsed response hash anymore. When Flickr is used with a
