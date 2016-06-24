@@ -9,6 +9,10 @@ describe Flickr::Api::General do
       it.upload photo_path
     end
 
+    it "accepts any IO-like object" do
+      it.upload FakeIO.new(File.read(photo_path))
+    end
+
     it "returns the photo ID when synchronous" do
       value = it.upload photo_path, async: 0
       expect(value).to be_a_nonempty(String)

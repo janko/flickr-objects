@@ -38,7 +38,9 @@ module Flickr
       private
 
       def UploadIO(file)
-        Faraday::UploadIO.new(file, file.content_type, file.path)
+        io = Faraday::UploadIO.new(file.file, file.content_type, file.path)
+        io.instance_eval { def length; size; end } # hack for multipart-post to support any IO
+        io
       end
 
       def url
